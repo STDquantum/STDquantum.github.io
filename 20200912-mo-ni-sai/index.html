@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+
+
+<html lang="zh-CN">
+
+
+<head>
+  <meta charset="utf-8" />
+    
+  <meta name="description" content="STDquantum" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <title>
+    20200912模拟赛 |  STDquantum
+  </title>
+  <meta name="generator" content="hexo-theme-ayer">
+  
+  <link rel="shortcut icon" href="/1.ico" />
+  
+  
+<link rel="stylesheet" href="/dist/main.css">
+
+  
+<link rel="stylesheet" href="/css/remixicon.min.css">
+
+  
+<link rel="stylesheet" href="/css/custom.css">
+
+  
+  
+<script src="/js/pace.min.js"></script>
+
+  
+  
+
+  
+
+</head>
+
+</html>
+
+<body>
+  <div id="app">
+    
+      
+    <main class="content on">
+      <section class="outer">
+  <article
+  id="post-OI/模拟赛/20200912模拟赛"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  20200912模拟赛
+</h1>
+ 
+
+    </header>
+     
+    <div class="article-meta">
+      <a href="/20200912-mo-ni-sai/" class="article-date">
+  <time datetime="2020-09-12T10:38:27.000Z" itemprop="datePublished">2020-09-12</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/OI/">OI</a> / <a class="article-category-link" href="/categories/OI/%E6%A8%A1%E6%8B%9F%E8%B5%9B/">模拟赛</a>
+  </div>
+  
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> 字数统计:</span>
+            <span class="post-count">2.2k</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> 阅读时长≈</span>
+            <span class="post-count">10 分钟</span>
+        </span>
+    </span>
+</div>
+ 
+    </div>
+      
+    <div class="tocbot"></div>
+
+
+
+
+  
+    <div class="article-entry" itemprop="articleBody">
+       
+  <p>周六的大好时光</p>
+<a id="more"></a>
+<h1 id="小学组-xx"><a href="#小学组-xx" class="headerlink" title="小学组(xx)"></a>小学组(xx)</h1><h2 id="题目背景"><a href="#题目背景" class="headerlink" title="题目背景"></a>题目背景</h2><p>对于确定的一个大小为 $n$ 的数组 $A$，数组中每个元素是一个 $m$ 维向量，同时有一个向量 $x$，定义一个操作顺序 $p$ 是“好”，当且仅当其满足如下条件： </p>
+<p>（1）序列中每个数均满足 $1\le p_i\le n $</p>
+<p>（2）$i\neq j\ \Leftrightarrow\ p_i\neq p_j$ </p>
+<p>（3）$\forall i,A_{p_1,i}\oplus A_{p_2,i}\oplus\cdots\oplus A_{p_k,i}=x_i$</p>
+<p>其中 $k(1\le k\le n)$ 为 $p$ 的长度，$\oplus$ 为一种位运算(&amp;是与)(|是或)(^是异或)。</p>
+<h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>现在给定 $A$ 和 $x$ 以及 $\oplus$，请你求出有多少组满足条件的 $p$。这个答案可能很大，请你求出对 $10^9+9$ 取模的结果。</p>
+<h2 id="输入输出格式"><a href="#输入输出格式" class="headerlink" title="输入输出格式"></a>输入输出格式</h2><h3 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h3><p>第 $1$ 行一个字符 $\oplus$ 和两个整数 $n,m$ 如题目中描述。</p>
+<p>第 $2$ 到 $n + 1$ 行每行 $m$ 个数表示A</p>
+<p>第 $n + 2$ 行 $m$ 个数表示 $x$</p>
+<h3 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h3><p>输出一个数对应答案。</p>
+<h2 id="输入输出样例"><a href="#输入输出样例" class="headerlink" title="输入输出样例"></a>输入输出样例</h2><h3 id="输入样例-1"><a href="#输入样例-1" class="headerlink" title="输入样例 #1"></a>输入样例 #1</h3><figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&amp; <span class="number">5</span> <span class="number">4</span></span><br><span class="line"><span class="number">1</span> <span class="number">0</span> <span class="number">1</span> <span class="number">0</span> </span><br><span class="line"><span class="number">1</span> <span class="number">1</span> <span class="number">1</span> <span class="number">0</span> </span><br><span class="line"><span class="number">0</span> <span class="number">1</span> <span class="number">1</span> <span class="number">1</span> </span><br><span class="line"><span class="number">0</span> <span class="number">1</span> <span class="number">1</span> <span class="number">0</span> </span><br><span class="line"><span class="number">1</span> <span class="number">0</span> <span class="number">1</span> <span class="number">1</span> </span><br><span class="line"><span class="number">0</span> <span class="number">1</span> <span class="number">1</span> <span class="number">0</span></span><br></pre></td></tr></table></figure>
+<h3 id="输出样例-1"><a href="#输出样例-1" class="headerlink" title="输出样例 #1"></a>输出样例 #1</h3><figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">13</span></span><br></pre></td></tr></table></figure>
+<h3 id="输入样例-2"><a href="#输入样例-2" class="headerlink" title="输入样例 #2"></a>输入样例 #2</h3><figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">| <span class="number">5</span> <span class="number">4</span></span><br><span class="line"><span class="number">1</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span> </span><br><span class="line"><span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">1</span> </span><br><span class="line"><span class="number">0</span> <span class="number">1</span> <span class="number">1</span> <span class="number">0</span> </span><br><span class="line"><span class="number">0</span> <span class="number">1</span> <span class="number">0</span> <span class="number">1</span> </span><br><span class="line"><span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">1</span> </span><br><span class="line"><span class="number">0</span> <span class="number">1</span> <span class="number">0</span> <span class="number">1</span></span><br></pre></td></tr></table></figure>
+<h3 id="输出样例-2"><a href="#输出样例-2" class="headerlink" title="输出样例 #2"></a>输出样例 #2</h3><figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">11</span></span><br></pre></td></tr></table></figure>
+<h3 id="输入样例-3"><a href="#输入样例-3" class="headerlink" title="输入样例 #3"></a>输入样例 #3</h3><figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">^ <span class="number">6</span> <span class="number">4</span></span><br><span class="line"><span class="number">1</span> <span class="number">1</span> <span class="number">1</span> <span class="number">0</span> </span><br><span class="line"><span class="number">1</span> <span class="number">0</span> <span class="number">1</span> <span class="number">1</span> </span><br><span class="line"><span class="number">1</span> <span class="number">1</span> <span class="number">0</span> <span class="number">0</span> </span><br><span class="line"><span class="number">1</span> <span class="number">1</span> <span class="number">0</span> <span class="number">1</span> </span><br><span class="line"><span class="number">0</span> <span class="number">1</span> <span class="number">1</span> <span class="number">0</span> </span><br><span class="line"><span class="number">1</span> <span class="number">1</span> <span class="number">0</span> <span class="number">0</span> </span><br><span class="line"><span class="number">1</span> <span class="number">1</span> <span class="number">0</span> <span class="number">0</span></span><br></pre></td></tr></table></figure>
+<h3 id="输出样例-3"><a href="#输出样例-3" class="headerlink" title="输出样例 #3"></a>输出样例 #3</h3><figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">50</span></span><br></pre></td></tr></table></figure>
+<h2 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h2><p>Subtask 1(10pts)： $n,m\le 7$。</p>
+<p>Subtask 2 (10pts)： $n,m\le 10$。</p>
+<p>Subtask 3 (5pts)：$\oplus=$<code>&amp;</code>。</p>
+<p>Subtask 4 (5pts)：$\oplus=$<code>|</code>。</p>
+<p>Subtask 5 (5pts)：$\oplus=$<code>^</code>。</p>
+<p>Subtask 6 (20pts)：$n,m\le 15$。</p>
+<p>Subtask 7 (30pts)： $n,m\le 20$。</p>
+<p>Subtask 8 (15pts)：无特殊限制。</p>
+<p>对于全部数据，有$1\le n,m\le 25$， $A_{i,j}\in\{0,1\}$。</p>
+<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>发现这三个运算符都有结合律和交换律，所以如果求出一个序列可行，那么随机打乱也可行。所以只需要找到是哪几个结合了就好。</p>
+<h4 id="法一"><a href="#法一" class="headerlink" title="法一"></a>法一</h4><p>枚举子集，然后把子集内部这些都运算一下。</p>
+<h4 id="法二"><a href="#法二" class="headerlink" title="法二"></a>法二</h4><p>那这个常数巨大的dfs怎么做呢？</p>
+<p>所以我们需要做的是把前面的操作记住。这样再计算就省下了很多时间。</p>
+<p>所以怎么记住呢？</p>
+<p>考虑开一个二维数组，第一位表示之前已经计算过的向量个数，第二位表示是向量里第几个数（其实就相当于开了很多个记录历史操作的向量）。</p>
+<p>枚举要计算的向量个数，然后再枚举一个起始点，开始dfs，dfs里记录开始枚举的位置和已经计算过的长度。</p>
+<p>每当新加进来一个向量时，就直接在当前长度减一的那个历史版本上修改。</p>
+<p>因为是dfs，得到第一个答案后回溯，然后接着枚举填哪个，所以正确性是没有问题的。</p>
+<p>至于之前已经填过这一位的情况，由于是直接在历史版本上修改，所以这里面的数对将要操作完成的那个向量也没有影响。</p>
+<p>之前卡了三十多分钟的常数，跑 $n=m=25$ 的数据从 $6$ 秒多卡到了 $1$ 秒多，这开了O2的话就稳了。不过看来评测机速度还可以，没开O2也能过（luogu过不了）。</p>
+<h4 id="卡常"><a href="#卡常" class="headerlink" title="卡常"></a>卡常</h4><p>卡常神器：bitset！</p>
+<p>由于向量之间都是统一进行同一操作，所有元素都是 $0/1$，所以bitset有得天独厚的优势（还有 $\displaystyle\frac 1{32}$ 的小常数）。</p>
+<p>实际上由于最长只有25，所以直接用一个 int 类型存就完了，好像是快很多。真是学傻了。</p>
+<p>看代码吧</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> STDquantum &#123;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt; <span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">read</span><span class="params">(T &amp;x)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">char</span> ch;</span><br><span class="line">  <span class="keyword">while</span> (ch = getchar(), !<span class="built_in">isdigit</span>(ch)) &#123;&#125;</span><br><span class="line">  x = (ch ^ <span class="number">48</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">50</span>, mod = <span class="number">1e9</span> + <span class="number">9</span>; <span class="comment">// 注意mod不是1e9+7，虽然这也是个质数</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> fac[N];</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">initFac</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123; <span class="comment">// 预处理阶乘</span></span><br><span class="line">  fac[<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; ++i) fac[i] = fac[i - <span class="number">1</span>] * (ll)i % mod;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> n, m, lenMax;</span><br><span class="line"><span class="built_in">bitset</span>&lt;N&gt; X, A[N], tmp[N]; <span class="comment">// A是</span></span><br><span class="line">ll ans;</span><br><span class="line"><span class="keyword">char</span> x;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> begin, <span class="keyword">int</span> lenNow)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (lenNow &gt; lenMax) &#123;</span><br><span class="line">    <span class="keyword">if</span> (tmp[lenMax] != X) <span class="keyword">goto</span> school;</span><br><span class="line">    (ans += fac[lenMax]) %= mod;</span><br><span class="line">  school:</span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span> (lenNow == <span class="number">1</span>) &#123;</span><br><span class="line">    tmp[<span class="number">1</span>] = A[begin];</span><br><span class="line">    dfs(begin + <span class="number">1</span>, <span class="number">2</span>);</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = begin; i &lt;= n &amp;&amp; n - i + lenNow &gt;= lenMax; ++i) &#123;</span><br><span class="line">      <span class="comment">/* 开始位置的枚举加了一个范围判定，如果把i连后面全取了也不够lenMax个就不要枚举了 */</span></span><br><span class="line">      <span class="keyword">if</span> (x == <span class="string">'&amp;'</span>) &#123;</span><br><span class="line">        tmp[lenNow] = tmp[lenNow - <span class="number">1</span>] &amp; A[i];</span><br><span class="line">      &#125; <span class="keyword">else</span> <span class="keyword">if</span> (x == <span class="string">'|'</span>) &#123;</span><br><span class="line">        tmp[lenNow] = tmp[lenNow - <span class="number">1</span>] | A[i];</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        tmp[lenNow] = tmp[lenNow - <span class="number">1</span>] ^ A[i];</span><br><span class="line">      &#125;</span><br><span class="line">      dfs(i + <span class="number">1</span>, lenNow + <span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  x = getchar(), <span class="built_in">scanf</span>(<span class="string">"%d%d"</span>, &amp;n, &amp;m);</span><br><span class="line">  initFac(n);</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>, op; i &lt;= n; ++i) &#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">register</span> <span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= m; ++j) &#123;</span><br><span class="line">      read(op);</span><br><span class="line">      A[i][j] = (op &gt; <span class="number">0</span>);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>, op; i &lt;= m; ++i) read(op), X[i] = (op &gt; <span class="number">0</span>);</span><br><span class="line">  <span class="keyword">for</span> (lenMax = <span class="number">1</span>; lenMax &lt;= n; ++lenMax) &#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">register</span> <span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n &amp;&amp; n - i + <span class="number">1</span> &gt;= lenMax; ++i) &#123;</span><br><span class="line">      dfs(i, <span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">"%lld"</span>, ans);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;  <span class="comment">// namespace STDquantum</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">ifndef</span> ONLINE_JUDGE</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">ifdef</span> LOCAL</span></span><br><span class="line">  freopen(<span class="string">"D:\\OI\\STDquantum\\test.in"</span>, <span class="string">"r"</span>, <span class="built_in">stdin</span>);</span><br><span class="line">  freopen(<span class="string">"D:\\OI\\STDquantum\\test.out"</span>, <span class="string">"w"</span>, <span class="built_in">stdout</span>);</span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">ifndef</span> LOCAL</span></span><br><span class="line">  freopen(<span class="string">"xx.in"</span>, <span class="string">"r"</span>, <span class="built_in">stdin</span>);</span><br><span class="line">  freopen(<span class="string">"xx.out"</span>, <span class="string">"w"</span>, <span class="built_in">stdout</span>);</span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line">  STDquantum::main();</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="普及组-pj"><a href="#普及组-pj" class="headerlink" title="普及组(pj)"></a>普及组(pj)</h1><h2 id="题目背景-1"><a href="#题目背景-1" class="headerlink" title="题目背景"></a>题目背景</h2><p>定义一个大小为 $n \times n$ 的矩阵 $A$ 是“好”的矩阵，当且仅当其满足如下条件：</p>
+<p>（1） 矩阵中每个数均是整数</p>
+<p>（2） $\displaystyle\forall j, \prod_{i=1}^n A_{i,j}=x$</p>
+<p>（3） $\displaystyle\forall j, \prod_{i=1}^n A_{j,i}=x$</p>
+<h2 id="题目描述-1"><a href="#题目描述-1" class="headerlink" title="题目描述"></a>题目描述</h2><p>现在有 $T$ 组询问，每组询问的形式是：有多少个大小为 $n \times n$ 的“好”的矩阵，满足条件。这个答案可能很大，请你求出对 $998244353$ 取模的结果。</p>
+<h2 id="输入输出格式-1"><a href="#输入输出格式-1" class="headerlink" title="输入输出格式"></a>输入输出格式</h2><h3 id="输入格式-1"><a href="#输入格式-1" class="headerlink" title="输入格式"></a>输入格式</h3><p>第一行一个整数 $x$ 和一个非负整数 $T$ 表示询问组数。</p>
+<p>接下来 $T$ 行，每行一个正整数 $n$ 表示询问。</p>
+<h3 id="输出格式-1"><a href="#输出格式-1" class="headerlink" title="输出格式"></a>输出格式</h3><p>输出 $T$ 行，每一行输出询问对应的答案对 $998244353$ 取模的结果。</p>
+<h2 id="输入输出样例-1"><a href="#输入输出样例-1" class="headerlink" title="输入输出样例"></a>输入输出样例</h2><h3 id="输入样例-1-1"><a href="#输入样例-1-1" class="headerlink" title="输入样例 #1"></a>输入样例 #1</h3><figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span> <span class="number">19</span></span><br><span class="line"><span class="number">1</span></span><br><span class="line"><span class="number">2</span></span><br><span class="line"><span class="number">3</span></span><br><span class="line"><span class="number">4</span></span><br><span class="line"><span class="number">5</span></span><br><span class="line"><span class="number">6</span></span><br><span class="line"><span class="number">7</span></span><br><span class="line"><span class="number">8</span></span><br><span class="line"><span class="number">9</span></span><br><span class="line"><span class="number">10</span></span><br><span class="line"><span class="number">233</span></span><br><span class="line"><span class="number">2333</span></span><br><span class="line"><span class="number">23333</span></span><br><span class="line"><span class="number">666</span></span><br><span class="line"><span class="number">6666</span></span><br><span class="line"><span class="number">66666</span></span><br><span class="line"><span class="number">233666</span></span><br><span class="line"><span class="number">2333666</span></span><br><span class="line"><span class="number">2336666</span></span><br></pre></td></tr></table></figure>
+<h3 id="输出样例-1-1"><a href="#输出样例-1-1" class="headerlink" title="输出样例 #1"></a>输出样例 #1</h3><figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span></span><br><span class="line"><span class="number">2</span></span><br><span class="line"><span class="number">16</span></span><br><span class="line"><span class="number">512</span></span><br><span class="line"><span class="number">65536</span></span><br><span class="line"><span class="number">33554432</span></span><br><span class="line"><span class="number">838860732</span></span><br><span class="line"><span class="number">32990492</span></span><br><span class="line"><span class="number">932051910</span></span><br><span class="line"><span class="number">764027380</span></span><br><span class="line"><span class="number">910542875</span></span><br><span class="line"><span class="number">838272742</span></span><br><span class="line"><span class="number">930396622</span></span><br><span class="line"><span class="number">739073573</span></span><br><span class="line"><span class="number">9640642</span></span><br><span class="line"><span class="number">263530905</span></span><br><span class="line"><span class="number">865002813</span></span><br><span class="line"><span class="number">765241490</span></span><br><span class="line"><span class="number">139162994</span></span><br></pre></td></tr></table></figure>
+<h3 id="输入样例-2-1"><a href="#输入样例-2-1" class="headerlink" title="输入样例 #2"></a>输入样例 #2</h3><figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">3</span> <span class="number">19</span></span><br><span class="line"><span class="number">1</span></span><br><span class="line"><span class="number">2</span></span><br><span class="line"><span class="number">3</span></span><br><span class="line"><span class="number">4</span></span><br><span class="line"><span class="number">5</span></span><br><span class="line"><span class="number">6</span></span><br><span class="line"><span class="number">7</span></span><br><span class="line"><span class="number">8</span></span><br><span class="line"><span class="number">9</span></span><br><span class="line"><span class="number">10</span></span><br><span class="line"><span class="number">233</span></span><br><span class="line"><span class="number">2333</span></span><br><span class="line"><span class="number">23333</span></span><br><span class="line"><span class="number">666</span></span><br><span class="line"><span class="number">6666</span></span><br><span class="line"><span class="number">66666</span></span><br><span class="line"><span class="number">233666</span></span><br><span class="line"><span class="number">2333666</span></span><br><span class="line"><span class="number">2336666</span></span><br></pre></td></tr></table></figure>
+<h3 id="输出样例-2-1"><a href="#输出样例-2-1" class="headerlink" title="输出样例 #2"></a>输出样例 #2</h3><figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span></span><br><span class="line"><span class="number">4</span></span><br><span class="line"><span class="number">96</span></span><br><span class="line"><span class="number">12288</span></span><br><span class="line"><span class="number">7864320</span></span><br><span class="line"><span class="number">201326568</span></span><br><span class="line"><span class="number">293254325</span></span><br><span class="line"><span class="number">515159244</span></span><br><span class="line"><span class="number">840150399</span></span><br><span class="line"><span class="number">651897566</span></span><br><span class="line"><span class="number">739847860</span></span><br><span class="line"><span class="number">531834902</span></span><br><span class="line"><span class="number">591536684</span></span><br><span class="line"><span class="number">577191249</span></span><br><span class="line"><span class="number">16871820</span></span><br><span class="line"><span class="number">69912188</span></span><br><span class="line"><span class="number">532033966</span></span><br><span class="line"><span class="number">249862507</span></span><br><span class="line"><span class="number">753329879</span></span><br></pre></td></tr></table></figure>
+<h3 id="输入样例-3-1"><a href="#输入样例-3-1" class="headerlink" title="输入样例 #3"></a>输入样例 #3</h3><figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">4</span> <span class="number">19</span></span><br><span class="line"><span class="number">1</span></span><br><span class="line"><span class="number">2</span></span><br><span class="line"><span class="number">3</span></span><br><span class="line"><span class="number">4</span></span><br><span class="line"><span class="number">5</span></span><br><span class="line"><span class="number">6</span></span><br><span class="line"><span class="number">7</span></span><br><span class="line"><span class="number">8</span></span><br><span class="line"><span class="number">9</span></span><br><span class="line"><span class="number">10</span></span><br><span class="line"><span class="number">233</span></span><br><span class="line"><span class="number">2333</span></span><br><span class="line"><span class="number">23333</span></span><br><span class="line"><span class="number">666</span></span><br><span class="line"><span class="number">6666</span></span><br><span class="line"><span class="number">66666</span></span><br><span class="line"><span class="number">233666</span></span><br><span class="line"><span class="number">2333666</span></span><br><span class="line"><span class="number">2336666</span></span><br></pre></td></tr></table></figure>
+<h3 id="输出样例-3-1"><a href="#输出样例-3-1" class="headerlink" title="输出样例 #3"></a>输出样例 #3</h3><figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span></span><br><span class="line"><span class="number">6</span></span><br><span class="line"><span class="number">336</span></span><br><span class="line"><span class="number">144384</span></span><br><span class="line"><span class="number">406978560</span></span><br><span class="line"><span class="number">696247661</span></span><br><span class="line"><span class="number">369344513</span></span><br><span class="line"><span class="number">934897514</span></span><br><span class="line"><span class="number">881712217</span></span><br><span class="line"><span class="number">545090322</span></span><br><span class="line"><span class="number">736653783</span></span><br><span class="line"><span class="number">184801125</span></span><br><span class="line"><span class="number">483435346</span></span><br><span class="line"><span class="number">490162119</span></span><br><span class="line"><span class="number">818998946</span></span><br><span class="line"><span class="number">456359890</span></span><br><span class="line"><span class="number">676845946</span></span><br><span class="line"><span class="number">879346635</span></span><br><span class="line"><span class="number">854963600</span></span><br></pre></td></tr></table></figure>
+<h2 id="说明-1"><a href="#说明-1" class="headerlink" title="说明"></a>说明</h2><div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">数据标号</th>
+<th style="text-align:center">$T\le$</th>
+<th style="text-align:center">$x=$</th>
+<th style="text-align:center">$\max\{n\}\le$</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">1</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">12</td>
+<td style="text-align:center">5</td>
+</tr>
+<tr>
+<td style="text-align:center">2</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">30</td>
+<td style="text-align:center">5</td>
+</tr>
+<tr>
+<td style="text-align:center">3</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">1</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">4</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">1</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">5</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">1</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">6</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">147203573614806055</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">7</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">371216956151518818</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">8</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">834586893457709917</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">9</td>
+<td style="text-align:center">10</td>
+<td style="text-align:center">1147387575560213988</td>
+<td style="text-align:center">2000</td>
+</tr>
+<tr>
+<td style="text-align:center">10</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">608358758975305374</td>
+<td style="text-align:center">2000</td>
+</tr>
+<tr>
+<td style="text-align:center">11</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">710701671428663075</td>
+<td style="text-align:center">2000</td>
+</tr>
+<tr>
+<td style="text-align:center">12</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">714115052266263644</td>
+<td style="text-align:center">2000</td>
+</tr>
+<tr>
+<td style="text-align:center">13</td>
+<td style="text-align:center">10</td>
+<td style="text-align:center">979573735390975739</td>
+<td style="text-align:center">300000</td>
+</tr>
+<tr>
+<td style="text-align:center">14</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">640807389338647549</td>
+<td style="text-align:center">300000</td>
+</tr>
+<tr>
+<td style="text-align:center">15</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">598480316906172486</td>
+<td style="text-align:center">300000</td>
+</tr>
+<tr>
+<td style="text-align:center">16</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">203522456999371050</td>
+<td style="text-align:center">300000</td>
+</tr>
+<tr>
+<td style="text-align:center">17</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">421206431991626060</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">18</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">595630806517176908</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">19</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">573010858348910652</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">20</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">812626144076193076</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>对于全部数据，有 $0 \le  T \le  200000,1 \le  n \le  5000000$。</p>
+<h1 id="提高组-tg"><a href="#提高组-tg" class="headerlink" title="提高组(tg)"></a>提高组(tg)</h1><h2 id="题目背景-2"><a href="#题目背景-2" class="headerlink" title="题目背景"></a>题目背景</h2><p>定义一个长度为 $n$ 的正整数序列 $A$ 是“好”的序列，当且仅当其满足如下条件：</p>
+<p>（1）序列中每个数均满足 $1 \le A_i\le n$</p>
+<p>（2）$i\neq j\ \Leftrightarrow\ A_i\neq A_j$ </p>
+<p>（3）最长下降子序列长度不超过 $2$</p>
+<h2 id="题目描述-2"><a href="#题目描述-2" class="headerlink" title="题目描述"></a>题目描述</h2><p>现在有 $T$ 组询问，每组询问的形式是：有多少个长度为 $n$ 的“好”的序列，满足 $A_x=y$。这个答案可能很大，请你求出对 $10^9+7$ 取模的结果。</p>
+<h2 id="输入输出格式-2"><a href="#输入输出格式-2" class="headerlink" title="输入输出格式"></a>输入输出格式</h2><h3 id="输入格式-2"><a href="#输入格式-2" class="headerlink" title="输入格式"></a>输入格式</h3><p>第一行一个非负整数 $T$ 表示询问组数。</p>
+<p>接下来 $T$ 行，每行三个正整数 $n$、$x$ 和 $y$ 表示询问。</p>
+<h3 id="输出格式-2"><a href="#输出格式-2" class="headerlink" title="输出格式"></a>输出格式</h3><p>输出 $T $ 行，每一行输出询问对应的答案对 ${10^9 + 7}$ 取模的结果。</p>
+<h2 id="输入输出样例-2"><a href="#输入输出样例-2" class="headerlink" title="输入输出样例"></a>输入输出样例</h2><h3 id="输入样例-1-2"><a href="#输入样例-1-2" class="headerlink" title="输入样例 #1"></a>输入样例 #1</h3><figure class="highlight basic"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">100</span></span><br><span class="line"><span class="symbol">10 </span><span class="number">1</span> <span class="number">6</span></span><br><span class="line"><span class="symbol">10 </span><span class="number">4</span> <span class="number">7</span></span><br><span class="line"><span class="symbol">10 </span><span class="number">6</span> <span class="number">2</span></span><br><span class="line"><span class="symbol">10 </span><span class="number">2</span> <span class="number">3</span></span><br><span class="line"><span class="symbol">10 </span><span class="number">10</span> <span class="number">2</span></span><br><span class="line"><span class="symbol">10 </span><span class="number">6</span> <span class="number">6</span></span><br><span class="line"><span class="symbol">10 </span><span class="number">9</span> <span class="number">2</span></span><br><span class="line"><span class="symbol">10 </span><span class="number">1</span> <span class="number">5</span></span><br><span class="line"><span class="symbol">10 </span><span class="number">4</span> <span class="number">6</span></span><br><span class="line"><span class="symbol">10 </span><span class="number">5</span> <span class="number">5</span></span><br><span class="line"><span class="symbol">10 </span><span class="number">7</span> <span class="number">2</span></span><br><span class="line"><span class="symbol">10 </span><span class="number">9</span> <span class="number">10</span></span><br><span class="line"><span class="symbol">10 </span><span class="number">8</span> <span class="number">1</span></span><br><span class="line"><span class="symbol">10 </span><span class="number">1</span> <span class="number">4</span></span><br><span class="line"><span class="symbol">10 </span><span class="number">8</span> <span class="number">7</span></span><br><span class="line"><span class="symbol">10 </span><span class="number">2</span> <span class="number">2</span></span><br><span class="line"><span class="symbol">10 </span><span class="number">10</span> <span class="number">7</span></span><br><span class="line"><span class="symbol">10 </span><span class="number">5</span> <span class="number">8</span></span><br><span class="line"><span class="symbol">10 </span><span class="number">5</span> <span class="number">9</span></span><br><span class="line"><span class="symbol">10 </span><span class="number">8</span> <span class="number">10</span></span><br><span class="line"><span class="symbol">10 </span><span class="number">2</span> <span class="number">9</span></span><br><span class="line"><span class="symbol">10 </span><span class="number">4</span> <span class="number">3</span></span><br><span class="line"><span class="symbol">10 </span><span class="number">3</span> <span class="number">1</span></span><br><span class="line"><span class="symbol">10 </span><span class="number">3</span> <span class="number">9</span></span><br><span class="line"><span class="symbol">10 </span><span class="number">7</span> <span class="number">7</span></span><br><span class="line"><span class="symbol">10 </span><span class="number">10</span> <span class="number">5</span></span><br><span class="line"><span class="symbol">10 </span><span class="number">6</span> <span class="number">1</span></span><br><span class="line"><span class="symbol">10 </span><span class="number">8</span> <span class="number">5</span></span><br><span class="line"><span class="symbol">10 </span><span class="number">10</span> <span class="number">8</span></span><br><span class="line"><span class="symbol">10 </span><span class="number">5</span> <span class="number">7</span></span><br><span class="line"><span class="symbol">10 </span><span class="number">1</span> <span class="number">3</span></span><br><span class="line"><span class="symbol">10 </span><span class="number">2</span> <span class="number">1</span></span><br><span class="line"><span class="symbol">10 </span><span class="number">9</span> <span class="number">3</span></span><br><span class="line"><span class="symbol">10 </span><span class="number">3</span> <span class="number">5</span></span><br><span class="line"><span class="symbol">10 </span><span class="number">8</span> <span class="number">9</span></span><br><span class="line"><span class="symbol">10 </span><span class="number">10</span> <span class="number">9</span></span><br><span class="line"><span class="symbol">10 </span><span class="number">3</span> <span class="number">8</span></span><br><span class="line"><span class="symbol">10 </span><span class="number">2</span> <span class="number">7</span></span><br><span class="line"><span class="symbol">10 </span><span class="number">1</span> <span class="number">1</span></span><br><span class="line"><span class="symbol">10 </span><span class="number">9</span> <span class="number">1</span></span><br><span class="line"><span class="symbol">10 </span><span class="number">2</span> <span class="number">4</span></span><br><span class="line"><span class="symbol">10 </span><span class="number">2</span> <span class="number">10</span></span><br><span class="line"><span class="symbol">10 </span><span class="number">3</span> <span class="number">2</span></span><br><span class="line"><span class="symbol">10 </span><span class="number">10</span> <span class="number">1</span></span><br><span class="line"><span class="symbol">10 </span><span class="number">3</span> <span class="number">3</span></span><br><span class="line"><span class="symbol">10 </span><span class="number">6</span> <span class="number">8</span></span><br><span class="line"><span class="symbol">10 </span><span class="number">8</span> <span class="number">8</span></span><br><span class="line"><span class="symbol">10 </span><span class="number">7</span> <span class="number">4</span></span><br><span class="line"><span class="symbol">10 </span><span class="number">2</span> <span class="number">5</span></span><br><span class="line"><span class="symbol">10 </span><span class="number">1</span> <span class="number">10</span></span><br><span class="line"><span class="symbol">10 </span><span class="number">7</span> <span class="number">1</span></span><br><span class="line"><span class="symbol">10 </span><span class="number">9</span> <span class="number">8</span></span><br><span class="line"><span class="symbol">10 </span><span class="number">6</span> <span class="number">7</span></span><br><span class="line"><span class="symbol">10 </span><span class="number">6</span> <span class="number">5</span></span><br><span class="line"><span class="symbol">10 </span><span class="number">1</span> <span class="number">8</span></span><br><span class="line"><span class="symbol">10 </span><span class="number">6</span> <span class="number">9</span></span><br><span class="line"><span class="symbol">10 </span><span class="number">2</span> <span class="number">6</span></span><br><span class="line"><span class="symbol">10 </span><span class="number">6</span> <span class="number">3</span></span><br><span class="line"><span class="symbol">10 </span><span class="number">7</span> <span class="number">3</span></span><br><span class="line"><span class="symbol">10 </span><span class="number">8</span> <span class="number">6</span></span><br><span class="line"><span class="symbol">10 </span><span class="number">4</span> <span class="number">9</span></span><br><span class="line"><span class="symbol">10 </span><span class="number">9</span> <span class="number">5</span></span><br><span class="line"><span class="symbol">10 </span><span class="number">4</span> <span class="number">5</span></span><br><span class="line"><span class="symbol">10 </span><span class="number">4</span> <span class="number">1</span></span><br><span class="line"><span class="symbol">10 </span><span class="number">1</span> <span class="number">2</span></span><br><span class="line"><span class="symbol">10 </span><span class="number">7</span> <span class="number">8</span></span><br><span class="line"><span class="symbol">10 </span><span class="number">5</span> <span class="number">6</span></span><br><span class="line"><span class="symbol">10 </span><span class="number">10</span> <span class="number">3</span></span><br><span class="line"><span class="symbol">10 </span><span class="number">4</span> <span class="number">10</span></span><br><span class="line"><span class="symbol">10 </span><span class="number">1</span> <span class="number">9</span></span><br><span class="line"><span class="symbol">10 </span><span class="number">10</span> <span class="number">10</span></span><br><span class="line"><span class="symbol">10 </span><span class="number">6</span> <span class="number">4</span></span><br><span class="line"><span class="symbol">10 </span><span class="number">1</span> <span class="number">7</span></span><br><span class="line"><span class="symbol">10 </span><span class="number">10</span> <span class="number">6</span></span><br><span class="line"><span class="symbol">10 </span><span class="number">5</span> <span class="number">1</span></span><br><span class="line"><span class="symbol">10 </span><span class="number">7</span> <span class="number">6</span></span><br><span class="line"><span class="symbol">10 </span><span class="number">5</span> <span class="number">3</span></span><br><span class="line"><span class="symbol">10 </span><span class="number">3</span> <span class="number">7</span></span><br><span class="line"><span class="symbol">10 </span><span class="number">7</span> <span class="number">10</span></span><br><span class="line"><span class="symbol">10 </span><span class="number">4</span> <span class="number">8</span></span><br><span class="line"><span class="symbol">10 </span><span class="number">4</span> <span class="number">2</span></span><br><span class="line"><span class="symbol">10 </span><span class="number">9</span> <span class="number">4</span></span><br><span class="line"><span class="symbol">10 </span><span class="number">4</span> <span class="number">4</span></span><br><span class="line"><span class="symbol">10 </span><span class="number">3</span> <span class="number">10</span></span><br><span class="line"><span class="symbol">10 </span><span class="number">8</span> <span class="number">4</span></span><br><span class="line"><span class="symbol">10 </span><span class="number">9</span> <span class="number">7</span></span><br><span class="line"><span class="symbol">10 </span><span class="number">2</span> <span class="number">8</span></span><br><span class="line"><span class="symbol">10 </span><span class="number">8</span> <span class="number">3</span></span><br><span class="line"><span class="symbol">10 </span><span class="number">3</span> <span class="number">4</span></span><br><span class="line"><span class="symbol">10 </span><span class="number">5</span> <span class="number">2</span></span><br><span class="line"><span class="symbol">10 </span><span class="number">7</span> <span class="number">9</span></span><br><span class="line"><span class="symbol">10 </span><span class="number">7</span> <span class="number">5</span></span><br><span class="line"><span class="symbol">10 </span><span class="number">6</span> <span class="number">10</span></span><br><span class="line"><span class="symbol">10 </span><span class="number">5</span> <span class="number">4</span></span><br><span class="line"><span class="symbol">10 </span><span class="number">9</span> <span class="number">6</span></span><br><span class="line"><span class="symbol">10 </span><span class="number">10</span> <span class="number">4</span></span><br><span class="line"><span class="symbol">10 </span><span class="number">9</span> <span class="number">9</span></span><br><span class="line"><span class="symbol">10 </span><span class="number">3</span> <span class="number">6</span></span><br><span class="line"><span class="symbol">10 </span><span class="number">5</span> <span class="number">10</span></span><br><span class="line"><span class="symbol">10 </span><span class="number">8</span> <span class="number">2</span></span><br></pre></td></tr></table></figure>
+<h3 id="输出样例-1-2"><a href="#输出样例-1-2" class="headerlink" title="输出样例 #1"></a>输出样例 #1</h3><figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">429</span></span><br><span class="line"><span class="number">2304</span></span><br><span class="line"><span class="number">1375</span></span><br><span class="line"><span class="number">2860</span></span><br><span class="line"><span class="number">9</span></span><br><span class="line"><span class="number">588</span></span><br><span class="line"><span class="number">64</span></span><br><span class="line"><span class="number">1001</span></span><br><span class="line"><span class="number">2520</span></span><br><span class="line"><span class="number">588</span></span><br><span class="line"><span class="number">660</span></span><br><span class="line"><span class="number">4862</span></span><br><span class="line"><span class="number">44</span></span><br><span class="line"><span class="number">2002</span></span><br><span class="line"><span class="number">2145</span></span><br><span class="line"><span class="number">1430</span></span><br><span class="line"><span class="number">2002</span></span><br><span class="line"><span class="number">2310</span></span><br><span class="line"><span class="number">1375</span></span><br><span class="line"><span class="number">3432</span></span><br><span class="line"><span class="number">64</span></span><br><span class="line"><span class="number">2145</span></span><br><span class="line"><span class="number">3432</span></span><br><span class="line"><span class="number">245</span></span><br><span class="line"><span class="number">660</span></span><br><span class="line"><span class="number">429</span></span><br><span class="line"><span class="number">429</span></span><br><span class="line"><span class="number">2310</span></span><br><span class="line"><span class="number">3432</span></span><br><span class="line"><span class="number">2520</span></span><br><span class="line"><span class="number">3432</span></span><br><span class="line"><span class="number">4862</span></span><br><span class="line"><span class="number">245</span></span><br><span class="line"><span class="number">2673</span></span><br><span class="line"><span class="number">2860</span></span><br><span class="line"><span class="number">4862</span></span><br><span class="line"><span class="number">729</span></span><br><span class="line"><span class="number">660</span></span><br><span class="line"><span class="number">4862</span></span><br><span class="line"><span class="number">9</span></span><br><span class="line"><span class="number">3003</span></span><br><span class="line"><span class="number">9</span></span><br><span class="line"><span class="number">2860</span></span><br><span class="line"><span class="number">1</span></span><br><span class="line"><span class="number">858</span></span><br><span class="line"><span class="number">2673</span></span><br><span class="line"><span class="number">858</span></span><br><span class="line"><span class="number">2304</span></span><br><span class="line"><span class="number">2288</span></span><br><span class="line"><span class="number">1</span></span><br><span class="line"><span class="number">154</span></span><br><span class="line"><span class="number">2860</span></span><br><span class="line"><span class="number">1848</span></span><br><span class="line"><span class="number">1764</span></span><br><span class="line"><span class="number">44</span></span><br><span class="line"><span class="number">2288</span></span><br><span class="line"><span class="number">1375</span></span><br><span class="line"><span class="number">2310</span></span><br><span class="line"><span class="number">1500</span></span><br><span class="line"><span class="number">2673</span></span><br><span class="line"><span class="number">660</span></span><br><span class="line"><span class="number">1375</span></span><br><span class="line"><span class="number">1848</span></span><br><span class="line"><span class="number">2002</span></span><br><span class="line"><span class="number">4862</span></span><br><span class="line"><span class="number">2145</span></span><br><span class="line"><span class="number">1764</span></span><br><span class="line"><span class="number">44</span></span><br><span class="line"><span class="number">154</span></span><br><span class="line"><span class="number">9</span></span><br><span class="line"><span class="number">4862</span></span><br><span class="line"><span class="number">2520</span></span><br><span class="line"><span class="number">154</span></span><br><span class="line"><span class="number">1001</span></span><br><span class="line"><span class="number">1001</span></span><br><span class="line"><span class="number">1848</span></span><br><span class="line"><span class="number">2673</span></span><br><span class="line"><span class="number">1500</span></span><br><span class="line"><span class="number">2002</span></span><br><span class="line"><span class="number">1500</span></span><br><span class="line"><span class="number">3003</span></span><br><span class="line"><span class="number">660</span></span><br><span class="line"><span class="number">660</span></span><br><span class="line"><span class="number">44</span></span><br><span class="line"><span class="number">1500</span></span><br><span class="line"><span class="number">3003</span></span><br><span class="line"><span class="number">245</span></span><br><span class="line"><span class="number">729</span></span><br><span class="line"><span class="number">2145</span></span><br><span class="line"><span class="number">2288</span></span><br><span class="line"><span class="number">3003</span></span><br><span class="line"><span class="number">2520</span></span><br><span class="line"><span class="number">1001</span></span><br><span class="line"><span class="number">1848</span></span><br><span class="line"><span class="number">2288</span></span><br><span class="line"><span class="number">154</span></span><br><span class="line"><span class="number">1430</span></span><br><span class="line"><span class="number">2310</span></span><br><span class="line"><span class="number">429</span></span><br><span class="line"><span class="number">245</span></span><br></pre></td></tr></table></figure>
+<h3 id="输入样例-2-2"><a href="#输入样例-2-2" class="headerlink" title="输入样例 #2"></a>输入样例 #2</h3><figure class="highlight basic"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">10</span></span><br><span class="line"><span class="symbol">200 </span><span class="number">97</span> <span class="number">192</span></span><br><span class="line"><span class="symbol">200 </span><span class="number">98</span> <span class="number">95</span></span><br><span class="line"><span class="symbol">200 </span><span class="number">195</span> <span class="number">5</span></span><br><span class="line"><span class="symbol">200 </span><span class="number">188</span> <span class="number">189</span></span><br><span class="line"><span class="symbol">200 </span><span class="number">171</span> <span class="number">7</span></span><br><span class="line"><span class="symbol">200 </span><span class="number">181</span> <span class="number">144</span></span><br><span class="line"><span class="symbol">200 </span><span class="number">129</span> <span class="number">67</span></span><br><span class="line"><span class="symbol">200 </span><span class="number">109</span> <span class="number">121</span></span><br><span class="line"><span class="symbol">200 </span><span class="number">74</span> <span class="number">54</span></span><br><span class="line"><span class="symbol">200 </span><span class="number">68</span> <span class="number">105</span></span><br></pre></td></tr></table></figure>
+<h3 id="输出样例-2-2"><a href="#输出样例-2-2" class="headerlink" title="输出样例 #2"></a>输出样例 #2</h3><figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">743709057</span></span><br><span class="line"><span class="number">219203267</span></span><br><span class="line"><span class="number">512408257</span></span><br><span class="line"><span class="number">834402555</span></span><br><span class="line"><span class="number">190637858</span></span><br><span class="line"><span class="number">149799558</span></span><br><span class="line"><span class="number">374398411</span></span><br><span class="line"><span class="number">696140489</span></span><br><span class="line"><span class="number">470198414</span></span><br><span class="line"><span class="number">68251233</span></span><br></pre></td></tr></table></figure>
+<h2 id="说明-2"><a href="#说明-2" class="headerlink" title="说明"></a>说明</h2><p>【数据范围】</p>
+<p>Subtask 1 (3pts)：$T = 0$。</p>
+<p>Subtask 2 (7pts)：$T \le  10 ,n \le  8$。</p>
+<p>Subtask 3 (10pts)：$T \le  10, n \le 15$。</p>
+<p>Subtask 4 (10pts)：$T \le  10,n \le 200$。</p>
+<p>Subtask 5 (20pts)：$T \le  10,n \le 2000$。</p>
+<p>Subtask 6 (20pts)：$T \le  10,n \le  100000$。</p>
+<p>Subtask 7 (30pts)：无特殊限制。</p>
+<p>对于全部数据，有$0 \le T \le 1000000,1 \le n \le 10000000$。</p>
+<h1 id="Result"><a href="#Result" class="headerlink" title="Result"></a>Result</h1><img src="/20200912-mo-ni-sai/2.jpg" class> 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%A8%A1%E6%8B%9F%E8%B5%9B/" rel="tag">模拟赛</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+  <nav class="article-nav">
+    
+      <a href="/cf1406a-subset-mex/" class="article-nav-link">
+        <strong class="article-nav-caption">上一篇</strong>
+        <div class="article-nav-title">
+          
+            CF1406A Subset Mex
+          
+        </div>
+      </a>
+    
+    
+      <a href="/20200911-mo-ni-sai/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">20200911模拟赛</div>
+      </a>
+    
+  </nav>
+
+  
+     
+</article>
+
+</section>
+      <footer class="footer">
+  <div class="outer">
+    <ul>
+      <li>
+        Copyrights &copy;
+        2020
+        <i class="ri-heart-fill heart_icon"></i> STDquantum
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+      </li>
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      <li>
+        <!-- cnzz统计 -->
+        
+      </li>
+    </ul>
+  </div>
+</footer>
+      <div class="float_btns">
+        <div class="totop" id="totop">
+  <i class="ri-arrow-up-line"></i>
+</div>
+
+      </div>
+    </main>
+    <aside class="sidebar on">
+      <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/1.jpg" alt="STDquantum"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">主页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">归档</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/categories">分类</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/tags">标签</a>
+    </li>
+    
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      
+      <a class="nav-item-link nav-item-search"  title="搜索">
+        <i class="ri-search-line"></i>
+      </a>
+      
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+    </aside>
+    <script>
+      if (window.matchMedia("(max-width: 768px)").matches) {
+        document.querySelector('.content').classList.remove('on');
+        document.querySelector('.sidebar').classList.remove('on');
+      }
+    </script>
+    <div id="mask"></div>
+
+<!-- #reward -->
+<div id="reward">
+  <span class="close"><i class="ri-close-line"></i></span>
+  <p class="reward-p"><i class="ri-cup-line"></i></p>
+  <div class="reward-box">
+    
+    
+  </div>
+</div>
+    
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+
+<script src="/js/lazyload.min.js"></script>
+
+<!-- Tocbot -->
+
+
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  tocbot.init({
+    tocSelector: '.tocbot',
+    contentSelector: '.article-entry',
+    headingSelector: 'h1, h2, h3, h4, h5, h6',
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: 'main',
+    positionFixedSelector: '.tocbot',
+    positionFixedClass: 'is-position-fixed',
+    fixedSidebarOffset: 'auto'
+  });
+</script>
+<!-- Live-2D -->
+<script type="text/javascript" charset="utf-8" src="/js/L2Dwidget.0.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="/js/L2Dwidget.min.js"></script>
+<script type="text/javascript">
+  L2Dwidget.on('*', (name) => {
+    console.log('%c EVENT ' + '%c -> ' + name, 'background: #222; color: yellow', 'background: #fff; color: #000')
+  });
+  L2Dwidget.init({
+    "display": {
+      "superSample": 2,
+      "width": 200,
+      "height": 400,
+      "position": "right",
+      "hOffset": 0,
+      "vOffset": 0
+    },
+    "mobile": {
+      "show": true,
+      "scale": 0.7
+    }
+  });
+</script>
+
+<script src="/js/jquery.modal.min.js"></script>
+<link rel="stylesheet" href="/css/jquery.modal.min.css">
+<script src="/js/jquery.justifiedGallery.min.js"></script>
+
+<script src="/dist/main.js"></script>
+
+<!-- ImageViewer -->
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<link rel="stylesheet" href="/css/photoswipe.min.css">
+<link rel="stylesheet" href="/css/default-skin.min.css">
+<script src="/js/photoswipe.min.js"></script>
+<script src="/js/photoswipe-ui-default.min.js"></script>
+
+<script>
+    function viewer_init() {
+        let pswpElement = document.querySelectorAll('.pswp')[0];
+        let $imgArr = document.querySelectorAll(('.article-entry img:not(.reward-img)'))
+
+        $imgArr.forEach(($em, i) => {
+            $em.onclick = () => {
+                // slider展开状态
+                // todo: 这样不好，后面改成状态
+                if (document.querySelector('.left-col.show')) return
+                let items = []
+                $imgArr.forEach(($em2, i2) => {
+                    let img = $em2.getAttribute('data-idx', i2)
+                    let src = $em2.getAttribute('data-target') || $em2.getAttribute('src')
+                    let title = $em2.getAttribute('alt')
+                    // 获得原图尺寸
+                    const image = new Image()
+                    image.src = src
+                    items.push({
+                        src: src,
+                        w: image.width || $em2.width,
+                        h: image.height || $em2.height,
+                        title: title
+                    })
+                })
+                var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, {
+                    index: parseInt(i)
+                });
+                gallery.init()
+            }
+        })
+    }
+    viewer_init()
+</script>
+
+<!-- MathJax -->
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      extensions: ["tex2jax.js"],
+      jax: ["input/TeX","output/HTML-CSS"],
+      tex2jax: {inlineMath: [["$","$"]]}
+    });
+  </script>
+
+<script src="/mathjax/MathJax.js"></script>
+<script>
+  var ayerConfig = {
+    mathjax: true
+  }
+</script>
+
+<!-- Katex -->
+
+<!-- busuanzi  -->
+
+<!-- ClickLove -->
+
+
+<script src="/js/clickLove.js"></script>
+
+
+<!-- ClickBoom1 -->
+
+<!-- ClickBoom2 -->
+
+<!-- CodeCopy -->
+
+
+<link rel="stylesheet" href="/css/clipboard.css">
+
+<script src="/js/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="ri-file-copy-2-line"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-checkbox-circle-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-checkbox-circle-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-time-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-time-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+
+
+<!-- CanvasBackground -->
+
+
+    
+  </div>
+</body>
+
+</html>

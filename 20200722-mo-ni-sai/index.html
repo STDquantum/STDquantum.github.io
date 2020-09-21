@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+
+
+<html lang="zh-CN">
+
+
+<head>
+  <meta charset="utf-8" />
+    
+  <meta name="description" content="STDquantum" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <title>
+    20200722模拟赛 |  STDquantum
+  </title>
+  <meta name="generator" content="hexo-theme-ayer">
+  
+  <link rel="shortcut icon" href="/1.ico" />
+  
+  
+<link rel="stylesheet" href="/dist/main.css">
+
+  
+<link rel="stylesheet" href="/css/remixicon.min.css">
+
+  
+<link rel="stylesheet" href="/css/custom.css">
+
+  
+  
+<script src="/js/pace.min.js"></script>
+
+  
+  
+
+  
+
+</head>
+
+</html>
+
+<body>
+  <div id="app">
+    
+      
+    <main class="content on">
+      <section class="outer">
+  <article
+  id="post-OI/模拟赛/20200722模拟赛"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  20200722模拟赛
+</h1>
+ 
+
+    </header>
+     
+    <div class="article-meta">
+      <a href="/20200722-mo-ni-sai/" class="article-date">
+  <time datetime="2020-07-22T06:37:43.000Z" itemprop="datePublished">2020-07-22</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/OI/">OI</a> / <a class="article-category-link" href="/categories/OI/%E6%A8%A1%E6%8B%9F%E8%B5%9B/">模拟赛</a>
+  </div>
+  
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> 字数统计:</span>
+            <span class="post-count">3.8k</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> 阅读时长≈</span>
+            <span class="post-count">17 分钟</span>
+        </span>
+    </span>
+</div>
+ 
+    </div>
+      
+    <div class="tocbot"></div>
+
+
+
+
+  
+    <div class="article-entry" itemprop="articleBody">
+       
+  <p>题单</p>
+<ul>
+<li><del><a href="https://www.luogu.com.cn/problem/P2880" target="_blank" rel="noopener">P2880 BZOJ1699 [USACO07JAN] Balanced Lineup G</a></del></li>
+<li><del><a href="https://www.luogu.com.cn/problem/P4140" target="_blank" rel="noopener">P4140 BZOJ3813 奇数国</a></del></li>
+<li><del><a href="https://www.luogu.com.cn/problem/P4145" target="_blank" rel="noopener">P4145 BZOJ3038 上帝造题的七分钟2</a></del></li>
+<li><del><a href="https://www.luogu.com.cn/problem/P3258" target="_blank" rel="noopener">P3258 BZOJ3631 [JLOI2014]松鼠的新家</a></del></li>
+</ul>
+<a id="more"></a>
+<h1 id="P2880-BZOJ1699-USACO07JAN-Balanced-Lineup-G"><a href="#P2880-BZOJ1699-USACO07JAN-Balanced-Lineup-G" class="headerlink" title="P2880 BZOJ1699 [USACO07JAN] Balanced Lineup G"></a><a href="https://www.luogu.com.cn/problem/P2880" target="_blank" rel="noopener">P2880 BZOJ1699 [USACO07JAN] Balanced Lineup G</a></h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>每天,农夫 John 的N(1 &lt;= N &lt;= 50,000)头牛总是按同一序列排队. 有一天, John 决定让一些牛们玩一场飞盘比赛. 他准备找一群在对列中为置连续的牛来进行比赛. 但是为了避免水平悬殊,牛的身高不应该相差太大. John 准备了Q (1 &lt;= Q &lt;= 180,000) 个可能的牛的选择和所有牛的身高 (1 &lt;= 身高&lt;= 1,000,000). 他想知道每一组里面最高和最低的牛的身高差别. 注意: 在最大数据上, 输入和输出将占用大部分运行时间.</p>
+<h2 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h2><p>* 第一行: N 和 Q. </p>
+<p>* 第2..N+1行: 第i+1行是第i头牛的身高.</p>
+<p>* 第N+2..N+Q+1行: 两个整数, A 和 B (1 &lt;= A &lt;= B &lt;= N), 表示从A到B的所有牛.</p>
+<h2 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h2><p>* 第1..Q行: 所有询问的回答 (最高和最低的牛的身高差), 每行一个.</p>
+<h2 id="样例输入"><a href="#样例输入" class="headerlink" title="样例输入"></a>样例输入</h2><figure class="highlight basic"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">6 </span><span class="number">3</span></span><br><span class="line"><span class="number">1</span></span><br><span class="line"><span class="number">7</span></span><br><span class="line"><span class="number">3</span></span><br><span class="line"><span class="number">4</span></span><br><span class="line"><span class="number">2</span></span><br><span class="line"><span class="number">5</span></span><br><span class="line"><span class="symbol">1 </span><span class="number">5</span></span><br><span class="line"><span class="symbol">4 </span><span class="number">6</span></span><br><span class="line"><span class="symbol">2 </span><span class="number">2</span></span><br></pre></td></tr></table></figure>
+<h2 id="样例输出"><a href="#样例输出" class="headerlink" title="样例输出"></a>样例输出</h2><figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">6</span></span><br><span class="line"><span class="number">3</span></span><br><span class="line"><span class="number">0</span></span><br></pre></td></tr></table></figure>
+<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>这题题面好不清楚啊。。</p>
+<p>其实就是查询区间第一大减区间第一小，这个直接套个线段树查询就行。</p>
+<p>还可以用ST表，几乎就是板子题。（要不等我学会了ST表来补个代码？）</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> Segment &#123;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt; <span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">read</span><span class="params">(T &amp;x)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">char</span> ch;</span><br><span class="line">  <span class="keyword">while</span> (ch = getchar(), !<span class="built_in">isdigit</span>(ch)) &#123;&#125;</span><br><span class="line">  x = (ch ^ <span class="number">48</span>);</span><br><span class="line">  <span class="keyword">while</span> (ch = getchar(), <span class="built_in">isdigit</span>(ch)) &#123;</span><br><span class="line">    x = x * <span class="number">10</span> + (ch ^ <span class="number">48</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt; <span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">write</span><span class="params">(T x)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">static</span> T stk[<span class="number">100</span>], top = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">if</span> (x == <span class="number">0</span>) <span class="keyword">return</span> (<span class="keyword">void</span>)<span class="built_in">putchar</span>(<span class="string">'0'</span>);</span><br><span class="line">  <span class="keyword">while</span> (x) stk[++top] = x % <span class="number">10</span>, x /= <span class="number">10</span>;</span><br><span class="line">  <span class="keyword">while</span> (top) <span class="built_in">putchar</span>(stk[top--] + <span class="string">'0'</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> mid ((l + r) &gt;&gt; 1)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> lson (k &lt;&lt; 1)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> rson (k &lt;&lt; 1 | 1)</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">5e4</span> + <span class="number">10</span>;</span><br><span class="line"><span class="keyword">int</span> n, m, q, cnt, a[N];</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">T</span> &#123;</span></span><br><span class="line">  <span class="keyword">int</span> l, r, max, min, id;</span><br><span class="line">&#125; t[N &lt;&lt; <span class="number">4</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">build</span><span class="params">(<span class="keyword">int</span> k, <span class="keyword">int</span> l, <span class="keyword">int</span> r)</span> </span>&#123;</span><br><span class="line">  t[k].l = l, t[k].r = r;</span><br><span class="line">  <span class="keyword">if</span> (l == r) &#123;</span><br><span class="line">    read(a[++cnt]);</span><br><span class="line">    t[k].max = t[k].min = a[cnt];</span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  build(lson, l, mid);</span><br><span class="line">  build(rson, mid + <span class="number">1</span>, r);</span><br><span class="line">  t[k].max = max(t[lson].max, t[rson].max);</span><br><span class="line">  t[k].min = min(t[lson].min, t[rson].min);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">qmax</span><span class="params">(<span class="keyword">int</span> k, <span class="keyword">int</span> l, <span class="keyword">int</span> r, <span class="keyword">int</span> L, <span class="keyword">int</span> R)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (L &lt;= l &amp;&amp; r &lt;= R) &#123; <span class="keyword">return</span> t[k].max; &#125;</span><br><span class="line">  <span class="keyword">int</span> tmp = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">if</span> (mid &gt;= L) tmp = max(tmp, qmax(lson, l, mid, L, R));</span><br><span class="line">  <span class="keyword">if</span> (mid &lt; R) tmp = max(tmp, qmax(rson, mid + <span class="number">1</span>, r, L, R));</span><br><span class="line">  <span class="keyword">return</span> tmp;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">qmin</span><span class="params">(<span class="keyword">int</span> k, <span class="keyword">int</span> l, <span class="keyword">int</span> r, <span class="keyword">int</span> L, <span class="keyword">int</span> R)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (L &lt;= l &amp;&amp; r &lt;= R) &#123; <span class="keyword">return</span> t[k].min; &#125;</span><br><span class="line">  <span class="keyword">int</span> tmp = <span class="number">0x7fffffff</span>;</span><br><span class="line">  <span class="keyword">if</span> (mid &gt;= L) tmp = min(tmp, qmin(lson, l, mid, L, R));</span><br><span class="line">  <span class="keyword">if</span> (mid &lt; R) tmp = min(tmp, qmin(rson, mid + <span class="number">1</span>, r, L, R));</span><br><span class="line">  <span class="keyword">return</span> tmp;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  read(n), read(q);</span><br><span class="line">  build(<span class="number">1</span>, <span class="number">1</span>, n);</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>, l, r; i &lt;= q; ++i) &#123;</span><br><span class="line">    read(l), read(r);</span><br><span class="line">    write(qmax(<span class="number">1</span>, <span class="number">1</span>, n, l, r) - qmin(<span class="number">1</span>, <span class="number">1</span>, n, l, r));</span><br><span class="line">    <span class="built_in">puts</span>(<span class="string">""</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;  <span class="comment">// namespace Segment</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  Segment::main();</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="P4145-BZOJ3038-上帝造题的七分钟2"><a href="#P4145-BZOJ3038-上帝造题的七分钟2" class="headerlink" title="P4145 BZOJ3038 上帝造题的七分钟2"></a><a href="https://www.luogu.com.cn/problem/P4145" target="_blank" rel="noopener">P4145 BZOJ3038 上帝造题的七分钟2</a></h1><h2 id="题目背景"><a href="#题目背景" class="headerlink" title="题目背景"></a>题目背景</h2><p>XLk觉得《上帝造题的七分钟》不太过瘾，于是有了第二部。</p>
+<h2 id="题目描述-1"><a href="#题目描述-1" class="headerlink" title="题目描述"></a>题目描述</h2><p>“第一分钟，X说，要有数列，于是便给定了一个正整数数列。 </p>
+<p>第二分钟，L说，要能修改，于是便有了对一段数中每个数都开平方(下取整)的操作。 </p>
+<p>第三分钟，k说，要能查询，于是便有了求一段数的和的操作。 </p>
+<p>第四分钟，彩虹喵说，要是noip难度，于是便有了数据范围。 </p>
+<p>第五分钟，诗人说，要有韵律，于是便有了时间限制和内存限制。 </p>
+<p>第六分钟，和雪说，要省点事，于是便有了保证运算过程中及最终结果均不超过64位有符号整数类型的表示范围的限制。 </p>
+<p>第七分钟，这道题终于造完了，然而，造题的神牛们再也不想写这道题的程序了。” </p>
+<p>——《上帝造题的七分钟·第二部》 </p>
+<p>所以这个神圣的任务就交给你了。</p>
+<h2 id="输入输出格式"><a href="#输入输出格式" class="headerlink" title="输入输出格式"></a>输入输出格式</h2><h3 id="输入格式-1"><a href="#输入格式-1" class="headerlink" title="输入格式"></a>输入格式</h3><p>第一行一个整数$n$，代表数列中数的个数。</p>
+<p>第二行$n$个正整数，表示初始状态下数列中的数。</p>
+<p>第三行一个整数$m$，表示有$m$次操作。 接下来$m$行每行三个整数<code>k,l,r</code>，</p>
+<ul>
+<li><code>k=0</code>表示给$[l,r]$中的每个数开平方(下取整) </li>
+<li><code>k=1</code>表示询问$[l,r]$中各个数的和。 </li>
+</ul>
+<p><strong>数据中有可能$l&gt;r$，所以遇到这种情况请交换l和r</strong>。</p>
+<h3 id="输出格式-1"><a href="#输出格式-1" class="headerlink" title="输出格式"></a>输出格式</h3><p>对于询问操作，每行输出一个回答。</p>
+<h2 id="输入输出样例"><a href="#输入输出样例" class="headerlink" title="输入输出样例"></a>输入输出样例</h2><h3 id="输入样例-1"><a href="#输入样例-1" class="headerlink" title="输入样例 #1"></a>输入样例 #1</h3><figure class="highlight basic"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">10</span></span><br><span class="line"><span class="symbol">1 </span><span class="number">2</span> <span class="number">3</span> <span class="number">4</span> <span class="number">5</span> <span class="number">6</span> <span class="number">7</span> <span class="number">8</span> <span class="number">9</span> <span class="number">10</span></span><br><span class="line"><span class="number">5</span></span><br><span class="line"><span class="symbol">0 </span><span class="number">1</span> <span class="number">10</span></span><br><span class="line"><span class="symbol">1 </span><span class="number">1</span> <span class="number">10</span></span><br><span class="line"><span class="symbol">1 </span><span class="number">1</span> <span class="number">5</span></span><br><span class="line"><span class="symbol">0 </span><span class="number">5</span> <span class="number">8</span></span><br><span class="line"><span class="symbol">1 </span><span class="number">4</span> <span class="number">8</span></span><br></pre></td></tr></table></figure>
+<h3 id="输出样例-1"><a href="#输出样例-1" class="headerlink" title="输出样例 #1"></a>输出样例 #1</h3><figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">19</span></span><br><span class="line"><span class="number">7</span></span><br><span class="line"><span class="number">6</span></span><br></pre></td></tr></table></figure>
+<h2 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h2><p>对于30%的数据，$1\le n,m\le 1000$，数列中的数不超过$32767$。 </p>
+<p>对于100%的数据，$1 \le n,m \le 100000$，$1 \le l,r \le n$，数列中的数大于$0$，且不超过$10^{12}$。 </p>
+<p>注意l有可能大于r，遇到这种情况请交换l,r。</p>
+<h2 id="题解-1"><a href="#题解-1" class="headerlink" title="题解"></a>题解</h2><p>1e12的数开根号顶多六次就能到1。</p>
+<p>所以直接线段树维护，暴力修改，看区间和等于区间长度（也就是都是1）就return就好了qwq</p>
+<p>这样复杂度是对的。。</p>
+<p>考试时候忘了学长讲的这个方法。。枯辽。</p>
+<p>WanKuPi还有一种方法就是用树状数组维护区间前缀和，然后区间开方直接暴力，用并查集维护一下当前要开方的点权值是不是一，如果是一的话把并查集father设为它右边那个点的father，这样扫到它的时候看到它的father不是自己就直接跳到father，相当于上面的return，复杂度应该差不多。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> STDquantum &#123;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt; <span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">read</span><span class="params">(T &amp;x)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">char</span> ch;</span><br><span class="line">  <span class="keyword">while</span> (ch = getchar(), !<span class="built_in">isdigit</span>(ch)) &#123;&#125;</span><br><span class="line">  x = (ch ^ <span class="number">48</span>);</span><br><span class="line">  <span class="keyword">while</span> (ch = getchar(), <span class="built_in">isdigit</span>(ch)) &#123;</span><br><span class="line">    x = x * <span class="number">10</span> + (ch ^ <span class="number">48</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt; <span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">write</span><span class="params">(T x)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">static</span> T stk[<span class="number">100</span>], top = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">if</span> (x == <span class="number">0</span>) &#123;</span><br><span class="line">    <span class="built_in">putchar</span>(<span class="string">'0'</span>);</span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span> (x &lt; <span class="number">0</span>) x = -x, <span class="built_in">putchar</span>(<span class="string">'-'</span>);</span><br><span class="line">  <span class="keyword">while</span> (x) stk[++top] = x % <span class="number">10</span>, x /= <span class="number">10</span>;</span><br><span class="line">  <span class="keyword">while</span> (top) <span class="built_in">putchar</span>(stk[top--] + <span class="string">'0'</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> mid ((l + r) &gt;&gt; 1)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> lson (k &lt;&lt; 1)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> rson (k &lt;&lt; 1 | 1)</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">2e6</span> + <span class="number">10</span>;</span><br><span class="line"><span class="keyword">int</span> n, m, cnt;</span><br><span class="line">ll a[N];</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">T</span> &#123;</span></span><br><span class="line">  <span class="keyword">int</span> l, r;</span><br><span class="line">  ll sum;</span><br><span class="line">&#125; t[N];</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">build</span><span class="params">(<span class="keyword">int</span> k, <span class="keyword">int</span> l, <span class="keyword">int</span> r)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (l == r) &#123;</span><br><span class="line">    read(a[++cnt]);</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">void</span>(t[k].sum = a[cnt]);</span><br><span class="line">  &#125;</span><br><span class="line">  build(lson, l, mid);</span><br><span class="line">  build(rson, mid + <span class="number">1</span>, r);</span><br><span class="line">  t[k].sum = t[lson].sum + t[rson].sum;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">modify</span><span class="params">(<span class="keyword">int</span> k, <span class="keyword">int</span> l, <span class="keyword">int</span> r, <span class="keyword">int</span> L, <span class="keyword">int</span> R)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (t[k].sum &lt;= r - l + <span class="number">1</span>) <span class="keyword">return</span>;</span><br><span class="line">  <span class="keyword">if</span> (l == r) &#123; <span class="keyword">return</span> <span class="keyword">void</span>(t[k].sum = <span class="built_in">sqrt</span>(t[k].sum)); &#125;</span><br><span class="line">  <span class="keyword">if</span> (mid &gt;= L) modify(lson, l, mid, L, R);</span><br><span class="line">  <span class="keyword">if</span> (mid &lt; R) modify(rson, mid + <span class="number">1</span>, r, L, R);</span><br><span class="line">  t[k].sum = t[lson].sum + t[rson].sum;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function">ll <span class="title">query</span><span class="params">(<span class="keyword">int</span> k, <span class="keyword">int</span> l, <span class="keyword">int</span> r, <span class="keyword">int</span> L, <span class="keyword">int</span> R)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (L &lt;= l &amp;&amp; r &lt;= R) <span class="keyword">return</span> t[k].sum;</span><br><span class="line">  ll tmp = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">if</span> (mid &gt;= L) tmp += query(lson, l, mid, L, R);</span><br><span class="line">  <span class="keyword">if</span> (mid &lt; R) tmp += query(rson, mid + <span class="number">1</span>, r, L, R);</span><br><span class="line">  <span class="keyword">return</span> tmp;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  read(n);</span><br><span class="line">  build(<span class="number">1</span>, <span class="number">1</span>, n);</span><br><span class="line">  read(m);</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>, k, l, r; i &lt;= m; ++i) &#123;</span><br><span class="line">    read(k), read(l), read(r);</span><br><span class="line">    <span class="keyword">if</span> (l &gt; r) swap(l, r);</span><br><span class="line">    <span class="keyword">switch</span> (k) &#123;</span><br><span class="line">      <span class="keyword">case</span> <span class="number">0</span>: &#123;</span><br><span class="line">        modify(<span class="number">1</span>, <span class="number">1</span>, n, l, r);</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">case</span> <span class="number">1</span>: &#123;</span><br><span class="line">        write(query(<span class="number">1</span>, <span class="number">1</span>, n, l, r)), <span class="built_in">putchar</span>(<span class="string">'\n'</span>);</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;  <span class="comment">// namespace STDquantum</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  STDquantum::main();</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="P4140-BZOJ3813-奇数国"><a href="#P4140-BZOJ3813-奇数国" class="headerlink" title="P4140 BZOJ3813 奇数国"></a><a href="https://www.luogu.com.cn/problem/P4140" target="_blank" rel="noopener">P4140 BZOJ3813 奇数国</a></h1><h2 id="题目描述-2"><a href="#题目描述-2" class="headerlink" title="题目描述"></a>题目描述</h2><p>在一片美丽的大陆上有 $100\,000$ 个国家，记为 $1$ 到 $100\,000$。这里经济发达，有数不尽的账房，并且每个国家有一个银行。</p>
+<p>某大公司的领袖在这 $100\,000$ 个银行开户时都存了 $3$ 大洋，他惜财如命，因此会不时地派小弟 GFS 清点一些银行的存款或者让 GFS 改变某个银行的存款。</p>
+<p>该村子在财产上的求和运算等同于我们的乘法运算，也就是说领袖开户时的存款总和为 $3^{100000}$。这里发行的软妹面额是最小的 $60$ 个素数，</p>
+<script type="math/tex; mode=display">
+p_1=2,p_2=3,\ldots, p_{60}=281</script><p>任何人的财产都只能由这 $60$ 个基本面额表示，即设某个人的财产为 $fortune$（正整数），则 </p>
+<script type="math/tex; mode=display">
+fortune=p_1^{k_1} \times p_2^{k_2} \times \ldots p_{60}^{k_{60}}</script><p>领袖习惯将一段编号连续的银行里的存款拿到一个账房去清点，为了避免 GFS 串通账房叛变，所以他不会每次都选择同一个账房。GFS 跟随领袖多年已经摸清了门路,知道领袖选择账房的方式。如果领袖选择清点编号在 $[a,b]$ 内的银行财产，他会先对 $[a,b]$ 的财产求和（记为 $product$），然后在编号属于 $[1,product]$ 的账房中选择一个去清点存款，检验自己计算是否正确同时也检验账房与 GFS 是否有勾结。GFS 发现如果某个账房的编号 $number$ 与 $product$ 相冲，领袖绝对不会选择这个账房。</p>
+<p>怎样才算与 $product$ 不相冲呢？若存在整数 $x,y$ 使得 $number \times x+product \times y=1$，那么我们称 $number$ 与 $product$ 不相冲，即该账房有可能被领袖相中。当领袖又赚大钱了的时候，他会在某个银行改变存款，这样一来相同区间的银行在不同的时候算出来的 $product$ 可能是不一样的，而且领袖不会在某个银行的存款总数超过 $10^6$。</p>
+<p>现在 GFS 预先知道了领袖的清点存款与变动存款的计划，想请你告诉他，每次清点存款时领袖有多少个账房可以供他选择，当然这个值可能非常大，GFS 只想知道对 $19\,961\,993$ 取模后的答案。</p>
+<h2 id="输入输出格式-1"><a href="#输入输出格式-1" class="headerlink" title="输入输出格式"></a>输入输出格式</h2><h3 id="输入格式-2"><a href="#输入格式-2" class="headerlink" title="输入格式"></a>输入格式</h3><p>第一行一个整数 $x$ 表示领袖清点和变动存款的总次数。</p>
+<p>接下来 $x$ 行，每行 $3$ 个整数 $a_i,b_i,c_i$。$a_i$ 为 $0$ 时表示该条记录是清点计划，领袖会清点 $b_i$ 到 $c_i$ 的银行存款，你需要对该条记录计算出 GFS 想要的答案。$a_i$ 为 $1$ 时表示该条记录是存款变动，你要把银行 $b_i$ 的存款改为 $c_i$，不需要对该记录进行计算。</p>
+<h3 id="输出格式-2"><a href="#输出格式-2" class="headerlink" title="输出格式"></a>输出格式</h3><p>对于每个询问，输出一行一个整数表示答案。</p>
+<h2 id="输入输出样例-1"><a href="#输入输出样例-1" class="headerlink" title="输入输出样例"></a>输入输出样例</h2><h3 id="输入样例-1-1"><a href="#输入样例-1-1" class="headerlink" title="输入样例 #1"></a>输入样例 #1</h3><figure class="highlight basic"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">6</span></span><br><span class="line"><span class="symbol">0 </span><span class="number">1</span> <span class="number">3</span></span><br><span class="line"><span class="symbol">1 </span><span class="number">1</span> <span class="number">5</span></span><br><span class="line"><span class="symbol">0 </span><span class="number">1</span> <span class="number">3</span></span><br><span class="line"><span class="symbol">1 </span><span class="number">1</span> <span class="number">7</span></span><br><span class="line"><span class="symbol">0 </span><span class="number">1</span> <span class="number">3</span></span><br><span class="line"><span class="symbol">0 </span><span class="number">2</span> <span class="number">3</span></span><br></pre></td></tr></table></figure>
+<h3 id="输出样例-1-1"><a href="#输出样例-1-1" class="headerlink" title="输出样例 #1"></a>输出样例 #1</h3><figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">18</span></span><br><span class="line"><span class="number">24</span></span><br><span class="line"><span class="number">36</span></span><br><span class="line"><span class="number">6</span></span><br></pre></td></tr></table></figure>
+<h2 id="说明-1"><a href="#说明-1" class="headerlink" title="说明"></a>说明</h2><h3 id="样例解释"><a href="#样例解释" class="headerlink" title="样例解释"></a>样例解释</h3><ul>
+<li>初始化每个国家存款都为 $3$；</li>
+<li>$1$ 到 $3$ 的 $product$ 为 $27$，$[1,27]$ 与 $27$ 不相冲的有 $18$ 个数；</li>
+<li>$1$ 的存款变为 $5$；</li>
+<li>$1$ 到 $3$ 的 $product$ 为 $45$，$[1,45]$ 与 $45$ 不相冲的有 $24$ 个数；</li>
+<li>$1$ 的存款变为 $7$；</li>
+<li>$1$ 到 $3$ 的 $product$ 为 $63$，$[1,63]$ 与 $63$ 不相冲的有 $36$个数；</li>
+<li>$2$ 到 $3$ 的 $product$ 为 $9$，$[1,9]$ 与 $9$ 不相冲的有 $6$ 个数。 </li>
+</ul>
+<h3 id="数据范围"><a href="#数据范围" class="headerlink" title="数据范围"></a>数据范围</h3><p>所有数据均满足：$x \geq 1$，$c_i -b_i \geq 0$。 </p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">子任务编号</th>
+<th style="text-align:center">分值</th>
+<th style="text-align:center">$x \leq$</th>
+<th style="text-align:center">$c_i - b_i \leq$</th>
+<th style="text-align:center">特殊性质</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">$1$</td>
+<td style="text-align:center">$20$</td>
+<td style="text-align:center">$10^4$</td>
+<td style="text-align:center">$100$</td>
+<td style="text-align:center">有</td>
+</tr>
+<tr>
+<td style="text-align:center">$2$</td>
+<td style="text-align:center">$30$</td>
+<td style="text-align:center">$5 \times 10^4$</td>
+<td style="text-align:center">$10^4$</td>
+<td style="text-align:center">无</td>
+</tr>
+<tr>
+<td style="text-align:center">$3$</td>
+<td style="text-align:center">$50$</td>
+<td style="text-align:center">$10^5$</td>
+<td style="text-align:center">$10^5$</td>
+<td style="text-align:center">无</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>特殊性质指：所有 $product \leq 10^{18}$。</p>
+<h2 id="题解-2"><a href="#题解-2" class="headerlink" title="题解"></a>题解</h2><p>首先要知道只有在$\gcd(x,y)=1$，即$x,y$互质的情况下才会存在$a,b\in\mathbb{Z}$使得$ax+by=1$。（<a href="https://baike.baidu.com/item/裴蜀定理/5186593" target="_blank" rel="noopener">裴蜀定理</a>）</p>
+<p>然后要知道$[1,x]$内与$x$互质的数字个数是$\varphi(x)$，这个函数是可以在$\mathcal{O}(\sqrt{N})$内查询单个函数值的。（<a href="https://baike.baidu.com/item/欧拉函数/1944850" target="_blank" rel="noopener">欧拉函数</a>）</p>
+<p>然后我们观察这道题需要做的事情：</p>
+<ul>
+<li><p>$a=0$的清点计划就是求出区间$[b,c]$的积$x$并输出$\varphi(x)$。</p>
+</li>
+<li><p>$a=1$的存款变动就是单点修改。</p>
+</li>
+</ul>
+<p>现在的问题就是$\varphi(x)$怎么维护呢？</p>
+<p>要记住一个很重要的等式</p>
+<script type="math/tex; mode=display">
+\varphi(N)=N\prod\frac{p-1}{p}=\prod p^k-p^{k-1}</script><p>其中$p$是$N$的质因子，$k$是$N$的<a href="https://baike.baidu.com/item/整数分解/8930091" target="_blank" rel="noopener">整数分解</a>中$p$的指数。</p>
+<p>对后面的那个式子，可以用线段树维护区间的积的质因子及其指数，时间复杂度$\mathcal{O}(m\log^2n)$，常数稍稍有点大。</p>
+<p>考虑第一个式子，我们知道$N\;\mbox{mod}\;19961993$就可以了，这就是查个区间积的事；至于质因子，只需要知道有哪个就行了，只有$60$个所以可以用<code>long long</code>来装，按位或维护就行。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> STDquantum &#123;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt; <span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">read</span><span class="params">(T &amp;x)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">char</span> ch;</span><br><span class="line">  <span class="keyword">while</span> (ch = getchar(), !<span class="built_in">isdigit</span>(ch)) &#123;&#125;</span><br><span class="line">  x = (ch ^ <span class="number">48</span>);</span><br><span class="line">  <span class="keyword">while</span> (ch = getchar(), <span class="built_in">isdigit</span>(ch)) &#123;</span><br><span class="line">    x = x * <span class="number">10</span> + (ch ^ <span class="number">48</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt; <span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">write</span><span class="params">(T x)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">static</span> T stk[<span class="number">100</span>], top = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">if</span> (x == <span class="number">0</span>) <span class="keyword">return</span> (<span class="keyword">void</span>)<span class="built_in">putchar</span>(<span class="string">'0'</span>);</span><br><span class="line">  <span class="keyword">if</span> (x &lt; <span class="number">0</span>) x = -x, <span class="built_in">putchar</span>(<span class="string">'-'</span>);</span><br><span class="line">  <span class="keyword">while</span> (x) stk[++top] = x % <span class="number">10</span>, x /= <span class="number">10</span>;</span><br><span class="line">  <span class="keyword">while</span> (top) <span class="built_in">putchar</span>(stk[top--] + <span class="string">'0'</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> mid ((l + r) &gt;&gt; 1)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ls (k &lt;&lt; 1)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> rs (k &lt;&lt; 1 | 1)</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">1e5</span> + <span class="number">10</span>, p = <span class="number">19961993</span>, n = <span class="number">1e5</span>;</span><br><span class="line">ll q, ans;</span><br><span class="line">ll pri[] = &#123;<span class="number">2</span>,   <span class="number">3</span>,   <span class="number">5</span>,   <span class="number">7</span>,   <span class="number">11</span>,  <span class="number">13</span>,  <span class="number">17</span>,  <span class="number">19</span>,  <span class="number">23</span>,</span><br><span class="line">            <span class="number">29</span>,  <span class="number">31</span>,  <span class="number">37</span>,  <span class="number">41</span>,  <span class="number">43</span>,  <span class="number">47</span>,  <span class="number">53</span>,  <span class="number">59</span>,  <span class="number">61</span>,</span><br><span class="line">            <span class="number">67</span>,  <span class="number">71</span>,  <span class="number">73</span>,  <span class="number">79</span>,  <span class="number">83</span>,  <span class="number">89</span>,  <span class="number">97</span>,  <span class="number">101</span>, <span class="number">103</span>,</span><br><span class="line">            <span class="number">107</span>, <span class="number">109</span>, <span class="number">113</span>, <span class="number">127</span>, <span class="number">131</span>, <span class="number">137</span>, <span class="number">139</span>, <span class="number">149</span>, <span class="number">151</span>,</span><br><span class="line">            <span class="number">157</span>, <span class="number">163</span>, <span class="number">167</span>, <span class="number">173</span>, <span class="number">179</span>, <span class="number">181</span>, <span class="number">191</span>, <span class="number">193</span>, <span class="number">197</span>,</span><br><span class="line">            <span class="number">199</span>, <span class="number">211</span>, <span class="number">223</span>, <span class="number">227</span>, <span class="number">229</span>, <span class="number">233</span>, <span class="number">239</span>, <span class="number">241</span>, <span class="number">251</span>,</span><br><span class="line">            <span class="number">257</span>, <span class="number">263</span>, <span class="number">269</span>, <span class="number">271</span>, <span class="number">277</span>, <span class="number">281</span>&#125;;</span><br><span class="line">ll inv[] = &#123;</span><br><span class="line">    <span class="number">9980997</span>,  <span class="number">6653998</span>,  <span class="number">11977196</span>, <span class="number">8555140</span>,  <span class="number">5444180</span>,</span><br><span class="line">    <span class="number">1535538</span>,  <span class="number">10568114</span>, <span class="number">14708837</span>, <span class="number">3471651</span>,  <span class="number">11701858</span>,</span><br><span class="line">    <span class="number">17386252</span>, <span class="number">1618540</span>,  <span class="number">16066970</span>, <span class="number">2321162</span>,  <span class="number">18263100</span>,</span><br><span class="line">    <span class="number">16948862</span>, <span class="number">12518538</span>, <span class="number">15380552</span>, <span class="number">10725847</span>, <span class="number">1686929</span>,</span><br><span class="line">    <span class="number">13399146</span>, <span class="number">17182475</span>, <span class="number">12025297</span>, <span class="number">15924736</span>, <span class="number">13582387</span>,</span><br><span class="line">    <span class="number">395287</span>,   <span class="number">6395590</span>,  <span class="number">15857658</span>, <span class="number">16299242</span>, <span class="number">6359573</span>,</span><br><span class="line">    <span class="number">3300802</span>,  <span class="number">18742940</span>, <span class="number">6702567</span>,  <span class="number">10914471</span>, <span class="number">16210746</span>,</span><br><span class="line">    <span class="number">11765678</span>, <span class="number">5340151</span>,  <span class="number">18247466</span>, <span class="number">7769638</span>,  <span class="number">8077107</span>,</span><br><span class="line">    <span class="number">11932588</span>, <span class="number">6506948</span>,  <span class="number">1985748</span>,  <span class="number">6619521</span>,  <span class="number">5877135</span>,</span><br><span class="line">    <span class="number">4413707</span>,  <span class="number">9744480</span>,  <span class="number">10115270</span>, <span class="number">14597757</span>, <span class="number">16475182</span>,</span><br><span class="line">    <span class="number">18334191</span>, <span class="number">5011379</span>,  <span class="number">18885205</span>, <span class="number">7555336</span>,  <span class="number">621385</span>,</span><br><span class="line">    <span class="number">11309266</span>, <span class="number">12170137</span>, <span class="number">12006660</span>, <span class="number">18304499</span>, <span class="number">11153142</span>&#125;;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">T</span> &#123;</span></span><br><span class="line">  ll st, w;</span><br><span class="line">&#125; t[N &lt;&lt; <span class="number">4</span>];</span><br><span class="line"><span class="function"><span class="keyword">inline</span> ll <span class="title">press</span><span class="params">(ll x)</span> </span>&#123;</span><br><span class="line">  ll res = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">60</span>; ++i) &#123;</span><br><span class="line">    <span class="keyword">if</span> (x % pri[i] == <span class="number">0</span>) &#123; res |= (<span class="number">1l</span>l &lt;&lt; i); &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">pushup</span><span class="params">(ll k)</span> </span>&#123;</span><br><span class="line">  t[k] = (T)&#123;t[ls].st | t[rs].st, t[ls].w * t[rs].w % p&#125;;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">build</span><span class="params">(ll k, ll l, ll r)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (l == r) &#123; <span class="keyword">return</span> <span class="keyword">void</span>(t[k] = (T)&#123;press(<span class="number">3</span>), <span class="number">3l</span>l&#125;); &#125;</span><br><span class="line">  build(ls, l, mid);</span><br><span class="line">  build(rs, mid + <span class="number">1</span>, r);</span><br><span class="line">  pushup(k);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">modify</span><span class="params">(ll k, ll l, ll r, ll L, ll c)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (L == l &amp;&amp; L == r) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">void</span>(t[k] = (T)&#123;press(c), c % p&#125;);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span> (mid &gt;= L) &#123;</span><br><span class="line">    modify(ls, l, mid, L, c);</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    modify(rs, mid + <span class="number">1</span>, r, L, c);</span><br><span class="line">  &#125;</span><br><span class="line">  pushup(k);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function">T <span class="title">query</span><span class="params">(ll k, ll l, ll r, ll L, ll R)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (L &lt;= l &amp;&amp; r &lt;= R) &#123; <span class="keyword">return</span> t[k]; &#125;</span><br><span class="line">  T tmp = (T)&#123;<span class="number">0l</span>l, <span class="number">1l</span>l&#125;;</span><br><span class="line">  <span class="keyword">if</span> (mid &gt;= L) &#123;</span><br><span class="line">    T tmp1 = query(ls, l, mid, L, R);</span><br><span class="line">    tmp.st |= tmp1.st;</span><br><span class="line">    (tmp.w *= tmp1.w) %= p;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span> (mid &lt; R) &#123;</span><br><span class="line">    T tmp2 = query(rs, mid + <span class="number">1</span>, r, L, R);</span><br><span class="line">    tmp.st |= tmp2.st;</span><br><span class="line">    (tmp.w *= tmp2.w) %= p;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> tmp;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  read(q);</span><br><span class="line">  build(<span class="number">1</span>, <span class="number">1</span>, n);</span><br><span class="line">  <span class="keyword">for</span> (ll i = <span class="number">1</span>, k, l, r; i &lt;= q; ++i) &#123;</span><br><span class="line">    read(k), read(l), read(r);</span><br><span class="line">    <span class="keyword">switch</span> (k) &#123;</span><br><span class="line">      <span class="keyword">case</span> <span class="number">0</span>: &#123;</span><br><span class="line">        T tmp = query(<span class="number">1</span>, <span class="number">1</span>, n, l, r);</span><br><span class="line">        ans = tmp.w;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">60</span>; ++i) &#123;</span><br><span class="line">          <span class="keyword">if</span> ((tmp.st &gt;&gt; i) &amp; <span class="number">1</span>) &#123;</span><br><span class="line">            (ans *= (pri[i] - <span class="number">1</span>)) %= p;</span><br><span class="line">            (ans *= inv[i]) %= p;</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        write(ans), <span class="built_in">putchar</span>(<span class="string">'\n'</span>);</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">case</span> <span class="number">1</span>: &#123;</span><br><span class="line">        modify(<span class="number">1</span>, <span class="number">1</span>, n, l, r);</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;  <span class="comment">// namespace STDquantum</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  STDquantum::main();</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>晚上调到23:36，过于生草，瞎pushup把权值全整成零了。一乘啥也不剩。</p>
+<h1 id="P3258-BZOJ3631-JLOI2014-松鼠的新家"><a href="#P3258-BZOJ3631-JLOI2014-松鼠的新家" class="headerlink" title="P3258 BZOJ3631 [JLOI2014]松鼠的新家"></a><a href="https://www.luogu.com.cn/problem/P3258" target="_blank" rel="noopener">P3258 BZOJ3631 [JLOI2014]松鼠的新家</a></h1> 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/OI/" rel="tag">OI</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+  <nav class="article-nav">
+    
+      <a href="/cf98c-help-greg-the-dwarf/" class="article-nav-link">
+        <strong class="article-nav-caption">上一篇</strong>
+        <div class="article-nav-title">
+          
+            CF98C Help Greg the Dwarf
+          
+        </div>
+      </a>
+    
+    
+      <a href="/zhu-xi-shu-xue-xi-bi-ji/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">主席树学习笔记</div>
+      </a>
+    
+  </nav>
+
+  
+     
+</article>
+
+</section>
+      <footer class="footer">
+  <div class="outer">
+    <ul>
+      <li>
+        Copyrights &copy;
+        2020
+        <i class="ri-heart-fill heart_icon"></i> STDquantum
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+      </li>
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      <li>
+        <!-- cnzz统计 -->
+        
+      </li>
+    </ul>
+  </div>
+</footer>
+      <div class="float_btns">
+        <div class="totop" id="totop">
+  <i class="ri-arrow-up-line"></i>
+</div>
+
+      </div>
+    </main>
+    <aside class="sidebar on">
+      <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/1.jpg" alt="STDquantum"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">主页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">归档</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/categories">分类</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/tags">标签</a>
+    </li>
+    
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      
+      <a class="nav-item-link nav-item-search"  title="搜索">
+        <i class="ri-search-line"></i>
+      </a>
+      
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+    </aside>
+    <script>
+      if (window.matchMedia("(max-width: 768px)").matches) {
+        document.querySelector('.content').classList.remove('on');
+        document.querySelector('.sidebar').classList.remove('on');
+      }
+    </script>
+    <div id="mask"></div>
+
+<!-- #reward -->
+<div id="reward">
+  <span class="close"><i class="ri-close-line"></i></span>
+  <p class="reward-p"><i class="ri-cup-line"></i></p>
+  <div class="reward-box">
+    
+    
+  </div>
+</div>
+    
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+
+<script src="/js/lazyload.min.js"></script>
+
+<!-- Tocbot -->
+
+
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  tocbot.init({
+    tocSelector: '.tocbot',
+    contentSelector: '.article-entry',
+    headingSelector: 'h1, h2, h3, h4, h5, h6',
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: 'main',
+    positionFixedSelector: '.tocbot',
+    positionFixedClass: 'is-position-fixed',
+    fixedSidebarOffset: 'auto'
+  });
+</script>
+<!-- Live-2D -->
+<script type="text/javascript" charset="utf-8" src="/js/L2Dwidget.0.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="/js/L2Dwidget.min.js"></script>
+<script type="text/javascript">
+  L2Dwidget.on('*', (name) => {
+    console.log('%c EVENT ' + '%c -> ' + name, 'background: #222; color: yellow', 'background: #fff; color: #000')
+  });
+  L2Dwidget.init({
+    "display": {
+      "superSample": 2,
+      "width": 200,
+      "height": 400,
+      "position": "right",
+      "hOffset": 0,
+      "vOffset": 0
+    },
+    "mobile": {
+      "show": true,
+      "scale": 0.7
+    }
+  });
+</script>
+
+<script src="/js/jquery.modal.min.js"></script>
+<link rel="stylesheet" href="/css/jquery.modal.min.css">
+<script src="/js/jquery.justifiedGallery.min.js"></script>
+
+<script src="/dist/main.js"></script>
+
+<!-- ImageViewer -->
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<link rel="stylesheet" href="/css/photoswipe.min.css">
+<link rel="stylesheet" href="/css/default-skin.min.css">
+<script src="/js/photoswipe.min.js"></script>
+<script src="/js/photoswipe-ui-default.min.js"></script>
+
+<script>
+    function viewer_init() {
+        let pswpElement = document.querySelectorAll('.pswp')[0];
+        let $imgArr = document.querySelectorAll(('.article-entry img:not(.reward-img)'))
+
+        $imgArr.forEach(($em, i) => {
+            $em.onclick = () => {
+                // slider展开状态
+                // todo: 这样不好，后面改成状态
+                if (document.querySelector('.left-col.show')) return
+                let items = []
+                $imgArr.forEach(($em2, i2) => {
+                    let img = $em2.getAttribute('data-idx', i2)
+                    let src = $em2.getAttribute('data-target') || $em2.getAttribute('src')
+                    let title = $em2.getAttribute('alt')
+                    // 获得原图尺寸
+                    const image = new Image()
+                    image.src = src
+                    items.push({
+                        src: src,
+                        w: image.width || $em2.width,
+                        h: image.height || $em2.height,
+                        title: title
+                    })
+                })
+                var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, {
+                    index: parseInt(i)
+                });
+                gallery.init()
+            }
+        })
+    }
+    viewer_init()
+</script>
+
+<!-- MathJax -->
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      extensions: ["tex2jax.js"],
+      jax: ["input/TeX","output/HTML-CSS"],
+      tex2jax: {inlineMath: [["$","$"]]}
+    });
+  </script>
+
+<script src="/mathjax/MathJax.js"></script>
+<script>
+  var ayerConfig = {
+    mathjax: true
+  }
+</script>
+
+<!-- Katex -->
+
+<!-- busuanzi  -->
+
+<!-- ClickLove -->
+
+
+<script src="/js/clickLove.js"></script>
+
+
+<!-- ClickBoom1 -->
+
+<!-- ClickBoom2 -->
+
+<!-- CodeCopy -->
+
+
+<link rel="stylesheet" href="/css/clipboard.css">
+
+<script src="/js/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="ri-file-copy-2-line"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-checkbox-circle-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-checkbox-circle-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-time-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-time-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+
+
+<!-- CanvasBackground -->
+
+
+    
+  </div>
+</body>
+
+</html>

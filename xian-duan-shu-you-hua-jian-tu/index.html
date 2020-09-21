@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+
+
+<html lang="zh-CN">
+
+
+<head>
+  <meta charset="utf-8" />
+    
+  <meta name="description" content="STDquantum" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <title>
+    线段树优化建图 |  STDquantum
+  </title>
+  <meta name="generator" content="hexo-theme-ayer">
+  
+  <link rel="shortcut icon" href="/1.ico" />
+  
+  
+<link rel="stylesheet" href="/dist/main.css">
+
+  
+<link rel="stylesheet" href="/css/remixicon.min.css">
+
+  
+<link rel="stylesheet" href="/css/custom.css">
+
+  
+  
+<script src="/js/pace.min.js"></script>
+
+  
+  
+
+  
+
+</head>
+
+</html>
+
+<body>
+  <div id="app">
+    
+      
+    <main class="content on">
+      <section class="outer">
+  <article
+  id="post-OI/学习笔记/线段树优化建图"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  线段树优化建图
+</h1>
+ 
+
+    </header>
+     
+    <div class="article-meta">
+      <a href="/xian-duan-shu-you-hua-jian-tu/" class="article-date">
+  <time datetime="2020-07-18T09:28:13.000Z" itemprop="datePublished">2020-07-18</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/OI/">OI</a> / <a class="article-category-link" href="/categories/OI/%E5%9B%BE%E8%AE%BA/">图论</a> / <a class="article-category-link" href="/categories/OI/%E5%9B%BE%E8%AE%BA/%E7%BA%BF%E6%AE%B5%E6%A0%91%E4%BC%98%E5%8C%96%E5%BB%BA%E5%9B%BE/">线段树优化建图</a>
+  </div>
+  
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> 字数统计:</span>
+            <span class="post-count">2k</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> 阅读时长≈</span>
+            <span class="post-count">8 分钟</span>
+        </span>
+    </span>
+</div>
+ 
+    </div>
+      
+    <div class="tocbot"></div>
+
+
+
+
+  
+    <div class="article-entry" itemprop="articleBody">
+       
+  <p>区间内边建图的优化。</p>
+<a id="more"></a>
+<p>作为一个小白，我就先放上高义雄学长的讲解和例题。</p>
+<h1 id="线段树优化建图"><a href="#线段树优化建图" class="headerlink" title="线段树优化建图"></a>线段树优化建图</h1><p>学习笔记-$SGColin$-$2018/07/17$</p>
+<h2 id="适用情况"><a href="#适用情况" class="headerlink" title="适用情况"></a>适用情况</h2><p>当点数很多，并且边集以区间形式（点$\rightarrow$区间$/$区间$\rightarrow$点）给出</p>
+<p>强行连边复杂度太大，考虑如何维护同一个子区间的连边，使用线段树优化。</p>
+<h2 id="优化思路"><a href="#优化思路" class="headerlink" title="优化思路"></a>优化思路</h2><p>先考虑点$\rightarrow$区间连边的部分。</p>
+<p>考虑建图的复杂度真正体现在哪里。</p>
+<p>如果所有的被连边区间不交，那么总复杂度是对的。</p>
+<p>所以真正建图的复杂度，产生在被连边区间相交的部分，尤其是一个同一个区间被多个点连边，那么我们每一个都要产生区间长度的代价。</p>
+<p>那么有一个思路，如果有一个区间被多次连边，那么不妨我们建立这个区间的一个代表节点。</p>
+<p>首先预处理的时候将这个代表节点连向区间里的每一个节点，边权为$0$，就代表了连向代表节点的每一条边都连向了区间里的每一个节点，然后都每次都将边连向这个代表节点即可。</p>
+<h2 id="建图过程-点-rightarrow-区间"><a href="#建图过程-点-rightarrow-区间" class="headerlink" title="建图过程 (点$\rightarrow$区间)"></a>建图过程 (点$\rightarrow$区间)</h2><p>但是注意到这种区间并不是很好找，这种找区间的方法并不是具有很强的普适性。</p>
+<p>我们知道线段树的每一个节点维护的是一个固定的区间，线段树的区间操作是$log$的。</p>
+<p>回忆区间加的过程，如果一个节点的代表区间被完全覆盖，那么我们会在这个节点上打标记，等到需要的时候再下传。这体现了一种代表的关系，即区间共有的性质我可以只标记在代表这个区间的节点上。</p>
+<p>如果要从一个点连向一个区间，那么可以像区间加那样，把这个点向完全覆盖的区间连边。</p>
+<p>也就是说，在区间连边时，在线段树上每找到一个完全覆盖的节点，就将出发点向这个区间的代表节点连边。</p>
+<hr>
+<p>同样的，我们先考虑预处理。</p>
+<p>一个节点被连边，代表这个节点的 <strong>子树</strong> 都可以到达。</p>
+<p>之所以强调子树，而不是强调区间里的每一个节点，因为我们预处理的边只会向下 <strong>连一层</strong> 。</p>
+<p>只连下一层的边数量级是$O(2N)$，而连向区间里的每一个节点显然每一层都是$O(N)$，总的边的数量级就是$O(Nlog_2N)$，边的级别显然大了很多，并且也不符合线段树的关系定义。</p>
+<p>一个$8$个节点的线段树预处理之后的连边情况如图所示。图中边权全部为$0$ 。</p>
+<img src="/xian-duan-shu-you-hua-jian-tu/1.png" class>
+<p>然后一条连边就可以按照我们说的那样了，找到对应的区间就好。</p>
+<p>假如$8$号点要向区间$[2,5]$连边，最后会是蓝边的样子（边权就省略了）：</p>
+<img src="/xian-duan-shu-you-hua-jian-tu/2.png" class>
+<h2 id="建图过程-区间-rightarrow-点"><a href="#建图过程-区间-rightarrow-点" class="headerlink" title="建图过程 (区间$\rightarrow$点)"></a>建图过程 (区间$\rightarrow$点)</h2><p>发现原来线段树的区间传递关系并不对了。</p>
+<p>如果我们找到了每一段区间，直接向指向的点连边，子树内真正建边的点并没有连出这一条边。</p>
+<p>如图，如果要区间$[5,8]$向$T$连边，蓝框框起来的点并没有真正向$T$连边。</p>
+<p>因为建树的时候绿色边的方向是向区间内传递的。</p>
+<img src="/xian-duan-shu-you-hua-jian-tu/3.png" class>
+<p>很容易想到反向再建一棵树。显然叶节点是相同的，所以两棵树会共用叶节点。</p>
+<img src="/xian-duan-shu-you-hua-jian-tu/4.png" class>
+<p>倒着的树上传递关系就变为，一个节点连了出边，那么他所代表的区间里所有节点都向外连了一条出边。</p>
+<p>同理，这些绿色的边的边权都是$0$。</p>
+<p>关于正确性，显然更大的区间并不会到达小区间，所以连边不用担心范围超界。</p>
+<p>此时我们就可以在倒着的树上找所有的区间，然后连出边就可以了。</p>
+<h2 id="例题"><a href="#例题" class="headerlink" title="例题"></a>例题</h2><p>一张$N$个点的 <strong>无向图</strong> ，边以以下$M$条信息的形式给出：</p>
+<ul>
+<li>$l_1,r_1,l_2,r_2$代表区间$[l_1,r_1]$内的每一个点与区间$[l_2,r_2]$内的每一个点之间都有一条长度为$1$的无向边。</li>
+</ul>
+<p>求$S$点的单源最短路，保证图连通。</p>
+<ul>
+<li>$N\le5\times10^5,M\le10^5,1\le l_1,l_2,r_1,r_2\le N$</li>
+</ul>
+<p>我们对每一条信息都单独开出来一个转移节点，然后就变成了 区间$\rightarrow$点和 点$\rightarrow$区间的问题了。</p>
+<p>但是双向边不能共用一个转移节点。因为这样其实上在$[l_1,r_1]$内的每个点之间都连了一条长度为$2$的边。</p>
+<p>实际做的时候，对每一个单向边都开一个转移节点，然后出边边权都设为$0$，入边边权都设为$1$就可以了。</p>
+<p>还有一个比较妙的方法，是出入边权都设为$1$然后最短路的答案除以$2$，也是可以的。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> LOCAL LOCAL</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> STDquantum &#123;</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> intt register int</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> mid ((l + r) &gt;&gt; 1)</span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">4e6</span> + <span class="number">10</span>;</span><br><span class="line"><span class="keyword">int</span> n, m, s, cnt, tot, dis[N &lt;&lt; <span class="number">1</span>], head[N &lt;&lt; <span class="number">1</span>];</span><br><span class="line"><span class="keyword">bool</span> vis[N];</span><br><span class="line">priority_queue&lt;pair&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt; &gt; q;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">E</span> &#123;</span></span><br><span class="line">  <span class="keyword">int</span> next, to, w;</span><br><span class="line">&#125; e[N &lt;&lt; <span class="number">1</span>];</span><br><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt; <span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">read</span><span class="params">(T &amp;x)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">char</span> ch;</span><br><span class="line">  <span class="keyword">while</span> (ch = getchar(), !<span class="built_in">isdigit</span>(ch)) <span class="keyword">continue</span>;</span><br><span class="line">  x = (ch ^ <span class="number">48</span>);</span><br><span class="line">  <span class="keyword">while</span> (ch = getchar(), <span class="built_in">isdigit</span>(ch)) x = x * <span class="number">10</span> + (ch ^ <span class="number">48</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">add</span><span class="params">(<span class="keyword">int</span> from, <span class="keyword">int</span> to, <span class="keyword">int</span> w)</span> </span>&#123;</span><br><span class="line">  e[++tot] = (E)&#123;head[from], to, w&#125;;</span><br><span class="line">  head[from] = tot;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">In</span> &#123;</span></span><br><span class="line">  <span class="keyword">int</span> root, ptr;</span><br><span class="line">  <span class="class"><span class="keyword">struct</span> <span class="title">T</span> &#123;</span></span><br><span class="line">    <span class="keyword">int</span> ls, rs, p;</span><br><span class="line">  &#125; c[N &lt;&lt; <span class="number">1</span>];</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">inline</span> <span class="keyword">int</span> <span class="title">newnode</span><span class="params">()</span> </span>&#123; <span class="keyword">return</span> ++ptr; &#125;</span><br><span class="line">  <span class="function"><span class="keyword">void</span> <span class="title">build</span><span class="params">(<span class="keyword">int</span> &amp;k, <span class="keyword">int</span> l, <span class="keyword">int</span> r)</span> </span>&#123;</span><br><span class="line">    k = newnode();</span><br><span class="line">    <span class="keyword">if</span> (l == r) &#123;</span><br><span class="line">      c[k].p = l;</span><br><span class="line">      <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    build(c[k].ls, l, mid);</span><br><span class="line">    build(c[k].rs, mid + <span class="number">1</span>, r);</span><br><span class="line">    c[k].p = ++cnt;</span><br><span class="line">    add(c[k].p, c[c[k].ls].p, <span class="number">0</span>);</span><br><span class="line">    add(c[k].p, c[c[k].rs].p, <span class="number">0</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="function"><span class="keyword">void</span> <span class="title">update</span><span class="params">(<span class="keyword">int</span> k, <span class="keyword">int</span> l, <span class="keyword">int</span> r, <span class="keyword">int</span> L, <span class="keyword">int</span> R, <span class="keyword">int</span> p, <span class="keyword">int</span> w)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (l &gt; R || r &lt; L) <span class="keyword">return</span>;</span><br><span class="line">    <span class="keyword">if</span> (L &lt;= l &amp;&amp; r &lt;= R) &#123;</span><br><span class="line">      add(p, c[k].p, w);</span><br><span class="line">      <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (L &lt;= mid) update(c[k].ls, l, mid, L, R, p, w);</span><br><span class="line">    <span class="keyword">if</span> (R &gt; mid) update(c[k].rs, mid + <span class="number">1</span>, r, L, R, p, w);</span><br><span class="line">  &#125;</span><br><span class="line">&#125; treein;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Out</span> &#123;</span></span><br><span class="line">  <span class="keyword">int</span> root, ptr;</span><br><span class="line">  <span class="class"><span class="keyword">struct</span> <span class="title">T</span> &#123;</span></span><br><span class="line">    <span class="keyword">int</span> ls, rs, p;</span><br><span class="line">  &#125; c[N &lt;&lt; <span class="number">1</span>];</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">inline</span> <span class="keyword">int</span> <span class="title">newnode</span><span class="params">()</span> </span>&#123; <span class="keyword">return</span> ++ptr; &#125;</span><br><span class="line">  <span class="function"><span class="keyword">void</span> <span class="title">build</span><span class="params">(<span class="keyword">int</span> &amp;k, <span class="keyword">int</span> l, <span class="keyword">int</span> r)</span> </span>&#123;</span><br><span class="line">    k = newnode();</span><br><span class="line">    <span class="keyword">if</span> (l == r) &#123;</span><br><span class="line">      c[k].p = l;</span><br><span class="line">      <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    build(c[k].ls, l, mid);</span><br><span class="line">    build(c[k].rs, mid + <span class="number">1</span>, r);</span><br><span class="line">    c[k].p = ++cnt;</span><br><span class="line">    add(c[c[k].ls].p, c[k].p, <span class="number">0</span>);</span><br><span class="line">    add(c[c[k].rs].p, c[k].p, <span class="number">0</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="function"><span class="keyword">void</span> <span class="title">update</span><span class="params">(<span class="keyword">int</span> k, <span class="keyword">int</span> l, <span class="keyword">int</span> r, <span class="keyword">int</span> L, <span class="keyword">int</span> R, <span class="keyword">int</span> p, <span class="keyword">int</span> w)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (l &gt; R || r &lt; L) <span class="keyword">return</span>;</span><br><span class="line">    <span class="keyword">if</span> (L &lt;= l &amp;&amp; r &lt;= R) &#123;</span><br><span class="line">      add(c[k].p, p, w);</span><br><span class="line">      <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (L &lt;= mid) update(c[k].ls, l, mid, L, R, p, w);</span><br><span class="line">    <span class="keyword">if</span> (R &gt; mid) update(c[k].rs, mid + <span class="number">1</span>, r, L, R, p, w);</span><br><span class="line">  &#125;</span><br><span class="line">&#125; treeout;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">Dijkstra</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  <span class="built_in">memset</span>(dis, <span class="number">0x3f</span>, <span class="keyword">sizeof</span>(dis));</span><br><span class="line">  dis[s] = <span class="number">0</span>;</span><br><span class="line">  q.push(make_pair(<span class="number">0</span>, s));</span><br><span class="line">  <span class="keyword">while</span> (!q.empty()) &#123;</span><br><span class="line">    intt u = q.top().second;</span><br><span class="line">    q.pop();</span><br><span class="line">    <span class="keyword">if</span> (vis[u]) <span class="keyword">continue</span>;</span><br><span class="line">    vis[u] = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span> (intt i = head[u], v; i; i = e[i].next) &#123;</span><br><span class="line">      <span class="keyword">if</span> (dis[v = e[i].to] &gt; dis[u] + e[i].w) &#123;</span><br><span class="line">        dis[v] = dis[u] + e[i].w;</span><br><span class="line">        q.push(make_pair(-dis[v], v));</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  read(n), read(m), read(s);</span><br><span class="line">  cnt = n;</span><br><span class="line">  treein.build(treein.root, <span class="number">1</span>, n);</span><br><span class="line">  treeout.build(treeout.root, <span class="number">1</span>, n);</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>, l1, r1, l2, r2; i &lt;= m; ++i) &#123;</span><br><span class="line">    read(l1), read(r1), read(l2), read(r2);</span><br><span class="line">    ++cnt;</span><br><span class="line">    treein.update(treein.root, <span class="number">1</span>, n, l2, r2, cnt, <span class="number">1</span>);</span><br><span class="line">    treeout.update(treeout.root, <span class="number">1</span>, n, l1, r1, cnt, <span class="number">1</span>);</span><br><span class="line">    ++cnt;</span><br><span class="line">    treein.update(treein.root, <span class="number">1</span>, n, l1, r1, cnt, <span class="number">1</span>);</span><br><span class="line">    treeout.update(treeout.root, <span class="number">1</span>, n, l2, r2, cnt, <span class="number">1</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  Dijkstra();</span><br><span class="line">  <span class="keyword">for</span> (intt i = <span class="number">1</span>; i &lt;= n; ++i) &#123; <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, dis[i] &gt;&gt; <span class="number">1</span>); &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;  <span class="comment">// namespace STDquantum</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  STDquantum::main();</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/OI/" rel="tag">OI</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+  <nav class="article-nav">
+    
+      <a href="/20200719-mo-ni-sai/" class="article-nav-link">
+        <strong class="article-nav-caption">上一篇</strong>
+        <div class="article-nav-title">
+          
+            20200719模拟赛
+          
+        </div>
+      </a>
+    
+    
+      <a href="/20200718-mo-ni-sai/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">20200718模拟赛</div>
+      </a>
+    
+  </nav>
+
+  
+     
+</article>
+
+</section>
+      <footer class="footer">
+  <div class="outer">
+    <ul>
+      <li>
+        Copyrights &copy;
+        2020
+        <i class="ri-heart-fill heart_icon"></i> STDquantum
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+      </li>
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      <li>
+        <!-- cnzz统计 -->
+        
+      </li>
+    </ul>
+  </div>
+</footer>
+      <div class="float_btns">
+        <div class="totop" id="totop">
+  <i class="ri-arrow-up-line"></i>
+</div>
+
+      </div>
+    </main>
+    <aside class="sidebar on">
+      <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/1.jpg" alt="STDquantum"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">主页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">归档</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/categories">分类</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/tags">标签</a>
+    </li>
+    
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      
+      <a class="nav-item-link nav-item-search"  title="搜索">
+        <i class="ri-search-line"></i>
+      </a>
+      
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+    </aside>
+    <script>
+      if (window.matchMedia("(max-width: 768px)").matches) {
+        document.querySelector('.content').classList.remove('on');
+        document.querySelector('.sidebar').classList.remove('on');
+      }
+    </script>
+    <div id="mask"></div>
+
+<!-- #reward -->
+<div id="reward">
+  <span class="close"><i class="ri-close-line"></i></span>
+  <p class="reward-p"><i class="ri-cup-line"></i></p>
+  <div class="reward-box">
+    
+    
+  </div>
+</div>
+    
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+
+<script src="/js/lazyload.min.js"></script>
+
+<!-- Tocbot -->
+
+
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  tocbot.init({
+    tocSelector: '.tocbot',
+    contentSelector: '.article-entry',
+    headingSelector: 'h1, h2, h3, h4, h5, h6',
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: 'main',
+    positionFixedSelector: '.tocbot',
+    positionFixedClass: 'is-position-fixed',
+    fixedSidebarOffset: 'auto'
+  });
+</script>
+<!-- Live-2D -->
+<script type="text/javascript" charset="utf-8" src="/js/L2Dwidget.0.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="/js/L2Dwidget.min.js"></script>
+<script type="text/javascript">
+  L2Dwidget.on('*', (name) => {
+    console.log('%c EVENT ' + '%c -> ' + name, 'background: #222; color: yellow', 'background: #fff; color: #000')
+  });
+  L2Dwidget.init({
+    "display": {
+      "superSample": 2,
+      "width": 200,
+      "height": 400,
+      "position": "right",
+      "hOffset": 0,
+      "vOffset": 0
+    },
+    "mobile": {
+      "show": true,
+      "scale": 0.7
+    }
+  });
+</script>
+
+<script src="/js/jquery.modal.min.js"></script>
+<link rel="stylesheet" href="/css/jquery.modal.min.css">
+<script src="/js/jquery.justifiedGallery.min.js"></script>
+
+<script src="/dist/main.js"></script>
+
+<!-- ImageViewer -->
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<link rel="stylesheet" href="/css/photoswipe.min.css">
+<link rel="stylesheet" href="/css/default-skin.min.css">
+<script src="/js/photoswipe.min.js"></script>
+<script src="/js/photoswipe-ui-default.min.js"></script>
+
+<script>
+    function viewer_init() {
+        let pswpElement = document.querySelectorAll('.pswp')[0];
+        let $imgArr = document.querySelectorAll(('.article-entry img:not(.reward-img)'))
+
+        $imgArr.forEach(($em, i) => {
+            $em.onclick = () => {
+                // slider展开状态
+                // todo: 这样不好，后面改成状态
+                if (document.querySelector('.left-col.show')) return
+                let items = []
+                $imgArr.forEach(($em2, i2) => {
+                    let img = $em2.getAttribute('data-idx', i2)
+                    let src = $em2.getAttribute('data-target') || $em2.getAttribute('src')
+                    let title = $em2.getAttribute('alt')
+                    // 获得原图尺寸
+                    const image = new Image()
+                    image.src = src
+                    items.push({
+                        src: src,
+                        w: image.width || $em2.width,
+                        h: image.height || $em2.height,
+                        title: title
+                    })
+                })
+                var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, {
+                    index: parseInt(i)
+                });
+                gallery.init()
+            }
+        })
+    }
+    viewer_init()
+</script>
+
+<!-- MathJax -->
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      extensions: ["tex2jax.js"],
+      jax: ["input/TeX","output/HTML-CSS"],
+      tex2jax: {inlineMath: [["$","$"]]}
+    });
+  </script>
+
+<script src="/mathjax/MathJax.js"></script>
+<script>
+  var ayerConfig = {
+    mathjax: true
+  }
+</script>
+
+<!-- Katex -->
+
+<!-- busuanzi  -->
+
+<!-- ClickLove -->
+
+
+<script src="/js/clickLove.js"></script>
+
+
+<!-- ClickBoom1 -->
+
+<!-- ClickBoom2 -->
+
+<!-- CodeCopy -->
+
+
+<link rel="stylesheet" href="/css/clipboard.css">
+
+<script src="/js/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="ri-file-copy-2-line"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-checkbox-circle-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-checkbox-circle-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-time-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-time-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+
+
+<!-- CanvasBackground -->
+
+
+    
+  </div>
+</body>
+
+</html>

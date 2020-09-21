@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+
+
+<html lang="zh-CN">
+
+
+<head>
+  <meta charset="utf-8" />
+    
+  <meta name="description" content="STDquantum" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <title>
+    P4124 [CQOI2016]手机号码 |  STDquantum
+  </title>
+  <meta name="generator" content="hexo-theme-ayer">
+  
+  <link rel="shortcut icon" href="/1.ico" />
+  
+  
+<link rel="stylesheet" href="/dist/main.css">
+
+  
+<link rel="stylesheet" href="/css/remixicon.min.css">
+
+  
+<link rel="stylesheet" href="/css/custom.css">
+
+  
+  
+<script src="/js/pace.min.js"></script>
+
+  
+  
+
+  
+
+</head>
+
+</html>
+
+<body>
+  <div id="app">
+    
+      
+    <main class="content on">
+      <section class="outer">
+  <article
+  id="post-OI/杂题/P4124 [CQOI2016]手机号码"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  P4124 [CQOI2016]手机号码
+</h1>
+ 
+
+    </header>
+     
+    <div class="article-meta">
+      <a href="/p4124-cqoi2016-shou-ji-hao-ma/" class="article-date">
+  <time datetime="2020-07-10T06:08:55.000Z" itemprop="datePublished">2020-07-10</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/OI/">OI</a> / <a class="article-category-link" href="/categories/OI/DP/">DP</a> / <a class="article-category-link" href="/categories/OI/DP/%E6%95%B0%E4%BD%8DDP/">数位DP</a>
+  </div>
+  
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> 字数统计:</span>
+            <span class="post-count">1.7k</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> 阅读时长≈</span>
+            <span class="post-count">7 分钟</span>
+        </span>
+    </span>
+</div>
+ 
+    </div>
+      
+    <div class="tocbot"></div>
+
+
+
+
+  
+    <div class="article-entry" itemprop="articleBody">
+       
+  <p>一道要打很繁琐的代码的紫题</p>
+<a id="more"></a>
+<h1 id="P4124-CQOI2016-手机号码"><a href="#P4124-CQOI2016-手机号码" class="headerlink" title="P4124 [CQOI2016]手机号码"></a>P4124 [CQOI2016]手机号码</h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>人们选择手机号码时都希望号码好记、吉利。比如号码中含有几位相邻的相同数字、不含谐音不吉利的数字等。手机运营商在发行新号码时也会考虑这些因素，从号段中选取含有某些特征的号码单独出售。为了便于前期规划，运营商希望开发一个工具来自动统计号段中满足特征的号码数量。 工具需要检测的号码特征有两个：号码中要出现至少 $3$ 个相邻的相同数字；号码中不能同时出现 $8$ 和 $4$。号码必须同时包含两个特征才满足条件。满足条件的号码例如：13000988721、23333333333、14444101000。而不满足条件的号码例如：1015400080、10010012022。 手机号码一定是 $11$ 位数，前不含前导的 $0$。工具接收两个数 $L$ 和 $R$，自动统计出 $[L,R]$ 区间内所有满足条件的号码数量。$L$ 和 $R$ 也是 $11$ 位的手机号码。</p>
+<h2 id="输入输出格式"><a href="#输入输出格式" class="headerlink" title="输入输出格式"></a>输入输出格式</h2><h3 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h3><p>输入文件内容只有一行，为空格分隔的 $2$ 个正整数 $L,R$。</p>
+<h3 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h3><p>输出文件内容只有一行，为 $1$ 个整数，表示满足条件的手机号数量。</p>
+<h2 id="输入输出样例"><a href="#输入输出样例" class="headerlink" title="输入输出样例"></a>输入输出样例</h2><h3 id="输入样例-1"><a href="#输入样例-1" class="headerlink" title="输入样例 #1"></a>输入样例 #1</h3><figure class="highlight basic"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">12121284000 </span><span class="number">12121285550</span></span><br></pre></td></tr></table></figure>
+<h3 id="输出样例-1"><a href="#输出样例-1" class="headerlink" title="输出样例 #1"></a>输出样例 #1</h3><figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">5</span></span><br></pre></td></tr></table></figure>
+<h2 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h2><p>样例解释：满足条件的号码： 12121285000、 12121285111、 12121285222、 12121285333、 12121285550。 数据范围：$10^{10}\leq L\leq R&lt;10^{11}$。</p>
+<h1 id="解题"><a href="#解题" class="headerlink" title="解题"></a>解题</h1><p>感谢<code>jzzcjb</code>大神的题解。</p>
+<p>这题限制非常多，很繁琐，但是可以先考虑正常的数位DP，然后往里添加条件。</p>
+<p>考虑递归求解。</p>
+<p>我们可以先把主函数写出来，这个地方基本上万年不变。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  <span class="built_in">scanf</span>(<span class="string">"%lld%lld"</span>, &amp;l, &amp;r);</span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">"%lld"</span>, solve2(r) - solve2(l - <span class="number">1</span>));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>不要在意这个<code>inline void</code>。qwq。毕竟我是写在命名空间里的。因为一般都是分为两个部分嘛所以就两个<code>solve</code>函数。</p>
+<p>然后就需要看一看<code>solve2</code>怎么去写。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">ll <span class="title">solve2</span><span class="params">(ll x)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (x &lt; <span class="number">1e10</span>) <span class="keyword">return</span> <span class="number">0</span>; <span class="comment">// 不是电话号码直接return 0就行</span></span><br><span class="line">  <span class="built_in">memset</span>(f, <span class="number">-1</span>, <span class="keyword">sizeof</span>(f)); <span class="comment">// DP数组初始化</span></span><br><span class="line">  ll len = <span class="number">0</span>, tmp = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">while</span> (x) &#123; <span class="comment">// 把x拆开</span></span><br><span class="line">    num[++len] = x % <span class="number">10</span>;</span><br><span class="line">    x /= <span class="number">10</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= num[len]; ++i) &#123; <span class="comment">// 从len最大的地方开始递归求解</span></span><br><span class="line">    tmp += solve1(blah,blah,blah);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> tmp; <span class="comment">// 返回答案</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>剩下部分明白没有问题吧？</p>
+<p>我相信你没明白<code>solve1</code>是啥意思，这不是<code>solve2</code>要研究的，所以里面的参数暂且用blah, blah, blah代替。</p>
+<p>然后就进入了最关键的部分，DP数组的设计与求解。</p>
+<p>梳理一下已有的限制条件：</p>
+<ul>
+<li>$4$ 和 $8$ 不能都有</li>
+<li>至少$3$位连号</li>
+</ul>
+<p>我们就可以用$f3$表示是否形成了三位连号，$f4$代表有没有$4$，$f8$代表有没有$8$。这几个的取值范围均为$[0,1]$。</p>
+<p>光是这样还不够，因为如果是三位连号的话我们需要知道这位的前两位数字是什么，于是我们用$pre$代表前一位的数字，$pree$代表前一位的前一位数字。这两个的取值范围均为$[0,9]$。</p>
+<p>然后还有一个小小的限制条件，就是上一位是不是小于它能取到的最大数字，把它设为$xn$。比如$1946$中现在在研究个位，若$pre&lt;4$即$xn=1$，也就是$191X-193X$的话，$X$的取值范围是$[0,9]$；而如果$pre=4$即$xn=0$，也就是$194X$的话，则$X$只能在$[0,6]$范围内。$xn$取值范围$[0,1]$。</p>
+<p>再加上一个$now$表示第几位。取值范围是$[0,10]$，为啥不取$11$呢，一会在代码里看</p>
+<p>所以就可以设出一个冗长的DP状态</p>
+<script type="math/tex; mode=display">
+f[now][pre][pree][f3][xn][f4][f8]</script><p>而<code>solve1</code>函数也应运而生</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">ll <span class="title">solve1</span><span class="params">(ll now, ll pre, ll pree, bl f3, bl xn, bl f4, bl f8)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (f4 &amp; f8) <span class="keyword">return</span> <span class="number">0</span>; <span class="comment">// 如果4和8全有不符合规范</span></span><br><span class="line">  <span class="keyword">if</span> (now &lt;= <span class="number">0</span>) <span class="keyword">return</span> f3;</span><br><span class="line">    <span class="comment">/*</span></span><br><span class="line"><span class="comment">    很巧妙的减少码量措施。</span></span><br><span class="line"><span class="comment">    已经递归完毕了，如果有三个连号说明找到了一个可行的号码（因为4和8的问题在前面排除了）</span></span><br><span class="line"><span class="comment">    如果有三个连号的话，f3=1，对应找到一个；如果没有，f3=0，正好也满足题意。</span></span><br><span class="line"><span class="comment">    所以return f3完美解决问题。</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">  <span class="keyword">if</span> (~f[now][pre][pree][f3][xn][f4][f8]) &#123;</span><br><span class="line">        <span class="comment">// 取反的话除了-1其他数都为真，对应着已经更新过这个DP状态。因为初始化是-1。</span></span><br><span class="line">    <span class="keyword">return</span> f[now][pre][pree][f3][xn][f4][f8];</span><br><span class="line">  &#125;</span><br><span class="line">  ll tmp = <span class="number">0</span>, lim = !xn ? num[now] : <span class="number">9</span>; </span><br><span class="line">    <span class="comment">/*</span></span><br><span class="line"><span class="comment">    lim就是前文提到的xn作用中很重要的一环。</span></span><br><span class="line"><span class="comment">    如果xn=1，那么这一位取什么都行，若xn=0，只能取到这一位的最大数字，即上文例中的6。</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">  <span class="keyword">for</span>(ll i = <span class="number">0</span>; i &lt;= lim; ++i) &#123;</span><br><span class="line">    tmp += solve1(now - <span class="number">1</span>, i, pre, f3 | (i == pree &amp;&amp; i == pre), xn | (i &lt; lim), f4 | (i == <span class="number">4</span>), f8 | (i == <span class="number">8</span>));</span><br><span class="line">        <span class="comment">/* </span></span><br><span class="line"><span class="comment">        now：now-1就是往小里递归求解</span></span><br><span class="line"><span class="comment">        pre&amp;pree：之前的前两位为pree,pre，之后的变成了pre,i</span></span><br><span class="line"><span class="comment">        f3：如果当前位取的i与之前两位都相等，那么说明出现了三位连号</span></span><br><span class="line"><span class="comment">        xn：如果i小于最大能取到的数字，后面随便取</span></span><br><span class="line"><span class="comment">        f4&amp;f8：更新i是否等于4或8</span></span><br><span class="line"><span class="comment">        */</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> f[now][pre][pree][f3][xn][f4][f8] = tmp; <span class="comment">// 赋值+返回</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>现在可以解决<code>solve2</code>函数里递归的起点了。</p>
+<p>因为之前一位的信息会传递到函数里，所以直接从第$10$位开始就行，$pre$ 是最高位数字，$pree$就是$0$。剩下的不用我多说了吧？</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">solve1(<span class="number">10</span>, i, <span class="number">0</span>, <span class="number">0</span>, i &lt; num[len], i == <span class="number">4</span>, i == <span class="number">8</span>);</span><br></pre></td></tr></table></figure>
+<p>完整代码：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> STDquantum &#123;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">bool</span> bl;</span><br><span class="line">ll r, l, f[<span class="number">12</span>][<span class="number">10</span>][<span class="number">10</span>][<span class="number">2</span>][<span class="number">2</span>][<span class="number">2</span>][<span class="number">2</span>], num[<span class="number">12</span>];</span><br><span class="line"><span class="function">ll <span class="title">solve1</span><span class="params">(ll now, ll pre, ll pree, bl f3, bl xn, bl f4, bl f8)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (f4 &amp; f8) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">if</span> (now &lt;= <span class="number">0</span>) <span class="keyword">return</span> f3;</span><br><span class="line">  <span class="keyword">if</span> (~f[now][pre][pree][f3][xn][f4][f8]) &#123;</span><br><span class="line">    <span class="keyword">return</span> f[now][pre][pree][f3][xn][f4][f8];</span><br><span class="line">  &#125;</span><br><span class="line">  ll tmp = <span class="number">0</span>, lim = !xn ? num[now] : <span class="number">9</span>;</span><br><span class="line">  <span class="keyword">for</span>(ll i = <span class="number">0</span>; i &lt;= lim; ++i) &#123;</span><br><span class="line">    tmp += solve1(now - <span class="number">1</span>, i, pre, f3 | (i == pree &amp;&amp; i == pre), xn | (i &lt; lim), f4 | (i == <span class="number">4</span>), f8 | (i == <span class="number">8</span>));</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> f[now][pre][pree][f3][xn][f4][f8] = tmp;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function">ll <span class="title">solve2</span><span class="params">(ll x)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (x &lt; <span class="number">1e10</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">  <span class="built_in">memset</span>(f, <span class="number">-1</span>, <span class="keyword">sizeof</span>(f));</span><br><span class="line">  <span class="keyword">long</span> <span class="keyword">long</span> len = <span class="number">0</span>, tmp = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">while</span> (x) &#123;</span><br><span class="line">    num[++len] = x % <span class="number">10</span>;</span><br><span class="line">    x /= <span class="number">10</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= num[len]; ++i) &#123;</span><br><span class="line">    tmp += solve1(<span class="number">10</span>, i, <span class="number">0</span>, <span class="number">0</span>, i &lt; num[len], i == <span class="number">4</span>, i == <span class="number">8</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> tmp;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  <span class="built_in">scanf</span>(<span class="string">"%lld%lld"</span>, &amp;l, &amp;r);</span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">"%lld"</span>, solve2(r) - solve2(l - <span class="number">1</span>));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125; <span class="comment">// namespace STDquantum</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  STDquantum::main();</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%88%B7%E9%A2%98/" rel="tag">刷题</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%95%B0%E4%BD%8DDP/" rel="tag">数位DP</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+  <nav class="article-nav">
+    
+      <a href="/p4127-ahoi2009-tong-lei-fen-bu/" class="article-nav-link">
+        <strong class="article-nav-caption">上一篇</strong>
+        <div class="article-nav-title">
+          
+            P4127 [AHOI2009]同类分布
+          
+        </div>
+      </a>
+    
+    
+      <a href="/p2602-zjoi2010-shu-zi-ji-shu/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">P2602 [ZJOI2010]数字计数</div>
+      </a>
+    
+  </nav>
+
+  
+     
+</article>
+
+</section>
+      <footer class="footer">
+  <div class="outer">
+    <ul>
+      <li>
+        Copyrights &copy;
+        2020
+        <i class="ri-heart-fill heart_icon"></i> STDquantum
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+      </li>
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      <li>
+        <!-- cnzz统计 -->
+        
+      </li>
+    </ul>
+  </div>
+</footer>
+      <div class="float_btns">
+        <div class="totop" id="totop">
+  <i class="ri-arrow-up-line"></i>
+</div>
+
+      </div>
+    </main>
+    <aside class="sidebar on">
+      <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/1.jpg" alt="STDquantum"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">主页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">归档</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/categories">分类</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/tags">标签</a>
+    </li>
+    
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      
+      <a class="nav-item-link nav-item-search"  title="搜索">
+        <i class="ri-search-line"></i>
+      </a>
+      
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+    </aside>
+    <script>
+      if (window.matchMedia("(max-width: 768px)").matches) {
+        document.querySelector('.content').classList.remove('on');
+        document.querySelector('.sidebar').classList.remove('on');
+      }
+    </script>
+    <div id="mask"></div>
+
+<!-- #reward -->
+<div id="reward">
+  <span class="close"><i class="ri-close-line"></i></span>
+  <p class="reward-p"><i class="ri-cup-line"></i></p>
+  <div class="reward-box">
+    
+    
+  </div>
+</div>
+    
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+
+<script src="/js/lazyload.min.js"></script>
+
+<!-- Tocbot -->
+
+
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  tocbot.init({
+    tocSelector: '.tocbot',
+    contentSelector: '.article-entry',
+    headingSelector: 'h1, h2, h3, h4, h5, h6',
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: 'main',
+    positionFixedSelector: '.tocbot',
+    positionFixedClass: 'is-position-fixed',
+    fixedSidebarOffset: 'auto'
+  });
+</script>
+<!-- Live-2D -->
+<script type="text/javascript" charset="utf-8" src="/js/L2Dwidget.0.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="/js/L2Dwidget.min.js"></script>
+<script type="text/javascript">
+  L2Dwidget.on('*', (name) => {
+    console.log('%c EVENT ' + '%c -> ' + name, 'background: #222; color: yellow', 'background: #fff; color: #000')
+  });
+  L2Dwidget.init({
+    "display": {
+      "superSample": 2,
+      "width": 200,
+      "height": 400,
+      "position": "right",
+      "hOffset": 0,
+      "vOffset": 0
+    },
+    "mobile": {
+      "show": true,
+      "scale": 0.7
+    }
+  });
+</script>
+
+<script src="/js/jquery.modal.min.js"></script>
+<link rel="stylesheet" href="/css/jquery.modal.min.css">
+<script src="/js/jquery.justifiedGallery.min.js"></script>
+
+<script src="/dist/main.js"></script>
+
+<!-- ImageViewer -->
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<link rel="stylesheet" href="/css/photoswipe.min.css">
+<link rel="stylesheet" href="/css/default-skin.min.css">
+<script src="/js/photoswipe.min.js"></script>
+<script src="/js/photoswipe-ui-default.min.js"></script>
+
+<script>
+    function viewer_init() {
+        let pswpElement = document.querySelectorAll('.pswp')[0];
+        let $imgArr = document.querySelectorAll(('.article-entry img:not(.reward-img)'))
+
+        $imgArr.forEach(($em, i) => {
+            $em.onclick = () => {
+                // slider展开状态
+                // todo: 这样不好，后面改成状态
+                if (document.querySelector('.left-col.show')) return
+                let items = []
+                $imgArr.forEach(($em2, i2) => {
+                    let img = $em2.getAttribute('data-idx', i2)
+                    let src = $em2.getAttribute('data-target') || $em2.getAttribute('src')
+                    let title = $em2.getAttribute('alt')
+                    // 获得原图尺寸
+                    const image = new Image()
+                    image.src = src
+                    items.push({
+                        src: src,
+                        w: image.width || $em2.width,
+                        h: image.height || $em2.height,
+                        title: title
+                    })
+                })
+                var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, {
+                    index: parseInt(i)
+                });
+                gallery.init()
+            }
+        })
+    }
+    viewer_init()
+</script>
+
+<!-- MathJax -->
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      extensions: ["tex2jax.js"],
+      jax: ["input/TeX","output/HTML-CSS"],
+      tex2jax: {inlineMath: [["$","$"]]}
+    });
+  </script>
+
+<script src="/mathjax/MathJax.js"></script>
+<script>
+  var ayerConfig = {
+    mathjax: true
+  }
+</script>
+
+<!-- Katex -->
+
+<!-- busuanzi  -->
+
+<!-- ClickLove -->
+
+
+<script src="/js/clickLove.js"></script>
+
+
+<!-- ClickBoom1 -->
+
+<!-- ClickBoom2 -->
+
+<!-- CodeCopy -->
+
+
+<link rel="stylesheet" href="/css/clipboard.css">
+
+<script src="/js/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="ri-file-copy-2-line"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-checkbox-circle-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-checkbox-circle-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-time-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-time-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+
+
+<!-- CanvasBackground -->
+
+
+    
+  </div>
+</body>
+
+</html>

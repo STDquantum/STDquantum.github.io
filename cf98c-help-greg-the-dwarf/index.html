@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+
+
+<html lang="zh-CN">
+
+
+<head>
+  <meta charset="utf-8" />
+    
+  <meta name="description" content="STDquantum" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <title>
+    CF98C Help Greg the Dwarf |  STDquantum
+  </title>
+  <meta name="generator" content="hexo-theme-ayer">
+  
+  <link rel="shortcut icon" href="/1.ico" />
+  
+  
+<link rel="stylesheet" href="/dist/main.css">
+
+  
+<link rel="stylesheet" href="/css/remixicon.min.css">
+
+  
+<link rel="stylesheet" href="/css/custom.css">
+
+  
+  
+<script src="/js/pace.min.js"></script>
+
+  
+  
+
+  
+
+</head>
+
+</html>
+
+<body>
+  <div id="app">
+    
+      
+    <main class="content on">
+      <section class="outer">
+  <article
+  id="post-OI/杂题/CF98C Help Greg the Dwarf"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  CF98C Help Greg the Dwarf
+</h1>
+ 
+
+    </header>
+     
+    <div class="article-meta">
+      <a href="/cf98c-help-greg-the-dwarf/" class="article-date">
+  <time datetime="2020-07-23T05:32:58.000Z" itemprop="datePublished">2020-07-23</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/OI/">OI</a> / <a class="article-category-link" href="/categories/OI/%E6%95%B0%E5%AD%A6/">数学</a> / <a class="article-category-link" href="/categories/OI/%E6%95%B0%E5%AD%A6/%E5%AF%BC%E6%95%B0/">导数</a>
+  </div>
+  
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> 字数统计:</span>
+            <span class="post-count">2.8k</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> 阅读时长≈</span>
+            <span class="post-count">12 分钟</span>
+        </span>
+    </span>
+</div>
+ 
+    </div>
+      
+    <div class="tocbot"></div>
+
+
+
+
+  
+    <div class="article-entry" itemprop="articleBody">
+       
+  <p>第一个AC，第一个翻译，第一个题解。太妙了。</p>
+<a id="more"></a>
+<h1 id="CF98C-Help-Greg-the-Dwarf"><a href="#CF98C-Help-Greg-the-Dwarf" class="headerlink" title="CF98C Help Greg the Dwarf"></a>CF98C Help Greg the Dwarf</h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>A very unusual citizen lives in a far away kingdom — Dwarf Gracula. However, his unusual name is not the weirdest thing (besides, everyone long ago got used to calling him simply Dwarf Greg). What is special about Dwarf Greg — he’s been living for over 200 years; besides, he lives in a crypt on an abandoned cemetery and nobody has ever seen him out in daytime. Moreover, nobody has ever seen Greg buy himself any food. That’s why nobody got particularly surprised when after the infernal dragon’s tragic death cattle continued to disappear from fields. The people in the neighborhood were long sure that the harmless dragon was never responsible for disappearing cattle (considering that the dragon used to be sincere about his vegetarian views). But even that’s not the worst part of the whole story. The worst part is that merely several minutes ago Dwarf Greg in some unintelligible way got inside your house and asked you to help him solve a problem. The point is that a short time ago Greg decided to order a new coffin (knowing his peculiar character, you are not surprised at all). But the problem is: a very long in both directions L-shaped corridor leads to Greg’s crypt, and you can’t drag just any coffin through that corridor. That’s why he asked you to help. </p>
+<img src="/cf98c-help-greg-the-dwarf/9.jpg" class>
+<p>You’ve formalized the task on a plane like this: let the corridor’s width before and after the turn be equal to $ a $ and $ b $ correspondingly (see the picture). The corridor turns directly at a right angle, the coffin is a rectangle whose length and width are equal to $ l $ and $ w $ ( $ l&gt;=w $ ) correspondingly. Dwarf Greg has already determined the coffin’s length ( $ l $ ), which is based on his height; your task is to determine the coffin’s maximally possible width ( $ w $ ), at which it can be brought to the crypt. Besides, due to its large mass (pure marble!) the coffin is equipped with rotating wheels; therefore it is impossible to lift it off the ground, however, arbitrary moves and rotations of the coffin in the plane become possible. The coffin may be rotated arbitrarily just before you drag it into crypt and move through the corridor. Greg promised that if you help him, he will grant you immortality (I wonder how?). And if you don’t, well… trust me, you don’t want to know what happens if you don’t help him…</p>
+<h2 id="输入输出格式"><a href="#输入输出格式" class="headerlink" title="输入输出格式"></a>输入输出格式</h2><h3 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h3><p>The first line contains three space-separated integers $ a $ , $ b $ and $ l $ from the problem’s statement ( $ 1&lt;=a,b,l&lt;=10^{4} $ ).</p>
+<h3 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h3><p>Print the maximally possible width of a coffin with absolute or relative error no more than $ 10^{-7} $ . If a coffin with the given length and positive width (the coffin that would meet the conditions from the problem’s statement) does not exist, print “My poor head =(“ (without quotes). It is guaranteed that if the answer is positive, it will be not less than $ 10^{-7} $ . All the hacks will also be checked to meet that condition.</p>
+<h2 id="输入输出样例"><a href="#输入输出样例" class="headerlink" title="输入输出样例"></a>输入输出样例</h2><h3 id="输入样例-1"><a href="#输入样例-1" class="headerlink" title="输入样例 #1"></a>输入样例 #1</h3><figure class="highlight basic"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">2 </span><span class="number">2</span> <span class="number">1</span></span><br></pre></td></tr></table></figure>
+<h3 id="输出样例-1"><a href="#输出样例-1" class="headerlink" title="输出样例 #1"></a>输出样例 #1</h3><figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.0000000</span></span><br></pre></td></tr></table></figure>
+<h3 id="输入样例-2"><a href="#输入样例-2" class="headerlink" title="输入样例 #2"></a>输入样例 #2</h3><figure class="highlight basic"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">2 </span><span class="number">2</span> <span class="number">2</span></span><br></pre></td></tr></table></figure>
+<h3 id="输出样例-2"><a href="#输出样例-2" class="headerlink" title="输出样例 #2"></a>输出样例 #2</h3><figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">2.0000000</span></span><br></pre></td></tr></table></figure>
+<h3 id="输入样例-3"><a href="#输入样例-3" class="headerlink" title="输入样例 #3"></a>输入样例 #3</h3><figure class="highlight basic"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">2 </span><span class="number">2</span> <span class="number">3</span></span><br></pre></td></tr></table></figure>
+<h3 id="输出样例-3"><a href="#输出样例-3" class="headerlink" title="输出样例 #3"></a>输出样例 #3</h3><figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.3284271</span></span><br></pre></td></tr></table></figure>
+<h3 id="输入样例-4"><a href="#输入样例-4" class="headerlink" title="输入样例 #4"></a>输入样例 #4</h3><figure class="highlight basic"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">2 </span><span class="number">2</span> <span class="number">6</span></span><br></pre></td></tr></table></figure>
+<h3 id="输出样例-4"><a href="#输出样例-4" class="headerlink" title="输出样例 #4"></a>输出样例 #4</h3><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">My poor head</span> =(</span><br></pre></td></tr></table></figure>
+<h2 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h2><p>In the first example the answer is restricted by the coffin’s length (remember — coffin’s widths should not be larger than it’s length). In the second example it is possible to drag the coffin through the corridor thanks to rotating wheels: firstly, drag it forward by one side while it will not be hampered by the wall, then move it forward by adjacent side perpendicularly to the initial movement direction (remember — arbitrary moves and rotations of the coffin are possible).</p>
+<h2 id="题意翻译"><a href="#题意翻译" class="headerlink" title="题意翻译"></a>题意翻译</h2><p>一个很不寻常的市民住在一个遥远的国度——他是矮人格库拉。然而，他不寻常的名字不是最奇怪的事情（而且，过去的每个人都习惯了只是叫他矮人格雷格），还有一些关于矮人格雷格的一些特殊的事实——他已经活了两百多年，而且，他住在一个废弃墓地的墓穴中，没人见他在白天出来过。此外，也没人见过他给自己买食物。这就是为什么在恶龙悲剧地死亡、牛持续从田野中消失后没人感到特别惊讶。邻里的人们非常确信无害的龙对消失的牛没有责任（考虑到恶龙一直对他的素食主义观点很诚挚）。但是甚至那也不是整个故事的最坏的部分。</p>
+<p>最坏的部分是仅仅几分钟前，矮人格雷格用某些难以理解的方式进入了你的房子，并且让你帮他解决一个问题。关键是在很短的一段时间以前，格雷格决定订一口新的棺材（知道他怪异的性格，你一点也不会感到奇怪）。但问题是：一段非常长的双向的L形走廊通向格雷格的墓穴，无法拖着任何一口棺材通过那个走廊，这就是为什么他来寻求你的帮助。</p>
+<p>你已经将任务抽象化到了一个这样的平面上：让走廊在转弯前和转弯后的宽度为 $a$ 和 $b$ （如图）。两端走廊相交成一个直角，棺材是一个边长分别为 $l$ 和 $w$ $(l\ge w)$ 的矩形。矮人格雷格已经决定了棺材的长$(l)$，这取决于他的身高；你的任务是决定棺材的最大可能的宽$(w)$，以这样的长和宽棺材可以被带到墓穴里。而且，由于棺材的质量很大（纯大理石！），棺材配备了轮子，因此它不能被抬离地面，但是可以在平面内平移和旋转。在进入走廊之前，你可以任意旋转棺材。</p>
+<p>格雷格保证如果你帮助他，他就会奖励你永生（我想知道怎么实现？）。而且如果你不帮助他，嗯……相信我，你不想知道会发生什么的。</p>
+<p>一句话题意：给出一个有直角拐角的L形走廊和一个长确定、宽不确定（宽不大于长）的矩形，矩形可以任意平移、旋转，要求求出能够通过拐角的矩形的最大的宽。</p>
+<h3 id="输入格式-1"><a href="#输入格式-1" class="headerlink" title="输入格式"></a>输入格式</h3><p>第一行包含三个以空格分隔的整数 $a,b,l$ （见题面陈述）$(1\le a,b,l\le10^4)$</p>
+<h3 id="输出格式-1"><a href="#输出格式-1" class="headerlink" title="输出格式"></a>输出格式</h3><p>输出棺材最大可能的宽度，绝对或相对误差不超过 $10^{-7}$。如果不存在具有给定长度和正宽度的棺材（可以满足问题陈述要求的棺材），输出”My poor head =(“（不含引号）。</p>
+<p>数据保证如果答案为正，不会小于 $10^{-7}$。</p>
+<h3 id="说明-提示"><a href="#说明-提示" class="headerlink" title="说明/提示"></a>说明/提示</h3><p>在第一个样例里答案被棺材的长度限制（请记住——棺材的宽不能大于长）</p>
+<p>在第二个样例里，棺材由于用于旋转的轮子可以被运送通过走廊：首先，从一端拖着棺材，直到有墙阻止继续前进，然后垂直于初始移动方向将其向前移到相邻的一侧。（请记住——棺材可以任意平移、旋转）</p>
+<h1 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h1><p>观察这道题，可以发现是求能够通过拐角的最大的长方形宽。</p>
+<p>可以先特判掉一些特殊情况，比如</p>
+<img src="/cf98c-help-greg-the-dwarf/1.jpg" class><img src="/cf98c-help-greg-the-dwarf/2.jpg" class>
+<p>这种不用旋转就完全能通过的方式。</p>
+<p>然后我们再考虑如果一个矩形能够通过，那么一定会倾斜（除去特判掉的情况）。</p>
+<p>抽象出这个矩形，如下图</p>
+<img src="/cf98c-help-greg-the-dwarf/4.jpg" class>
+<p>我们考虑如何求出这个矩形的宽（先不用考虑最大）。</p>
+<p>我们注意到图中有很多相似三角形，所以可以通过求出$JN$线段的长度来求$JL=JN\sin\alpha$。而$JN$的长度是$ON-OJ=MN\cos\alpha-JI\cos\alpha$，而$MN$的长度可以通过从$A$做$ON$、$OM$的平行线，被走廊截得的线段长度就是$a$和$b$，所以$MN=\frac{a}{\sin\alpha}+\frac{b}{\cos\alpha}$。</p>
+<p>一通计算猛如虎啊，这个宽就是$a\cos\alpha+b\sin\alpha-l\sin\alpha\cos\alpha$。</p>
+<p>好的求出了一堆奇奇怪怪的带着三角函数的东西，这东西有什么用呢？</p>
+<p>我们来看一个样例</p>
+<figure class="highlight basic"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">2 </span><span class="number">2</span> <span class="number">3</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.3284271</span></span><br></pre></td></tr></table></figure>
+<p>首先这个函数长这个样子，点是一些最值，两条最粗的线是$x=0$和$x=\frac\pi2$。</p>
+<p>因为$\alpha$的取值是$[0,\frac\pi2]$，所以之后我们只关心这个区间内的值。</p>
+<img src="/cf98c-help-greg-the-dwarf/5.jpg" class>
+<p>我们会发现$D$点的位置是最低点，再一查询它的纵坐标，$y=1.33$。GeoGebra保留了两位小数，这不就是答案吗？</p>
+<p>再来看一个样例</p>
+<figure class="highlight basic"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">2 </span><span class="number">2</span> <span class="number">6</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">My poor head</span> =(</span><br></pre></td></tr></table></figure>
+<img src="/cf98c-help-greg-the-dwarf/6.jpg" class>
+<p>最低点换了个名字不过这无所谓，会发现它的纵坐标是小于零的，而这个输入也确实无解。这是巧合吗？</p>
+<p>肯定不是的。我们求出这个函数，必然有它的意义。我们可以发现，这段区间内对应的函数值就是每个$w$可能的宽度，而函数值最小的时候，正好就是可以取的$w$值最大的时候。因为如果矩形的宽度再小一点，就一定能连边也不蹭地随便通过了。</p>
+<p>而观察那些特判的矩形，如这个样例</p>
+<figure class="highlight basic"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">2 </span><span class="number">2</span> <span class="number">1</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.0000000</span></span><br></pre></td></tr></table></figure>
+<img src="/cf98c-help-greg-the-dwarf/7.jpg" class>
+<p>这所有的可能的函数值都不符合条件（不大于$l$，至少得不大于$a$吧）。所以基本可以判定在矩形不旋转就能通过的地方没必要算这个函数了。</p>
+<p>于是我们现在的目标变成了求解这个函数的最小值，这玩意要是直接二分，我也不会，所以我们要用一种小学二年级就学了的知识（毕导粉轻喷qwq）——<a href="https://baike.baidu.com/item/导数" target="_blank" rel="noopener">导数</a>。</p>
+<p>其实就把这东西理解为 把每一点函数的斜率都求出来，包装成另一个函数 就行。这玩意常用来求什么单调性啊、什么函数最值啊。单调性不解释，用不上；这个最值就可以理解为前面的斜率都是负的，这一点是零，后面的斜率都是正的，这个点就是这个函数的局部最小值，最大值同理。</p>
+<img src="/cf98c-help-greg-the-dwarf/8.jpg" class>
+<p>可以发现在图中（样例为<code>2 2 3</code>），导函数为$0$的地方对应了上面函数的最小值。</p>
+<p>至于导函数的求法，上面的导数链接里面很全了。</p>
+<p>所以就这样特判一下，求一下，再与$l$取$\min$，这题就做完了。</p>
+<p>放上完整的AC代码</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> LOCAL <span class="comment">// 为了让本地输入输出文件一直用一套qwq</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> STDquantum &#123; <span class="comment">// 就是一种防止命名冲突的写法</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> a, b, l;</span><br><span class="line"><span class="keyword">double</span> ans, tmp1, tmp2;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">double</span> <span class="title">f</span><span class="params">(<span class="keyword">double</span> x)</span> </span>&#123; <span class="comment">// 原函数</span></span><br><span class="line">    <span class="keyword">return</span> -<span class="built_in">sin</span>(x) * <span class="built_in">cos</span>(x) * l + <span class="built_in">cos</span>(x) * a + <span class="built_in">sin</span>(x) * b;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">double</span> <span class="title">g</span><span class="params">(<span class="keyword">double</span> x)</span> </span>&#123; <span class="comment">// 导函数</span></span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">sin</span>(x) * <span class="built_in">sin</span>(x) * l - <span class="built_in">cos</span>(x) * <span class="built_in">cos</span>(x) * l +</span><br><span class="line">           <span class="built_in">cos</span>(x) * b - <span class="built_in">sin</span>(x) * a;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d%d%d"</span>, &amp;a, &amp;b, &amp;l);</span><br><span class="line">    <span class="keyword">if</span> (a &gt; b) swap(a, b); <span class="comment">// 取min方便</span></span><br><span class="line">    ans = tmp1 = tmp2 = <span class="number">-100</span>; <span class="comment">// 防止取min失败</span></span><br><span class="line">    <span class="keyword">if</span> (l &lt;= b) &#123; tmp1 = min(a, l); &#125; <span class="comment">// 特判</span></span><br><span class="line">    <span class="keyword">double</span> L = <span class="number">0</span>, R = <span class="built_in">acos</span>(<span class="number">-1</span>) / <span class="number">2</span>, mid; <span class="comment">// acos(-1)就是π</span></span><br><span class="line">    <span class="keyword">while</span> (R - L &gt; <span class="number">1e-7</span>) &#123; <span class="comment">// 精度范围内二分导函数零点</span></span><br><span class="line">        mid = (R + L) / <span class="number">2</span>;</span><br><span class="line">        <span class="keyword">if</span> (g(mid) &lt; <span class="number">0</span>) &#123;</span><br><span class="line">            L = mid;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            R = mid;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    tmp2 = f(L); <span class="comment">// 对应原函数上的最小的函数值</span></span><br><span class="line">    ans = max(tmp1, tmp2);</span><br><span class="line">    ans = min(<span class="number">1.0</span> * l, ans); <span class="comment">// 不能超过l</span></span><br><span class="line">    <span class="keyword">if</span> (ans &lt; <span class="number">1e-7</span>) &#123;</span><br><span class="line">        <span class="built_in">puts</span>(<span class="string">"My poor head =("</span>);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%.7lf"</span>, ans);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;  <span class="comment">// namespace STDquantum</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">ifndef</span> ONLINE_JUDGE</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">ifdef</span> LOCAL</span></span><br><span class="line">    freopen(<span class="string">"test.in"</span>, <span class="string">"r"</span>, <span class="built_in">stdin</span>);</span><br><span class="line">    freopen(<span class="string">"test.out"</span>, <span class="string">"w"</span>, <span class="built_in">stdout</span>);</span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">ifndef</span> LOCAL</span></span><br><span class="line">    freopen(<span class="string">"CF98C_Help_Greg_the_Dwarf.in"</span>, <span class="string">"r"</span>, <span class="built_in">stdin</span>);</span><br><span class="line">    freopen(<span class="string">"CF98C_Help_Greg_the_Dwarf.out"</span>, <span class="string">"w"</span>, <span class="built_in">stdout</span>);</span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line">    STDquantum::main();</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>感谢GeoGebra和vscode的大力支持。</p>
+<h1 id="总结区"><a href="#总结区" class="headerlink" title="总结区"></a>总结区</h1><p>做了一中午加两个多小时，终于整完了从AC到翻译到题解全套，hhhhh。</p>
+<img src="/cf98c-help-greg-the-dwarf/3.jpg" class>
+<h2 id="upd-on-20200801"><a href="#upd-on-20200801" class="headerlink" title="upd on 20200801"></a>upd on 20200801</h2><p>题解通过了</p>
+<img src="/cf98c-help-greg-the-dwarf/1.png" class>
+<h2 id="upd-on-20200828-20-32"><a href="#upd-on-20200828-20-32" class="headerlink" title="upd on 20200828 20:32"></a>upd on 20200828 20:32</h2><p>翻译过了hhh</p>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/OI/" rel="tag">OI</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+  <nav class="article-nav">
+    
+      <a href="/kuo-zhan-ou-la-ding-li-xue-xi-bi-ji/" class="article-nav-link">
+        <strong class="article-nav-caption">上一篇</strong>
+        <div class="article-nav-title">
+          
+            扩展欧拉定理学习笔记
+          
+        </div>
+      </a>
+    
+    
+      <a href="/20200722-mo-ni-sai/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">20200722模拟赛</div>
+      </a>
+    
+  </nav>
+
+  
+     
+</article>
+
+</section>
+      <footer class="footer">
+  <div class="outer">
+    <ul>
+      <li>
+        Copyrights &copy;
+        2020
+        <i class="ri-heart-fill heart_icon"></i> STDquantum
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+      </li>
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      <li>
+        <!-- cnzz统计 -->
+        
+      </li>
+    </ul>
+  </div>
+</footer>
+      <div class="float_btns">
+        <div class="totop" id="totop">
+  <i class="ri-arrow-up-line"></i>
+</div>
+
+      </div>
+    </main>
+    <aside class="sidebar on">
+      <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/1.jpg" alt="STDquantum"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">主页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">归档</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/categories">分类</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/tags">标签</a>
+    </li>
+    
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      
+      <a class="nav-item-link nav-item-search"  title="搜索">
+        <i class="ri-search-line"></i>
+      </a>
+      
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+    </aside>
+    <script>
+      if (window.matchMedia("(max-width: 768px)").matches) {
+        document.querySelector('.content').classList.remove('on');
+        document.querySelector('.sidebar').classList.remove('on');
+      }
+    </script>
+    <div id="mask"></div>
+
+<!-- #reward -->
+<div id="reward">
+  <span class="close"><i class="ri-close-line"></i></span>
+  <p class="reward-p"><i class="ri-cup-line"></i></p>
+  <div class="reward-box">
+    
+    
+  </div>
+</div>
+    
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+
+<script src="/js/lazyload.min.js"></script>
+
+<!-- Tocbot -->
+
+
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  tocbot.init({
+    tocSelector: '.tocbot',
+    contentSelector: '.article-entry',
+    headingSelector: 'h1, h2, h3, h4, h5, h6',
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: 'main',
+    positionFixedSelector: '.tocbot',
+    positionFixedClass: 'is-position-fixed',
+    fixedSidebarOffset: 'auto'
+  });
+</script>
+<!-- Live-2D -->
+<script type="text/javascript" charset="utf-8" src="/js/L2Dwidget.0.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="/js/L2Dwidget.min.js"></script>
+<script type="text/javascript">
+  L2Dwidget.on('*', (name) => {
+    console.log('%c EVENT ' + '%c -> ' + name, 'background: #222; color: yellow', 'background: #fff; color: #000')
+  });
+  L2Dwidget.init({
+    "display": {
+      "superSample": 2,
+      "width": 200,
+      "height": 400,
+      "position": "right",
+      "hOffset": 0,
+      "vOffset": 0
+    },
+    "mobile": {
+      "show": true,
+      "scale": 0.7
+    }
+  });
+</script>
+
+<script src="/js/jquery.modal.min.js"></script>
+<link rel="stylesheet" href="/css/jquery.modal.min.css">
+<script src="/js/jquery.justifiedGallery.min.js"></script>
+
+<script src="/dist/main.js"></script>
+
+<!-- ImageViewer -->
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<link rel="stylesheet" href="/css/photoswipe.min.css">
+<link rel="stylesheet" href="/css/default-skin.min.css">
+<script src="/js/photoswipe.min.js"></script>
+<script src="/js/photoswipe-ui-default.min.js"></script>
+
+<script>
+    function viewer_init() {
+        let pswpElement = document.querySelectorAll('.pswp')[0];
+        let $imgArr = document.querySelectorAll(('.article-entry img:not(.reward-img)'))
+
+        $imgArr.forEach(($em, i) => {
+            $em.onclick = () => {
+                // slider展开状态
+                // todo: 这样不好，后面改成状态
+                if (document.querySelector('.left-col.show')) return
+                let items = []
+                $imgArr.forEach(($em2, i2) => {
+                    let img = $em2.getAttribute('data-idx', i2)
+                    let src = $em2.getAttribute('data-target') || $em2.getAttribute('src')
+                    let title = $em2.getAttribute('alt')
+                    // 获得原图尺寸
+                    const image = new Image()
+                    image.src = src
+                    items.push({
+                        src: src,
+                        w: image.width || $em2.width,
+                        h: image.height || $em2.height,
+                        title: title
+                    })
+                })
+                var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, {
+                    index: parseInt(i)
+                });
+                gallery.init()
+            }
+        })
+    }
+    viewer_init()
+</script>
+
+<!-- MathJax -->
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      extensions: ["tex2jax.js"],
+      jax: ["input/TeX","output/HTML-CSS"],
+      tex2jax: {inlineMath: [["$","$"]]}
+    });
+  </script>
+
+<script src="/mathjax/MathJax.js"></script>
+<script>
+  var ayerConfig = {
+    mathjax: true
+  }
+</script>
+
+<!-- Katex -->
+
+<!-- busuanzi  -->
+
+<!-- ClickLove -->
+
+
+<script src="/js/clickLove.js"></script>
+
+
+<!-- ClickBoom1 -->
+
+<!-- ClickBoom2 -->
+
+<!-- CodeCopy -->
+
+
+<link rel="stylesheet" href="/css/clipboard.css">
+
+<script src="/js/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="ri-file-copy-2-line"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-checkbox-circle-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-checkbox-circle-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-time-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-time-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+
+
+<!-- CanvasBackground -->
+
+
+    
+  </div>
+</body>
+
+</html>

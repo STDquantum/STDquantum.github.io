@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+
+
+<html lang="zh-CN">
+
+
+<head>
+  <meta charset="utf-8" />
+    
+  <meta name="description" content="STDquantum" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <title>
+    20200706模拟赛 |  STDquantum
+  </title>
+  <meta name="generator" content="hexo-theme-ayer">
+  
+  <link rel="shortcut icon" href="/1.ico" />
+  
+  
+<link rel="stylesheet" href="/dist/main.css">
+
+  
+<link rel="stylesheet" href="/css/remixicon.min.css">
+
+  
+<link rel="stylesheet" href="/css/custom.css">
+
+  
+  
+<script src="/js/pace.min.js"></script>
+
+  
+  
+
+  
+
+</head>
+
+</html>
+
+<body>
+  <div id="app">
+    
+      
+    <main class="content on">
+      <section class="outer">
+  <article
+  id="post-OI/模拟赛/20200706模拟赛"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  20200706模拟赛
+</h1>
+ 
+
+    </header>
+     
+    <div class="article-meta">
+      <a href="/20200706-mo-ni-sai/" class="article-date">
+  <time datetime="2020-07-06T03:20:33.000Z" itemprop="datePublished">2020-07-06</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/OI/">OI</a> / <a class="article-category-link" href="/categories/OI/%E6%A8%A1%E6%8B%9F%E8%B5%9B/">模拟赛</a>
+  </div>
+  
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> 字数统计:</span>
+            <span class="post-count">2.4k</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> 阅读时长≈</span>
+            <span class="post-count">11 分钟</span>
+        </span>
+    </span>
+</div>
+ 
+    </div>
+      
+    <div class="tocbot"></div>
+
+
+
+
+  
+    <div class="article-entry" itemprop="articleBody">
+       
+  <p>期末考完了，要进入竞赛冲刺阶段了。</p>
+<a id="more"></a>
+<h1 id="matrix"><a href="#matrix" class="headerlink" title="matrix"></a>matrix</h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>给定两个长度为 $n$ 的整数序列 $l$ 和 $t$ , 分别作为 $n$ x $n$ 矩阵 $F$ 的第一列和第一行，并且保证 <script type="math/tex">l_1 = t_1</script>。 同时矩阵中的任意其他元素 <script type="math/tex">F_{i,j}</script> 由以下递推给定： </p>
+<script type="math/tex; mode=display">
+F_{i,j} = a\cdot F_{i,j-1} + b\cdot F_{i-1,j}</script><p>给定系数$a,b,$ 要求计算$F_{n,n}$ 模 $10^9+7$ 的值。</p>
+<h2 id="输入输出格式"><a href="#输入输出格式" class="headerlink" title="输入输出格式"></a>输入输出格式</h2><h3 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h3><p>第一行包含三个整数 $n,a,b$。 第二行包含$n$个整数<script type="math/tex">l_i</script>。 第三行包含$n$个整数<script type="math/tex">t_i</script>。</p>
+<h3 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h3><p>共一行包含一个整数，表示$F_{n,n}$模$10^9+7$的值。</p>
+<h2 id="输入输出样例"><a href="#输入输出样例" class="headerlink" title="输入输出样例"></a>输入输出样例</h2><h3 id="输入样例-1"><a href="#输入样例-1" class="headerlink" title="输入样例 #1"></a>输入样例 #1</h3><figure class="highlight basic"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">4 </span><span class="number">3</span> <span class="number">5</span></span><br><span class="line"><span class="symbol">4 </span><span class="number">1</span> <span class="number">7</span> <span class="number">3</span></span><br><span class="line"><span class="symbol">4 </span><span class="number">7</span> <span class="number">4</span> <span class="number">8</span></span><br></pre></td></tr></table></figure>
+<h3 id="输出样例-1"><a href="#输出样例-1" class="headerlink" title="输出样例 #1"></a>输出样例 #1</h3><figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">59716</span></span><br></pre></td></tr></table></figure>
+<h2 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h2><p>对于$40\%$的数据 ：$n \leq 5000$ </p>
+<p>对于另外$20\%$的数据 ：$a=0$ </p>
+<p>对于$100\%$的数据 ：<script type="math/tex">n,a,b,l_i,t_i \leq 100000</script></p>
+<h2 id="我的做法"><a href="#我的做法" class="headerlink" title="我的做法"></a>我的做法</h2><p>打表找规律/cy</p>
+<img src="/20200706-mo-ni-sai/1.png" class>
+<p>然后就看这个系数这么像组合数，果然。</p>
+<p>然后推呀推呀，中间错了好几次，经过两个多小时的努力，终于把答案凑出来了，代码写出来了（好几处没加<code>1ll</code>调了好久）。</p>
+<p>发现<script type="math/tex">F_{1,1}</script>没有什么用，于是从<script type="math/tex">F_{2,1}</script>到<script type="math/tex">F_{n,1}</script>编号为<script type="math/tex">x_1</script>到<script type="math/tex">x_{n-1}</script>，从<script type="math/tex">F_{1,2}</script>到<script type="math/tex">F_{1,n}</script>编号为<script type="math/tex">y_1</script>到<script type="math/tex">y_{n-1}</script>。</p>
+<script type="math/tex; mode=display">
+ans=a^{n-1}\sum^{n-1}_{i=1}\left(\begin{array}c{2n-i-3}\\{n-2}\end{array}\right)b^{n-i-1}y_i+b^{n-1}\sum^{n-1}_{i=1}\left(\begin{array}c{2n-i-3}\\{n-2}\end{array}\right)a^{n-i-1}x_i</script><p>我发誓我真的是生凑出来的。</p>
+<p>代码：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> STDquantum &#123;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">2e5</span> + <span class="number">10</span>, p = <span class="number">1e9</span> + <span class="number">7</span>;</span><br><span class="line"><span class="keyword">int</span> n, inv[N], fac[N], a, b, x[N], y[N];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">fpm</span><span class="params">(<span class="keyword">int</span> a1, <span class="keyword">int</span> b1)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">long</span> <span class="keyword">long</span> ans = <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">for</span>(; b1; b1 &gt;&gt;= <span class="number">1</span>, a1 = <span class="number">1l</span>l * a1 * a1 % p) &#123;</span><br><span class="line">    <span class="keyword">if</span> (b1 &amp; <span class="number">1</span>) ans = ans * a1 % p;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> (<span class="keyword">int</span>)(ans % p);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">init</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  fac[<span class="number">0</span>] = fac[<span class="number">1</span>] = inv[<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">2</span>; i &lt;= <span class="number">2</span> * n; ++i) &#123;</span><br><span class="line">    fac[i] = <span class="number">1l</span>l * fac[i - <span class="number">1</span>] * i % p;</span><br><span class="line">  &#125;</span><br><span class="line">  inv[<span class="number">2</span> * n] = fpm(fac[<span class="number">2</span> * n], p - <span class="number">2</span>);</span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">2</span> * n - <span class="number">1</span>; i; --i) &#123;</span><br><span class="line">    inv[i] = <span class="number">1l</span>l * inv[i + <span class="number">1</span>] * (i + <span class="number">1</span>) % p;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">C</span><span class="params">(<span class="keyword">int</span> n1, <span class="keyword">int</span> m1)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">int</span>((<span class="number">1l</span>l * inv[n1 - m1] * inv[m1] % p) * fac[n1] % p);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  <span class="built_in">scanf</span>(<span class="string">"%d%d%d"</span>, &amp;n, &amp;a, &amp;b);</span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; ++i) &#123;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;y[i]);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; ++i) &#123;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;x[i]);</span><br><span class="line">  &#125;</span><br><span class="line">  init();</span><br><span class="line">  <span class="keyword">long</span> <span class="keyword">long</span> tmp1 = <span class="number">0</span>, tmp2 = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n - <span class="number">1</span>; ++i) &#123;</span><br><span class="line">    tmp1 = (tmp1 + (<span class="number">1l</span>l * C(<span class="number">2</span> * n - i - <span class="number">3</span>, n - <span class="number">2</span>) * fpm(b, n - i - <span class="number">1</span>) % p) * y[i] % p) % p;</span><br><span class="line">    tmp2 = (tmp2 + (<span class="number">1l</span>l * C(<span class="number">2</span> * n - i - <span class="number">3</span>, n - <span class="number">2</span>) * fpm(a, n - i - <span class="number">1</span>) % p) * x[i] % p) % p;</span><br><span class="line">  &#125;</span><br><span class="line">  tmp1 = tmp1 * fpm(a, n - <span class="number">1</span>) % p;</span><br><span class="line">  tmp2 = tmp2 * fpm(b, n - <span class="number">1</span>) % p;</span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">"%lld\n"</span>, (tmp1 + tmp2) % p);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125; <span class="comment">// namespace STDquantum</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  STDquantum::main();</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="value"><a href="#value" class="headerlink" title="value"></a>value</h1><h2 id="题目描述-1"><a href="#题目描述-1" class="headerlink" title="题目描述"></a>题目描述</h2><p>给定 $n$ 个物品，每个物品的价值为 <script type="math/tex">v_i</script>,代价为<script type="math/tex">w_i</script>。 可以以任意的顺序选择任意数量的物品，但在选择编号为 $i$ 的物品后，剩下的物品的价值都会减少<script type="math/tex">w_i</script>。要求最大化选择商品的价值之和。</p>
+<h2 id="输入输出格式-1"><a href="#输入输出格式-1" class="headerlink" title="输入输出格式"></a>输入输出格式</h2><h3 id="输入格式-1"><a href="#输入格式-1" class="headerlink" title="输入格式"></a>输入格式</h3><p>第一行包含两个整数 $n$。 之后$n$行每行包含两个整数<script type="math/tex">v_i,w_i</script>。</p>
+<p>输出格式</p>
+<p>共一行包含一个整数，表示价值之和的最大值。</p>
+<h2 id="输入输出样例-1"><a href="#输入输出样例-1" class="headerlink" title="输入输出样例"></a>输入输出样例</h2><h3 id="输入样例-1-1"><a href="#输入样例-1-1" class="headerlink" title="输入样例 #1"></a>输入样例 #1</h3><figure class="highlight basic"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">5</span></span><br><span class="line"><span class="symbol">8 </span><span class="number">2</span></span><br><span class="line"><span class="symbol">10 </span><span class="number">7</span></span><br><span class="line"><span class="symbol">5 </span><span class="number">1</span></span><br><span class="line"><span class="symbol">11 </span><span class="number">8</span></span><br><span class="line"><span class="symbol">13 </span><span class="number">3</span></span><br></pre></td></tr></table></figure>
+<h3 id="输出样例-1-1"><a href="#输出样例-1-1" class="headerlink" title="输出样例 #1"></a>输出样例 #1</h3><figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">27</span></span><br></pre></td></tr></table></figure>
+<h2 id="说明-1"><a href="#说明-1" class="headerlink" title="说明"></a>说明</h2><p>对于$40\%$ 的数据：$n \leq 8$。 </p>
+<p>对于$100\%$的数据：<script type="math/tex">n \leq 5000,v_i,w_i \leq 10^5</script>。</p>
+<h2 id="做法"><a href="#做法" class="headerlink" title="做法"></a>做法</h2><p>可以看出来这题是类似DP的一种东西，可以先考虑令$f_{i,j}$表示已经考虑到了第$i$个物品，已经选了$j$个能得到的最大价值。</p>
+<p>然后我们考虑怎么来写DP方程。然后写一写就会发现用贪心思想尽可能把<script type="math/tex">w_i</script>小的往里面装，根本写不下去，因为你并不知道里面已经选了什么物体，它们的<script type="math/tex">w_i</script>分别是多少，再添加下一个物品时，就会涉及到很多问题。所以怎么解决呢？</p>
+<p>既然放最小的会影响后面决策，那么不妨从大的开始放。可以发现在放最后一个物体的时候对背包里的物体是无影响的，而在放倒数第二个的时候，要减掉的也只是背包内物体个数乘上倒数第二个物体的代价。</p>
+<p>于是另一种贪心放置的思路有了。就先从大到小排个序，然后枚举往里丢就可以了。</p>
+<p>转移：</p>
+<script type="math/tex; mode=display">
+f[i][j]=\max(f[i-1][j],\ f[i-1][j-1]-(j-1)*a[i].w+a[i].v)</script><p>前半部分就是不选这个物品，后半部分就是选了这个物品。</p>
+<p>当然可以发现$n$的范围是$[1,\ 5000]$，对于空间限制$n^2$有点大了。所以滚动数组就可以。具体的嘛，开$f[0/1][n]$，来回的区分就用$i\&amp;1$就可以，相邻两个异或$1$是可以互换的，相邻两个数不会一样，也能方便地转换。</p>
+<p>代码如下：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> STDquantum &#123;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">10086</span>, inf = <span class="number">-0x7fffffff</span>;</span><br><span class="line"><span class="keyword">int</span> n, ans = inf, f[<span class="number">2</span>][N];</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">M</span> &#123;</span></span><br><span class="line">  <span class="keyword">int</span> v, w;</span><br><span class="line">&#125; a[N];</span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">cmp</span><span class="params">(M a, M b)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (a.w == b.w) &#123;</span><br><span class="line">    <span class="keyword">return</span> a.v &gt; b.v;</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> a.w &gt; b.w;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;n);</span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; ++i) &#123;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d%d"</span>, &amp;a[i].v, &amp;a[i].w);</span><br><span class="line">  &#125;</span><br><span class="line">  sort(a + <span class="number">1</span>, a + n + <span class="number">1</span>, cmp);</span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; ++i) &#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= i; ++j) &#123;</span><br><span class="line">      f[i &amp; <span class="number">1</span>][j] = max(f[(i &amp; <span class="number">1</span>) ^ <span class="number">1</span>][j], f[(i &amp; <span class="number">1</span>) ^ <span class="number">1</span>][j - <span class="number">1</span>] - (j - <span class="number">1</span>) * a[i].w + a[i].v);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt;= n; ++i) &#123;</span><br><span class="line">    ans = max(ans, f[n &amp; <span class="number">1</span>][i]);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">"%d"</span>, ans);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125; <span class="comment">// namespace STDquantum</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  STDquantum::main();</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="binary"><a href="#binary" class="headerlink" title="binary"></a>binary</h1><h2 id="题目描述-2"><a href="#题目描述-2" class="headerlink" title="题目描述"></a>题目描述</h2><p>给定一个长度为 $n$ 的整数数列 $a$ 和 $q$ 次操作： 修改操作：形如 $1$ $x$ $y$,表示将<script type="math/tex">a_x</script> 的值修改为 $y$； 询问操作：形如 $2$ $x$ $y$，表示询问<script type="math/tex">\sum_{i=1}^n(a_i + x)</script> $and$ $y$的值。</p>
+<h2 id="输入输出格式-2"><a href="#输入输出格式-2" class="headerlink" title="输入输出格式"></a>输入输出格式</h2><h3 id="输入格式-2"><a href="#输入格式-2" class="headerlink" title="输入格式"></a>输入格式</h3><p>第一行包含两个整数 $n,q$。 第二行包含 $n$ 个整数 $a_i$。 之后 $q$ 行每行包含三个整数 $opt,x,y$。</p>
+<p>输出格式</p>
+<p>对于每一个询问操作，输出一行包含一个整数，表示询问操作的答案。</p>
+<h2 id="输入输出样例-2"><a href="#输入输出样例-2" class="headerlink" title="输入输出样例"></a>输入输出样例</h2><h3 id="输入样例-1-2"><a href="#输入样例-1-2" class="headerlink" title="输入样例 #1"></a>输入样例 #1</h3><figure class="highlight basic"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">6 </span><span class="number">6</span></span><br><span class="line"><span class="symbol">8 </span><span class="number">9</span> <span class="number">1</span> <span class="number">13</span> <span class="number">9</span> <span class="number">3</span></span><br><span class="line"><span class="symbol">1 </span><span class="number">4</span> <span class="number">5</span></span><br><span class="line"><span class="symbol">2 </span><span class="number">6</span> <span class="number">9</span></span><br><span class="line"><span class="symbol">1 </span><span class="number">3</span> <span class="number">7</span></span><br><span class="line"><span class="symbol">2 </span><span class="number">7</span> <span class="number">7</span></span><br><span class="line"><span class="symbol">1 </span><span class="number">6</span> <span class="number">1</span></span><br><span class="line"><span class="symbol">2 </span><span class="number">11</span> <span class="number">13</span></span><br></pre></td></tr></table></figure>
+<h3 id="输出样例-1-2"><a href="#输出样例-1-2" class="headerlink" title="输出样例 #1"></a>输出样例 #1</h3><figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">45</span></span><br><span class="line"><span class="number">19</span></span><br><span class="line"><span class="number">21</span></span><br></pre></td></tr></table></figure>
+<h2 id="说明-2"><a href="#说明-2" class="headerlink" title="说明"></a>说明</h2><p>对于$40\%$的数据：$n,q \leq 5000$。 </p>
+<p>对于另外 $20\%$ 的数据：所有的询问操作满足 $x =0$。 </p>
+<p>对于$100\%$的数据：$n,q\leq 100000,0\leq a_i,x,y &lt; 2^{20}$。</p>
+<h2 id="做法-1"><a href="#做法-1" class="headerlink" title="做法"></a>做法</h2><p>因为要做与运算，所以考虑 <script type="math/tex">a_i+x</script> 对 $y$ 每二进制位的贡献。</p>
+<p>把 $y$ 拆分成不同位考虑，则只有当 $y$ 的第 $j$ 位是$1$时，且 <script type="math/tex">a_i+x</script> 该位也为$1$时，一个<script type="math/tex">a_i</script>对答案有 $1&lt;&lt;j$ 的贡献，所以考虑如何求出该位为$1$的 <script type="math/tex">a_i+x</script> 数量。</p>
+<p>由于只考虑该位，则对应区间$D$为$[1&lt;&lt;j,\ 1&lt;&lt;(j+1)-1]$。在该区间内的数第 $j$ 位必定为$1$。</p>
+<p>可以考虑用树状数组完成单点查询、区间查询操作，维护右端点为 $1&lt;&lt;(j+1)$ 的区间内符合要求的数。因为不用考虑更高位，则可以用 <script type="math/tex">a_i</script> 模 $1&lt;&lt;(j+1)$ 再加上一，即取值在 $[1,\ 1&lt;&lt;(j+1)]$ 内。</p>
+<p>可能的 $j$ 取值有$20$个，对应 $x,y &lt;2^{20}$，即开二十个树状数组即可。</p>
+<p>在查询时，树状数组求和类似前缀和。还需要注意最初求的区间$D$为 $a_i+x$ 的范围，则需要将整个区间向左平移 $x$ 个单位才是 <script type="math/tex">a_i</script> 的实际范围，令该平移后区间为$M$，然而由于是在取模意义下操作，平移后可能会出现右端点在维护区间内，而左端点的值小于一的情况（左端点取模后会比$M$区间右端点更接近$D$区间右端点的情况），那么所求解的范围为图中<script type="math/tex">R_1</script>点左侧与<script type="math/tex">L_1</script>点右侧。</p>
+<img src="/20200706-mo-ni-sai/3.png" class>
+<p>代码如下</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> STDquantum &#123;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">2e5</span> + <span class="number">10</span>;</span><br><span class="line"><span class="keyword">int</span> n, q, a[N], t[<span class="number">23</span>][(<span class="number">1</span> &lt;&lt; <span class="number">20</span>) + <span class="number">3</span>];</span><br><span class="line"><span class="keyword">long</span> <span class="keyword">long</span> ans;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">int</span> <span class="title">lowbit</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> x &amp; (-x);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">update</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> k, <span class="keyword">int</span> pos)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">while</span> (x &lt;= (<span class="number">1</span> &lt;&lt; pos + <span class="number">1</span>)) &#123;</span><br><span class="line">    t[pos][x] += k;</span><br><span class="line">    x += lowbit(x);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">int</span> <span class="title">query</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> pos)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">int</span> sum = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">while</span> (x) &#123;</span><br><span class="line">    sum += t[pos][x];</span><br><span class="line">    x -= lowbit(x);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> sum;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  <span class="built_in">scanf</span>(<span class="string">"%d%d"</span>, &amp;n, &amp;q);</span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; ++i) &#123;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>, a + i);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt;= <span class="number">19</span>; ++j) &#123;</span><br><span class="line">      update(a[i] % (<span class="number">1</span> &lt;&lt; j + <span class="number">1</span>) + <span class="number">1</span>, <span class="number">1</span>, j);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>, op, x, y; i &lt;= q; ++i) &#123;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d%d%d"</span>, &amp;op, &amp;x, &amp;y);</span><br><span class="line">    <span class="keyword">if</span> (op == <span class="number">1</span>) &#123;</span><br><span class="line">      <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt;= <span class="number">19</span>; ++j) &#123;</span><br><span class="line">        update(a[x] % (<span class="number">1</span> &lt;&lt; j + <span class="number">1</span>) + <span class="number">1</span>, <span class="number">-1</span>, j);</span><br><span class="line">        update(y % (<span class="number">1</span> &lt;&lt; j + <span class="number">1</span>) + <span class="number">1</span>, <span class="number">1</span>, j);</span><br><span class="line">      &#125;</span><br><span class="line">      a[x] = y;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      ans = <span class="number">0</span>;</span><br><span class="line">      <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>, l, r; j &lt;= <span class="number">19</span>; ++j) &#123;</span><br><span class="line">        <span class="keyword">if</span> ((y &amp; (<span class="number">1</span> &lt;&lt; j)) == <span class="number">0</span>) <span class="keyword">continue</span>;</span><br><span class="line">        l = ((<span class="number">1</span> &lt;&lt; j) - <span class="number">1</span> - x + (<span class="number">1</span> &lt;&lt; <span class="number">20</span>)) % (<span class="number">1</span> &lt;&lt; j + <span class="number">1</span>);</span><br><span class="line">        r = ((<span class="number">1</span> &lt;&lt; j + <span class="number">1</span>) - <span class="number">1</span> - x + (<span class="number">1</span> &lt;&lt; <span class="number">20</span>)) % (<span class="number">1</span> &lt;&lt; j + <span class="number">1</span>);</span><br><span class="line">        <span class="keyword">if</span> (l &lt;= r) &#123;</span><br><span class="line">          ans += <span class="number">1l</span>l * (<span class="number">1</span> &lt;&lt; j) * (query(r + <span class="number">1</span>, j) - query(l + <span class="number">1</span>, j));</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">          ans += <span class="number">1l</span>l * (<span class="number">1</span> &lt;&lt; j) * (query(r + <span class="number">1</span>, j) - query(l + <span class="number">1</span>, j) + query((<span class="number">1</span> &lt;&lt; j + <span class="number">1</span>) + <span class="number">1</span>, j));</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="built_in">printf</span>(<span class="string">"%lld\n"</span>, ans);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  STDquantum::main();</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h1><img src="/20200706-mo-ni-sai/2.jpg" class> 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%A8%A1%E6%8B%9F%E8%B5%9B/" rel="tag">模拟赛</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+  <nav class="article-nav">
+    
+      <a href="/20200707-mo-ni-sai/" class="article-nav-link">
+        <strong class="article-nav-caption">上一篇</strong>
+        <div class="article-nav-title">
+          
+            20200707模拟赛
+          
+        </div>
+      </a>
+    
+    
+      <a href="/20200620-mo-ni-sai/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">20200620模拟赛</div>
+      </a>
+    
+  </nav>
+
+  
+     
+</article>
+
+</section>
+      <footer class="footer">
+  <div class="outer">
+    <ul>
+      <li>
+        Copyrights &copy;
+        2020
+        <i class="ri-heart-fill heart_icon"></i> STDquantum
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+      </li>
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      <li>
+        <!-- cnzz统计 -->
+        
+      </li>
+    </ul>
+  </div>
+</footer>
+      <div class="float_btns">
+        <div class="totop" id="totop">
+  <i class="ri-arrow-up-line"></i>
+</div>
+
+      </div>
+    </main>
+    <aside class="sidebar on">
+      <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/1.jpg" alt="STDquantum"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">主页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">归档</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/categories">分类</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/tags">标签</a>
+    </li>
+    
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      
+      <a class="nav-item-link nav-item-search"  title="搜索">
+        <i class="ri-search-line"></i>
+      </a>
+      
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+    </aside>
+    <script>
+      if (window.matchMedia("(max-width: 768px)").matches) {
+        document.querySelector('.content').classList.remove('on');
+        document.querySelector('.sidebar').classList.remove('on');
+      }
+    </script>
+    <div id="mask"></div>
+
+<!-- #reward -->
+<div id="reward">
+  <span class="close"><i class="ri-close-line"></i></span>
+  <p class="reward-p"><i class="ri-cup-line"></i></p>
+  <div class="reward-box">
+    
+    
+  </div>
+</div>
+    
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+
+<script src="/js/lazyload.min.js"></script>
+
+<!-- Tocbot -->
+
+
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  tocbot.init({
+    tocSelector: '.tocbot',
+    contentSelector: '.article-entry',
+    headingSelector: 'h1, h2, h3, h4, h5, h6',
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: 'main',
+    positionFixedSelector: '.tocbot',
+    positionFixedClass: 'is-position-fixed',
+    fixedSidebarOffset: 'auto'
+  });
+</script>
+<!-- Live-2D -->
+<script type="text/javascript" charset="utf-8" src="/js/L2Dwidget.0.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="/js/L2Dwidget.min.js"></script>
+<script type="text/javascript">
+  L2Dwidget.on('*', (name) => {
+    console.log('%c EVENT ' + '%c -> ' + name, 'background: #222; color: yellow', 'background: #fff; color: #000')
+  });
+  L2Dwidget.init({
+    "display": {
+      "superSample": 2,
+      "width": 200,
+      "height": 400,
+      "position": "right",
+      "hOffset": 0,
+      "vOffset": 0
+    },
+    "mobile": {
+      "show": true,
+      "scale": 0.7
+    }
+  });
+</script>
+
+<script src="/js/jquery.modal.min.js"></script>
+<link rel="stylesheet" href="/css/jquery.modal.min.css">
+<script src="/js/jquery.justifiedGallery.min.js"></script>
+
+<script src="/dist/main.js"></script>
+
+<!-- ImageViewer -->
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<link rel="stylesheet" href="/css/photoswipe.min.css">
+<link rel="stylesheet" href="/css/default-skin.min.css">
+<script src="/js/photoswipe.min.js"></script>
+<script src="/js/photoswipe-ui-default.min.js"></script>
+
+<script>
+    function viewer_init() {
+        let pswpElement = document.querySelectorAll('.pswp')[0];
+        let $imgArr = document.querySelectorAll(('.article-entry img:not(.reward-img)'))
+
+        $imgArr.forEach(($em, i) => {
+            $em.onclick = () => {
+                // slider展开状态
+                // todo: 这样不好，后面改成状态
+                if (document.querySelector('.left-col.show')) return
+                let items = []
+                $imgArr.forEach(($em2, i2) => {
+                    let img = $em2.getAttribute('data-idx', i2)
+                    let src = $em2.getAttribute('data-target') || $em2.getAttribute('src')
+                    let title = $em2.getAttribute('alt')
+                    // 获得原图尺寸
+                    const image = new Image()
+                    image.src = src
+                    items.push({
+                        src: src,
+                        w: image.width || $em2.width,
+                        h: image.height || $em2.height,
+                        title: title
+                    })
+                })
+                var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, {
+                    index: parseInt(i)
+                });
+                gallery.init()
+            }
+        })
+    }
+    viewer_init()
+</script>
+
+<!-- MathJax -->
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      extensions: ["tex2jax.js"],
+      jax: ["input/TeX","output/HTML-CSS"],
+      tex2jax: {inlineMath: [["$","$"]]}
+    });
+  </script>
+
+<script src="/mathjax/MathJax.js"></script>
+<script>
+  var ayerConfig = {
+    mathjax: true
+  }
+</script>
+
+<!-- Katex -->
+
+<!-- busuanzi  -->
+
+<!-- ClickLove -->
+
+
+<script src="/js/clickLove.js"></script>
+
+
+<!-- ClickBoom1 -->
+
+<!-- ClickBoom2 -->
+
+<!-- CodeCopy -->
+
+
+<link rel="stylesheet" href="/css/clipboard.css">
+
+<script src="/js/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="ri-file-copy-2-line"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-checkbox-circle-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-checkbox-circle-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-time-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-time-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+
+
+<!-- CanvasBackground -->
+
+
+    
+  </div>
+</body>
+
+</html>

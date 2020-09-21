@@ -1,0 +1,890 @@
+<!DOCTYPE html>
+
+
+<html lang="zh-CN">
+
+
+<head>
+  <meta charset="utf-8" />
+    
+  <meta name="description" content="STDquantum" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <title>
+    20200726模拟赛 |  STDquantum
+  </title>
+  <meta name="generator" content="hexo-theme-ayer">
+  
+  <link rel="shortcut icon" href="/1.ico" />
+  
+  
+<link rel="stylesheet" href="/dist/main.css">
+
+  
+<link rel="stylesheet" href="/css/remixicon.min.css">
+
+  
+<link rel="stylesheet" href="/css/custom.css">
+
+  
+  
+<script src="/js/pace.min.js"></script>
+
+  
+  
+
+  
+
+</head>
+
+</html>
+
+<body>
+  <div id="app">
+    
+      
+    <main class="content on">
+      <section class="outer">
+  <article
+  id="post-OI/模拟赛/20200726模拟赛"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  20200726模拟赛
+</h1>
+ 
+
+    </header>
+     
+    <div class="article-meta">
+      <a href="/20200726-mo-ni-sai/" class="article-date">
+  <time datetime="2020-07-26T01:47:52.000Z" itemprop="datePublished">2020-07-26</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/OI/">OI</a> / <a class="article-category-link" href="/categories/OI/%E6%A8%A1%E6%8B%9F%E8%B5%9B/">模拟赛</a>
+  </div>
+  
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> 字数统计:</span>
+            <span class="post-count">730</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> 阅读时长≈</span>
+            <span class="post-count">2 分钟</span>
+        </span>
+    </span>
+</div>
+ 
+    </div>
+      
+    <div class="tocbot"></div>
+
+
+
+
+  
+    <div class="article-entry" itemprop="articleBody">
+       
+  <blockquote>
+<p>但到头来，一切都是故事。</p>
+<div align="right">——尤瓦尔·赫拉利《未来简史》</div>
+
+</blockquote>
+<a id="more"></a>
+<h1 id="礼物"><a href="#礼物" class="headerlink" title="礼物"></a>礼物</h1><p>(gift.cpp\c\pas)</p>
+<h2 id="【问题描述】"><a href="#【问题描述】" class="headerlink" title="【问题描述】"></a>【问题描述】</h2><p>夏川的生日就要到了。作为夏川形式上的男朋友，季堂打算给夏川买一些生日礼物。</p>
+<p>商店里一共有种礼物。夏川每得到一种礼物，就会获得相应喜悦值Wi（<strong>每种礼物的喜悦值不能重复获得</strong>）。</p>
+<p>每次，店员会按照一定的概率Pi（或者不拿出礼物），将第i种礼物拿出来。季堂每次都会将店员拿出来的礼物买下来。<strong>没有拿出来视为什么都没有买到，也算一次购买。</strong></p>
+<p>众所周知，白毛切开都是黑的。所以季堂希望最后夏川的喜悦值尽可能地高。</p>
+<p>求夏川最后最大的喜悦值是多少，并求出使夏川得到这个喜悦值，季堂的期望购买次数。</p>
+<h2 id="【输入格式】"><a href="#【输入格式】" class="headerlink" title="【输入格式】"></a>【输入格式】</h2><p>第一行，一个整数N，表示有N种礼物。</p>
+<p>接下来N行，每行一个实数Pi和正整数Wi，表示第i种礼物被拿出来的概率和可以获得喜悦值。</p>
+<h2 id="【输出格式】"><a href="#【输出格式】" class="headerlink" title="【输出格式】"></a>【输出格式】</h2><p>第一行，一个整数表示可以获得的最大喜悦值。</p>
+<p>第二行，一个实数表示获得这个喜悦值的期望购买次数，保留3位小数。</p>
+<h2 id="【输入输出样例】"><a href="#【输入输出样例】" class="headerlink" title="【输入输出样例】"></a>【输入输出样例】</h2><figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">3</span></span><br><span class="line"><span class="number">0.1</span> <span class="number">2</span></span><br><span class="line"><span class="number">0.2</span> <span class="number">5</span></span><br><span class="line"><span class="number">0.3</span> <span class="number">7</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">14</span></span><br><span class="line"><span class="number">12.167</span></span><br></pre></td></tr></table></figure>
+<h2 id="【数据范围】"><a href="#【数据范围】" class="headerlink" title="【数据范围】"></a>【数据范围】</h2><p>对于10%的数据，N = 1</p>
+<p>对于30%的数据，N ≤ 5</p>
+<p>对于100%的数据，N ≤ 20 ，0 &lt; Wi ≤ 10^9 ，0 &lt; Pi ≤ 1且ΣPi ≤ 1</p>
+<p><strong>注意：本题不设spj</strong></p>
+<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>看这数据范围，应该是个状压DP？</p>
+<p>主要是样例模不出来，要么这题就切了。</p>
+<p>这题意不甚明了，我尝试复述一下：每次店员都会拿出一个礼物，或者不拿，给出拿出每个礼物的概率，求拿出所有礼物的期望次数。</p>
+<p>$w_i$不太重要，因为似乎每个礼物都只能选一次，那么的话直接加个和输出就行，剩下的就是概率期望的工作了。</p>
+<p>设$s$为当前状态，每一位$1$对应已经选了，$0$对应没选。$f[s]$为买到当前状态的礼物的期望步数。</p>
+<p>我们这次的期望步数肯定是要加一的，那么怎么从别的地方转移过来呢？</p>
+<p>每次的可能就是要么不拿（或者拿到了已经拿过的东西，其实就相当于不拿），$f[s]*(1-\sum p)$，要么拿，$f[s\mbox{ xor }(1&lt;&lt;i)]\times p[i]$。到$(1&lt;&lt;n)-1$都拿了就不用再枚举了。</p>
+<p>然后枚举的时候开一个变量记录一下所有包含在$i$中的元素的$\sum p[i]$，然后我们观察我们计算的这个式子</p>
+<script type="math/tex; mode=display">
+f[s]=\sum_{i\in s} f[s\mbox{ xor }(1<<i)]\times p[i]+f[s]*(1-\sum_{i\in s}p[i])+1</script><p>我们发现直接把右边的$f[s]$移到左边，变成了</p>
+<script type="math/tex; mode=display">
+\sum_{i\in s}p[i]\times f[s]=\sum_{i\in s} f[s\mbox{ xor }(1<<i)]\times p[i]+1\\f[s]=\frac{\sum_{i\in s} f[s\mbox{ xor }(1<<i)]\times p[i]+1}{\sum_{i\in s}p[i]}</script><p>这样就可以直接进行DP辣。</p>
+<p>AC代码</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> LOCAL</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> STDquantum &#123;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">102</span>, M = <span class="number">21</span>;</span><br><span class="line">ll n, yi = <span class="number">1</span>, maxx, a[N];</span><br><span class="line"><span class="keyword">double</span> sum, tmp1, p[N], f[<span class="number">1</span> &lt;&lt; M];</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  <span class="built_in">scanf</span>(<span class="string">"%lld"</span>, &amp;n);</span><br><span class="line">  <span class="keyword">for</span> (ll i = <span class="number">0</span>; i &lt; n; ++i) &#123;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%lf%lld"</span>, &amp;p[i], &amp;a[i]);</span><br><span class="line">    maxx += a[i];</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">"%lld\n"</span>, maxx);</span><br><span class="line">  <span class="keyword">for</span> (ll i = <span class="number">1</span>; i &lt; (<span class="number">1</span> &lt;&lt; n); ++i) &#123;</span><br><span class="line">    tmp1 = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (ll j = <span class="number">0</span>; j &lt; n; ++j) &#123;</span><br><span class="line">      <span class="keyword">if</span> (i &amp; (yi &lt;&lt; j)) &#123;</span><br><span class="line">        tmp1 += p[j], f[i] += f[i ^ (yi &lt;&lt; j)] * p[j];</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    f[i] += <span class="number">1</span>;</span><br><span class="line">    f[i] /= tmp1;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">"%.3lf"</span>, f[(<span class="number">1</span> &lt;&lt; n) - <span class="number">1</span>]);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;  <span class="comment">// namespace STDquantum</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">ifndef</span> ONLINE_JUDGE</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">ifdef</span> LOCAL</span></span><br><span class="line">  freopen(<span class="string">"test.in"</span>, <span class="string">"r"</span>, <span class="built_in">stdin</span>);</span><br><span class="line">  freopen(<span class="string">"test.out"</span>, <span class="string">"w"</span>, <span class="built_in">stdout</span>);</span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">ifndef</span> LOCAL</span></span><br><span class="line">  freopen(<span class="string">"gift.in"</span>, <span class="string">"r"</span>, <span class="built_in">stdin</span>);</span><br><span class="line">  freopen(<span class="string">"gift.out"</span>, <span class="string">"w"</span>, <span class="built_in">stdout</span>);</span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line">  STDquantum::main();</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="通讯"><a href="#通讯" class="headerlink" title="通讯"></a>通讯</h1><p>(message.cpp\c\pas)</p>
+<h2 id="【问题描述】-1"><a href="#【问题描述】-1" class="headerlink" title="【问题描述】"></a>【问题描述】</h2><p>“这一切都是命运石之门的选择。”</p>
+<p>试图研制时间机器的机关SERN截获了中二科学家伦太郎发往过去的一条短信，并由此得知了伦太郎制作出了电话微波炉（仮）。</p>
+<p>为了掌握时间机器的技术，SERN总部必须尽快将这个消息通过地下秘密通讯网络，传达到所有分部。</p>
+<p>SERN共有N个部门（总部编号为0），通讯网络有M条单向通讯线路，每条线路有一个固定的通讯花费Ci。</p>
+<p>为了保密，消息的传递只能按照固定的方式进行：从一个已知消息的部门向另一个与它有线路的部门传递（可能存在多条通信线路）。我们定义总费用为所有部门传递消息的费用和。</p>
+<p>幸运的是，如果两个部门可以直接或间接地相互传递消息（即能按照上述方法将信息由X传递到Y，同时能由Y传递到X），我们就可以忽略它们之间的花费。</p>
+<p>由于资金问题（预算都花在粒子对撞机上了），SERN总部的工程师希望知道，达到目标的最小花费是多少。</p>
+<h2 id="【输入格式】-1"><a href="#【输入格式】-1" class="headerlink" title="【输入格式】"></a>【输入格式】</h2><p>多组数据，文件以2个0结尾。</p>
+<p>每组数据第一行，一个整数N，表示有N个包括总部的部门（从0开始编号）。</p>
+<p>然后是一个整数M，表示有M条单向通讯线路。</p>
+<p>接下来M行，每行三个整数,Xi,Yi,Ci，表示第i条线路从Xi连向Yi，花费为Ci。</p>
+<h2 id="【输出格式】-1"><a href="#【输出格式】-1" class="headerlink" title="【输出格式】"></a>【输出格式】</h2><p>每组数据一行，一个整数表示达到目标的最小花费。</p>
+<h2 id="【输入输出样例】-1"><a href="#【输入输出样例】-1" class="headerlink" title="【输入输出样例】"></a>【输入输出样例】</h2><figure class="highlight basic"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">3 </span><span class="number">3</span></span><br><span class="line"><span class="symbol">0 </span><span class="number">1</span> <span class="number">100</span></span><br><span class="line"><span class="symbol">1 </span><span class="number">2</span> <span class="number">50</span></span><br><span class="line"><span class="symbol">0 </span><span class="number">2</span> <span class="number">100</span></span><br><span class="line"><span class="symbol">3 </span><span class="number">3</span></span><br><span class="line"><span class="symbol">0 </span><span class="number">1</span> <span class="number">100</span></span><br><span class="line"><span class="symbol">1 </span><span class="number">2</span> <span class="number">50</span></span><br><span class="line"><span class="symbol">2 </span><span class="number">1</span> <span class="number">100</span></span><br><span class="line"><span class="symbol">2 </span><span class="number">2</span></span><br><span class="line"><span class="symbol">0 </span><span class="number">1</span> <span class="number">50</span></span><br><span class="line"><span class="symbol">0 </span><span class="number">1</span> <span class="number">100</span></span><br><span class="line"><span class="symbol">0 </span><span class="number">0</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">150</span></span><br><span class="line"><span class="number">100</span></span><br><span class="line"><span class="number">50</span></span><br></pre></td></tr></table></figure>
+<h2 id="【样例解释】"><a href="#【样例解释】" class="headerlink" title="【样例解释】"></a>【样例解释】</h2><p>第一组数据：总部把消息传给分部1，分部1再传给分部2.总费用：100+50=150.</p>
+<p>第二组数据：总部把消息传给分部1，由于分部1和分部2可以互相传递消息，所以分部1可以无费用把消息传给2.总费用：100+0=100.</p>
+<p>第三组数据：总部把消息传给分部1，最小费用为50.总费用：50.</p>
+<h2 id="【数据范围】-1"><a href="#【数据范围】-1" class="headerlink" title="【数据范围】"></a>【数据范围】</h2><p>对于10%的数据，保证M=N-1</p>
+<p>对于另30%的数据，N ≤ 20 ，M ≤ 20</p>
+<p>对于100%的数据，N ≤ 50000 ，M ≤ 10^5 ，Ci ≤ 10^5 ，数据组数≤ 5</p>
+<p>数据保证一定可以将信息传递到所有部门。</p>
+<h2 id="题解-1"><a href="#题解-1" class="headerlink" title="题解"></a>题解</h2><p>观察题目，题里说能够互相到达的点就不算了，这不就是连通块吗？</p>
+<p>所以Tarjan缩点。</p>
+<p>然后怎么做呢？Kruskal？</p>
+<p>这是个有向图，Kruskal会爆的（只有十分/kk）。</p>
+<p>所以考虑拓扑排序。然后每次跑的时候，从上一层到这一层的边里边权最小的边转移过来就好辣qwq</p>
+<p>代码：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> LOCAL</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> STDquantum &#123;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">1e5</span> + <span class="number">10</span>, M = <span class="number">2e5</span> + <span class="number">10</span>;</span><br><span class="line">ll n, m, tot, head[N];</span><br><span class="line">ll gg, top, sta[N], id[N], in[N], dfn[N], low[N];</span><br><span class="line">ll in1[N], tot1, head1[N], dis[N];</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">E</span> &#123;</span></span><br><span class="line">  ll next, from, to, w;</span><br><span class="line">  <span class="keyword">inline</span> <span class="keyword">friend</span> <span class="keyword">bool</span> <span class="keyword">operator</span>&lt;(<span class="keyword">const</span> E &amp;a, <span class="keyword">const</span> E &amp;b) &#123;</span><br><span class="line">    <span class="keyword">return</span> a.w &lt; b.w;</span><br><span class="line">  &#125;</span><br><span class="line">&#125; e[M], b[M];</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">init</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  <span class="built_in">memset</span>(head, <span class="number">0</span>, <span class="keyword">sizeof</span>(head));</span><br><span class="line">  <span class="built_in">memset</span>(head1, <span class="number">0</span>, <span class="keyword">sizeof</span>(head1));</span><br><span class="line">  <span class="built_in">memset</span>(e, <span class="number">0</span>, <span class="keyword">sizeof</span>(e));</span><br><span class="line">  <span class="built_in">memset</span>(b, <span class="number">0</span>, <span class="keyword">sizeof</span>(b));</span><br><span class="line">  <span class="built_in">memset</span>(id, <span class="number">0</span>, <span class="keyword">sizeof</span>(id));</span><br><span class="line">  <span class="built_in">memset</span>(in, <span class="number">0</span>, <span class="keyword">sizeof</span>(in));</span><br><span class="line">  <span class="built_in">memset</span>(dfn, <span class="number">0</span>, <span class="keyword">sizeof</span>(dfn));</span><br><span class="line">  <span class="built_in">memset</span>(low, <span class="number">0</span>, <span class="keyword">sizeof</span>(low));</span><br><span class="line">  <span class="built_in">memset</span>(in1, <span class="number">0</span>, <span class="keyword">sizeof</span>(in1));</span><br><span class="line">  <span class="built_in">memset</span>(dis, <span class="number">0x3f</span>, <span class="keyword">sizeof</span>(dis));</span><br><span class="line">  tot = tot1 = top = gg = <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">add</span><span class="params">(ll x, ll y, ll z)</span> </span>&#123;</span><br><span class="line">  e[++tot] = (E)&#123;head[x], x, y, z&#125;;</span><br><span class="line">  head[x] = tot;</span><br><span class="line">  <span class="comment">// printf("add succeed:%lld-&gt;%lld (%lld)\n", x, y, z);</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Tarjan</span><span class="params">(ll s)</span> </span>&#123;</span><br><span class="line">  dfn[s] = low[s] = ++tot;</span><br><span class="line">  sta[++top] = s, in[s] = <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">for</span> (ll i = head[s], v; i; i = e[i].next) &#123;</span><br><span class="line">    <span class="keyword">if</span> (!dfn[v = e[i].to]) &#123;</span><br><span class="line">      Tarjan(v);</span><br><span class="line">      low[s] = min(low[s], low[v]);</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (in[v]) &#123;</span><br><span class="line">      low[s] = min(low[s], dfn[v]);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  ll k;</span><br><span class="line">  <span class="keyword">if</span> (low[s] == dfn[s]) &#123;</span><br><span class="line">    ++gg;</span><br><span class="line">    <span class="keyword">do</span> &#123;</span><br><span class="line">      k = sta[top--];</span><br><span class="line">      in[k] = <span class="number">0</span>, id[k] = gg;</span><br><span class="line">    &#125; <span class="keyword">while</span> (s != k);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">add1</span><span class="params">(ll x, ll y, ll z)</span> </span>&#123;</span><br><span class="line">  b[++tot1] = (E)&#123;head1[x], x, y, z&#125;;</span><br><span class="line">  head1[x] = tot1;</span><br><span class="line">  <span class="comment">// printf("add1 succeed:%lld-&gt;%lld (%lld)\n", x, y, z);</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">topo</span><span class="params">(<span class="keyword">int</span> s)</span> </span>&#123;</span><br><span class="line">  <span class="built_in">queue</span>&lt;<span class="keyword">int</span>&gt; q;</span><br><span class="line">  q.push(s), dis[s] = <span class="number">0</span>;</span><br><span class="line">  ll wei = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">while</span> (!q.empty()) &#123;</span><br><span class="line">    ll t = q.front();</span><br><span class="line">    q.pop();</span><br><span class="line">    <span class="keyword">for</span> (ll i = head1[t]; i; i = b[i].next) &#123;</span><br><span class="line">      dis[b[i].to] = min(dis[b[i].to], b[i].w);</span><br><span class="line">      <span class="keyword">if</span> (!(--in1[b[i].to])) q.push(b[i].to);</span><br><span class="line">    &#125;</span><br><span class="line">    wei += dis[t];</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">"%lld\n"</span>, wei);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  <span class="keyword">while</span> (~<span class="built_in">scanf</span>(<span class="string">"%lld%lld"</span>, &amp;n, &amp;m)) &#123;</span><br><span class="line">    <span class="keyword">if</span> (!n &amp;&amp; !m) <span class="keyword">return</span>;</span><br><span class="line">    init();</span><br><span class="line">    <span class="keyword">for</span> (ll i = <span class="number">1</span>, x, y, z; i &lt;= m; ++i) &#123;</span><br><span class="line">      <span class="built_in">scanf</span>(<span class="string">"%lld%lld%lld"</span>, &amp;x, &amp;y, &amp;z);</span><br><span class="line">      add(x, y, z);</span><br><span class="line">    &#125;</span><br><span class="line">    tot = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (ll i = <span class="number">0</span>; i &lt; n; ++i) &#123;</span><br><span class="line">      <span class="keyword">if</span> (!dfn[i]) Tarjan(i);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (ll i = <span class="number">0</span>; i &lt; n; ++i) &#123;</span><br><span class="line">      <span class="keyword">for</span> (ll j = head[i]; j; j = e[j].next) &#123;</span><br><span class="line">        <span class="keyword">if</span> (id[i] != id[e[j].to]) &#123;</span><br><span class="line">          add1(id[i], id[e[j].to], e[j].w);</span><br><span class="line">          ++in1[id[e[j].to]];</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    topo(id[<span class="number">0</span>]);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;  <span class="comment">// namespace STDquantum</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">ifndef</span> ONLINE_JUDGE</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">ifdef</span> LOCAL</span></span><br><span class="line">  freopen(<span class="string">"test.in"</span>, <span class="string">"r"</span>, <span class="built_in">stdin</span>);</span><br><span class="line">  freopen(<span class="string">"test.out"</span>, <span class="string">"w"</span>, <span class="built_in">stdout</span>);</span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">ifndef</span> LOCAL</span></span><br><span class="line">  freopen(<span class="string">"message.in"</span>, <span class="string">"r"</span>, <span class="built_in">stdin</span>);</span><br><span class="line">  freopen(<span class="string">"message.out"</span>, <span class="string">"w"</span>, <span class="built_in">stdout</span>);</span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line">  STDquantum::main();</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="奇袭"><a href="#奇袭" class="headerlink" title="奇袭"></a>奇袭</h1><h2 id="UPD-on-20200907"><a href="#UPD-on-20200907" class="headerlink" title="UPD on 20200907"></a>UPD on 20200907</h2><p>突然发现这题和<a href="https://www.luogu.com.cn/problem/CF526F" target="_blank" rel="noopener">CF526F Pudding Monsters</a>是一个题。正好之前标程咕咕咕了。补充一下。然后又发现<a href="https://www.luogu.com.cn/problem/CF997E" target="_blank" rel="noopener">CF997E Good Subsegments</a>是前面那个题的加强版。</p>
+<p>嗯。。。。直接写后面那个题的解释吧。</p>
+<p>见<a href="../cf997e-good-subsegments">这篇博客</a>。</p>
+<h2 id="【问题描述】-2"><a href="#【问题描述】-2" class="headerlink" title="【问题描述】"></a>【问题描述】</h2><p>由于各种原因，桐人现在被困在Under World（以下简称UW）中，而UW马上要迎来最终的压力测试——魔界入侵。</p>
+<p>唯一一个神一般存在的Administrator被消灭了，靠原本的整合骑士的力量是远远不够的。所以爱丽丝动员了UW全体人民，与整合骑士一起抗击魔族。</p>
+<p>在UW的驻地可以隐约看见魔族军队的大本营。整合骑士们打算在魔族入侵前发动一次奇袭，袭击魔族大本营！</p>
+<p>为了降低风险，爱丽丝找到了你，一名优秀斥候，希望你能在奇袭前对魔族大本营进行侦查，并计算出袭击的难度。</p>
+<p>经过侦查，你绘制出了魔族大本营的地图，然后发现，魔族大本营是一个N×N的网格图，一共有N支军队驻扎在一些网格中（不会有两只军队驻扎在一起）。</p>
+<p>在大本营中，每有一个k×k(1≤k≤N)的子网格图包含恰好k支军队，我们袭击的难度就会增加1点。</p>
+<p>现在请你根据绘制出的地图，告诉爱丽丝这次的袭击行动难度有多大。</p>
+<h2 id="【输入格式】-2"><a href="#【输入格式】-2" class="headerlink" title="【输入格式】"></a>【输入格式】</h2><p>第一行，一个正整数N，表示网格图的大小以及军队数量。</p>
+<p>接下来N行，每行两个整数,Xi,Yi，表示第i支军队的坐标。</p>
+<p><strong>保证每一行和每一列都恰有一只军队,即每一个Xi和每一个Yi都是不一样的。</strong></p>
+<h2 id="【输出格式】-2"><a href="#【输出格式】-2" class="headerlink" title="【输出格式】"></a>【输出格式】</h2><p>一行，一个整数表示袭击的难度。</p>
+<h2 id="【输入输出样例】-2"><a href="#【输入输出样例】-2" class="headerlink" title="【输入输出样例】"></a>【输入输出样例】</h2><figure class="highlight basic"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">5</span></span><br><span class="line"><span class="symbol">1 </span><span class="number">1</span></span><br><span class="line"><span class="symbol">3 </span><span class="number">2</span></span><br><span class="line"><span class="symbol">2 </span><span class="number">4</span></span><br><span class="line"><span class="symbol">5 </span><span class="number">5</span></span><br><span class="line"><span class="symbol">4 </span><span class="number">3</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">10</span></span><br></pre></td></tr></table></figure>
+<h2 id="【样例解释】-1"><a href="#【样例解释】-1" class="headerlink" title="【样例解释】"></a>【样例解释】</h2><p>显然，分别以(2,2)和(4,4)为左上,右下顶点的一个子网格图中有3支军队，这为我们的难度贡献了1点。</p>
+<p>类似的子网格图在原图中能找出10个。</p>
+<h2 id="【数据范围】-2"><a href="#【数据范围】-2" class="headerlink" title="【数据范围】"></a>【数据范围】</h2><p>对于30%的数据，N ≤ 100</p>
+<p>对于60%的数据，N ≤ 5000</p>
+<p>对于100%的数据，N ≤ 50000</p>
+<h1 id="Result"><a href="#Result" class="headerlink" title="Result"></a>Result</h1><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>排名</th>
+<th>名称</th>
+<th>gift</th>
+<th>message</th>
+<th>raid</th>
+<th>总分</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>std</td>
+<td>100</td>
+<td>100</td>
+<td>100</td>
+<td>300</td>
+</tr>
+<tr>
+<td>1</td>
+<td>陈浩然</td>
+<td>100</td>
+<td>100</td>
+<td>100</td>
+<td>300</td>
+</tr>
+<tr>
+<td>3</td>
+<td>zhaojinxi</td>
+<td>100</td>
+<td>100</td>
+<td>70</td>
+<td>270</td>
+</tr>
+<tr>
+<td>4</td>
+<td>EB-XYH</td>
+<td>100</td>
+<td>100</td>
+<td>30</td>
+<td>230</td>
+</tr>
+<tr>
+<td>4</td>
+<td>rsq</td>
+<td>100</td>
+<td>30</td>
+<td>100</td>
+<td>230</td>
+</tr>
+<tr>
+<td>6</td>
+<td>lhm</td>
+<td>100</td>
+<td>20</td>
+<td>100</td>
+<td>220</td>
+</tr>
+<tr>
+<td>7</td>
+<td>yxt</td>
+<td>0</td>
+<td>100</td>
+<td>100</td>
+<td>200</td>
+</tr>
+<tr>
+<td>8</td>
+<td>EN-WKP</td>
+<td>10</td>
+<td>100</td>
+<td>70</td>
+<td>180</td>
+</tr>
+<tr>
+<td>9</td>
+<td>EN-YWK</td>
+<td>40</td>
+<td>100</td>
+<td>30</td>
+<td>170</td>
+</tr>
+<tr>
+<td>9</td>
+<td>wyx</td>
+<td>100</td>
+<td>10</td>
+<td>60</td>
+<td>170</td>
+</tr>
+<tr>
+<td>11</td>
+<td>EN-HHD</td>
+<td>100</td>
+<td>0</td>
+<td>60</td>
+<td>160</td>
+</tr>
+<tr>
+<td>12</td>
+<td>YCS</td>
+<td>50</td>
+<td>100</td>
+<td>0</td>
+<td>150</td>
+</tr>
+<tr>
+<td>13</td>
+<td>EN-ZLY</td>
+<td>10</td>
+<td>100</td>
+<td>30</td>
+<td>140</td>
+</tr>
+<tr>
+<td>14</td>
+<td>EN-LYM</td>
+<td>50</td>
+<td>10</td>
+<td>60</td>
+<td>120</td>
+</tr>
+<tr>
+<td>15</td>
+<td>EB-LY</td>
+<td>100</td>
+<td>0</td>
+<td>0</td>
+<td>100</td>
+</tr>
+<tr>
+<td>15</td>
+<td>EB-WZX</td>
+<td>100</td>
+<td>0</td>
+<td>0</td>
+<td>100</td>
+</tr>
+<tr>
+<td>15</td>
+<td>EN-YFT</td>
+<td>100</td>
+<td>0</td>
+<td>0</td>
+<td>100</td>
+</tr>
+<tr>
+<td>15</td>
+<td>EN-shikeyu</td>
+<td>100</td>
+<td>0</td>
+<td>0</td>
+<td>100</td>
+</tr>
+<tr>
+<td>15</td>
+<td>EZ-axy</td>
+<td>0</td>
+<td>0</td>
+<td>100</td>
+<td>100</td>
+</tr>
+<tr>
+<td>20</td>
+<td>lcy</td>
+<td>50</td>
+<td>0</td>
+<td>30</td>
+<td>80</td>
+</tr>
+<tr>
+<td>21</td>
+<td>EN-Liang</td>
+<td>50</td>
+<td>0</td>
+<td>0</td>
+<td>50</td>
+</tr>
+<tr>
+<td>21</td>
+<td>EN-WZB</td>
+<td>50</td>
+<td>0</td>
+<td>0</td>
+<td>50</td>
+</tr>
+<tr>
+<td>21</td>
+<td>EN_Lijz</td>
+<td>10</td>
+<td>10</td>
+<td>30</td>
+<td>50</td>
+</tr>
+<tr>
+<td>24</td>
+<td>EN-LZX</td>
+<td>0</td>
+<td>10</td>
+<td>30</td>
+<td>40</td>
+</tr>
+<tr>
+<td>24</td>
+<td>EN-PJ</td>
+<td>10</td>
+<td>0</td>
+<td>30</td>
+<td>40</td>
+</tr>
+<tr>
+<td>24</td>
+<td>EN-YZQ</td>
+<td>10</td>
+<td>0</td>
+<td>30</td>
+<td>40</td>
+</tr>
+<tr>
+<td>24</td>
+<td>tyf</td>
+<td>10</td>
+<td>0</td>
+<td>30</td>
+<td>40</td>
+</tr>
+<tr>
+<td>28</td>
+<td>lkx</td>
+<td>0</td>
+<td>0</td>
+<td>30</td>
+<td>30</td>
+</tr>
+<tr>
+<td>29</td>
+<td>EN -MXT</td>
+<td>10</td>
+<td>10</td>
+<td>0</td>
+<td>20</td>
+</tr>
+<tr>
+<td>29</td>
+<td>SM-LJH</td>
+<td>10</td>
+<td>10</td>
+<td>0</td>
+<td>20</td>
+</tr>
+<tr>
+<td>31</td>
+<td>EB-Lxk</td>
+<td>0</td>
+<td>10</td>
+<td>0</td>
+<td>10</td>
+</tr>
+<tr>
+<td>31</td>
+<td>Ez-LKX</td>
+<td>0</td>
+<td>10</td>
+<td>0</td>
+<td>10</td>
+</tr>
+<tr>
+<td>33</td>
+<td>EN-TianNan</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>33</td>
+<td>EN-ZC</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>33</td>
+<td>EN-zys</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+</div>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/OI/" rel="tag">OI</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%A8%A1%E6%8B%9F%E8%B5%9B/" rel="tag">模拟赛</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+  <nav class="article-nav">
+    
+      <a href="/01trie-xue-xi-bi-ji/" class="article-nav-link">
+        <strong class="article-nav-caption">上一篇</strong>
+        <div class="article-nav-title">
+          
+            01Trie学习笔记
+          
+        </div>
+      </a>
+    
+    
+      <a href="/20200725-mo-ni-sai/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">20200725模拟赛</div>
+      </a>
+    
+  </nav>
+
+  
+     
+</article>
+
+</section>
+      <footer class="footer">
+  <div class="outer">
+    <ul>
+      <li>
+        Copyrights &copy;
+        2020
+        <i class="ri-heart-fill heart_icon"></i> STDquantum
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+      </li>
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      <li>
+        <!-- cnzz统计 -->
+        
+      </li>
+    </ul>
+  </div>
+</footer>
+      <div class="float_btns">
+        <div class="totop" id="totop">
+  <i class="ri-arrow-up-line"></i>
+</div>
+
+      </div>
+    </main>
+    <aside class="sidebar on">
+      <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/1.jpg" alt="STDquantum"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">主页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">归档</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/categories">分类</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/tags">标签</a>
+    </li>
+    
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      
+      <a class="nav-item-link nav-item-search"  title="搜索">
+        <i class="ri-search-line"></i>
+      </a>
+      
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+    </aside>
+    <script>
+      if (window.matchMedia("(max-width: 768px)").matches) {
+        document.querySelector('.content').classList.remove('on');
+        document.querySelector('.sidebar').classList.remove('on');
+      }
+    </script>
+    <div id="mask"></div>
+
+<!-- #reward -->
+<div id="reward">
+  <span class="close"><i class="ri-close-line"></i></span>
+  <p class="reward-p"><i class="ri-cup-line"></i></p>
+  <div class="reward-box">
+    
+    
+  </div>
+</div>
+    
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+
+<script src="/js/lazyload.min.js"></script>
+
+<!-- Tocbot -->
+
+
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  tocbot.init({
+    tocSelector: '.tocbot',
+    contentSelector: '.article-entry',
+    headingSelector: 'h1, h2, h3, h4, h5, h6',
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: 'main',
+    positionFixedSelector: '.tocbot',
+    positionFixedClass: 'is-position-fixed',
+    fixedSidebarOffset: 'auto'
+  });
+</script>
+<!-- Live-2D -->
+<script type="text/javascript" charset="utf-8" src="/js/L2Dwidget.0.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="/js/L2Dwidget.min.js"></script>
+<script type="text/javascript">
+  L2Dwidget.on('*', (name) => {
+    console.log('%c EVENT ' + '%c -> ' + name, 'background: #222; color: yellow', 'background: #fff; color: #000')
+  });
+  L2Dwidget.init({
+    "display": {
+      "superSample": 2,
+      "width": 200,
+      "height": 400,
+      "position": "right",
+      "hOffset": 0,
+      "vOffset": 0
+    },
+    "mobile": {
+      "show": true,
+      "scale": 0.7
+    }
+  });
+</script>
+
+<script src="/js/jquery.modal.min.js"></script>
+<link rel="stylesheet" href="/css/jquery.modal.min.css">
+<script src="/js/jquery.justifiedGallery.min.js"></script>
+
+<script src="/dist/main.js"></script>
+
+<!-- ImageViewer -->
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<link rel="stylesheet" href="/css/photoswipe.min.css">
+<link rel="stylesheet" href="/css/default-skin.min.css">
+<script src="/js/photoswipe.min.js"></script>
+<script src="/js/photoswipe-ui-default.min.js"></script>
+
+<script>
+    function viewer_init() {
+        let pswpElement = document.querySelectorAll('.pswp')[0];
+        let $imgArr = document.querySelectorAll(('.article-entry img:not(.reward-img)'))
+
+        $imgArr.forEach(($em, i) => {
+            $em.onclick = () => {
+                // slider展开状态
+                // todo: 这样不好，后面改成状态
+                if (document.querySelector('.left-col.show')) return
+                let items = []
+                $imgArr.forEach(($em2, i2) => {
+                    let img = $em2.getAttribute('data-idx', i2)
+                    let src = $em2.getAttribute('data-target') || $em2.getAttribute('src')
+                    let title = $em2.getAttribute('alt')
+                    // 获得原图尺寸
+                    const image = new Image()
+                    image.src = src
+                    items.push({
+                        src: src,
+                        w: image.width || $em2.width,
+                        h: image.height || $em2.height,
+                        title: title
+                    })
+                })
+                var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, {
+                    index: parseInt(i)
+                });
+                gallery.init()
+            }
+        })
+    }
+    viewer_init()
+</script>
+
+<!-- MathJax -->
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      extensions: ["tex2jax.js"],
+      jax: ["input/TeX","output/HTML-CSS"],
+      tex2jax: {inlineMath: [["$","$"]]}
+    });
+  </script>
+
+<script src="/mathjax/MathJax.js"></script>
+<script>
+  var ayerConfig = {
+    mathjax: true
+  }
+</script>
+
+<!-- Katex -->
+
+<!-- busuanzi  -->
+
+<!-- ClickLove -->
+
+
+<script src="/js/clickLove.js"></script>
+
+
+<!-- ClickBoom1 -->
+
+<!-- ClickBoom2 -->
+
+<!-- CodeCopy -->
+
+
+<link rel="stylesheet" href="/css/clipboard.css">
+
+<script src="/js/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="ri-file-copy-2-line"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-checkbox-circle-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-checkbox-circle-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-time-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-time-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+
+
+<!-- CanvasBackground -->
+
+
+    
+  </div>
+</body>
+
+</html>

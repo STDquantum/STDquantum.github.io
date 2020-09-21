@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+
+
+<html lang="zh-CN">
+
+
+<head>
+  <meta charset="utf-8" />
+    
+  <meta name="description" content="STDquantum" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <title>
+    20200223模拟赛 |  STDquantum
+  </title>
+  <meta name="generator" content="hexo-theme-ayer">
+  
+  <link rel="shortcut icon" href="/1.ico" />
+  
+  
+<link rel="stylesheet" href="/dist/main.css">
+
+  
+<link rel="stylesheet" href="/css/remixicon.min.css">
+
+  
+<link rel="stylesheet" href="/css/custom.css">
+
+  
+  
+<script src="/js/pace.min.js"></script>
+
+  
+  
+
+  
+
+</head>
+
+</html>
+
+<body>
+  <div id="app">
+    
+      
+    <main class="content on">
+      <section class="outer">
+  <article
+  id="post-OI/模拟赛/20200223模拟赛"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  20200223模拟赛
+</h1>
+ 
+
+    </header>
+     
+    <div class="article-meta">
+      <a href="/20200223-mo-ni-sai/" class="article-date">
+  <time datetime="2020-02-22T23:55:31.000Z" itemprop="datePublished">2020-02-23</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/OI/">OI</a> / <a class="article-category-link" href="/categories/OI/%E6%A8%A1%E6%8B%9F%E8%B5%9B/">模拟赛</a>
+  </div>
+  
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> 字数统计:</span>
+            <span class="post-count">1.3k</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> 阅读时长≈</span>
+            <span class="post-count">5 分钟</span>
+        </span>
+    </span>
+</div>
+ 
+    </div>
+      
+    <div class="tocbot"></div>
+
+
+
+
+  
+    <div class="article-entry" itemprop="articleBody">
+       
+  <p>一共三道题，交换，最长重复子串和简单的数学题。<a id="more"></a></p>
+<h1 id="交换-swap"><a href="#交换-swap" class="headerlink" title="交换(swap)"></a>交换(swap)</h1><h2 id="限制"><a href="#限制" class="headerlink" title="限制"></a>限制</h2><p>时间限制：$2000$MS</p>
+<p>内存限制：$524288$KB</p>
+<h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>给定正整数$n$和两个排列$A,B$，我们用<script type="math/tex">A_i</script>和<script type="math/tex">B_i</script>分别表示排列$A$和排列$B$的第$i$项，其中$1\le i\le n$。在每个排列中，正整数$1,2,\cdots ,n$恰好各出现了一次。</p>
+<p>你可以对排列$A$中的元素进行若干次交换，进行交换需要一定的代价。每次交换需指定两个整数$i,j$，满足$1\le i,j \le n$且$i\neq j$。该操作将交换<script type="math/tex">A_i</script>与<script type="math/tex">A_j</script>的值，同时交换的代价为$|i-j|$。你的目标是通过不超过$n$次交换使得排列$A$变成排列$B$，要求交换的总代价最小。</p>
+<h2 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h2><p>输入的第一行包含一个正整数$n$。</p>
+<p>第二行包含$n$个正整数，表示<script type="math/tex">A_1,A_2,\cdots ,A_n</script>。</p>
+<p>第三行包含$n$个正整数，表示<script type="math/tex">B_1,B_2,\cdots ,B_n</script>。</p>
+<h2 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h2><p>第一行输出一个整数$t$，表示交换次数。</p>
+<p>接下来$t$行，依次描述每次交换：每行包含两个整数$i,j(1\le i,j\le n\;$且$\;i\neq j)$，表示交换<script type="math/tex">A_i</script>与<script type="math/tex">A_j</script>的值。如果有多种使得交换总代价最小的方案，输出任意一种方案即可。</p>
+<h2 id="输入-样例-1"><a href="#输入-样例-1" class="headerlink" title="输入 样例 1"></a>输入 样例 1</h2><figure class="highlight basic"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">4</span></span><br><span class="line"><span class="symbol">4 </span><span class="number">2</span> <span class="number">1</span> <span class="number">3</span></span><br><span class="line"><span class="symbol">3 </span><span class="number">2</span> <span class="number">4</span> <span class="number">1</span></span><br></pre></td></tr></table></figure>
+<h2 id="输出-样例-1"><a href="#输出-样例-1" class="headerlink" title="输出 样例 1"></a>输出 样例 1</h2><figure class="highlight basic"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">2</span></span><br><span class="line"><span class="symbol">3 </span><span class="number">4</span></span><br><span class="line"><span class="symbol">1 </span><span class="number">3</span></span><br></pre></td></tr></table></figure>
+<h2 id="输入-输出-样例-1-说明"><a href="#输入-输出-样例-1-说明" class="headerlink" title="输入 输出 样例 1 说明"></a>输入 输出 样例 1 说明</h2><p>样例中进行了$2$次交换。<br>第$1$次交换<script type="math/tex">A_3</script>和<script type="math/tex">A_4</script>的值，此时排列$A$为$4,3,2,1$。<br>第$2$次交换<script type="math/tex">A_1</script>和<script type="math/tex">A_3</script>的值，此时排列$A$为$3,2,4,1$，与排列$B$相同。该方案的总代价为$|3-4|+|1-3|=3$，为所有方案中最小的。</p>
+<h2 id="数据规模与约定"><a href="#数据规模与约定" class="headerlink" title="数据规模与约定"></a>数据规模与约定</h2><p>对于每个测试点，如果你的输出不合法，或者输出方案的代价不是所有满足条件的方案中最小的，该测试点得$0$分。<br>如果输出合法且代价是最小的，但交换次数$t$超过了$n$，你可能还能获得部分分：</p>
+<ul>
+<li>如果$t&gt;2n$，你将得到该测试点$0\%$的分数；</li>
+<li>如果$n&lt; t \le 2n$，你将得到该测试点$40\%$的分数；</li>
+<li>如果$0\le t \le n$，你将得到该测试点$100\%$的分数。</li>
+</ul>
+<p>所有测试数据的范围和特点如下表所示（“有”表示保证测试点具有相应性质，“无”表示不保证其具有相应性质）：</p>
+<hr>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">测试点编号</th>
+<th style="text-align:center">$n$</th>
+<th style="text-align:center">特殊性质1</th>
+<th style="text-align:center">特殊性质2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">$1$</td>
+<td style="text-align:center">$n=1$</td>
+<td style="text-align:center">无</td>
+<td style="text-align:center">无</td>
+</tr>
+<tr>
+<td style="text-align:center">$2$</td>
+<td style="text-align:center">$n=2$</td>
+<td style="text-align:center">无</td>
+<td style="text-align:center">无</td>
+</tr>
+<tr>
+<td style="text-align:center">$3$</td>
+<td style="text-align:center">$n=3$</td>
+<td style="text-align:center">无</td>
+<td style="text-align:center">无</td>
+</tr>
+<tr>
+<td style="text-align:center">$4$</td>
+<td style="text-align:center">$n=4$</td>
+<td style="text-align:center">无</td>
+<td style="text-align:center">无</td>
+</tr>
+<tr>
+<td style="text-align:center">$5$</td>
+<td style="text-align:center">$n=5$</td>
+<td style="text-align:center">无</td>
+<td style="text-align:center">无</td>
+</tr>
+<tr>
+<td style="text-align:center">$6$</td>
+<td style="text-align:center">$n=6$</td>
+<td style="text-align:center">无</td>
+<td style="text-align:center">无</td>
+</tr>
+<tr>
+<td style="text-align:center">$7$</td>
+<td style="text-align:center">$n=7$</td>
+<td style="text-align:center">无</td>
+<td style="text-align:center">无</td>
+</tr>
+<tr>
+<td style="text-align:center">$8$</td>
+<td style="text-align:center">$n=8$</td>
+<td style="text-align:center">无</td>
+<td style="text-align:center">无</td>
+</tr>
+<tr>
+<td style="text-align:center">$9$</td>
+<td style="text-align:center">$1\le n\le 500$</td>
+<td style="text-align:center">有</td>
+<td style="text-align:center">有</td>
+</tr>
+<tr>
+<td style="text-align:center">$10$</td>
+<td style="text-align:center">$1\le n\le 2,000 $</td>
+<td style="text-align:center">有</td>
+<td style="text-align:center">有</td>
+</tr>
+<tr>
+<td style="text-align:center">$11$</td>
+<td style="text-align:center">$1\le n\le 200,000 $</td>
+<td style="text-align:center">有</td>
+<td style="text-align:center">有</td>
+</tr>
+<tr>
+<td style="text-align:center">$12$</td>
+<td style="text-align:center">$1\le n\le 500 $</td>
+<td style="text-align:center">无</td>
+<td style="text-align:center">有</td>
+</tr>
+<tr>
+<td style="text-align:center">$13$</td>
+<td style="text-align:center">$1\le n\le  2,000 $</td>
+<td style="text-align:center">无</td>
+<td style="text-align:center">有</td>
+</tr>
+<tr>
+<td style="text-align:center">$14$</td>
+<td style="text-align:center">$1\le n\le 200,000  $</td>
+<td style="text-align:center">无</td>
+<td style="text-align:center">有</td>
+</tr>
+<tr>
+<td style="text-align:center">$15$</td>
+<td style="text-align:center">$1\le n\le 500 $</td>
+<td style="text-align:center">无</td>
+<td style="text-align:center">无</td>
+</tr>
+<tr>
+<td style="text-align:center">$16$</td>
+<td style="text-align:center">$1\le n\le  500 $</td>
+<td style="text-align:center">无</td>
+<td style="text-align:center">无</td>
+</tr>
+<tr>
+<td style="text-align:center">$17$</td>
+<td style="text-align:center">$1\le n\le  2,000 $</td>
+<td style="text-align:center">无</td>
+<td style="text-align:center">无</td>
+</tr>
+<tr>
+<td style="text-align:center">$18$</td>
+<td style="text-align:center">$1\le n\le  2,000 $</td>
+<td style="text-align:center">无</td>
+<td style="text-align:center">无</td>
+</tr>
+<tr>
+<td style="text-align:center">$19$</td>
+<td style="text-align:center">$1\le n\le 200,000  $</td>
+<td style="text-align:center">无</td>
+<td style="text-align:center">无</td>
+</tr>
+<tr>
+<td style="text-align:center">$20$</td>
+<td style="text-align:center">$1\le n\le 200,000  $</td>
+<td style="text-align:center">无</td>
+<td style="text-align:center">无</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>特殊性质1：对于所有的$1\le i\le n$，有<script type="math/tex">A_i=i</script>且$B_i=i\;\mbox{mod}\;n+1$。</p>
+<p>特殊性质2：构造一张$n$个点的有向图，点$i$到点$j$有一条边当且仅当<script type="math/tex">A_i=B_j</script>，则这张图只包含一个环。</p>
+<h2 id="解题"><a href="#解题" class="headerlink" title="解题"></a>解题</h2><p>待补充</p>
+<h1 id="最长重复子串-string"><a href="#最长重复子串-string" class="headerlink" title="最长重复子串(string)"></a>最长重复子串(string)</h1><h2 id="限制-1"><a href="#限制-1" class="headerlink" title="限制"></a>限制</h2><p>时间限制：2000MS</p>
+<p>内存限制：524288KB</p>
+<h2 id="题目描述-1"><a href="#题目描述-1" class="headerlink" title="题目描述"></a>题目描述</h2><p>字符串$S$被称为重复子串，当且仅当存在一个字符串$A$，使得$S=AA$。例如 abcabc、xyxyxyxy 是重复子串，而 abcab、xyxyxy 不是重复子串。注意空串也是重复子串。给定字符串$S$，求$S$的一个最长子串$T$，使得$T$是重复子串。你只需输出最长重复子串的长度，即$|T|$的值。</p>
+<h2 id="输入格式-1"><a href="#输入格式-1" class="headerlink" title="输入格式"></a>输入格式</h2><p>输入共一行，为一个只包含小写字母的字符串$S$。</p>
+<h2 id="输出格式-1"><a href="#输出格式-1" class="headerlink" title="输出格式"></a>输出格式</h2><p>输出一行一个整数，表示答案$|T|$。</p>
+<h2 id="输入-样例-1-1"><a href="#输入-样例-1-1" class="headerlink" title="输入 样例 1"></a>输入 样例 1</h2><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">ababcabcbc</span></span><br></pre></td></tr></table></figure>
+<h2 id="输出-样例-1-1"><a href="#输出-样例-1-1" class="headerlink" title="输出 样例 1"></a>输出 样例 1</h2><figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">6</span></span><br></pre></td></tr></table></figure>
+<h2 id="输入-输出-样例-1-说明-1"><a href="#输入-输出-样例-1-说明-1" class="headerlink" title="输入 输出 样例 1 说明"></a>输入 输出 样例 1 说明</h2><p>样例中， abab、abcabc、bcbc都是$S$的重复子串，最长的为 abcabc ，长度为$6$。</p>
+<h2 id="输入-样例-2"><a href="#输入-样例-2" class="headerlink" title="输入 样例 2"></a>输入 样例 2</h2><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">abcba</span></span><br></pre></td></tr></table></figure>
+<h2 id="输出-样例-2"><a href="#输出-样例-2" class="headerlink" title="输出 样例 2"></a>输出 样例 2</h2><figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">0</span></span><br></pre></td></tr></table></figure>
+<h2 id="数据规模与约定-1"><a href="#数据规模与约定-1" class="headerlink" title="数据规模与约定"></a>数据规模与约定</h2><hr>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">测试点编号</th>
+<th style="text-align:center">&#124;$S$&#124;</th>
+<th style="text-align:center">约定</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">$1$</td>
+<td style="text-align:center">$\le10$</td>
+<td style="text-align:center">无</td>
+</tr>
+<tr>
+<td style="text-align:center">$2$</td>
+<td style="text-align:center">$\le10$</td>
+<td style="text-align:center">无</td>
+</tr>
+<tr>
+<td style="text-align:center">$3$</td>
+<td style="text-align:center">$\le10$</td>
+<td style="text-align:center">无</td>
+</tr>
+<tr>
+<td style="text-align:center">$4$</td>
+<td style="text-align:center">$\le100$</td>
+<td style="text-align:center">无</td>
+</tr>
+<tr>
+<td style="text-align:center">$5$</td>
+<td style="text-align:center">$\le100$</td>
+<td style="text-align:center">无</td>
+</tr>
+<tr>
+<td style="text-align:center">$6$</td>
+<td style="text-align:center">$\le300$</td>
+<td style="text-align:center">无</td>
+</tr>
+<tr>
+<td style="text-align:center">$7$</td>
+<td style="text-align:center">$\le 300$</td>
+<td style="text-align:center">无</td>
+</tr>
+<tr>
+<td style="text-align:center">$8$</td>
+<td style="text-align:center">$\le 1,000$</td>
+<td style="text-align:center">无</td>
+</tr>
+<tr>
+<td style="text-align:center">$9$</td>
+<td style="text-align:center">$\le 1,000$</td>
+<td style="text-align:center">无</td>
+</tr>
+<tr>
+<td style="text-align:center">$10$</td>
+<td style="text-align:center">$\le 1,000 $</td>
+<td style="text-align:center">无</td>
+</tr>
+<tr>
+<td style="text-align:center">$11$</td>
+<td style="text-align:center">$\le 5,000 $</td>
+<td style="text-align:center">无</td>
+</tr>
+<tr>
+<td style="text-align:center">$12$</td>
+<td style="text-align:center">$\le  5,000 $</td>
+<td style="text-align:center">无</td>
+</tr>
+<tr>
+<td style="text-align:center">$13$</td>
+<td style="text-align:center">$\le 100,000 $</td>
+<td style="text-align:center">最长重复子串$T$满足$2$&#x7C;$T$&#x7C;$\geq$&#x7C;$S$&#x7C;</td>
+</tr>
+<tr>
+<td style="text-align:center">$14$</td>
+<td style="text-align:center">$\le 100,000 $</td>
+<td style="text-align:center">最长重复子串$T$满足$2$&#x7C;$T$&#x7C;$\geq$&#x7C;$S$&#x7C;</td>
+</tr>
+<tr>
+<td style="text-align:center">$15$</td>
+<td style="text-align:center">$\le 100,000 $</td>
+<td style="text-align:center">最长重复子串$T$满足$2$&#x7C;$T$&#x7C;$\geq$&#x7C;$S$&#x7C;</td>
+</tr>
+<tr>
+<td style="text-align:center">$16$</td>
+<td style="text-align:center">$\le 100,000 $</td>
+<td style="text-align:center">最长重复子串$T$满足$2$&#x7C;$T$&#x7C;$\geq$&#x7C;$S$&#x7C;</td>
+</tr>
+<tr>
+<td style="text-align:center">$17$</td>
+<td style="text-align:center">$\le  1,000,000 $</td>
+<td style="text-align:center">最长重复子串$T$满足$2$&#x7C;$T$&#x7C;$\geq$&#x7C;$S$&#x7C;</td>
+</tr>
+<tr>
+<td style="text-align:center">$18$</td>
+<td style="text-align:center">$\le 1,000,000 $</td>
+<td style="text-align:center">最长重复子串$T$满足$2$&#x7C;$T$&#x7C;$\geq$&#x7C;$S$&#x7C;</td>
+</tr>
+<tr>
+<td style="text-align:center">$19$</td>
+<td style="text-align:center">$\le 100,000 $</td>
+<td style="text-align:center">无</td>
+</tr>
+<tr>
+<td style="text-align:center">$20$</td>
+<td style="text-align:center">$\le  100,000 $</td>
+<td style="text-align:center">无</td>
+</tr>
+<tr>
+<td style="text-align:center">$21$</td>
+<td style="text-align:center">$\le  100,000 $</td>
+<td style="text-align:center">无</td>
+</tr>
+<tr>
+<td style="text-align:center">$22$</td>
+<td style="text-align:center">$\le  300,000 $</td>
+<td style="text-align:center">无</td>
+</tr>
+<tr>
+<td style="text-align:center">$23$</td>
+<td style="text-align:center">$\le 300,000 $</td>
+<td style="text-align:center">无</td>
+</tr>
+<tr>
+<td style="text-align:center">$24$</td>
+<td style="text-align:center">$\le   1,000,000 $</td>
+<td style="text-align:center">无</td>
+</tr>
+<tr>
+<td style="text-align:center">$25$</td>
+<td style="text-align:center">$\le   1,000,000 $</td>
+<td style="text-align:center">无</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="解题-1"><a href="#解题-1" class="headerlink" title="解题"></a>解题</h2><p>待补充</p>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%A8%A1%E6%8B%9F%E8%B5%9B/" rel="tag">模拟赛</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+  <nav class="article-nav">
+    
+      <a href="/oi-ti-dan/" class="article-nav-link">
+        <strong class="article-nav-caption">上一篇</strong>
+        <div class="article-nav-title">
+          
+            OI题单
+          
+        </div>
+      </a>
+    
+    
+      <a href="/bzoj1601-usaco2008-oct-guan-shui/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">BZOJ1601 [Usaco2008 Oct] 灌水</div>
+      </a>
+    
+  </nav>
+
+  
+     
+</article>
+
+</section>
+      <footer class="footer">
+  <div class="outer">
+    <ul>
+      <li>
+        Copyrights &copy;
+        2020
+        <i class="ri-heart-fill heart_icon"></i> STDquantum
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+      </li>
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      <li>
+        <!-- cnzz统计 -->
+        
+      </li>
+    </ul>
+  </div>
+</footer>
+      <div class="float_btns">
+        <div class="totop" id="totop">
+  <i class="ri-arrow-up-line"></i>
+</div>
+
+      </div>
+    </main>
+    <aside class="sidebar on">
+      <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/1.jpg" alt="STDquantum"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">主页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">归档</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/categories">分类</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/tags">标签</a>
+    </li>
+    
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      
+      <a class="nav-item-link nav-item-search"  title="搜索">
+        <i class="ri-search-line"></i>
+      </a>
+      
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+    </aside>
+    <script>
+      if (window.matchMedia("(max-width: 768px)").matches) {
+        document.querySelector('.content').classList.remove('on');
+        document.querySelector('.sidebar').classList.remove('on');
+      }
+    </script>
+    <div id="mask"></div>
+
+<!-- #reward -->
+<div id="reward">
+  <span class="close"><i class="ri-close-line"></i></span>
+  <p class="reward-p"><i class="ri-cup-line"></i></p>
+  <div class="reward-box">
+    
+    
+  </div>
+</div>
+    
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+
+<script src="/js/lazyload.min.js"></script>
+
+<!-- Tocbot -->
+
+
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  tocbot.init({
+    tocSelector: '.tocbot',
+    contentSelector: '.article-entry',
+    headingSelector: 'h1, h2, h3, h4, h5, h6',
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: 'main',
+    positionFixedSelector: '.tocbot',
+    positionFixedClass: 'is-position-fixed',
+    fixedSidebarOffset: 'auto'
+  });
+</script>
+<!-- Live-2D -->
+<script type="text/javascript" charset="utf-8" src="/js/L2Dwidget.0.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="/js/L2Dwidget.min.js"></script>
+<script type="text/javascript">
+  L2Dwidget.on('*', (name) => {
+    console.log('%c EVENT ' + '%c -> ' + name, 'background: #222; color: yellow', 'background: #fff; color: #000')
+  });
+  L2Dwidget.init({
+    "display": {
+      "superSample": 2,
+      "width": 200,
+      "height": 400,
+      "position": "right",
+      "hOffset": 0,
+      "vOffset": 0
+    },
+    "mobile": {
+      "show": true,
+      "scale": 0.7
+    }
+  });
+</script>
+
+<script src="/js/jquery.modal.min.js"></script>
+<link rel="stylesheet" href="/css/jquery.modal.min.css">
+<script src="/js/jquery.justifiedGallery.min.js"></script>
+
+<script src="/dist/main.js"></script>
+
+<!-- ImageViewer -->
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<link rel="stylesheet" href="/css/photoswipe.min.css">
+<link rel="stylesheet" href="/css/default-skin.min.css">
+<script src="/js/photoswipe.min.js"></script>
+<script src="/js/photoswipe-ui-default.min.js"></script>
+
+<script>
+    function viewer_init() {
+        let pswpElement = document.querySelectorAll('.pswp')[0];
+        let $imgArr = document.querySelectorAll(('.article-entry img:not(.reward-img)'))
+
+        $imgArr.forEach(($em, i) => {
+            $em.onclick = () => {
+                // slider展开状态
+                // todo: 这样不好，后面改成状态
+                if (document.querySelector('.left-col.show')) return
+                let items = []
+                $imgArr.forEach(($em2, i2) => {
+                    let img = $em2.getAttribute('data-idx', i2)
+                    let src = $em2.getAttribute('data-target') || $em2.getAttribute('src')
+                    let title = $em2.getAttribute('alt')
+                    // 获得原图尺寸
+                    const image = new Image()
+                    image.src = src
+                    items.push({
+                        src: src,
+                        w: image.width || $em2.width,
+                        h: image.height || $em2.height,
+                        title: title
+                    })
+                })
+                var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, {
+                    index: parseInt(i)
+                });
+                gallery.init()
+            }
+        })
+    }
+    viewer_init()
+</script>
+
+<!-- MathJax -->
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      extensions: ["tex2jax.js"],
+      jax: ["input/TeX","output/HTML-CSS"],
+      tex2jax: {inlineMath: [["$","$"]]}
+    });
+  </script>
+
+<script src="/mathjax/MathJax.js"></script>
+<script>
+  var ayerConfig = {
+    mathjax: true
+  }
+</script>
+
+<!-- Katex -->
+
+<!-- busuanzi  -->
+
+<!-- ClickLove -->
+
+
+<script src="/js/clickLove.js"></script>
+
+
+<!-- ClickBoom1 -->
+
+<!-- ClickBoom2 -->
+
+<!-- CodeCopy -->
+
+
+<link rel="stylesheet" href="/css/clipboard.css">
+
+<script src="/js/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="ri-file-copy-2-line"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-checkbox-circle-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-checkbox-circle-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-time-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-time-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+
+
+<!-- CanvasBackground -->
+
+
+    
+  </div>
+</body>
+
+</html>

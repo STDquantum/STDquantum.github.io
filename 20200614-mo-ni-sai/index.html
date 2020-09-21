@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+
+
+<html lang="zh-CN">
+
+
+<head>
+  <meta charset="utf-8" />
+    
+  <meta name="description" content="STDquantum" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <title>
+    20200614模拟赛 |  STDquantum
+  </title>
+  <meta name="generator" content="hexo-theme-ayer">
+  
+  <link rel="shortcut icon" href="/1.ico" />
+  
+  
+<link rel="stylesheet" href="/dist/main.css">
+
+  
+<link rel="stylesheet" href="/css/remixicon.min.css">
+
+  
+<link rel="stylesheet" href="/css/custom.css">
+
+  
+  
+<script src="/js/pace.min.js"></script>
+
+  
+  
+
+  
+
+</head>
+
+</html>
+
+<body>
+  <div id="app">
+    
+      
+    <main class="content on">
+      <section class="outer">
+  <article
+  id="post-OI/模拟赛/20200614模拟赛"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  20200614模拟赛
+</h1>
+ 
+
+    </header>
+     
+    <div class="article-meta">
+      <a href="/20200614-mo-ni-sai/" class="article-date">
+  <time datetime="2020-06-14T07:09:37.000Z" itemprop="datePublished">2020-06-14</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/OI/">OI</a> / <a class="article-category-link" href="/categories/OI/%E6%A8%A1%E6%8B%9F%E8%B5%9B/">模拟赛</a>
+  </div>
+  
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> 字数统计:</span>
+            <span class="post-count">1.3k</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> 阅读时长≈</span>
+            <span class="post-count">4 分钟</span>
+        </span>
+    </span>
+</div>
+ 
+    </div>
+      
+    <div class="tocbot"></div>
+
+
+
+
+  
+    <div class="article-entry" itemprop="articleBody">
+       
+  <p>似乎是20200501的模拟赛重考</p>
+<a id="more"></a>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>题目名称</th>
+<th>质数序列</th>
+<th>种花</th>
+<th>挺进</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>输入文件名</td>
+<td>prime.in</td>
+<td>flower.in</td>
+<td>etg.in</td>
+</tr>
+<tr>
+<td>输出文件名</td>
+<td>prime.out</td>
+<td>flower.out</td>
+<td>etg.out</td>
+</tr>
+<tr>
+<td>每个测试点时限</td>
+<td>1s</td>
+<td>1s</td>
+<td>1s</td>
+</tr>
+<tr>
+<td>内存限制</td>
+<td>256MB</td>
+<td>256MB</td>
+<td>256MB</td>
+</tr>
+<tr>
+<td>测试点数目</td>
+<td>10</td>
+<td>10</td>
+<td>10</td>
+</tr>
+<tr>
+<td>测试点分值</td>
+<td>10</td>
+<td>10</td>
+<td>10</td>
+</tr>
+<tr>
+<td>是否有部分分</td>
+<td>否</td>
+<td>否</td>
+<td>否</td>
+</tr>
+<tr>
+<td>题目类型</td>
+<td>传统型</td>
+<td>传统型</td>
+<td>传统型</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>提交源程序必须加后缀</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>对于 C 语言</th>
+<th>prime.c</th>
+<th>flower.c</th>
+<th>etg.c</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>对于 C++ 语言</td>
+<td>prime.cpp</td>
+<td>flower.cpp</td>
+<td>etg.cpp</td>
+</tr>
+<tr>
+<td>对于Pascal语言</td>
+<td>prime.pas</td>
+<td>flower.pas</td>
+<td>etg.pas</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>最终评测在Linux环境下进行。</strong></p>
+<p><strong>最终评测忽略行末空格回车。</strong></p>
+<h1 id="质数序列"><a href="#质数序列" class="headerlink" title="质数序列"></a><strong>质数序列</strong></h1><p><strong>【问题描述】</strong></p>
+<p>由于去NOI的火车“堵”了数不清时间，小Z和小D打完ETG，闲着无聊开始看今年的JSOI省选题，并尝试着修改题目：</p>
+<p>对于一个长度为$L\ge 2$的序列，$X:x_1,x_2,\dots,x_L $，如果满足对于任意的$1\le i&lt;j\le L$，均有$x_i+x_j$为质数，则他们把$X$称为一个“质数序列”。</p>
+<p>现在有一个长度为$N$的序列，$A:a_1,a_2,\dots,a_N$，他希望从中选取一个包含元素最多的子序列，使得这个子序列是一个质数序列。<strong>如果元素个数相同，则使子序列之和最大</strong>（在此意义下，保证有唯一解）。</p>
+<p>因为他们还要xx，所以这个任务就交给你了。</p>
+<p><strong>【输入格式】</strong></p>
+<p>从文件 <strong>prime.in</strong> 中读入数据。</p>
+<p>输入第一行包含一个正整数 $N$。</p>
+<p>接下来一行包含$N$个正整数，依次描述$a_1,a_2,\dots,a_N$。</p>
+<p><strong>【输出格式】</strong></p>
+<p>输出到文件 <strong>prime.out</strong> 中。</p>
+<p>输出两行，第一行一个整数$L$，表示最长质数子序列的长度，第二行$L$个整数从小到大输出，表示最长质数子序列（元素个数相同，则使子序列之和最大）。</p>
+<p><strong>【样例输入】</strong></p>
+<figure class="highlight basic"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">3</span></span><br><span class="line"><span class="symbol">2 </span><span class="number">3</span> <span class="number">4</span></span><br></pre></td></tr></table></figure>
+<p><strong>【样例输出】</strong></p>
+<figure class="highlight basic"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">2</span></span><br><span class="line"><span class="symbol">3 </span><span class="number">4</span></span><br></pre></td></tr></table></figure>
+<p><strong>【数据规模与约定】</strong></p>
+<p>对于$30\%$的数据满足$N\le 100$。</p>
+<p>对于$60\%$的数据满足$N\le1000,\ a_i\le5,000,000$。</p>
+<p>对于$100\%$的数据满足$N\le1000,\ 1\le a_i\le 15,000,000$。</p>
+<h1 id="种花"><a href="#种花" class="headerlink" title="种花"></a><strong>种花</strong></h1><p><strong>【问题描述】</strong></p>
+<p>经过三十多个小时的长途跋涉，小Z和小D终于到了NOI现场——南山南中学。一进校园，小D就被花所吸引了（不要问我为什么），遍和一旁的种花园丁交（J）流（L）了起来。</p>
+<p>他发现花的摆放竟有如此奥秘：圆形广场共有 $N$ 个种花的位置，顺时针编号$1$到$N$。并且每个位置都有一个美观度$a_i$，如果在这里种花就可以得到这$a_i$的美观度。但由于地处南山土壤肥力欠佳，两株花不能种在相邻的位置（$1$号和$N$号也算相邻位置）。校方一共给了 $M$ 株花，经过园丁的精妙摆放，才能如此吸引小D。所以现在小D也想知道应该如何摆这 $N$ 株花。</p>
+<p><strong>【输入格式】</strong></p>
+<p>从文件 <strong>flower.in</strong> 中读入数据。</p>
+<p>输入第一行包含两个整数$N,M$ 。</p>
+<p>接下来一行包含$N$个正整数，依次描述美观度$a_1,a_2,\dots,a_N$。</p>
+<p><strong>【输出格式】</strong></p>
+<p>输出到文件 <strong>flower.out</strong> 中。</p>
+<p>输出一个整数，表示最佳植树方案可以得到的美观度。<strong>如果无解输出“Error!”</strong>，不包含引号。</p>
+<p><strong>【样例输入】</strong></p>
+<figure class="highlight basic"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">7 </span><span class="number">3</span></span><br><span class="line"><span class="symbol">1 </span><span class="number">2</span> <span class="number">3</span> <span class="number">4</span> <span class="number">5</span> <span class="number">6</span> <span class="number">7</span></span><br></pre></td></tr></table></figure>
+<p><strong>【样例输出】</strong></p>
+<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">15</span></span><br></pre></td></tr></table></figure>
+<p><strong>【数据规模与约定】</strong></p>
+<p>对于$50\%$的数据满足$N\le3000$。</p>
+<p>对于$100\%$的数据满足$M\le N\le200000,\ -1000\le a_i\le1000$。</p>
+<h1 id="挺进"><a href="#挺进" class="headerlink" title="挺进"></a><strong>挺进</strong></h1><p><strong>【问题描述】</strong></p>
+<p>小Z又开始了ETG。ETG的地图是树形的，相邻两个房间有一定距离，一开始，系统会随机断掉一条边，这样，这张地图就被分成了两个连通块。显然，狡猾的系统会把四个宝箱两两分布在每个联通的最远点对上。</p>
+<p>一开始，小Z会出生在一个有宝箱的房间（系统还是有点良心的），然后小Z“咚咚咚咚”一路过关斩将走到有另外一个宝箱的所在地（显然小Z走最短路），到达第二个宝箱所在地后，系统会又很良心地把他送到另一个连通块的某个宝箱处，然后小Z又“咚咚咚咚咚”，拿到了最后一个宝箱。然后，他就通关了。</p>
+<p>显然对小Z来说通关是肯定的，所以小Z想知道他最多会走多少距离。</p>
+<p><strong>【输入格式】</strong></p>
+<p>从文件 <strong>etg.in</strong> 中读入数据。</p>
+<p>输入第一行包含一个整数$N$，表示房间个数。</p>
+<p>接下来$N-1$行，每行$3$个正整数$x,y,d$表示，房间$x$与房间$y$的距离为$d$。</p>
+<p><strong>【输出格式】</strong></p>
+<p>输出到文件 <strong>etg.out</strong> 中。</p>
+<p>输出一行，包含一个整数，表示小Z最远走的距离。</p>
+<p><strong>【样例输入】</strong></p>
+<figure class="highlight basic"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">6</span></span><br><span class="line"><span class="symbol">1 </span><span class="number">3</span> <span class="number">4</span></span><br><span class="line"><span class="symbol">2 </span><span class="number">3</span> <span class="number">1</span></span><br><span class="line"><span class="symbol">2 </span><span class="number">5</span> <span class="number">3</span></span><br><span class="line"><span class="symbol">2 </span><span class="number">6</span> <span class="number">2</span></span><br><span class="line"><span class="symbol">3 </span><span class="number">4</span> <span class="number">5</span></span><br></pre></td></tr></table></figure>
+<p><strong>【样例输出】</strong></p>
+<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">14</span></span><br></pre></td></tr></table></figure>
+<p><strong>【数据规模与约定】</strong></p>
+<p>对于$50\%$的数据满足$N\le1000$。</p>
+<p>对于$100\%$的数据满足$N\le100,000,\ d_i\le100,000$。</p>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%A8%A1%E6%8B%9F%E8%B5%9B/" rel="tag">模拟赛</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+  <nav class="article-nav">
+    
+      <a href="/20200620-mo-ni-sai/" class="article-nav-link">
+        <strong class="article-nav-caption">上一篇</strong>
+        <div class="article-nav-title">
+          
+            20200620模拟赛
+          
+        </div>
+      </a>
+    
+    
+      <a href="/20200606-666-fu-xue-mo-ni-sai/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">20200606-666复学模拟赛</div>
+      </a>
+    
+  </nav>
+
+  
+     
+</article>
+
+</section>
+      <footer class="footer">
+  <div class="outer">
+    <ul>
+      <li>
+        Copyrights &copy;
+        2020
+        <i class="ri-heart-fill heart_icon"></i> STDquantum
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+      </li>
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      <li>
+        <!-- cnzz统计 -->
+        
+      </li>
+    </ul>
+  </div>
+</footer>
+      <div class="float_btns">
+        <div class="totop" id="totop">
+  <i class="ri-arrow-up-line"></i>
+</div>
+
+      </div>
+    </main>
+    <aside class="sidebar on">
+      <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/1.jpg" alt="STDquantum"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">主页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">归档</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/categories">分类</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/tags">标签</a>
+    </li>
+    
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      
+      <a class="nav-item-link nav-item-search"  title="搜索">
+        <i class="ri-search-line"></i>
+      </a>
+      
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+    </aside>
+    <script>
+      if (window.matchMedia("(max-width: 768px)").matches) {
+        document.querySelector('.content').classList.remove('on');
+        document.querySelector('.sidebar').classList.remove('on');
+      }
+    </script>
+    <div id="mask"></div>
+
+<!-- #reward -->
+<div id="reward">
+  <span class="close"><i class="ri-close-line"></i></span>
+  <p class="reward-p"><i class="ri-cup-line"></i></p>
+  <div class="reward-box">
+    
+    
+  </div>
+</div>
+    
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+
+<script src="/js/lazyload.min.js"></script>
+
+<!-- Tocbot -->
+
+
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  tocbot.init({
+    tocSelector: '.tocbot',
+    contentSelector: '.article-entry',
+    headingSelector: 'h1, h2, h3, h4, h5, h6',
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: 'main',
+    positionFixedSelector: '.tocbot',
+    positionFixedClass: 'is-position-fixed',
+    fixedSidebarOffset: 'auto'
+  });
+</script>
+<!-- Live-2D -->
+<script type="text/javascript" charset="utf-8" src="/js/L2Dwidget.0.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="/js/L2Dwidget.min.js"></script>
+<script type="text/javascript">
+  L2Dwidget.on('*', (name) => {
+    console.log('%c EVENT ' + '%c -> ' + name, 'background: #222; color: yellow', 'background: #fff; color: #000')
+  });
+  L2Dwidget.init({
+    "display": {
+      "superSample": 2,
+      "width": 200,
+      "height": 400,
+      "position": "right",
+      "hOffset": 0,
+      "vOffset": 0
+    },
+    "mobile": {
+      "show": true,
+      "scale": 0.7
+    }
+  });
+</script>
+
+<script src="/js/jquery.modal.min.js"></script>
+<link rel="stylesheet" href="/css/jquery.modal.min.css">
+<script src="/js/jquery.justifiedGallery.min.js"></script>
+
+<script src="/dist/main.js"></script>
+
+<!-- ImageViewer -->
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<link rel="stylesheet" href="/css/photoswipe.min.css">
+<link rel="stylesheet" href="/css/default-skin.min.css">
+<script src="/js/photoswipe.min.js"></script>
+<script src="/js/photoswipe-ui-default.min.js"></script>
+
+<script>
+    function viewer_init() {
+        let pswpElement = document.querySelectorAll('.pswp')[0];
+        let $imgArr = document.querySelectorAll(('.article-entry img:not(.reward-img)'))
+
+        $imgArr.forEach(($em, i) => {
+            $em.onclick = () => {
+                // slider展开状态
+                // todo: 这样不好，后面改成状态
+                if (document.querySelector('.left-col.show')) return
+                let items = []
+                $imgArr.forEach(($em2, i2) => {
+                    let img = $em2.getAttribute('data-idx', i2)
+                    let src = $em2.getAttribute('data-target') || $em2.getAttribute('src')
+                    let title = $em2.getAttribute('alt')
+                    // 获得原图尺寸
+                    const image = new Image()
+                    image.src = src
+                    items.push({
+                        src: src,
+                        w: image.width || $em2.width,
+                        h: image.height || $em2.height,
+                        title: title
+                    })
+                })
+                var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, {
+                    index: parseInt(i)
+                });
+                gallery.init()
+            }
+        })
+    }
+    viewer_init()
+</script>
+
+<!-- MathJax -->
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      extensions: ["tex2jax.js"],
+      jax: ["input/TeX","output/HTML-CSS"],
+      tex2jax: {inlineMath: [["$","$"]]}
+    });
+  </script>
+
+<script src="/mathjax/MathJax.js"></script>
+<script>
+  var ayerConfig = {
+    mathjax: true
+  }
+</script>
+
+<!-- Katex -->
+
+<!-- busuanzi  -->
+
+<!-- ClickLove -->
+
+
+<script src="/js/clickLove.js"></script>
+
+
+<!-- ClickBoom1 -->
+
+<!-- ClickBoom2 -->
+
+<!-- CodeCopy -->
+
+
+<link rel="stylesheet" href="/css/clipboard.css">
+
+<script src="/js/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="ri-file-copy-2-line"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-checkbox-circle-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-checkbox-circle-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-time-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-time-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+
+
+<!-- CanvasBackground -->
+
+
+    
+  </div>
+</body>
+
+</html>

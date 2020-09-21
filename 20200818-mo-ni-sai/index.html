@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+
+
+<html lang="zh-CN">
+
+
+<head>
+  <meta charset="utf-8" />
+    
+  <meta name="description" content="STDquantum" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <title>
+    20200818模拟赛 |  STDquantum
+  </title>
+  <meta name="generator" content="hexo-theme-ayer">
+  
+  <link rel="shortcut icon" href="/1.ico" />
+  
+  
+<link rel="stylesheet" href="/dist/main.css">
+
+  
+<link rel="stylesheet" href="/css/remixicon.min.css">
+
+  
+<link rel="stylesheet" href="/css/custom.css">
+
+  
+  
+<script src="/js/pace.min.js"></script>
+
+  
+  
+
+  
+
+</head>
+
+</html>
+
+<body>
+  <div id="app">
+    
+      
+    <main class="content on">
+      <section class="outer">
+  <article
+  id="post-OI/模拟赛/20200818模拟赛"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  20200818模拟赛
+</h1>
+ 
+
+    </header>
+     
+    <div class="article-meta">
+      <a href="/20200818-mo-ni-sai/" class="article-date">
+  <time datetime="2020-08-18T01:23:53.000Z" itemprop="datePublished">2020-08-18</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/OI/">OI</a> / <a class="article-category-link" href="/categories/OI/%E6%A8%A1%E6%8B%9F%E8%B5%9B/">模拟赛</a>
+  </div>
+  
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> 字数统计:</span>
+            <span class="post-count">3.7k</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> 阅读时长≈</span>
+            <span class="post-count">16 分钟</span>
+        </span>
+    </span>
+</div>
+ 
+    </div>
+      
+    <div class="tocbot"></div>
+
+
+
+
+  
+    <div class="article-entry" itemprop="articleBody">
+       
+  <p>启智树第二场</p>
+<a id="more"></a>
+<h1 id="3460-蓝蓝的棋盘"><a href="#3460-蓝蓝的棋盘" class="headerlink" title="3460 蓝蓝的棋盘"></a>3460 蓝蓝的棋盘</h1><p>这题酷似原题诶</p>
+<h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>淘淘和蓝蓝在下棋.</p>
+<p>这个棋盘是1xn的,棋盘的第i个格子上有一个数a[i],因此我们可以把棋盘看做一个序列.一开始棋子在位置0,双方得分都是0.</p>
+<p><strong>双方轮流操作棋子</strong>,如果当前棋子的位置是p,可以选择把棋子移动到[p+1,min(n,p+m)]的范围内,即<strong>最多往右移动m格,但是不能移出棋盘</strong>.</p>
+<p>每次操作之后,当前移动棋子的人会获得移动到的格子上数字的分数.</p>
+<p>当棋子被移动到位置n的时候,游戏就结束了，但是可以取得位置n的分数</p>
+<p>淘淘和蓝蓝都会按照自己的最优策略移动棋子.蓝蓝想知道,当他先手的时候,<strong>他的分数减去淘淘的分数</strong>是多少. （最优策略指最大化自己的得分减对方的得分）</p>
+<h2 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h2><p>第1行,两个整数n和m,用空格隔开.</p>
+<p>第2行,n个整数,A[1] .. A[n],用空格隔开.</p>
+<h2 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h2><p>一行一个整数表示答案.</p>
+<h2 id="样例输入输出"><a href="#样例输入输出" class="headerlink" title="样例输入输出"></a>样例输入输出</h2><h3 id="【样例输入1】"><a href="#【样例输入1】" class="headerlink" title="【样例输入1】"></a>【样例输入1】</h3><figure class="highlight basic"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">1 </span><span class="number">9</span> </span><br><span class="line"><span class="number">1</span></span><br><span class="line"><span class="number">12</span></span><br></pre></td></tr></table></figure>
+<h3 id="【样例输出1】"><a href="#【样例输出1】" class="headerlink" title="【样例输出1】"></a>【样例输出1】</h3><figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span></span><br><span class="line"><span class="number">1</span></span><br></pre></td></tr></table></figure>
+<h3 id="【样例输入2】"><a href="#【样例输入2】" class="headerlink" title="【样例输入2】"></a>【样例输入2】</h3><figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">5</span> <span class="number">3</span></span><br><span class="line"><span class="number">-1</span> <span class="number">5</span> <span class="number">-9</span> <span class="number">8</span> <span class="number">1</span></span><br><span class="line"><span class="number">12</span></span><br></pre></td></tr></table></figure>
+<h3 id="【样例输出2】"><a href="#【样例输出2】" class="headerlink" title="【样例输出2】"></a>【样例输出2】</h3><figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">-2</span></span><br><span class="line"><span class="number">1</span></span><br></pre></td></tr></table></figure>
+<h3 id="【样例输入3】"><a href="#【样例输入3】" class="headerlink" title="【样例输入3】"></a>【样例输入3】</h3><figure class="highlight basic"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">10 </span><span class="number">3</span></span><br><span class="line"><span class="symbol">1 </span>-<span class="number">3</span> <span class="number">4</span> -<span class="number">7</span> <span class="number">22</span> -<span class="number">12</span> <span class="number">34</span> -<span class="number">4</span> -<span class="number">7</span> -<span class="number">9</span></span><br><span class="line"><span class="number">12</span></span><br></pre></td></tr></table></figure>
+<h3 id="【样例输出3】"><a href="#【样例输出3】" class="headerlink" title="【样例输出3】"></a>【样例输出3】</h3><figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">14</span></span><br></pre></td></tr></table></figure>
+<h2 id="提示"><a href="#提示" class="headerlink" title="提示"></a>提示</h2><p>在样例1中,蓝蓝只能移动到第1个格子,答案为1-0=1</p>
+<p>在样例2中,蓝蓝先移动到2,淘淘移动到4,蓝蓝再移动到5.棋子的移动路径是0-&gt;2-&gt;4-&gt;5.</p>
+<p>在样例3中,棋子的路径是0-&gt;3-&gt;5-&gt;7-&gt;9-&gt;10.</p>
+<p><strong>下发文件中有两个大样例</strong> <strong>chess-sample4.in/out</strong> <strong>和</strong> <strong>chess-sample5.in/out</strong></p>
+<p><a href="https://www.qizhishu.com/upload/file/20200719/20200719101045_80834.rar" target="_blank" rel="noopener">/upload/file/20200719/20200719101045_80834.rar</a></p>
+<p>对于30%的数据,n≤15;</p>
+<p>对于80%的数据,m≤100;</p>
+<p>对于100%的数据,1≤n≤500000,1≤m≤998244353,-998244353≤a[i]≤998244353.</p>
+<h2 id="要求"><a href="#要求" class="headerlink" title="要求"></a>要求</h2><p>时间限制：1.0Sec  内存限制：128MB</p>
+<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><ul>
+<li>子任务1：n≤15<ul>
+<li>直接枚举怎么移动。反正时间复杂度大得很，数据范围小得很。</li>
+</ul>
+</li>
+<li>子任务2：m≤100</li>
+<li>子任务3：无特殊限制<ul>
+<li>这 $m$ 让人一看就知道是单调队列优化。考虑 $f[i]$ 表示到 $i$ 这个位置时，先手能比后手多的最大值。</li>
+<li>考虑转移：首先先后手是可以相对变化的，所以只需要考虑每个位置的最优就好了。自己优的话相当于对方劣，也就是让对方的值最小。也就是 $f[i]=\max(a[j]-f[j])$，也就是在 $j$ 这个位置拿到最优的分数。</li>
+<li>因为结束点在 $n$ ，不能超出去，所以倒着枚举加入队列就行。</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> LOCAL</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> STDquantum &#123;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt; <span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">read</span><span class="params">(T &amp;x)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">char</span> ch;</span><br><span class="line">  <span class="keyword">int</span> f = <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">while</span> (ch = getchar(), !<span class="built_in">isdigit</span>(ch)) &#123;</span><br><span class="line">    <span class="keyword">if</span> (ch == <span class="string">'-'</span>) f = <span class="number">-1</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  x = (ch ^ <span class="number">48</span>);</span><br><span class="line">  <span class="keyword">while</span> (ch = getchar(), <span class="built_in">isdigit</span>(ch)) &#123; x = x * <span class="number">10</span> + (ch ^ <span class="number">48</span>); &#125;</span><br><span class="line">  x *= f;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">2e6</span> + <span class="number">10</span>;</span><br><span class="line">ll n, m, a[N], f[N], q[N], cur[N];</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  read(n), read(m);</span><br><span class="line">  <span class="keyword">for</span> (ll i = <span class="number">1</span>; i &lt;= n; i++) read(a[i]);</span><br><span class="line">  ll head = <span class="number">1</span>, tail = <span class="number">0</span>;</span><br><span class="line">  q[tail] = a[n] - f[n], cur[tail] = n;</span><br><span class="line">  <span class="keyword">for</span> (ll i = n; ~i; --i) &#123;</span><br><span class="line">    <span class="keyword">while</span> (head &lt;= tail &amp;&amp; cur[head] - i &gt; m) ++head;</span><br><span class="line">    f[i] = q[head];</span><br><span class="line">    <span class="comment">/* 注意这个地方不要太着急弹出队尾，因为队列里都是合法的，提前弹出可能导致较优的解无法选中 */</span></span><br><span class="line">    <span class="comment">/* 毕竟自己不参与这次f数组更新的竞争，要是还插一脚的话就不好了 */</span></span><br><span class="line">    <span class="keyword">while</span> (head &lt;= tail &amp;&amp; a[i] - f[i] &gt;= q[tail]) --tail;</span><br><span class="line">    q[++tail] = a[i] - f[i], cur[tail] = i;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">"%lld"</span>, f[<span class="number">0</span>]);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;  <span class="comment">// namespace STDquantum</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">ifndef</span> ONLINE_JUDGE</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">ifdef</span> LOCAL</span></span><br><span class="line">  freopen(<span class="string">"test.in"</span>, <span class="string">"r"</span>, <span class="built_in">stdin</span>);</span><br><span class="line">  freopen(<span class="string">"test.out"</span>, <span class="string">"w"</span>, <span class="built_in">stdout</span>);</span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">ifndef</span> LOCAL</span></span><br><span class="line">  freopen(<span class="string">"QZ3460_Blue_Chess.in"</span>, <span class="string">"r"</span>, <span class="built_in">stdin</span>);</span><br><span class="line">  freopen(<span class="string">"QZ3460_Blue_Chess.out"</span>, <span class="string">"w"</span>, <span class="built_in">stdout</span>);</span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line">  STDquantum::main();</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="3461-淘淘的集合"><a href="#3461-淘淘的集合" class="headerlink" title="3461 淘淘的集合"></a>3461 淘淘的集合</h1><h2 id="题目描述-1"><a href="#题目描述-1" class="headerlink" title="题目描述"></a>题目描述</h2><p>淘淘有n个数字a[1]…a[n]和n个集合,一开始所有的a[i]都是0,第i个集合初始为{i}.</p>
+<p>淘淘有时候会合并两个集合或者给一个集合里的所有数整体加上一个值.</p>
+<p>蓝蓝觉得淘淘的数字太大了,有时会把a[l..r]都赋值为0,有时会询问一段区间的数字的和</p>
+<p>形式化的讲,就是有四种事件会发生:</p>
+<p>1 x y合并数字x所在的集合和y所在的集合.如果x和y已经在同一个集合,则没有变化;</p>
+<p>2 x v设x所在的集合为S，对于任意y∈S(y∈S指y在集合S里),a[y]+=v</p>
+<p>3 l r 把a[l]…a[r]都赋值为0;</p>
+<p>4 l r 询问a[l]…a[r]的和.</p>
+<p>一共会发生m次这样的事件,你能正确解答蓝蓝的每次询问吗?</p>
+<h2 id="输入-1"><a href="#输入-1" class="headerlink" title="输入"></a>输入</h2><p>第1行,两个整数n和m,用空格隔开.</p>
+<p>第2~(m+1)行,每行三个整数表示一个操作.</p>
+<p><strong>保证事件4的(r-l+1)的和不超过10000000.</strong></p>
+<h2 id="输出-1"><a href="#输出-1" class="headerlink" title="输出"></a>输出</h2><p>对于每个事件4,输出一行一个整数表示询问的答案.</p>
+<h2 id="样例输入"><a href="#样例输入" class="headerlink" title="样例输入"></a>样例输入</h2><figure class="highlight basic"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">3 </span><span class="number">10</span></span><br><span class="line"><span class="symbol">2 </span><span class="number">1</span> -<span class="number">7</span></span><br><span class="line"><span class="symbol">1 </span><span class="number">1</span> <span class="number">3</span></span><br><span class="line"><span class="symbol">2 </span><span class="number">3</span> <span class="number">5</span></span><br><span class="line"><span class="symbol">4 </span><span class="number">1</span> <span class="number">3</span></span><br><span class="line"><span class="symbol">3 </span><span class="number">2</span> <span class="number">3</span></span><br><span class="line"><span class="symbol">4 </span><span class="number">1</span> <span class="number">3</span></span><br><span class="line"><span class="symbol">2 </span><span class="number">3</span> -<span class="number">7</span></span><br><span class="line"><span class="symbol">4 </span><span class="number">1</span> <span class="number">3</span></span><br><span class="line"><span class="symbol">2 </span><span class="number">2</span> <span class="number">2</span></span><br><span class="line"><span class="symbol">4 </span><span class="number">1</span> <span class="number">3</span></span><br></pre></td></tr></table></figure>
+<h2 id="样例输出"><a href="#样例输出" class="headerlink" title="样例输出"></a>样例输出</h2><figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">3</span></span><br><span class="line"><span class="number">-2</span></span><br><span class="line"><span class="number">-16</span></span><br><span class="line"><span class="number">-14</span></span><br></pre></td></tr></table></figure>
+<h2 id="提示-1"><a href="#提示-1" class="headerlink" title="提示"></a>提示</h2><p>对于30%的数据,n,m≤3000;</p>
+<p>对于另外10%的数据,没有事件1;</p>
+<p>对于另外20%的数据,没有事件3;</p>
+<p>对于另外20%的数据,保证事件3的(r-l+1)的和不超过10000000.</p>
+<p>对于100%的数据,1≤n≤200000,1≤m≤50000;事件1,2保证1≤x,y≤n,-998244353≤v≤998244353;事件3,4保证1≤l≤r≤n;<strong>保证事件4的(r-l+1)的和不超过10000000.数据保证所有事件4的答案不超过C++ long long的范围.</strong></p>
+<h2 id="要求-1"><a href="#要求-1" class="headerlink" title="要求"></a>要求</h2><p>时间限制：1.0Sec  内存限制：1024MB</p>
+<h2 id="题解-1"><a href="#题解-1" class="headerlink" title="题解"></a>题解</h2><p>我们先一点一点考虑：</p>
+<ul>
+<li>子任务1：$n,m\le3000$<ul>
+<li>这个直接暴力做就好了，复杂度完全过得去。</li>
+</ul>
+</li>
+<li>子任务2：没有事件 $1$<ul>
+<li>事件 $1$ 是集合操作，而除了 $2$ 对集合操作以外都是单点、区间操作。没有了 $1$，事件 $2$ 也就变成了单点操作。</li>
+<li>单点加、区间赋值、区间求和，这变成了一个线段树问题。</li>
+</ul>
+</li>
+<li><p>子任务3：没有事件 $3$</p>
+<ul>
+<li>因为事件 $4$ 总求和下标个数不超过 $10^7$，也就是可以变为规模为 $10^7$ 的单点查询。</li>
+<li>而事件 $1,2$ 的集合操作，可以通过并查集实现。</li>
+<li>整体加：在并查集上打标记即可。</li>
+<li>合并：并查集启发式合并，暴力更改两个集合中集合内数的数量比较少的集合（简称小集合）中的点的权值，让它增加 $tag[SmallSet] - tag[LargeSet]$，也就是说，把小集合的节点都正确改正后，为了适应要合并进去的大集合，再减去大集合的标记，这样便可以与大集合的标记保持统一（也就是查询时候加上 $tag[LargeSet]$ 的结果正确）。</li>
+<li>单点查询：把当前数的权值加上当前集合的标记。</li>
+</ul>
+</li>
+<li><p>子任务4：无特殊限制</p>
+<ul>
+<li>考虑怎么实现区间的赋值。</li>
+<li>利用并查集启发式合并时的思想，为了消除赋值 $0$ 所带来的影响，直接把当前要修改的点能影响到的所有查询的答案都减去当前的值，这样数组没变，并查集该怎么操作就怎么操作，只是查询的时候消去影响。</li>
+<li>但是 $3$ 操作的时候还不清楚之后会影响哪些查询，所以先将查询和区间赋值操作预处理。</li>
+<li>这样又出现了一个问题：如何得知之前最近的一次赋值为 $0$ 的位置？</li>
+<li>$10^7$ 规模，查询要做到 $O(1)$，还要区间修改，会想到分块。分块维护一下最近一次赋值为 $0$ 的时间，在这个时间放一个信号要减去这个时间对应的值就好了。</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> LOCAL</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> STDquantum &#123;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt; <span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">read</span><span class="params">(T &amp;x)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">char</span> ch;</span><br><span class="line">  <span class="keyword">int</span> f = <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">while</span> (ch = getchar(), !<span class="built_in">isdigit</span>(ch)) &#123;</span><br><span class="line">    <span class="keyword">if</span> (ch == <span class="string">'-'</span>) f = <span class="number">-1</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  x = (ch ^ <span class="number">48</span>);</span><br><span class="line">  <span class="keyword">while</span> (ch = getchar(), <span class="built_in">isdigit</span>(ch)) &#123; x = x * <span class="number">10</span> + (ch ^ <span class="number">48</span>); &#125;</span><br><span class="line">  x *= f;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">5e5</span> + <span class="number">10</span>, M = <span class="number">1e7</span> + <span class="number">10</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">K</span> &#123;</span> <span class="comment">// 分块</span></span><br><span class="line">  <span class="keyword">int</span> n, m, s, cur[N], l[N], r[N], a[N], tag[N];</span><br><span class="line">  <span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">init</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">    n = x, s = <span class="built_in">sqrt</span>(x) + <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; ++i) cur[i] = (i - <span class="number">1</span>) / s + <span class="number">1</span>;</span><br><span class="line">    m = cur[n];</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= m; ++i) &#123;</span><br><span class="line">      l[i] = (i - <span class="number">1</span>) * s + <span class="number">1</span>, r[i] = min(n, i * s);</span><br><span class="line">      tag[i] = <span class="number">-1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">pushdown</span><span class="params">(<span class="keyword">int</span> k)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (tag[k] != <span class="number">-1</span>) &#123;</span><br><span class="line">      <span class="keyword">for</span> (<span class="keyword">int</span> i = l[k]; i &lt;= r[k]; ++i) a[i] = tag[k];</span><br><span class="line">    &#125;</span><br><span class="line">    tag[k] = <span class="number">-1</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">add</span><span class="params">(<span class="keyword">int</span> L, <span class="keyword">int</span> R, <span class="keyword">int</span> w)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> k;</span><br><span class="line">    <span class="keyword">if</span> (cur[L] == cur[R]) &#123;</span><br><span class="line">      pushdown(cur[L]);</span><br><span class="line">      <span class="keyword">for</span> (<span class="keyword">int</span> i = L; i &lt;= R; ++i) a[i] = w;</span><br><span class="line">      <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    pushdown(k = cur[L]);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = L; i &lt;= r[k]; ++i) a[i] = w;</span><br><span class="line">    pushdown(k = cur[R]);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = l[k]; i &lt;= R; ++i) a[i] = w;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = cur[L] + <span class="number">1</span>; i &lt; k; ++i) tag[i] = w;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="function"><span class="keyword">inline</span> <span class="keyword">int</span> <span class="title">query</span><span class="params">(<span class="keyword">int</span> k)</span> </span>&#123; <span class="comment">// 输出前一个赋为0的时间</span></span><br><span class="line">    <span class="keyword">return</span> ~tag[cur[k]] ? tag[cur[k]] : a[k];</span><br><span class="line">  &#125;</span><br><span class="line">&#125; K;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">UF</span> &#123;</span> <span class="comment">// 并查集</span></span><br><span class="line">  <span class="keyword">int</span> fa[N];</span><br><span class="line">  ll tag[N], val[N];</span><br><span class="line">  <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; g[N];</span><br><span class="line">  <span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">UFset</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; ++i) &#123;</span><br><span class="line">      fa[i] = i, tag[i] = val[i] = <span class="number">0</span>, g[i].clear();</span><br><span class="line">      g[i].push_back(i);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="function"><span class="keyword">inline</span> <span class="keyword">int</span> <span class="title">Find</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> x == fa[x] ? x : (fa[x] = Find(fa[x]));</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">Union</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y)</span> </span>&#123;</span><br><span class="line">    x = Find(x), y = Find(y);</span><br><span class="line">    <span class="keyword">if</span> (x == y) <span class="keyword">return</span>;</span><br><span class="line">    <span class="keyword">if</span> (g[x].size() &lt; g[y].size()) swap(x, y);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>, sz = g[y].size(); i &lt; sz; ++i)</span><br><span class="line">      val[g[y][i]] += tag[y] - tag[x], g[x].push_back(g[y][i]);</span><br><span class="line">    tag[y] = <span class="number">0</span>, fa[y] = x, g[y].clear();</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="function"><span class="keyword">inline</span> ll <span class="title">query</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123; <span class="keyword">return</span> val[x] + tag[Find(x)]; &#125;</span><br><span class="line">  <span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">add</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> w)</span> </span>&#123; x = Find(x), tag[x] += w; &#125;</span><br><span class="line">&#125; UF;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> cnt1, cnt2, op[N], opx[N], opy[N];</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Q1</span> &#123;</span></span><br><span class="line">  <span class="keyword">int</span> id, x; <span class="comment">// 消去操作</span></span><br><span class="line">&#125; q1[M]; <span class="comment">// 注意数组要开足够大</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Q2</span> &#123;</span></span><br><span class="line">  <span class="keyword">int</span> id, t, l, r; <span class="comment">// 离线查询</span></span><br><span class="line">&#125; q2[N];</span><br><span class="line"><span class="built_in">vector</span>&lt;Q1&gt; g[N];</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> n, m;</span><br><span class="line">ll ans[N];</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  read(n), read(m);</span><br><span class="line">  K.init(n);</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= m; ++i) &#123;</span><br><span class="line">    read(op[i]), read(opx[i]), read(opy[i]);</span><br><span class="line">    <span class="keyword">if</span> (op[i] == <span class="number">3</span>) K.add(opx[i], opy[i], i);</span><br><span class="line">    <span class="keyword">if</span> (op[i] == <span class="number">4</span>) &#123;</span><br><span class="line">      q2[++cnt2] = (Q2)&#123;cnt2, i, opx[i], opy[i]&#125;; <span class="comment">// 离线查询操作</span></span><br><span class="line">      <span class="keyword">for</span> (<span class="keyword">int</span> j = opx[i]; j &lt;= opy[i]; ++j) &#123;</span><br><span class="line">        q1[++cnt1] = (Q1)&#123;cnt2, j&#125;; <span class="comment">// 表示在cnt2这个查询里找j的权值</span></span><br><span class="line">        g[K.query(j)].push_back(q1[cnt1]); <span class="comment">// 在j上一次被赋零的时间插入一个消去操作</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">int</span> cur = <span class="number">1</span>;</span><br><span class="line">  UF.UFset(n);</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= m; ++i) &#123;</span><br><span class="line">    <span class="keyword">if</span> (op[i] == <span class="number">1</span>) UF.Union(opx[i], opy[i]);</span><br><span class="line">    <span class="keyword">if</span> (op[i] == <span class="number">2</span>) UF.add(opx[i], opy[i]);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>, sz = g[i].size(); j &lt; sz; ++j)</span><br><span class="line">      ans[g[i][j].id] -= UF.query(g[i][j].x); <span class="comment">// 消去影响</span></span><br><span class="line">    <span class="keyword">while</span> (cur &lt;= cnt2 &amp;&amp; q2[cur].t &lt;= i) &#123; <span class="comment">// 完成i之前的查询</span></span><br><span class="line">      <span class="keyword">for</span> (<span class="keyword">int</span> j = q2[cur].l; j &lt;= q2[cur].r; ++j)</span><br><span class="line">        ans[q2[cur].id] += UF.query(j);</span><br><span class="line">      ++cur;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= cnt2; ++i) <span class="built_in">printf</span>(<span class="string">"%lld\n"</span>, ans[i]);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;  <span class="comment">// namespace STDquantum</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">ifndef</span> ONLINE_JUDGE</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">ifdef</span> LOCAL</span></span><br><span class="line">  freopen(<span class="string">"D:\\OI\\STDquantum\\test.in"</span>, <span class="string">"r"</span>, <span class="built_in">stdin</span>);</span><br><span class="line">  freopen(<span class="string">"D:\\OI\\STDquantum\\test.out"</span>, <span class="string">"w"</span>, <span class="built_in">stdout</span>);</span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">ifndef</span> LOCAL</span></span><br><span class="line">  freopen(<span class="string">"QZ3461_Tao_Set.in"</span>, <span class="string">"r"</span>, <span class="built_in">stdin</span>);</span><br><span class="line">  freopen(<span class="string">"QZ3461_Tao_Set.out"</span>, <span class="string">"w"</span>, <span class="built_in">stdout</span>);</span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line">  STDquantum::main();</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="3462-蓝蓝的程序"><a href="#3462-蓝蓝的程序" class="headerlink" title="3462 蓝蓝的程序"></a>3462 蓝蓝的程序</h1><h2 id="题目描述-2"><a href="#题目描述-2" class="headerlink" title="题目描述"></a>题目描述</h2><p>一天,蓝蓝写了一段代码并用它们实现了一些功能.</p>
+<p>但是这些程序跑的非常慢,不能在比赛的(3.5小时/5小时)中获得结果.</p>
+<p>请你帮助他优化这些程序,得到正确的结果.</p>
+<p>一共有10个程序。(10个子任务)</p>
+<p>因为输入文件太大，所以我们不提供输入文件，只会提供数据规模n和一个数seed,选手可以用seed和每道题给你的gen1~gen10.cpp来生成输入数据。</p>
+<p>seed和每道题的n在选手目录下的1.txt~10.txt中.</p>
+<p>蓝蓝提供了他写的程序1.cpp~10.cpp,保证它们一次运行只会输出一个数。</p>
+<p>蓝蓝的代码不能直接运行,因为它只能在规定时间内解决小范围的数据。</p>
+<p>你会发现，在蓝蓝的程序里，输出的数对998244353取模。</p>
+<p>我们要你求出问题的输出。</p>
+<p>为了方便选手检查代码，我们会提供答案对19260817取模的数值，存放在选手目录下的1.ans~10.ans中。</p>
+<p><strong>因为某些神秘的原因,我们不使用提交答案式的评测,而是每个测试点里输入一个数Num表示子任务编号,然后你在程序中输出答案.</strong></p>
+<p><a href="https://www.qizhishu.com/upload/file/20200719/20200719102119_62878.rar" target="_blank" rel="noopener">/upload/file/20200719/20200719102119_62878.rar</a></p>
+<h2 id="输入-2"><a href="#输入-2" class="headerlink" title="输入"></a>输入</h2><p>一行一个数Num表示子任务编号. </p>
+<h2 id="输出-2"><a href="#输出-2" class="headerlink" title="输出"></a>输出</h2><p>一行一个整数表示这个测试点的答案.</p>
+<h2 id="要求-2"><a href="#要求-2" class="headerlink" title="要求"></a>要求</h2><p>时间限制：1.0Sec  内存限制：128MB</p>
+<h2 id="题解-2"><a href="#题解-2" class="headerlink" title="题解"></a>题解</h2><p>好像之前考过的一道题啊。。<a href="../20200410-mo-ni-sai-ri-ji" title="20200410模拟赛日记">NPIO十合一</a>。</p>
+<ul>
+<li><p>子任务1：1e9求和、最大、最小值</p>
+<p>一边造数据一边查就行</p>
+</li>
+<li><p>子任务2：4e4见方的矩阵，求前缀和（左上角部分）的和。</p>
+<p>考虑每个数字 $a[i][j]$ 对答案的贡献，不难发现是$(n-i+1)*(n-j+1)*a[i][j]$。</p>
+<p>那么就可以不开数组完成了。程序可以在 1min 内跑完。</p>
+<p>另解：不考虑贡献，滚动数组优化掉计算前缀和的空间复杂度，直接模拟程序的计算。空间复杂度为 $O(n)$。</p>
+</li>
+<li><p>子任务3：4e4见方的矩阵，求前缀和的前缀和的和。</p>
+<p>仍然可以考虑每个数字 $a[i][j]$ 对答案的贡献，记 $f(n) = n*(n+1)/2$，不难发现 $a[i][j]$ 对答案的贡献为 $f(n-i+l)*f(n-j+ 1)* a[i][j]$。那么就可以不开数组完成了。</p>
+<p>另解：不考虑贡献，滚动数组优化掉计算前缀和的空间复杂度，直接模拟程序的计算。空间复杂度为 $O(n)$。</p>
+</li>
+<li><p>子任务4：1e15的0次方和</p>
+<p>直接输出 $10^{15}\bmod p$</p>
+</li>
+<li><p>子任务5：5e15的1次方和</p>
+<p>等差数列求和，$\frac{n(n+1)}{2}\bmod p$</p>
+</li>
+<li><p>子任务6：5e15的2次方和</p>
+<p>有$(n+1)^2 = n^2+2n+1$，则</p>
+<script type="math/tex; mode=display">
+n^2-(n-1)^2=2(n-1)+1\\
+\vdots\\
+2^2-1^2=2\times1+1</script><p>左边全部加起来，右边全部加起来，得到$n^2-1=2(1+2+\cdots+n)+n\times1=2\sum\limits_{i=1}^ni^1+n$，之后再算的时候，就可以把上一问求出的$\sum\limits_{i=1}^ni^1$带入这个式子，便得到了通项。</p>
+<p>$ans=\frac{n(n+1)(2n+1)}6\bmod p$</p>
+</li>
+<li><p>子任务7：5e15的3次方和</p>
+<p>求法同上，$ans=\left(\frac{n(n+1)}{2}\right)^2\bmod p$</p>
+</li>
+<li><p>子任务8：5e15的4次方和</p>
+<p>求法同上，$ans=\left(\frac{n (1 + n) (1 + 2 n) ( 3 n + 3 n^2 -1)}{30}\right)\bmod p$</p>
+<p>插播一句，Python大法好啊，自带高精</p>
+</li>
+<li><p>子任务9：</p>
+</li>
+</ul>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/OI/" rel="tag">OI</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%A8%A1%E6%8B%9F%E8%B5%9B/" rel="tag">模拟赛</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+  <nav class="article-nav">
+    
+      <a href="/20200819-mo-ni-sai/" class="article-nav-link">
+        <strong class="article-nav-caption">上一篇</strong>
+        <div class="article-nav-title">
+          
+            20200819模拟赛
+          
+        </div>
+      </a>
+    
+    
+      <a href="/20200817-mo-ni-sai/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">20200817模拟赛</div>
+      </a>
+    
+  </nav>
+
+  
+     
+</article>
+
+</section>
+      <footer class="footer">
+  <div class="outer">
+    <ul>
+      <li>
+        Copyrights &copy;
+        2020
+        <i class="ri-heart-fill heart_icon"></i> STDquantum
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+      </li>
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      <li>
+        <!-- cnzz统计 -->
+        
+      </li>
+    </ul>
+  </div>
+</footer>
+      <div class="float_btns">
+        <div class="totop" id="totop">
+  <i class="ri-arrow-up-line"></i>
+</div>
+
+      </div>
+    </main>
+    <aside class="sidebar on">
+      <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/1.jpg" alt="STDquantum"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">主页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">归档</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/categories">分类</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/tags">标签</a>
+    </li>
+    
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      
+      <a class="nav-item-link nav-item-search"  title="搜索">
+        <i class="ri-search-line"></i>
+      </a>
+      
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+    </aside>
+    <script>
+      if (window.matchMedia("(max-width: 768px)").matches) {
+        document.querySelector('.content').classList.remove('on');
+        document.querySelector('.sidebar').classList.remove('on');
+      }
+    </script>
+    <div id="mask"></div>
+
+<!-- #reward -->
+<div id="reward">
+  <span class="close"><i class="ri-close-line"></i></span>
+  <p class="reward-p"><i class="ri-cup-line"></i></p>
+  <div class="reward-box">
+    
+    
+  </div>
+</div>
+    
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+
+<script src="/js/lazyload.min.js"></script>
+
+<!-- Tocbot -->
+
+
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  tocbot.init({
+    tocSelector: '.tocbot',
+    contentSelector: '.article-entry',
+    headingSelector: 'h1, h2, h3, h4, h5, h6',
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: 'main',
+    positionFixedSelector: '.tocbot',
+    positionFixedClass: 'is-position-fixed',
+    fixedSidebarOffset: 'auto'
+  });
+</script>
+<!-- Live-2D -->
+<script type="text/javascript" charset="utf-8" src="/js/L2Dwidget.0.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="/js/L2Dwidget.min.js"></script>
+<script type="text/javascript">
+  L2Dwidget.on('*', (name) => {
+    console.log('%c EVENT ' + '%c -> ' + name, 'background: #222; color: yellow', 'background: #fff; color: #000')
+  });
+  L2Dwidget.init({
+    "display": {
+      "superSample": 2,
+      "width": 200,
+      "height": 400,
+      "position": "right",
+      "hOffset": 0,
+      "vOffset": 0
+    },
+    "mobile": {
+      "show": true,
+      "scale": 0.7
+    }
+  });
+</script>
+
+<script src="/js/jquery.modal.min.js"></script>
+<link rel="stylesheet" href="/css/jquery.modal.min.css">
+<script src="/js/jquery.justifiedGallery.min.js"></script>
+
+<script src="/dist/main.js"></script>
+
+<!-- ImageViewer -->
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<link rel="stylesheet" href="/css/photoswipe.min.css">
+<link rel="stylesheet" href="/css/default-skin.min.css">
+<script src="/js/photoswipe.min.js"></script>
+<script src="/js/photoswipe-ui-default.min.js"></script>
+
+<script>
+    function viewer_init() {
+        let pswpElement = document.querySelectorAll('.pswp')[0];
+        let $imgArr = document.querySelectorAll(('.article-entry img:not(.reward-img)'))
+
+        $imgArr.forEach(($em, i) => {
+            $em.onclick = () => {
+                // slider展开状态
+                // todo: 这样不好，后面改成状态
+                if (document.querySelector('.left-col.show')) return
+                let items = []
+                $imgArr.forEach(($em2, i2) => {
+                    let img = $em2.getAttribute('data-idx', i2)
+                    let src = $em2.getAttribute('data-target') || $em2.getAttribute('src')
+                    let title = $em2.getAttribute('alt')
+                    // 获得原图尺寸
+                    const image = new Image()
+                    image.src = src
+                    items.push({
+                        src: src,
+                        w: image.width || $em2.width,
+                        h: image.height || $em2.height,
+                        title: title
+                    })
+                })
+                var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, {
+                    index: parseInt(i)
+                });
+                gallery.init()
+            }
+        })
+    }
+    viewer_init()
+</script>
+
+<!-- MathJax -->
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      extensions: ["tex2jax.js"],
+      jax: ["input/TeX","output/HTML-CSS"],
+      tex2jax: {inlineMath: [["$","$"]]}
+    });
+  </script>
+
+<script src="/mathjax/MathJax.js"></script>
+<script>
+  var ayerConfig = {
+    mathjax: true
+  }
+</script>
+
+<!-- Katex -->
+
+<!-- busuanzi  -->
+
+<!-- ClickLove -->
+
+
+<script src="/js/clickLove.js"></script>
+
+
+<!-- ClickBoom1 -->
+
+<!-- ClickBoom2 -->
+
+<!-- CodeCopy -->
+
+
+<link rel="stylesheet" href="/css/clipboard.css">
+
+<script src="/js/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="ri-file-copy-2-line"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-checkbox-circle-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-checkbox-circle-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-time-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-time-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+
+
+<!-- CanvasBackground -->
+
+
+    
+  </div>
+</body>
+
+</html>

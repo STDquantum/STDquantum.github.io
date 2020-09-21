@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+
+
+<html lang="zh-CN">
+
+
+<head>
+  <meta charset="utf-8" />
+    
+  <meta name="description" content="STDquantum" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <title>
+    CF1400C Binary String Reconstruction |  STDquantum
+  </title>
+  <meta name="generator" content="hexo-theme-ayer">
+  
+  <link rel="shortcut icon" href="/1.ico" />
+  
+  
+<link rel="stylesheet" href="/dist/main.css">
+
+  
+<link rel="stylesheet" href="/css/remixicon.min.css">
+
+  
+<link rel="stylesheet" href="/css/custom.css">
+
+  
+  
+<script src="/js/pace.min.js"></script>
+
+  
+  
+
+  
+
+</head>
+
+</html>
+
+<body>
+  <div id="app">
+    
+      
+    <main class="content on">
+      <section class="outer">
+  <article
+  id="post-OI/杂题/CF1400C Binary String Reconstruction"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  CF1400C Binary String Reconstruction
+</h1>
+ 
+
+    </header>
+     
+    <div class="article-meta">
+      <a href="/cf1400c-binary-string-reconstruction/" class="article-date">
+  <time datetime="2020-08-27T07:52:52.000Z" itemprop="datePublished">2020-08-27</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/OI/">OI</a> / <a class="article-category-link" href="/categories/OI/%E5%AD%97%E7%AC%A6%E4%B8%B2/">字符串</a>
+  </div>
+  
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> 字数统计:</span>
+            <span class="post-count">1.4k</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> 阅读时长≈</span>
+            <span class="post-count">6 分钟</span>
+        </span>
+    </span>
+</div>
+ 
+    </div>
+      
+    <div class="tocbot"></div>
+
+
+
+
+  
+    <div class="article-entry" itemprop="articleBody">
+       
+  <p>一场Edu的C题</p>
+<a id="more"></a>
+<h1 id="Binary-String-Reconstruction"><a href="#Binary-String-Reconstruction" class="headerlink" title="Binary String Reconstruction"></a>Binary String Reconstruction</h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>Consider the following process. You have a binary string (a string where each character is either 0 or 1) $ w $ of length $ n $ and an integer $ x $ . You build a new binary string $ s $ consisting of $ n $ characters. The $ i $ -th character of $ s $ is chosen as follows: </p>
+<ul>
+<li>if the character $ w_{i-x} $ exists and is equal to 1, then $ s_i $ is 1 (formally, if $ i &gt; x $ and $ w_{i-x} = $ 1, then $ s_i = $ 1);</li>
+<li>if the character $ w_{i+x} $ exists and is equal to 1, then $ s_i $ is 1 (formally, if $ i + x \le n $ and $ w_{i+x} = $ 1, then $ s_i = $ 1);</li>
+<li>if both of the aforementioned conditions are false, then $ s_i $ is 0. </li>
+</ul>
+<p>You are given the integer $ x $ and the resulting string $ s $ . Reconstruct the original string $ w $ .</p>
+<h2 id="输入输出格式"><a href="#输入输出格式" class="headerlink" title="输入输出格式"></a>输入输出格式</h2><h3 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h3><p>The first line contains one integer $ t $ ( $ 1 \le t \le 1000 $ ) — the number of test cases. </p>
+<p>Each test case consists of two lines. The first line contains the resulting string $ s $ ( $ 2 \le |s| \le 10^5 $ , each character of $ s $ is either 0 or 1). The second line contains one integer $ x $ ( $ 1 \le x \le |s| - 1 $ ). </p>
+<p>The total length of all strings $ s $ in the input does not exceed $ 10^5 $ .</p>
+<h3 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h3><p>For each test case, print the answer on a separate line as follows:</p>
+<ul>
+<li>if no string $ w $ can produce the string $ s $ at the end of the process, print $ -1 $ ; </li>
+<li>otherwise, print the binary string $ w $ consisting of $ |s| $ characters. If there are multiple answers, print any of them.</li>
+</ul>
+<h2 id="输入输出样例"><a href="#输入输出样例" class="headerlink" title="输入输出样例"></a>输入输出样例</h2><h3 id="输入样例-1"><a href="#输入样例-1" class="headerlink" title="输入样例 #1"></a>输入样例 #1</h3><figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">3</span></span><br><span class="line"><span class="number">101110</span></span><br><span class="line"><span class="number">2</span></span><br><span class="line"><span class="number">01</span></span><br><span class="line"><span class="number">1</span></span><br><span class="line"><span class="number">110</span></span><br><span class="line"><span class="number">1</span></span><br></pre></td></tr></table></figure>
+<h3 id="输出样例-1"><a href="#输出样例-1" class="headerlink" title="输出样例 #1"></a>输出样例 #1</h3><figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">111011</span></span><br><span class="line"><span class="number">10</span></span><br><span class="line"><span class="number">-1</span></span><br></pre></td></tr></table></figure>
+<h2 id="题意翻译"><a href="#题意翻译" class="headerlink" title="题意翻译"></a>题意翻译</h2><p>给出一种01串的变换方法及对一个串变换后的结果串，求出原串（可以有多种），多组询问。</p>
+<p>变换方法如下：</p>
+<p>原串为 $w$，变换后的串为 $s$，两串长度相等；给出一个整数 $x$；01串从下标 $1$ 开始。</p>
+<ul>
+<li><p>如果原串 $w_{i-x}$ 这一位存在且为 $\mathbf{1}$，那么 $s_i$ 为 $\mathbf1$（形式化地说，如果 $i\gt x$ 且 $w_{i-x}=\mathbf1$，那么 $s_i=\mathbf1$）。</p>
+</li>
+<li><p>如果原串 $w_{i+x}$ 这一位存在且为 $\mathbf{1}$，那么 $s_i$ 为 $\mathbf1$（形式化地说，如果 $i+ x\le n$ 且 $w_{i+x}=\mathbf1$，那么 $s_i=\mathbf1$）。</p>
+</li>
+<li><p>如果上述两种情况均不成立，那么 $s_i=\mathbf0$。</p>
+</li>
+</ul>
+<p>给出 $s$，求出一种可能的 $w$，若不存在任意一种 $w$，输出<code>-1</code>。</p>
+<p>保证 $s$ 的总长度不超过 $10^5$，$t$（数据组数）不超过 $1000$。</p>
+<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>观察变换方式，可以发现在 $s_i=\mathbf0$ 的情况下，对原串有 $w_{i+x}=w_{i-x}=\mathbf0$（若存在的话）。</p>
+<p>所以可以先扫一遍 $s$，标记这些位置，再处理 $s_i=\mathbf1$ 的情况。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= len; ++i) &#123;</span><br><span class="line">    <span class="keyword">if</span> (ch[i] == <span class="string">'0'</span>) &#123;</span><br><span class="line">        <span class="keyword">if</span> (i - x &gt; <span class="number">0</span>) vis[i - x] = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">if</span> (i + x &lt;= len) vis[i + x] = <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>对于 $s_i=\mathbf1$ 的情况，可能有 $w_{i-x}=\mathbf1$ 或 $w_{i+x}=\mathbf1$ 或两者都有。而只要有一个就足够了，所以若两边都被打上了标记，就直接判断无解。可以只标记左边的 $w_{i-x}=1$，若 $w_{i-x}$ 已经被打上了标记，那就标记右边的 $w_{i+x}=1$。</p>
+<p>有些位置可能不会被以上的方法赋值，这些位置是什么都可以，赋为<code>&#39;0&#39;</code>在第一个步骤比较方便。</p>
+<p>思路很简单但是<code>if</code>太多而且每行很短，所以为了观感将缩进改为两格。</p>
+<p>代码中<code>ch</code>串是结果串，<code>s</code>串是原串。</p>
+<p>代码中还采用了C++的一个小trick：<code>goto</code>。这可以代替打标记+<code>break</code>，在情况较复杂时使用很方便。简单来说它的用法，那就是<code>goto wherever;</code>，若程序执行到这一句就会跑到<code>wherever:</code>的后面。可以用来跳出多个循环直接输出无解（或者类似的操作）。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> STDquantum &#123; <span class="comment">// 防止命名冲突用的，main()就相当于主函数</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">3e5</span> + <span class="number">10</span>;</span><br><span class="line"><span class="keyword">int</span> t, x, len;</span><br><span class="line"><span class="keyword">char</span> ch[N], s[N];</span><br><span class="line"><span class="keyword">bool</span> vis[N];</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;t);</span><br><span class="line">  <span class="keyword">while</span> (t--) &#123;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%s%d"</span>, ch + <span class="number">1</span>, &amp;x);</span><br><span class="line">    len = <span class="built_in">strlen</span>(ch + <span class="number">1</span>);</span><br><span class="line">    fill(vis + <span class="number">1</span>, vis + len + <span class="number">1</span>, <span class="number">0</span>); <span class="comment">// 可以代替memset把[vis+1,vis+len+1)全清零</span></span><br><span class="line">    fill(s + <span class="number">1</span>, s + len + <span class="number">1</span>, <span class="string">'0'</span>); <span class="comment">// 清空s串</span></span><br><span class="line">    s[len + <span class="number">1</span>] = <span class="number">0</span>; <span class="comment">// printf遇见s[i]=0就会停止，所以这句相当于一个终止符</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= len; ++i) &#123;</span><br><span class="line">      <span class="keyword">if</span> (ch[i] == <span class="string">'0'</span>) &#123; <span class="comment">// 第一个步骤：标记已有信息</span></span><br><span class="line">        <span class="keyword">if</span> (i - x &gt; <span class="number">0</span>) vis[i - x] = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">if</span> (i + x &lt;= len) vis[i + x] = <span class="number">1</span>;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= len; ++i) &#123;</span><br><span class="line">      <span class="keyword">if</span> (ch[i] == <span class="string">'1'</span>) &#123; <span class="comment">// 第二个步骤：求出原串</span></span><br><span class="line">        <span class="keyword">if</span> (i - x &gt; <span class="number">0</span>) &#123; <span class="comment">// 若左边位置合法</span></span><br><span class="line">          <span class="keyword">if</span> (vis[i - x]) &#123; <span class="comment">// 若左边位置被标记过</span></span><br><span class="line">            <span class="keyword">if</span> (i + x &lt;= len) &#123; <span class="comment">// 若右边位置合法</span></span><br><span class="line">              <span class="keyword">if</span> (vis[i + x]) &#123; <span class="comment">// 若右边位置被标记过</span></span><br><span class="line">                <span class="keyword">goto</span> school; <span class="comment">// 都被标记过则无解</span></span><br><span class="line">              &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                s[i + x] = <span class="string">'1'</span>; <span class="comment">// 左边被标记过、右边合法，就把右边赋为'1'</span></span><br><span class="line">              &#125;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123; <span class="comment">// 右边位置不合法</span></span><br><span class="line">              <span class="keyword">goto</span> school; <span class="comment">// 左边位置合法但被标记过，右边位置不合法，无解</span></span><br><span class="line">            &#125;</span><br><span class="line">          &#125; <span class="keyword">else</span> &#123; <span class="comment">// 左边合法且没有被标记过直接赋为'1'</span></span><br><span class="line">            s[i - x] = <span class="string">'1'</span>;</span><br><span class="line">          &#125;</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (i + x &lt;= len) &#123; <span class="comment">// 左边位置不合法，右边位置合法</span></span><br><span class="line">          <span class="keyword">if</span> (vis[i + x]) &#123; <span class="comment">// 右边被标记过</span></span><br><span class="line">            <span class="keyword">goto</span> school; <span class="comment">// 左边位置不合法，右边位置合法但被标记过，无解</span></span><br><span class="line">          &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            s[i + x] = <span class="string">'1'</span>; <span class="comment">// 左边位置不合法，右边位置合法且未被标记过，直接赋为'1'</span></span><br><span class="line">          &#125;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">          <span class="keyword">goto</span> school; <span class="comment">// 左右位置都不合法，无解</span></span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%s\n"</span>, s + <span class="number">1</span>); <span class="comment">// 全都合法直接输出原串</span></span><br><span class="line">    <span class="keyword">continue</span>;</span><br><span class="line">  school: <span class="comment">// goto school跳到这里，输出-1后直接进行下一次循环</span></span><br><span class="line">    <span class="built_in">puts</span>(<span class="string">"-1"</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;  <span class="comment">// namespace STDquantum</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  STDquantum::main();</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="UPD-on-2020-08-27-22-17-23"><a href="#UPD-on-2020-08-27-22-17-23" class="headerlink" title="UPD on 2020-08-27 22:17:23"></a>UPD on 2020-08-27 22:17:23</h1><p>题解过了！翻译也是我的！</p>
+<img src="/cf1400c-binary-string-reconstruction/1.png" class><img src="/cf1400c-binary-string-reconstruction/2.png" class>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/OI/" rel="tag">OI</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%9D%82%E9%A2%98/" rel="tag">杂题</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+  <nav class="article-nav">
+    
+      <a href="/20200829-mo-ni-sai/" class="article-nav-link">
+        <strong class="article-nav-caption">上一篇</strong>
+        <div class="article-nav-title">
+          
+            20200829模拟赛
+          
+        </div>
+      </a>
+    
+    
+      <a href="/cf1400a-string-similarity/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">CF1400A String Similarity</div>
+      </a>
+    
+  </nav>
+
+  
+     
+</article>
+
+</section>
+      <footer class="footer">
+  <div class="outer">
+    <ul>
+      <li>
+        Copyrights &copy;
+        2020
+        <i class="ri-heart-fill heart_icon"></i> STDquantum
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+      </li>
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      <li>
+        <!-- cnzz统计 -->
+        
+      </li>
+    </ul>
+  </div>
+</footer>
+      <div class="float_btns">
+        <div class="totop" id="totop">
+  <i class="ri-arrow-up-line"></i>
+</div>
+
+      </div>
+    </main>
+    <aside class="sidebar on">
+      <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/1.jpg" alt="STDquantum"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">主页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">归档</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/categories">分类</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/tags">标签</a>
+    </li>
+    
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      
+      <a class="nav-item-link nav-item-search"  title="搜索">
+        <i class="ri-search-line"></i>
+      </a>
+      
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+    </aside>
+    <script>
+      if (window.matchMedia("(max-width: 768px)").matches) {
+        document.querySelector('.content').classList.remove('on');
+        document.querySelector('.sidebar').classList.remove('on');
+      }
+    </script>
+    <div id="mask"></div>
+
+<!-- #reward -->
+<div id="reward">
+  <span class="close"><i class="ri-close-line"></i></span>
+  <p class="reward-p"><i class="ri-cup-line"></i></p>
+  <div class="reward-box">
+    
+    
+  </div>
+</div>
+    
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+
+<script src="/js/lazyload.min.js"></script>
+
+<!-- Tocbot -->
+
+
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  tocbot.init({
+    tocSelector: '.tocbot',
+    contentSelector: '.article-entry',
+    headingSelector: 'h1, h2, h3, h4, h5, h6',
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: 'main',
+    positionFixedSelector: '.tocbot',
+    positionFixedClass: 'is-position-fixed',
+    fixedSidebarOffset: 'auto'
+  });
+</script>
+<!-- Live-2D -->
+<script type="text/javascript" charset="utf-8" src="/js/L2Dwidget.0.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="/js/L2Dwidget.min.js"></script>
+<script type="text/javascript">
+  L2Dwidget.on('*', (name) => {
+    console.log('%c EVENT ' + '%c -> ' + name, 'background: #222; color: yellow', 'background: #fff; color: #000')
+  });
+  L2Dwidget.init({
+    "display": {
+      "superSample": 2,
+      "width": 200,
+      "height": 400,
+      "position": "right",
+      "hOffset": 0,
+      "vOffset": 0
+    },
+    "mobile": {
+      "show": true,
+      "scale": 0.7
+    }
+  });
+</script>
+
+<script src="/js/jquery.modal.min.js"></script>
+<link rel="stylesheet" href="/css/jquery.modal.min.css">
+<script src="/js/jquery.justifiedGallery.min.js"></script>
+
+<script src="/dist/main.js"></script>
+
+<!-- ImageViewer -->
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<link rel="stylesheet" href="/css/photoswipe.min.css">
+<link rel="stylesheet" href="/css/default-skin.min.css">
+<script src="/js/photoswipe.min.js"></script>
+<script src="/js/photoswipe-ui-default.min.js"></script>
+
+<script>
+    function viewer_init() {
+        let pswpElement = document.querySelectorAll('.pswp')[0];
+        let $imgArr = document.querySelectorAll(('.article-entry img:not(.reward-img)'))
+
+        $imgArr.forEach(($em, i) => {
+            $em.onclick = () => {
+                // slider展开状态
+                // todo: 这样不好，后面改成状态
+                if (document.querySelector('.left-col.show')) return
+                let items = []
+                $imgArr.forEach(($em2, i2) => {
+                    let img = $em2.getAttribute('data-idx', i2)
+                    let src = $em2.getAttribute('data-target') || $em2.getAttribute('src')
+                    let title = $em2.getAttribute('alt')
+                    // 获得原图尺寸
+                    const image = new Image()
+                    image.src = src
+                    items.push({
+                        src: src,
+                        w: image.width || $em2.width,
+                        h: image.height || $em2.height,
+                        title: title
+                    })
+                })
+                var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, {
+                    index: parseInt(i)
+                });
+                gallery.init()
+            }
+        })
+    }
+    viewer_init()
+</script>
+
+<!-- MathJax -->
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      extensions: ["tex2jax.js"],
+      jax: ["input/TeX","output/HTML-CSS"],
+      tex2jax: {inlineMath: [["$","$"]]}
+    });
+  </script>
+
+<script src="/mathjax/MathJax.js"></script>
+<script>
+  var ayerConfig = {
+    mathjax: true
+  }
+</script>
+
+<!-- Katex -->
+
+<!-- busuanzi  -->
+
+<!-- ClickLove -->
+
+
+<script src="/js/clickLove.js"></script>
+
+
+<!-- ClickBoom1 -->
+
+<!-- ClickBoom2 -->
+
+<!-- CodeCopy -->
+
+
+<link rel="stylesheet" href="/css/clipboard.css">
+
+<script src="/js/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="ri-file-copy-2-line"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-checkbox-circle-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-checkbox-circle-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-time-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-time-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+
+
+<!-- CanvasBackground -->
+
+
+    
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+
+
+<html lang="zh-CN">
+
+
+<head>
+  <meta charset="utf-8" />
+    
+  <meta name="description" content="STDquantum" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <title>
+    20200415模拟赛 |  STDquantum
+  </title>
+  <meta name="generator" content="hexo-theme-ayer">
+  
+  <link rel="shortcut icon" href="/1.ico" />
+  
+  
+<link rel="stylesheet" href="/dist/main.css">
+
+  
+<link rel="stylesheet" href="/css/remixicon.min.css">
+
+  
+<link rel="stylesheet" href="/css/custom.css">
+
+  
+  
+<script src="/js/pace.min.js"></script>
+
+  
+  
+
+  
+
+</head>
+
+</html>
+
+<body>
+  <div id="app">
+    
+      
+    <main class="content on">
+      <section class="outer">
+  <article
+  id="post-OI/模拟赛/20200415模拟赛"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  20200415模拟赛
+</h1>
+ 
+
+    </header>
+     
+    <div class="article-meta">
+      <a href="/20200415-mo-ni-sai/" class="article-date">
+  <time datetime="2020-04-15T14:22:22.000Z" itemprop="datePublished">2020-04-15</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/OI/">OI</a> / <a class="article-category-link" href="/categories/OI/%E6%A8%A1%E6%8B%9F%E8%B5%9B/">模拟赛</a>
+  </div>
+  
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> 字数统计:</span>
+            <span class="post-count">1.9k</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> 阅读时长≈</span>
+            <span class="post-count">10 分钟</span>
+        </span>
+    </span>
+</div>
+ 
+    </div>
+      
+    <div class="tocbot"></div>
+
+
+
+
+  
+    <div class="article-entry" itemprop="articleBody">
+       
+  <p>还好吧</p>
+<a id="more"></a>
+<h1 id="来源"><a href="#来源" class="headerlink" title="来源"></a>来源</h1><img src="/20200415-mo-ni-sai/1.png" class>
+<h1 id="T129877-geronimo"><a href="#T129877-geronimo" class="headerlink" title="T129877 geronimo"></a>T129877 geronimo</h1><p>时间限制$1s$ 空间限制$512MB$</p>
+<h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>“Geronimo~”</p>
+<p>时间还很多，让我们慢慢来。</p>
+<p>作为一道有背景的题目，我们应该用胡乱的词语来阐述题意，而不是直接给出模型。</p>
+<p>给定一个整数$n$，以及一个$n$阶的排列$p_1,\ p_2,\ \dots,\ p_n$。</p>
+<p>我们定义重组过程如下：如果当前的排列是$a_1,\ a_2,\ \dots,\ a_n$，经过一次重组，就会变成$p_{a_1},\ p_{a_2},\ \dots,\ p_{a_n}$。</p>
+<p>问一个排列至少要经过多少次重组才会恢复成重组前的状态。</p>
+<p>由于答案可能很大，输出其对一个给定的正整数$q$取模的值即可。</p>
+<h2 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h2><p>第一行两个正整数$n,\ q$。</p>
+<p>第二行一共$n$个整数，依次表示$p_1,\ p_2,\ \dots,\ p_n$。</p>
+<p>同一行相邻的数间用一个空格隔开。</p>
+<h2 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h2><p>一行一个整数，表示答案对$q$取模的值。</p>
+<h2 id="样例输入"><a href="#样例输入" class="headerlink" title="样例输入"></a>样例输入</h2><figure class="highlight basic"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">7 </span><span class="number">1000000207</span></span><br><span class="line"><span class="symbol">2 </span><span class="number">6</span> <span class="number">5</span> <span class="number">1</span> <span class="number">3</span> <span class="number">4</span> <span class="number">7</span></span><br></pre></td></tr></table></figure>
+<h2 id="样例输出"><a href="#样例输出" class="headerlink" title="样例输出"></a>样例输出</h2><figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">4</span></span><br></pre></td></tr></table></figure>
+<h2 id="数据规模和约定"><a href="#数据规模和约定" class="headerlink" title="数据规模和约定"></a>数据规模和约定</h2><p>对于全部的数据，$q &lt; 2 \times 10^9$</p>
+<p>对于$10\%$的数据，$q = 1$</p>
+<p>对于另外$20\%$的数据，$n &lt; 9$</p>
+<p>对于另外$40\%$的数据，$n &lt; 10^3$</p>
+<p>对于剩下$30\%$的数据，$n \le 5 \times 10^5$</p>
+<h2 id="大样例"><a href="#大样例" class="headerlink" title="大样例"></a>大样例</h2><p><strong>输入 #1</strong></p>
+<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">999</span> <span class="number">1000000207</span></span><br><span class="line"><span class="number">910</span> <span class="number">389</span> <span class="number">988</span> <span class="number">155</span> <span class="number">592</span> <span class="number">30</span> <span class="number">42</span> <span class="number">280</span> <span class="number">9</span> <span class="number">828</span> <span class="number">291</span> <span class="number">962</span> <span class="number">239</span> <span class="number">657</span> <span class="number">197</span> <span class="number">650</span> <span class="number">160</span> <span class="number">174</span> <span class="number">809</span> <span class="number">642</span> <span class="number">180</span> <span class="number">717</span> <span class="number">840</span> <span class="number">745</span> <span class="number">262</span> <span class="number">480</span> <span class="number">367</span> <span class="number">84</span> <span class="number">297</span> <span class="number">907</span> <span class="number">759</span> <span class="number">384</span> <span class="number">873</span> <span class="number">26</span> <span class="number">633</span> <span class="number">810</span> <span class="number">868</span> <span class="number">552</span> <span class="number">976</span> <span class="number">494</span> <span class="number">541</span> <span class="number">397</span> <span class="number">511</span> <span class="number">668</span> <span class="number">222</span> <span class="number">578</span> <span class="number">176</span> <span class="number">548</span> <span class="number">268</span> <span class="number">628</span> <span class="number">846</span> <span class="number">415</span> <span class="number">675</span> <span class="number">161</span> <span class="number">15</span> <span class="number">435</span> <span class="number">466</span> <span class="number">784</span> <span class="number">243</span> <span class="number">67</span> <span class="number">61</span> <span class="number">471</span> <span class="number">151</span> <span class="number">569</span> <span class="number">807</span> <span class="number">66</span> <span class="number">378</span> <span class="number">594</span> <span class="number">430</span> <span class="number">184</span> <span class="number">913</span> <span class="number">966</span> <span class="number">630</span> <span class="number">476</span> <span class="number">824</span> <span class="number">505</span> <span class="number">646</span> <span class="number">152</span> <span class="number">313</span> <span class="number">635</span> <span class="number">411</span> <span class="number">785</span> <span class="number">25</span> <span class="number">263</span> <span class="number">651</span> <span class="number">584</span> <span class="number">125</span> <span class="number">762</span> <span class="number">63</span> <span class="number">634</span> <span class="number">386</span> <span class="number">693</span> <span class="number">696</span> <span class="number">170</span> <span class="number">163</span> <span class="number">883</span> <span class="number">68</span> <span class="number">235</span> <span class="number">923</span> <span class="number">690</span> <span class="number">40</span> <span class="number">817</span> <span class="number">929</span> <span class="number">270</span> <span class="number">620</span> <span class="number">953</span> <span class="number">156</span> <span class="number">591</span> <span class="number">109</span> <span class="number">796</span> <span class="number">766</span> <span class="number">149</span> <span class="number">524</span> <span class="number">512</span> <span class="number">29</span> <span class="number">28</span> <span class="number">562</span> <span class="number">196</span> <span class="number">429</span> <span class="number">112</span> <span class="number">667</span> <span class="number">52</span> <span class="number">57</span> <span class="number">325</span> <span class="number">972</span> <span class="number">645</span> <span class="number">678</span> <span class="number">200</span> <span class="number">132</span> <span class="number">27</span> <span class="number">489</span> <span class="number">331</span> <span class="number">32</span> <span class="number">306</span> <span class="number">834</span> <span class="number">171</span> <span class="number">495</span> <span class="number">190</span> <span class="number">624</span> <span class="number">725</span> <span class="number">296</span> <span class="number">20</span> <span class="number">290</span> <span class="number">122</span> <span class="number">755</span> <span class="number">787</span> <span class="number">917</span> <span class="number">984</span> <span class="number">346</span> <span class="number">891</span> <span class="number">821</span> <span class="number">138</span> <span class="number">663</span> <span class="number">51</span> <span class="number">434</span> <span class="number">557</span> <span class="number">72</span> <span class="number">178</span> <span class="number">944</span> <span class="number">463</span> <span class="number">189</span> <span class="number">491</span> <span class="number">576</span> <span class="number">533</span> <span class="number">319</span> <span class="number">614</span> <span class="number">729</span> <span class="number">58</span> <span class="number">99</span> <span class="number">980</span> <span class="number">978</span> <span class="number">100</span> <span class="number">439</span> <span class="number">999</span> <span class="number">654</span> <span class="number">788</span> <span class="number">108</span> <span class="number">795</span> <span class="number">289</span> <span class="number">973</span> <span class="number">294</span> <span class="number">277</span> <span class="number">183</span> <span class="number">819</span> <span class="number">141</span> <span class="number">799</span> <span class="number">957</span> <span class="number">885</span> <span class="number">43</span> <span class="number">774</span> <span class="number">245</span> <span class="number">36</span> <span class="number">464</span> <span class="number">619</span> <span class="number">865</span> <span class="number">919</span> <span class="number">86</span> <span class="number">258</span> <span class="number">607</span> <span class="number">130</span> <span class="number">334</span> <span class="number">627</span> <span class="number">191</span> <span class="number">335</span> <span class="number">661</span> <span class="number">683</span> <span class="number">92</span> <span class="number">295</span> <span class="number">361</span> <span class="number">977</span> <span class="number">114</span> <span class="number">144</span> <span class="number">749</span> <span class="number">115</span> <span class="number">71</span> <span class="number">300</span> <span class="number">33</span> <span class="number">333</span> <span class="number">570</span> <span class="number">326</span> <span class="number">166</span> <span class="number">518</span> <span class="number">911</span> <span class="number">535</span> <span class="number">553</span> <span class="number">182</span> <span class="number">697</span> <span class="number">790</span> <span class="number">531</span> <span class="number">350</span> <span class="number">475</span> <span class="number">758</span> <span class="number">207</span> <span class="number">613</span> <span class="number">148</span> <span class="number">260</span> <span class="number">880</span> <span class="number">914</span> <span class="number">968</span> <span class="number">771</span> <span class="number">564</span> <span class="number">915</span> <span class="number">248</span> <span class="number">467</span> <span class="number">392</span> <span class="number">694</span> <span class="number">715</span> <span class="number">735</span> <span class="number">986</span> <span class="number">470</span> <span class="number">652</span> <span class="number">446</span> <span class="number">863</span> <span class="number">739</span> <span class="number">894</span> <span class="number">405</span> <span class="number">490</span> <span class="number">354</span> <span class="number">336</span> <span class="number">519</span> <span class="number">417</span> <span class="number">117</span> <span class="number">987</span> <span class="number">827</span> <span class="number">377</span> <span class="number">75</span> <span class="number">213</span> <span class="number">599</span> <span class="number">542</span> <span class="number">993</span> <span class="number">449</span> <span class="number">127</span> <span class="number">192</span> <span class="number">101</span> <span class="number">595</span> <span class="number">534</span> <span class="number">887</span> <span class="number">770</span> <span class="number">214</span> <span class="number">844</span> <span class="number">17</span> <span class="number">886</span> <span class="number">709</span> <span class="number">133</span> <span class="number">212</span> <span class="number">719</span> <span class="number">874</span> <span class="number">867</span> <span class="number">718</span> <span class="number">933</span> <span class="number">420</span> <span class="number">695</span> <span class="number">96</span> <span class="number">201</span> <span class="number">365</span> <span class="number">742</span> <span class="number">279</span> <span class="number">618</span> <span class="number">716</span> <span class="number">571</span> <span class="number">529</span> <span class="number">250</span> <span class="number">649</span> <span class="number">851</span> <span class="number">997</span> <span class="number">329</span> <span class="number">332</span> <span class="number">308</span> <span class="number">436</span> <span class="number">852</span> <span class="number">254</span> <span class="number">312</span> <span class="number">102</span> <span class="number">164</span> <span class="number">523</span> <span class="number">794</span> <span class="number">78</span> <span class="number">80</span> <span class="number">286</span> <span class="number">202</span> <span class="number">426</span> <span class="number">829</span> <span class="number">804</span> <span class="number">249</span> <span class="number">778</span> <span class="number">89</span> <span class="number">303</span> <span class="number">805</span> <span class="number">981</span> <span class="number">743</span> <span class="number">605</span> <span class="number">301</span> <span class="number">982</span> <span class="number">194</span> <span class="number">901</span> <span class="number">195</span> <span class="number">55</span> <span class="number">425</span> <span class="number">41</span> <span class="number">892</span> <span class="number">252</span> <span class="number">669</span> <span class="number">561</span> <span class="number">626</span> <span class="number">655</span> <span class="number">413</span> <span class="number">123</span> <span class="number">502</span> <span class="number">504</span> <span class="number">228</span> <span class="number">826</span> <span class="number">574</span> <span class="number">187</span> <span class="number">692</span> <span class="number">916</span> <span class="number">460</span> <span class="number">261</span> <span class="number">832</span> <span class="number">841</span> <span class="number">292</span> <span class="number">658</span> <span class="number">623</span> <span class="number">60</span> <span class="number">483</span> <span class="number">560</span> <span class="number">814</span> <span class="number">282</span> <span class="number">761</span> <span class="number">949</span> <span class="number">444</span> <span class="number">876</span> <span class="number">158</span> <span class="number">219</span> <span class="number">21</span> <span class="number">310</span> <span class="number">967</span> <span class="number">965</span> <span class="number">610</span> <span class="number">585</span> <span class="number">337</span> <span class="number">140</span> <span class="number">969</span> <span class="number">513</span> <span class="number">671</span> <span class="number">946</span> <span class="number">485</span> <span class="number">707</span> <span class="number">419</span> <span class="number">581</span> <span class="number">941</span> <span class="number">48</span> <span class="number">688</span> <span class="number">859</span> <span class="number">237</span> <span class="number">136</span> <span class="number">368</span> <span class="number">210</span> <span class="number">351</span> <span class="number">348</span> <span class="number">510</span> <span class="number">653</span> <span class="number">720</span> <span class="number">311</span> <span class="number">492</span> <span class="number">145</span> <span class="number">704</span> <span class="number">927</span> <span class="number">903</span> <span class="number">600</span> <span class="number">353</span> <span class="number">7</span> <span class="number">137</span> <span class="number">453</span> <span class="number">281</span> <span class="number">445</span> <span class="number">532</span> <span class="number">357</span> <span class="number">375</span> <span class="number">958</span> <span class="number">105</span> <span class="number">582</span> <span class="number">422</span> <span class="number">269</span> <span class="number">14</span> <span class="number">462</span> <span class="number">589</span> <span class="number">590</span> <span class="number">81</span> <span class="number">119</span> <span class="number">746</span> <span class="number">884</span> <span class="number">672</span> <span class="number">427</span> <span class="number">866</span> <span class="number">567</span> <span class="number">948</span> <span class="number">702</span> <span class="number">34</span> <span class="number">139</span> <span class="number">288</span> <span class="number">203</span> <span class="number">362</span> <span class="number">468</span> <span class="number">895</span> <span class="number">836</span> <span class="number">341</span> <span class="number">458</span> <span class="number">275</span> <span class="number">816</span> <span class="number">403</span> <span class="number">461</span> <span class="number">76</span> <span class="number">498</span> <span class="number">241</span> <span class="number">593</span> <span class="number">566</span> <span class="number">722</span> <span class="number">622</span> <span class="number">730</span> <span class="number">35</span> <span class="number">835</span> <span class="number">165</span> <span class="number">414</span> <span class="number">278</span> <span class="number">128</span> <span class="number">358</span> <span class="number">572</span> <span class="number">775</span> <span class="number">327</span> <span class="number">912</span> <span class="number">849</span> <span class="number">848</span> <span class="number">285</span> <span class="number">573</span> <span class="number">455</span> <span class="number">811</span> <span class="number">843</span> <span class="number">381</span> <span class="number">864</span> <span class="number">604</span> <span class="number">803</span> <span class="number">975</span> <span class="number">959</span> <span class="number">13</span> <span class="number">680</span> <span class="number">882</span> <span class="number">90</span> <span class="number">945</span> <span class="number">315</span> <span class="number">408</span> <span class="number">617</span> <span class="number">733</span> <span class="number">371</span> <span class="number">727</span> <span class="number">314</span> <span class="number">323</span> <span class="number">121</span> <span class="number">705</span> <span class="number">238</span> <span class="number">768</span> <span class="number">456</span> <span class="number">853</span> <span class="number">691</span> <span class="number">94</span> <span class="number">995</span> <span class="number">428</span> <span class="number">328</span> <span class="number">199</span> <span class="number">56</span> <span class="number">442</span> <span class="number">922</span> <span class="number">438</span> <span class="number">838</span> <span class="number">577</span> <span class="number">342</span> <span class="number">503</span> <span class="number">660</span> <span class="number">818</span> <span class="number">750</span> <span class="number">889</span> <span class="number">206</span> <span class="number">905</span> <span class="number">131</span> <span class="number">394</span> <span class="number">59</span> <span class="number">597</span> <span class="number">225</span> <span class="number">232</span> <span class="number">298</span> <span class="number">611</span> <span class="number">847</span> <span class="number">440</span> <span class="number">267</span> <span class="number">276</span> <span class="number">954</span> <span class="number">459</span> <span class="number">904</span> <span class="number">264</span> <span class="number">482</span> <span class="number">734</span> <span class="number">674</span> <span class="number">527</span> <span class="number">231</span> <span class="number">433</span> <span class="number">556</span> <span class="number">398</span> <span class="number">356</span> <span class="number">142</span> <span class="number">636</span> <span class="number">659</span> <span class="number">204</span> <span class="number">309</span> <span class="number">656</span> <span class="number">167</span> <span class="number">737</span> <span class="number">662</span> <span class="number">107</span> <span class="number">918</span> <span class="number">938</span> <span class="number">208</span> <span class="number">547</span> <span class="number">899</span> <span class="number">714</span> <span class="number">474</span> <span class="number">786</span> <span class="number">963</span> <span class="number">666</span> <span class="number">550</span> <span class="number">451</span> <span class="number">952</span> <span class="number">740</span> <span class="number">79</span> <span class="number">924</span> <span class="number">779</span> <span class="number">380</span> <span class="number">287</span> <span class="number">186</span> <span class="number">396</span> <span class="number">402</span> <span class="number">223</span> <span class="number">376</span> <span class="number">860</span> <span class="number">858</span> <span class="number">575</span> <span class="number">293</span> <span class="number">520</span> <span class="number">551</span> <span class="number">349</span> <span class="number">255</span> <span class="number">776</span> <span class="number">781</span> <span class="number">931</span> <span class="number">754</span> <span class="number">687</span> <span class="number">798</span> <span class="number">340</span> <span class="number">147</span> <span class="number">62</span> <span class="number">484</span> <span class="number">345</span> <span class="number">221</span> <span class="number">738</span> <span class="number">833</span> <span class="number">211</span> <span class="number">711</span> <span class="number">726</span> <span class="number">902</span> <span class="number">850</span> <span class="number">6</span> <span class="number">363</span> <span class="number">390</span> <span class="number">777</span> <span class="number">234</span> <span class="number">74</span> <span class="number">324</span> <span class="number">469</span> <span class="number">872</span> <span class="number">307</span> <span class="number">50</span> <span class="number">452</span> <span class="number">568</span> <span class="number">372</span> <span class="number">583</span> <span class="number">97</span> <span class="number">54</span> <span class="number">712</span> <span class="number">373</span> <span class="number">632</span> <span class="number">472</span> <span class="number">256</span> <span class="number">500</span> <span class="number">856</span> <span class="number">947</span> <span class="number">994</span> <span class="number">989</span> <span class="number">217</span> <span class="number">563</span> <span class="number">91</span> <span class="number">339</span> <span class="number">942</span> <span class="number">820</span> <span class="number">896</span> <span class="number">643</span> <span class="number">998</span> <span class="number">441</span> <span class="number">979</span> <span class="number">908</span> <span class="number">877</span> <span class="number">992</span> <span class="number">554</span> <span class="number">631</span> <span class="number">930</span> <span class="number">920</span> <span class="number">516</span> <span class="number">677</span> <span class="number">701</span> <span class="number">39</span> <span class="number">38</span> <span class="number">621</span> <span class="number">416</span> <span class="number">418</span> <span class="number">780</span> <span class="number">921</span> <span class="number">763</span> <span class="number">116</span> <span class="number">486</span> <span class="number">85</span> <span class="number">129</span> <span class="number">665</span> <span class="number">22</span> <span class="number">421</span> <span class="number">432</span> <span class="number">845</span> <span class="number">728</span> <span class="number">236</span> <span class="number">689</span> <span class="number">443</span> <span class="number">842</span> <span class="number">544</span> <span class="number">747</span> <span class="number">150</span> <span class="number">8</span> <span class="number">522</span> <span class="number">684</span> <span class="number">791</span> <span class="number">706</span> <span class="number">173</span> <span class="number">126</span> <span class="number">744</span> <span class="number">1</span> <span class="number">46</span> <span class="number">198</span> <span class="number">530</span> <span class="number">162</span> <span class="number">360</span> <span class="number">387</span> <span class="number">939</span> <span class="number">65</span> <span class="number">514</span> <span class="number">409</span> <span class="number">825</span> <span class="number">177</span> <span class="number">316</span> <span class="number">879</span> <span class="number">772</span> <span class="number">598</span> <span class="number">961</span> <span class="number">391</span> <span class="number">596</span> <span class="number">110</span> <span class="number">565</span> <span class="number">756</span> <span class="number">146</span> <span class="number">679</span> <span class="number">741</span> <span class="number">545</span> <span class="number">970</span> <span class="number">870</span> <span class="number">157</span> <span class="number">521</span> <span class="number">401</span> <span class="number">188</span> <span class="number">898</span> <span class="number">229</span> <span class="number">45</span> <span class="number">266</span> <span class="number">736</span> <span class="number">612</span> <span class="number">364</span> <span class="number">536</span> <span class="number">871</span> <span class="number">395</span> <span class="number">685</span> <span class="number">501</span> <span class="number">558</span> <span class="number">769</span> <span class="number">801</span> <span class="number">802</span> <span class="number">284</span> <span class="number">991</span> <span class="number">410</span> <span class="number">487</span> <span class="number">721</span> <span class="number">676</span> <span class="number">24</span> <span class="number">477</span> <span class="number">175</span> <span class="number">247</span> <span class="number">412</span> <span class="number">53</span> <span class="number">169</span> <span class="number">320</span> <span class="number">893</span> <span class="number">450</span> <span class="number">369</span> <span class="number">602</span> <span class="number">31</span> <span class="number">751</span> <span class="number">757</span> <span class="number">753</span> <span class="number">16</span> <span class="number">537</span> <span class="number">23</span> <span class="number">10</span> <span class="number">686</span> <span class="number">111</span> <span class="number">638</span> <span class="number">11</span> <span class="number">274</span> <span class="number">193</span> <span class="number">934</span> <span class="number">120</span> <span class="number">515</span> <span class="number">317</span> <span class="number">700</span> <span class="number">639</span> <span class="number">724</span> <span class="number">124</span> <span class="number">507</span> <span class="number">936</span> <span class="number">181</span> <span class="number">782</span> <span class="number">473</span> <span class="number">271</span> <span class="number">172</span> <span class="number">44</span> <span class="number">713</span> <span class="number">699</span> <span class="number">106</span> <span class="number">608</span> <span class="number">955</span> <span class="number">703</span> <span class="number">773</span> <span class="number">539</span> <span class="number">950</span> <span class="number">215</span> <span class="number">388</span> <span class="number">448</span> <span class="number">47</span> <span class="number">304</span> <span class="number">424</span> <span class="number">224</span> <span class="number">710</span> <span class="number">168</span> <span class="number">113</span> <span class="number">88</span> <span class="number">321</span> <span class="number">764</span> <span class="number">19</span> <span class="number">83</span> <span class="number">601</span> <span class="number">98</span> <span class="number">926</span> <span class="number">64</span> <span class="number">322</span> <span class="number">496</span> <span class="number">244</span> <span class="number">478</span> <span class="number">70</span> <span class="number">549</span> <span class="number">220</span> <span class="number">454</span> <span class="number">525</span> <span class="number">878</span> <span class="number">205</span> <span class="number">647</span> <span class="number">538</span> <span class="number">488</span> <span class="number">906</span> <span class="number">588</span> <span class="number">579</span> <span class="number">985</span> <span class="number">3</span> <span class="number">77</span> <span class="number">366</span> <span class="number">615</span> <span class="number">528</span> <span class="number">789</span> <span class="number">625</span> <span class="number">664</span> <span class="number">103</span> <span class="number">272</span> <span class="number">890</span> <span class="number">154</span> <span class="number">404</span> <span class="number">682</span> <span class="number">509</span> <span class="number">370</span> <span class="number">960</span> <span class="number">869</span> <span class="number">374</span> <span class="number">253</span> <span class="number">935</span> <span class="number">49</span> <span class="number">399</span> <span class="number">506</span> <span class="number">823</span> <span class="number">400</span> <span class="number">330</span> <span class="number">218</span> <span class="number">760</span> <span class="number">673</span> <span class="number">230</span> <span class="number">2</span> <span class="number">259</span> <span class="number">493</span> <span class="number">517</span> <span class="number">900</span> <span class="number">855</span> <span class="number">216</span> <span class="number">118</span> <span class="number">940</span> <span class="number">641</span> <span class="number">338</span> <span class="number">875</span> <span class="number">4</span> <span class="number">242</span> <span class="number">606</span> <span class="number">240</span> <span class="number">5</span> <span class="number">352</span> <span class="number">580</span> <span class="number">681</span> <span class="number">227</span> <span class="number">783</span> <span class="number">708</span> <span class="number">925</span> <span class="number">767</span> <span class="number">996</span> <span class="number">69</span> <span class="number">379</span> <span class="number">670</span> <span class="number">305</span> <span class="number">974</span> <span class="number">629</span> <span class="number">943</span> <span class="number">637</span> <span class="number">909</span> <span class="number">812</span> <span class="number">815</span> <span class="number">640</span> <span class="number">983</span> <span class="number">731</span> <span class="number">806</span> <span class="number">831</span> <span class="number">37</span> <span class="number">609</span> <span class="number">546</span> <span class="number">723</span> <span class="number">82</span> <span class="number">644</span> <span class="number">648</span> <span class="number">481</span> <span class="number">499</span> <span class="number">302</span> <span class="number">837</span> <span class="number">526</span> <span class="number">857</span> <span class="number">257</span> <span class="number">393</span> <span class="number">808</span> <span class="number">839</span> <span class="number">93</span> <span class="number">797</span> <span class="number">251</span> <span class="number">209</span> <span class="number">407</span> <span class="number">587</span> <span class="number">359</span> <span class="number">226</span> <span class="number">854</span> <span class="number">246</span> <span class="number">143</span> <span class="number">423</span> <span class="number">457</span> <span class="number">299</span> <span class="number">87</span> <span class="number">559</span> <span class="number">497</span> <span class="number">990</span> <span class="number">793</span> <span class="number">888</span> <span class="number">971</span> <span class="number">135</span> <span class="number">153</span> <span class="number">792</span> <span class="number">343</span> <span class="number">344</span> <span class="number">73</span> <span class="number">447</span> <span class="number">18</span> <span class="number">752</span> <span class="number">383</span> <span class="number">265</span> <span class="number">862</span> <span class="number">956</span> <span class="number">748</span> <span class="number">104</span> <span class="number">465</span> <span class="number">765</span> <span class="number">928</span> <span class="number">861</span> <span class="number">540</span> <span class="number">586</span> <span class="number">813</span> <span class="number">543</span> <span class="number">479</span> <span class="number">273</span> <span class="number">382</span> <span class="number">283</span> <span class="number">318</span> <span class="number">937</span> <span class="number">800</span> <span class="number">698</span> <span class="number">385</span> <span class="number">555</span> <span class="number">431</span> <span class="number">732</span> <span class="number">159</span> <span class="number">830</span> <span class="number">134</span> <span class="number">355</span> <span class="number">508</span> <span class="number">897</span> <span class="number">347</span> <span class="number">822</span> <span class="number">603</span> <span class="number">95</span> <span class="number">881</span> <span class="number">932</span> <span class="number">179</span> <span class="number">616</span> <span class="number">437</span> <span class="number">185</span> <span class="number">406</span> <span class="number">964</span> <span class="number">12</span> <span class="number">233</span> <span class="number">951</span></span><br></pre></td></tr></table></figure>
+<p><strong>输出 #1</strong></p>
+<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1680840</span></span><br></pre></td></tr></table></figure>
+<h2 id="题意分析及题解"><a href="#题意分析及题解" class="headerlink" title="题意分析及题解"></a>题意分析及题解</h2><p>手模样例可以发现样例中数据是有循环节的，而根据题意，答案就是这些循环节的最小公倍数。</p>
+<p>考虑分解质因数，每次加入一个循环节进来，都将其分解质因数，记录一个质数的数组，将每个质因子个数与之前存在的此质因子个数比较大小，取max更新。</p>
+<h2 id="感受"><a href="#感受" class="headerlink" title="感受"></a>感受</h2><p>写了几个小时，一开始就知道要循环节乘起来，但没想到分解质因数，等到想到了已经晚了，但是比完赛十几分钟调出来了。。</p>
+<h2 id="AC程序"><a href="#AC程序" class="headerlink" title="AC程序"></a>AC程序</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> intt register long long</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">long</span> <span class="keyword">long</span> N = <span class="number">5e5</span> + <span class="number">10</span>;</span><br><span class="line"><span class="keyword">long</span> <span class="keyword">long</span> n, q, c[N], ans = <span class="number">1</span>, tmp, tot, e[N];</span><br><span class="line"><span class="keyword">bool</span> vis[N];</span><br><span class="line"><span class="function"><span class="keyword">long</span> <span class="keyword">long</span> <span class="title">gcd</span><span class="params">(<span class="keyword">long</span> <span class="keyword">long</span> a, <span class="keyword">long</span> <span class="keyword">long</span> b)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> b == <span class="number">0</span> ? a : gcd(b, a % b);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">long</span> <span class="keyword">long</span> <span class="title">fpm</span><span class="params">(<span class="keyword">long</span> <span class="keyword">long</span> a, <span class="keyword">long</span> <span class="keyword">long</span> b)</span></span>&#123;</span><br><span class="line">  <span class="keyword">long</span> <span class="keyword">long</span> o = <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">for</span>(; b; b &gt;&gt;= <span class="number">1</span>,a = a * a % q) &#123;</span><br><span class="line">    <span class="keyword">if</span>(b &amp; <span class="number">1</span>)&#123;</span><br><span class="line">      o = o * a % q;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> o;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">bool</span> IsPrime[(<span class="keyword">int</span>)<span class="number">1e7</span> + <span class="number">10</span>];</span><br><span class="line"><span class="keyword">int</span> Prime[N], num;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">GetPrime</span><span class="params">(<span class="keyword">int</span> n)</span></span>&#123;</span><br><span class="line">  <span class="built_in">memset</span>(IsPrime, <span class="number">1</span>, <span class="keyword">sizeof</span>(IsPrime));</span><br><span class="line">  IsPrime[<span class="number">1</span>] = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">2</span>; i &lt;= n; ++i) &#123;</span><br><span class="line">    <span class="keyword">if</span>(IsPrime[i]) Prime[++num] = i;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= num &amp;&amp; i * Prime[j] &lt;= n; ++j) &#123;</span><br><span class="line">      IsPrime[i * Prime[j]] = <span class="number">0</span>;</span><br><span class="line">      <span class="keyword">if</span>(i % Prime[j] == <span class="number">0</span>) <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  <span class="built_in">scanf</span>(<span class="string">"%lld%lld"</span>, &amp;n, &amp;q);</span><br><span class="line">  GetPrime(n);</span><br><span class="line">  <span class="keyword">for</span>(intt i = <span class="number">1</span>; i &lt;= n; ++i) &#123;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%lld"</span>, &amp;c[i]);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">for</span>(intt i = <span class="number">1</span>; i &lt;= n; ++i) &#123;</span><br><span class="line">    tmp = c[i];</span><br><span class="line">    <span class="keyword">if</span>(!vis[tmp]) &#123;</span><br><span class="line">      tot = <span class="number">0</span>;</span><br><span class="line">      <span class="keyword">while</span>(!vis[tmp]) &#123;</span><br><span class="line">        ++tot;</span><br><span class="line">        vis[tmp] = <span class="number">1</span>;</span><br><span class="line">        tmp = c[tmp];</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">for</span>(intt j = <span class="number">1</span>; j &lt;= num &amp;&amp; Prime[j] &lt;= tot; ++j) &#123;</span><br><span class="line">        tmp = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span>(tot % Prime[j] == <span class="number">0</span>) &#123;</span><br><span class="line">          ++tmp, tot /= Prime[j];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(tmp &gt; e[Prime[j]]) &#123;</span><br><span class="line">          e[Prime[j]] = tmp;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">for</span>(intt i = <span class="number">1</span>; i &lt;= num; ++i)&#123;</span><br><span class="line">    <span class="keyword">if</span>(e[Prime[i]])&#123;</span><br><span class="line">      ans = ans * fpm(Prime[i], e[Prime[i]]) % q;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">"%lld"</span>, ans);</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="AC截图"><a href="#AC截图" class="headerlink" title="AC截图"></a>AC截图</h2><img src="/20200415-mo-ni-sai/8.jpg" class>
+<h1 id="T129879-recollection"><a href="#T129879-recollection" class="headerlink" title="T129879 recollection"></a>T129879 recollection</h1><img src="/20200415-mo-ni-sai/2.png" class title="懒得打字了。。pdf格式不易迁移">
+<h2 id="样例输入-1"><a href="#样例输入-1" class="headerlink" title="样例输入"></a>样例输入</h2><figure class="highlight basic"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">7</span></span><br><span class="line"><span class="symbol">1 </span><span class="number">1</span></span><br><span class="line"><span class="symbol">1 </span><span class="number">2</span></span><br><span class="line"><span class="symbol">2 </span><span class="number">1</span></span><br><span class="line"><span class="symbol">2 </span><span class="number">2</span></span><br><span class="line"><span class="symbol">5 </span><span class="number">1</span></span><br><span class="line"><span class="symbol">5 </span><span class="number">2</span></span><br></pre></td></tr></table></figure>
+<h2 id="样例输出-1"><a href="#样例输出-1" class="headerlink" title="样例输出"></a>样例输出</h2><figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">3</span></span><br></pre></td></tr></table></figure>
+<h2 id="数据规模和约定-1"><a href="#数据规模和约定-1" class="headerlink" title="数据规模和约定"></a>数据规模和约定</h2><img src="/20200415-mo-ni-sai/3.png" class>
+<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><h2 id="标程"><a href="#标程" class="headerlink" title="标程"></a>标程</h2><h1 id="T129881-comparison"><a href="#T129881-comparison" class="headerlink" title="T129881 comparison"></a>T129881 comparison</h1><img src="/20200415-mo-ni-sai/4.png" class><img src="/20200415-mo-ni-sai/5.png" class><img src="/20200415-mo-ni-sai/6.png" class>
+<h2 id="样例输入-2"><a href="#样例输入-2" class="headerlink" title="样例输入"></a>样例输入</h2><figure class="highlight basic"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">4</span></span><br><span class="line"><span class="symbol">0 </span><span class="number">5</span></span><br><span class="line"><span class="symbol">0 </span><span class="number">1</span></span><br><span class="line"><span class="symbol">2 </span><span class="number">1</span></span><br><span class="line"><span class="symbol">3 </span><span class="number">1</span></span><br></pre></td></tr></table></figure>
+<h2 id="样例输出-2"><a href="#样例输出-2" class="headerlink" title="样例输出"></a>样例输出</h2><figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">2</span></span><br><span class="line"><span class="number">2</span></span><br><span class="line"><span class="number">4</span></span><br><span class="line"><span class="number">5</span></span><br></pre></td></tr></table></figure>
+<h2 id="题解-1"><a href="#题解-1" class="headerlink" title="题解"></a>题解</h2><h2 id="标程-1"><a href="#标程-1" class="headerlink" title="标程"></a>标程</h2><h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>还是做题慢、思路窄。。。</p>
+<img src="/20200415-mo-ni-sai/7.jpg" class> 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%A8%A1%E6%8B%9F%E8%B5%9B/" rel="tag">模拟赛</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+  <nav class="article-nav">
+    
+      <a href="/t132726-fan-zhuan-ying-bi-coin/" class="article-nav-link">
+        <strong class="article-nav-caption">上一篇</strong>
+        <div class="article-nav-title">
+          
+            T132726 翻转硬币(Coin)
+          
+        </div>
+      </a>
+    
+    
+      <a href="/20200412-mo-ni-sai/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">20200412模拟赛</div>
+      </a>
+    
+  </nav>
+
+  
+     
+</article>
+
+</section>
+      <footer class="footer">
+  <div class="outer">
+    <ul>
+      <li>
+        Copyrights &copy;
+        2020
+        <i class="ri-heart-fill heart_icon"></i> STDquantum
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+      </li>
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      <li>
+        <!-- cnzz统计 -->
+        
+      </li>
+    </ul>
+  </div>
+</footer>
+      <div class="float_btns">
+        <div class="totop" id="totop">
+  <i class="ri-arrow-up-line"></i>
+</div>
+
+      </div>
+    </main>
+    <aside class="sidebar on">
+      <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/1.jpg" alt="STDquantum"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">主页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">归档</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/categories">分类</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/tags">标签</a>
+    </li>
+    
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      
+      <a class="nav-item-link nav-item-search"  title="搜索">
+        <i class="ri-search-line"></i>
+      </a>
+      
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+    </aside>
+    <script>
+      if (window.matchMedia("(max-width: 768px)").matches) {
+        document.querySelector('.content').classList.remove('on');
+        document.querySelector('.sidebar').classList.remove('on');
+      }
+    </script>
+    <div id="mask"></div>
+
+<!-- #reward -->
+<div id="reward">
+  <span class="close"><i class="ri-close-line"></i></span>
+  <p class="reward-p"><i class="ri-cup-line"></i></p>
+  <div class="reward-box">
+    
+    
+  </div>
+</div>
+    
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+
+<script src="/js/lazyload.min.js"></script>
+
+<!-- Tocbot -->
+
+
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  tocbot.init({
+    tocSelector: '.tocbot',
+    contentSelector: '.article-entry',
+    headingSelector: 'h1, h2, h3, h4, h5, h6',
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: 'main',
+    positionFixedSelector: '.tocbot',
+    positionFixedClass: 'is-position-fixed',
+    fixedSidebarOffset: 'auto'
+  });
+</script>
+<!-- Live-2D -->
+<script type="text/javascript" charset="utf-8" src="/js/L2Dwidget.0.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="/js/L2Dwidget.min.js"></script>
+<script type="text/javascript">
+  L2Dwidget.on('*', (name) => {
+    console.log('%c EVENT ' + '%c -> ' + name, 'background: #222; color: yellow', 'background: #fff; color: #000')
+  });
+  L2Dwidget.init({
+    "display": {
+      "superSample": 2,
+      "width": 200,
+      "height": 400,
+      "position": "right",
+      "hOffset": 0,
+      "vOffset": 0
+    },
+    "mobile": {
+      "show": true,
+      "scale": 0.7
+    }
+  });
+</script>
+
+<script src="/js/jquery.modal.min.js"></script>
+<link rel="stylesheet" href="/css/jquery.modal.min.css">
+<script src="/js/jquery.justifiedGallery.min.js"></script>
+
+<script src="/dist/main.js"></script>
+
+<!-- ImageViewer -->
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<link rel="stylesheet" href="/css/photoswipe.min.css">
+<link rel="stylesheet" href="/css/default-skin.min.css">
+<script src="/js/photoswipe.min.js"></script>
+<script src="/js/photoswipe-ui-default.min.js"></script>
+
+<script>
+    function viewer_init() {
+        let pswpElement = document.querySelectorAll('.pswp')[0];
+        let $imgArr = document.querySelectorAll(('.article-entry img:not(.reward-img)'))
+
+        $imgArr.forEach(($em, i) => {
+            $em.onclick = () => {
+                // slider展开状态
+                // todo: 这样不好，后面改成状态
+                if (document.querySelector('.left-col.show')) return
+                let items = []
+                $imgArr.forEach(($em2, i2) => {
+                    let img = $em2.getAttribute('data-idx', i2)
+                    let src = $em2.getAttribute('data-target') || $em2.getAttribute('src')
+                    let title = $em2.getAttribute('alt')
+                    // 获得原图尺寸
+                    const image = new Image()
+                    image.src = src
+                    items.push({
+                        src: src,
+                        w: image.width || $em2.width,
+                        h: image.height || $em2.height,
+                        title: title
+                    })
+                })
+                var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, {
+                    index: parseInt(i)
+                });
+                gallery.init()
+            }
+        })
+    }
+    viewer_init()
+</script>
+
+<!-- MathJax -->
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      extensions: ["tex2jax.js"],
+      jax: ["input/TeX","output/HTML-CSS"],
+      tex2jax: {inlineMath: [["$","$"]]}
+    });
+  </script>
+
+<script src="/mathjax/MathJax.js"></script>
+<script>
+  var ayerConfig = {
+    mathjax: true
+  }
+</script>
+
+<!-- Katex -->
+
+<!-- busuanzi  -->
+
+<!-- ClickLove -->
+
+
+<script src="/js/clickLove.js"></script>
+
+
+<!-- ClickBoom1 -->
+
+<!-- ClickBoom2 -->
+
+<!-- CodeCopy -->
+
+
+<link rel="stylesheet" href="/css/clipboard.css">
+
+<script src="/js/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="ri-file-copy-2-line"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-checkbox-circle-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-checkbox-circle-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-time-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-time-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+
+
+<!-- CanvasBackground -->
+
+
+    
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+
+
+<html lang="zh-CN">
+
+
+<head>
+  <meta charset="utf-8" />
+    
+  <meta name="description" content="STDquantum" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <title>
+    20200725模拟赛 |  STDquantum
+  </title>
+  <meta name="generator" content="hexo-theme-ayer">
+  
+  <link rel="shortcut icon" href="/1.ico" />
+  
+  
+<link rel="stylesheet" href="/dist/main.css">
+
+  
+<link rel="stylesheet" href="/css/remixicon.min.css">
+
+  
+<link rel="stylesheet" href="/css/custom.css">
+
+  
+  
+<script src="/js/pace.min.js"></script>
+
+  
+  
+
+  
+
+</head>
+
+</html>
+
+<body>
+  <div id="app">
+    
+      
+    <main class="content on">
+      <section class="outer">
+  <article
+  id="post-OI/模拟赛/20200725模拟赛"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  20200725模拟赛
+</h1>
+ 
+
+    </header>
+     
+    <div class="article-meta">
+      <a href="/20200725-mo-ni-sai/" class="article-date">
+  <time datetime="2020-07-25T02:52:39.000Z" itemprop="datePublished">2020-07-25</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/OI/">OI</a> / <a class="article-category-link" href="/categories/OI/%E6%A8%A1%E6%8B%9F%E8%B5%9B/">模拟赛</a>
+  </div>
+  
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> 字数统计:</span>
+            <span class="post-count">3.7k</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> 阅读时长≈</span>
+            <span class="post-count">17 分钟</span>
+        </span>
+    </span>
+</div>
+ 
+    </div>
+      
+    <div class="tocbot"></div>
+
+
+
+
+  
+    <div class="article-entry" itemprop="articleBody">
+       
+  <p>题单</p>
+<ul>
+<li><del><a href="https://www.luogu.com.cn/problemnew/show/P4296" target="_blank" rel="noopener">P4296 BZOJ1406 [AHOI2007]密码箱</a></del></li>
+<li><del><a href="https://www.luogu.com.cn/problem/T140514" target="_blank" rel="noopener">BZOJ4173 数学</a></del></li>
+<li><a href="https://www.luogu.com.cn/problemnew/show/P2183" target="_blank" rel="noopener">P2183 BZOJ2142 [国家集训队]礼物</a></li>
+<li><del><a href="https://www.luogu.com.cn/problemnew/show/P1403" target="_blank" rel="noopener">P1403 BZOJ1968 [AHOI2005]约数研究</a></del></li>
+<li><a href="https://www.luogu.com.cn/problemnew/show/P3166" target="_blank" rel="noopener">P3166 BZOJ3505 [CQOI2014]数三角形</a></li>
+</ul>
+<a id="more"></a>
+<h1 id="P4296-BZOJ1406-AHOI2007-密码箱"><a href="#P4296-BZOJ1406-AHOI2007-密码箱" class="headerlink" title="P4296 BZOJ1406 [AHOI2007]密码箱"></a><a href="https://www.luogu.com.cn/problemnew/show/P4296" target="_blank" rel="noopener">P4296 BZOJ1406 [AHOI2007]密码箱</a></h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>在一次偶然的情况下，小可可得到了一个密码箱，听说里面藏着一份古代流传下来的藏宝图，只要能破解密码就能打开箱子，而箱子背面刻着的古代图标，就是对密码的提示。</p>
+<p>经过艰苦的破译，小可可发现，这些图标表示一个数以及这个数与密码的关系。假设这个数是 $n$，密码为 $x$，那么可以得到如下表述： 密码 $x$ 大于等于 $0$，且小于 $n$，而 $x$ 的平方除以 $n$，得到的余数为 $1$。 小可可知道满足上述条件的 $x$ 可能不止一个，所以一定要把所有满足条件的 $x$ 计算出来，密码肯定就在其中。计算的过程是很艰苦的，你能否编写一个程序来帮助小可可呢？</p>
+<h2 id="输入输出格式"><a href="#输入输出格式" class="headerlink" title="输入输出格式"></a>输入输出格式</h2><h3 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h3><p>一行，一个数字 $n$（$1 \leq n \leq 2 \times 10^9$）。</p>
+<h3 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h3><p>你的程序需要找到所有满足前面所描述条件的 $x$，如果不存在这样的 $x$，你的程序只需输出一行 <code>None</code>，否则请按照从小到大的顺序输出这些 $x$，每行一个数。</p>
+<h2 id="输入输出样例"><a href="#输入输出样例" class="headerlink" title="输入输出样例"></a>输入输出样例</h2><h3 id="输入样例-1"><a href="#输入样例-1" class="headerlink" title="输入样例 #1"></a>输入样例 #1</h3><figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">12</span></span><br></pre></td></tr></table></figure>
+<h3 id="输出样例-1"><a href="#输出样例-1" class="headerlink" title="输出样例 #1"></a>输出样例 #1</h3><figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span></span><br><span class="line"><span class="number">5</span></span><br><span class="line"><span class="number">7</span></span><br><span class="line"><span class="number">11</span></span><br></pre></td></tr></table></figure>
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>x ^ 2 + d * n = 1</p>
+<p>(x + 1) * (x - 1) = d * n</p>
+<p>(x + 1 | n) or (x - 1 | n) </p>
+<p>枚举n的约数，时间复杂度O(sqrt(n))</p>
+<p>我们可以发现对于每一个约数d，如果<br>(d - 2) % (n / d) == 0 或者 (d + 2) % (n / d) == 0</p>
+<p>那么其实就对应着 d * (d - 2) % n == 0 和 d * (d + 2) % n == 0</p>
+<p>也就是 (d - 1) × (d - 1) % n == 1 和 (d + 1) × (d + 1) % n == 1</p>
+<p>然后可以通过左半边推导出右半边的答案</p>
+<p>然而，大部分的数据都是对的，但是发现了反例：80</p>
+<p>暴力程序给出的是</p>
+<figure class="highlight basic"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">80</span>:</span><br><span class="line"><span class="symbol">1 </span><span class="number">9</span> <span class="number">31</span> <span class="number">39</span> <span class="number">41</span> <span class="number">49</span> <span class="number">71</span> <span class="number">79</span> </span><br><span class="line"><span class="symbol">1 </span><span class="number">2</span> <span class="number">4</span> <span class="number">5</span> <span class="number">8</span> <span class="number">10</span> <span class="number">16</span> <span class="number">20</span> <span class="number">40</span> <span class="number">80</span></span><br></pre></td></tr></table></figure>
+<p>而写的程序输出中并没有31和49这两个数，因为这两个数和80的约数一点也不沾边。</p>
+<p>但是恰恰就是30和32两个数的约数，包含了所有得出80需要的约数：8和10</p>
+<p>所以也许需要更改一下思路了。</p>
+<p>我不清楚现在这样的算法能通过多少数据，但是肯定n越大错误越多。</p>
+<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>已经差不多了，但是想得还不够。</p>
+<p>解决思路中那个问题，要枚举$n$的约数$a$和$b$，看看是不是有$x$满足$a|(x-1)\mbox{ and }b|(x+1)$或者$a|(x+1)\mbox{ and }b|(x-1)$。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> LOCAL</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> STDquantum &#123;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">1e6</span> + <span class="number">10</span>;</span><br><span class="line">ll n, sum, tot, cnt, y[N], x[N], d[N];</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  <span class="built_in">scanf</span>(<span class="string">"%lld"</span>, &amp;n);</span><br><span class="line">  <span class="keyword">if</span> (n == <span class="number">1</span>) <span class="keyword">return</span> (<span class="keyword">void</span>)<span class="built_in">puts</span>(<span class="string">"None"</span>);</span><br><span class="line">  <span class="keyword">for</span> (ll i = <span class="number">2</span>; i * i &lt;= n; ++i) &#123;</span><br><span class="line">    <span class="keyword">if</span> (n % i == <span class="number">0</span>) &#123;</span><br><span class="line">      <span class="keyword">for</span> (ll j = n / i + <span class="number">1</span>; j &lt;= n; j += n / i) &#123;</span><br><span class="line">        <span class="keyword">if</span> ((j + <span class="number">1</span>) % i == <span class="number">0</span>) &#123; x[++tot] = j; &#125;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">for</span> (ll j = n / i - <span class="number">1</span>; j &lt;= n; j += n / i) &#123;</span><br><span class="line">        <span class="keyword">if</span> ((j - <span class="number">1</span>) % i == <span class="number">0</span>) &#123; x[++tot] = j; &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  x[++tot] = <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">for</span> (ll i = <span class="number">1</span>; i &lt;= tot; ++i) &#123; x[tot + i] = n - x[i]; &#125;</span><br><span class="line">  sort(x + <span class="number">1</span>, x + tot * <span class="number">2</span> + <span class="number">1</span>);</span><br><span class="line">  sum = unique(x + <span class="number">1</span>, x + tot * <span class="number">2</span> + <span class="number">1</span>) - x - <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">for</span> (ll i = <span class="number">1</span>; i &lt;= sum; ++i) &#123; <span class="built_in">printf</span>(<span class="string">"%lld\n"</span>, x[i]); &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;  <span class="comment">// namespace STDquantum</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">ifndef</span> ONLINE_JUDGE</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">ifdef</span> LOCAL</span></span><br><span class="line">  freopen(<span class="string">"test.in"</span>, <span class="string">"r"</span>, <span class="built_in">stdin</span>);</span><br><span class="line">  freopen(<span class="string">"test.out"</span>, <span class="string">"w"</span>, <span class="built_in">stdout</span>);</span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">ifndef</span> LOCAL</span></span><br><span class="line">  freopen(<span class="string">"P4296_[AHOI2007]_Code_Box.in"</span>, <span class="string">"r"</span>, <span class="built_in">stdin</span>);</span><br><span class="line">  freopen(<span class="string">"P4296_[AHOI2007]_Code_Box.out"</span>, <span class="string">"w"</span>, <span class="built_in">stdout</span>);</span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line">  STDquantum::main();</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="BZOJ4173-数学"><a href="#BZOJ4173-数学" class="headerlink" title="BZOJ4173 数学"></a><a href="https://www.luogu.com.cn/problem/T140514" target="_blank" rel="noopener">BZOJ4173 数学</a></h1><h2 id="题目描述-1"><a href="#题目描述-1" class="headerlink" title="题目描述"></a>题目描述</h2>
+<h2 id="输入输出格式-1"><a href="#输入输出格式-1" class="headerlink" title="输入输出格式"></a>输入输出格式</h2><h3 id="输入格式-1"><a href="#输入格式-1" class="headerlink" title="输入格式"></a>输入格式</h3><p>输入文件的第一行输入两个正整数 。</p>
+<h3 id="输出格式-1"><a href="#输出格式-1" class="headerlink" title="输出格式"></a>输出格式</h3><p>如题。</p>
+<h2 id="输入输出样例-1"><a href="#输入输出样例-1" class="headerlink" title="输入输出样例"></a>输入输出样例</h2><h3 id="输入样例-1-1"><a href="#输入样例-1-1" class="headerlink" title="输入样例 #1"></a>输入样例 #1</h3><figure class="highlight basic"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">5 </span><span class="number">6</span></span><br></pre></td></tr></table></figure>
+<h3 id="输出样例-1-1"><a href="#输出样例-1-1" class="headerlink" title="输出样例 #1"></a>输出样例 #1</h3><figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">240</span></span><br></pre></td></tr></table></figure>
+<h2 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h2><p>$N,M\le10^{15}$</p>
+<h2 id="题解-1"><a href="#题解-1" class="headerlink" title="题解"></a>题解</h2><p>前面两个$\varphi$直接根号枚举，考虑后面的求法</p>
+<script type="math/tex; mode=display">
+m \bmod k+n \bmod k>=k\\n-\left \lfloor \frac{n}{k} \right \rfloor*k+m-\left \lfloor \frac{m}{k} \right \rfloor*k>=k\\n+m-k*( \left \lfloor \frac{n}{k} \right \rfloor+\left \lfloor \frac{m}{k} \right \rfloor )>=k\\\left \lfloor \frac{n+m}{k} \right \rfloor-\left \lfloor \frac{n}{k} \right \rfloor-\left \lfloor \frac{m}{k} \right \rfloor>=1</script><p>在这时我们需要考虑一下这个式子怎么进行化简。</p>
+<p>设$n=t*k+k-1$，$m$同理，那么$\left \lfloor \frac{n}{k} \right \rfloor$下取整的作用实际上是去掉了接近一的部分，$\left \lfloor \frac{m}{k} \right \rfloor$同理，而$\left \lfloor \frac{n+m}{k} \right \rfloor$中分子部分多出了$2\times k-2$，也就是这个式子的值多出了$1$。这还是极端情况，当$k|n$的时候，前面的减去后面的就是$0$，也就是说，这个式子的值只能是$1$。</p>
+<p>所以变成了</p>
+<script type="math/tex; mode=display">
+\left \lfloor \frac{n+m}{k} \right \rfloor-\left \lfloor \frac{n}{k} \right \rfloor-\left \lfloor \frac{m}{k} \right \rfloor=1</script><script type="math/tex; mode=display">
+\sum_{k=1}^{n+m}\left[\left \lfloor \frac{n+m}{k} \right \rfloor-\left \lfloor \frac{n}{k} \right \rfloor-\left \lfloor \frac{m}{k} \right \rfloor=1\right]\varphi(k)</script><p>我们发现这个式子如果对答案有贡献的话，对一个特定的$k$，$\left \lfloor \frac{n+m}{k} \right \rfloor\varphi(k)-\left \lfloor \frac{n}{k} \right \rfloor\varphi(k)-\left \lfloor \frac{m}{k} \right \rfloor\varphi(k)=\varphi(k)$，反之，其贡献就是$0$，所以可以直接把这个bool拆开，变成</p>
+<script type="math/tex; mode=display">
+\sum_ {k=1}^{n+m} \varphi(k)*\left\lfloor \frac{n+m}{k} \right \rfloor-\sum_ {k=1}^{n+m} \varphi(k)*\left\lfloor \frac{n}{k} \right \rfloor-\sum_ {k=1}^{n+m} \varphi(k)*\left\lfloor \frac{m}{k} \right \rfloor</script><p>然后我们发现后两项中，如果$k&gt;n$（或者$m$），那么是没有贡献的，所以改一下$k$枚举的上界。</p>
+<script type="math/tex; mode=display">
+\sum_ {k=1}^{n+m} \varphi(k)*\left\lfloor \frac{n+m}{k} \right \rfloor-\sum_ {k=1}^{n} \varphi(k)*\left\lfloor \frac{n}{k} \right \rfloor-\sum_ {k=1}^{m} \varphi(k)*\left\lfloor \frac{m}{k} \right \rfloor</script><p>这时我们发现这三项的形式是一样的，所以我们的任务就转化为了求形似$\sum_{k=1}^n\varphi(k)\left \lfloor \frac{n}{k} \right \rfloor$的值了。</p>
+<p>我们考虑$\varphi(k)$的本质，是在$[1,k]$内找到$k$的所有约数，而$k$枚举到$n$，所以相当于是遍历了$[1,n]$内的所有因数，而且有的遍历了不止一遍，而考虑一个数会在这个范围内被枚举几次呢？</p>
+<p>那当然就是那个数的倍数个，包括一倍。</p>
+<p>而。。。。</p>
+<p>完了我编不下去了。。。真的理解不了。。放弃吧。以后有机会考古的时候会笑话现在的愚蠢吧hhhh。</p>
+<p>我们记住这个式子：</p>
+<script type="math/tex; mode=display">
+\sum_ {k=1}^{n} \varphi(k)*\left\lfloor \frac{n}{k} \right \rfloor=\sum_ {i=1}^{n} \sum_ {k\mid i} \varphi(k)=\sum_ {i=1}^{n} i</script><p>所以进一步地化简上面推了半天的式子，就是</p>
+<script type="math/tex; mode=display">
+\sum^{n+m}_{i=1}i-\sum^{n}_{i=1}i-\sum^{m}_{i=1}i</script><p>这玩意用等差数列求和公式算一下就可以得到这玩意是$n\times m$。</p>
+<p>所以结论出来了，这题就输出$\varphi(n)\times\varphi(m)\times n\times m$。</p>
+<p>累死我了。。。</p>
+<p>下次见到这种题，打表做，找规律它不香吗？</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> STDquantum &#123;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"><span class="keyword">const</span> ll N = <span class="number">998244353</span>;</span><br><span class="line">ll n, m;</span><br><span class="line"><span class="function">ll <span class="title">phi</span><span class="params">(ll x)</span> </span>&#123;</span><br><span class="line">  ll tmp = x;</span><br><span class="line">  <span class="keyword">for</span> (ll i = <span class="number">2</span>; i * i &lt;= x; ++i) &#123;</span><br><span class="line">    <span class="keyword">if</span> (x % i == <span class="number">0</span>) &#123;</span><br><span class="line">      tmp = tmp / i * (i - <span class="number">1</span>);</span><br><span class="line">      <span class="keyword">while</span> (x % i == <span class="number">0</span>) x /= i;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span> (x &gt; <span class="number">1</span>) tmp = tmp / x * (x - <span class="number">1</span>);</span><br><span class="line">  <span class="keyword">return</span> tmp % N;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  <span class="built_in">scanf</span>(<span class="string">"%lld%lld"</span>, &amp;n, &amp;m);</span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">"%lld\n"</span>,</span><br><span class="line">         ((phi(n) * phi(m) % N) * (n % N) % N) * (m % N) % N);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;  <span class="comment">// namespace STDquantum</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  STDquantum::main();</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="P2183-BZOJ2142-国家集训队-礼物"><a href="#P2183-BZOJ2142-国家集训队-礼物" class="headerlink" title="P2183 BZOJ2142 [国家集训队]礼物"></a><a href="https://www.luogu.com.cn/problemnew/show/P2183" target="_blank" rel="noopener">P2183 BZOJ2142 [国家集训队]礼物</a></h1><h2 id="题目背景"><a href="#题目背景" class="headerlink" title="题目背景"></a>题目背景</h2><p>一年一度的圣诞节快要来到了。每年的圣诞节小 E 都会收到许多礼物，当然他也会送出许多礼物。不同的人物在小 E 心目中的重要性不同，在小 E 心中分量越重的人，收到的礼物会越多。</p>
+<h2 id="题目描述-2"><a href="#题目描述-2" class="headerlink" title="题目描述"></a>题目描述</h2><p>小 E 从商店中购买了 $n$ 件礼物，打算送给 $m$ 个人，其中送给第 $i$ 个人礼物数量为 $w_i$。请你帮忙计算出送礼物的方案数（两个方案被认为是不同的，当且仅当存在某个人在这两种方案中收到的礼物不同）。由于方案数可能会很大，你只需要输出模 $P$ 后的结果。</p>
+<h2 id="输入输出格式-2"><a href="#输入输出格式-2" class="headerlink" title="输入输出格式"></a>输入输出格式</h2><h3 id="输入格式-2"><a href="#输入格式-2" class="headerlink" title="输入格式"></a>输入格式</h3><p>输入的第一行包含一个整数 $P$，表示模数。</p>
+<p>第二行包含两个整数 $n$ 和 $m$，分别表示小 E 从商店购买的礼物数和接受礼物的人数。</p>
+<p>第 $3$ 到第 $(m + 2)$ 行，每行一个整数，第 $(i + 2)$ 行的整数 $w_i$ 表示送给第 $i$ 个人的礼物数量。</p>
+<h3 id="输出格式-2"><a href="#输出格式-2" class="headerlink" title="输出格式"></a>输出格式</h3><p>若不存在可行方案，则输出 <code>Impossible</code>，否则输出一个整数，表示模 $P$ 后的方案数。</p>
+<h2 id="输入输出样例-2"><a href="#输入输出样例-2" class="headerlink" title="输入输出样例"></a>输入输出样例</h2><h3 id="输入样例-1-2"><a href="#输入样例-1-2" class="headerlink" title="输入样例 #1"></a>输入样例 #1</h3><figure class="highlight basic"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">100</span></span><br><span class="line"><span class="symbol">4 </span><span class="number">2</span></span><br><span class="line"><span class="number">1</span></span><br><span class="line"><span class="number">2</span></span><br></pre></td></tr></table></figure>
+<h3 id="输出样例-1-2"><a href="#输出样例-1-2" class="headerlink" title="输出样例 #1"></a>输出样例 #1</h3><figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">12</span></span><br></pre></td></tr></table></figure>
+<h3 id="输入样例-2"><a href="#输入样例-2" class="headerlink" title="输入样例 #2"></a>输入样例 #2</h3><figure class="highlight basic"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">100</span></span><br><span class="line"><span class="symbol">2 </span><span class="number">2</span></span><br><span class="line"><span class="number">1</span></span><br><span class="line"><span class="number">2</span></span><br></pre></td></tr></table></figure>
+<h3 id="输出样例-2"><a href="#输出样例-2" class="headerlink" title="输出样例 #2"></a>输出样例 #2</h3><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">Impossible</span></span><br></pre></td></tr></table></figure>
+<h2 id="说明-1"><a href="#说明-1" class="headerlink" title="说明"></a>说明</h2><h3 id="样例-1-解释"><a href="#样例-1-解释" class="headerlink" title="样例 1 解释"></a>样例 1 解释</h3><p>以 <code>/</code> 分割，<code>/</code> 前后分别表示送给第一个人和第二个人的礼物编号。$12$ 种方案详情如下： </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">1&#x2F;23 1&#x2F;24 1&#x2F;34 </span><br><span class="line">2&#x2F;13 2&#x2F;14 2&#x2F;34 </span><br><span class="line">3&#x2F;12 3&#x2F;14 3&#x2F;24 </span><br><span class="line">4&#x2F;12 4&#x2F;13 4&#x2F;23</span><br></pre></td></tr></table></figure>
+<h3 id="数据规模与约定"><a href="#数据规模与约定" class="headerlink" title="数据规模与约定"></a>数据规模与约定</h3><p>设 <script type="math/tex">P= \prod\limits_{i=1}^t p_i^{c_i}</script>，$p_i$ 为质数。 </p>
+<p>对于 $15\%$ 的数据，$n\leq 15$，$m\leq 5$，<script type="math/tex">p_i^{c_i}\leq 10^5</script>。 </p>
+<p>在剩下的 $85\%$ 数据中，约有 $60\%$ 的数据满足 $t\leq 2$，<script type="math/tex">c_i=1</script>，$p_i\leq 10^5$，约有 $30\%$ 的数据满足 <script type="math/tex">p_i\leq 200</script>。 </p>
+<p>对于 $100\%$ 的数据，$1\leq n\leq 10^9$，$1\leq m\leq 5$，<script type="math/tex">1\leq p_i^{c_i}\leq 10^5</script>，$1\leq w_i \leq P\leq 10^9$。</p>
+<h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><p>设$sum[i]$为$w[i]$的前缀和，则答案就是</p>
+<script type="math/tex; mode=display">
+\sum_{i=1}^m\left(\begin{array}c{n-sum_{i-1}}\\{w_i}\end{array}\right)\pmod P</script><p>为什么是这个结果呢？</p>
+<p>因为第一个人要从$n$个物品里选$w_1$个，而第二个人只能在<script type="math/tex">n-w_1</script>中选<script type="math/tex">w_2</script>个，以此类推。</p>
+<p>所以问题就变成了怎么求组合数带模数。</p>
+<p>这时候就会用到一个叫做扩展卢卡斯定理的东西。</p>
+<p>这玩意呢，大概是这个样子。</p>
+<p>求 <script type="math/tex">C_n^m \bmod{p}</script>，这个$p$不一定是质数。</p>
+<h2 id="引入"><a href="#引入" class="headerlink" title="引入"></a>引入</h2><p>  有卢卡斯定理， <script type="math/tex">\left(\begin{array}cn\\m\end{array}\right)\equiv\left(\begin{array}c{n\bmod P}\\{m\bmod P}\end{array}\right)\times\left(\begin{array}c{\left\lfloor\frac{n}{P}\right\rfloor}\\{\left\lfloor\frac{m}{P}\right\rfloor}\end{array}\right)\pmod P</script> 。卢卡斯定理的适用条件是： $P$ 为质数。对于 $P$ 是一般正整数的情况，可以使用扩展卢卡斯定理计算 $C_n^m\pmod P$ 。</p>
+<h2 id="算法分析"><a href="#算法分析" class="headerlink" title="算法分析"></a>算法分析</h2><h3 id="原问题的转化"><a href="#原问题的转化" class="headerlink" title="原问题的转化"></a>原问题的转化</h3><p>  要求 <script type="math/tex">C_n^m\bmod P</script> ，首先对 $P$ 进行质因数分解，即 <script type="math/tex">P=p_1^{k_1}p_2^{k_2}\cdots p_{cnt}^{k_{cnt}}</script> ，记 <script type="math/tex">a_i=C_n^m\bmod p_i^{k_i}</script> ，可以获得一个一元线性同余方程组。</p>
+<script type="math/tex; mode=display">
+(S):\left\{\begin{array}{c} C_n^m\equiv a_{1}\pmod {p_{1}^{k_1}} \\ C_n^m\equiv a_{2}\pmod {p_{2}^{k_2}} \\ \vdots \\ C_n^m\equiv a_{cnt}\pmod {p_{cnt}^{k_{cnt}}} \end{array}\right.</script><p>由于 <script type="math/tex">p_1,p_2,\cdots,p_{cnt}</script> 是互不相同的质数，因此<script type="math/tex">p_1^{k_1},p_2^{k_2},\cdots,p_{cnt}^{k_{cnt}}</script> 两两互质，由中国剩余定理，其解集为 </p>
+<script type="math/tex; mode=display">
+A=\left\{x\in\mathbb Z\mid kP+\sum\limits_{i=1}^{cnt} a_it_iP_i,k\in \mathbb Z\right\}</script><p>其中， <script type="math/tex">P_i=\frac{P}{p_{i}^{k_i}}</script> ， <script type="math/tex">P_it_i\equiv 1\pmod P</script> 。尽管求出的 <script type="math/tex">C_n^m</script> 并不是准确值，仅仅确定了 <script type="math/tex">C_n^m\in A</script> ，但是可以注意到，此集合中的元素在模 $P$ 意义下的值都为 <script type="math/tex">\left(\sum\limits_{i=1}^{cnt} a_it_iP_i\right)\bmod P</script> ；根据逻辑三段论， <script type="math/tex">C_n^m\equiv \sum\limits_{i=1}^{cnt} a_it_iP_i\pmod P</script> 。所以，一元线性同余方程组 <script type="math/tex">\left\{\begin{array}{c} x\equiv a_{1}\pmod {p_{1}^{k_1}} \\ x\equiv a_{2}\pmod {p_{2}^{k_2}} \\ \vdots \\ x\equiv a_{cnt}\pmod {p_{cnt}^{k_{cnt}}} \end{array}\right.</script> 的最小正整数解即为 <script type="math/tex">C_n^m\bmod P</script> 。</p>
+<p>问题在于，要如何先求出 $a_i=C_n^m\bmod p_i^{k_i}$ 。</p>
+<h3 id="计算-C-n-m-bmod-p-k"><a href="#计算-C-n-m-bmod-p-k" class="headerlink" title="计算 $C_n^m\bmod p^k$"></a>计算 $C_n^m\bmod p^k$</h3><p>下面讨论如何计算 $C_n^m\bmod p^k$ ，其中 $p$ 为质数。</p>
+<p>首先由组合数的公式 <script type="math/tex">C_{n}^{m}=\frac{n!}{m!(n-m)!}</script> ，分别计算出 $n!,m!,(n-m)!$ 在模 $p^k$ 意义下的值，再求 $m!,(n-m)!$ 模 $p^k$ 意义下的逆元，就可以得到答案。但是 $m!$ 和 $(n-m)!$ 可能包含质因子 $p$ ，根据裴蜀定理，此时它们在模 $p^k$ 意义下的逆元不存在。不妨将 $n!,m!,(n-m)!$ 中的质因子 $p$ 除尽，对 $C_n^m$ 做如下变换。</p>
+<script type="math/tex; mode=display">
+\text{C}_{n}^{m}=\frac{\frac{n!}{p^x}}{\frac{m!}{p^y}\times\frac{(n-m)!}{p^z}}\times p^{x-y-z}</script><p>上式中， $x$ 为 $n!$ 中质因子 $p$ 的个数， $y$ 为 $m!$ 中质因子 $p$ 的个数， $z$ 为 $(n-m)!$ 中质因子 $p$ 的个数。 $\frac{n!}{p^x}$ ， $\frac{m!}{p^y}$ ， $\frac{(n-m)!}{p^z}$ 均与 $p^k$ 互质，都存在模 $p^k$ 意义下的逆元。</p>
+<p>以上，我们已经解决了阶乘求逆元的问题。只要求得 $\frac{n!}{p^x},\frac{m!}{p^y},\frac{(n-m)!}{p^z}$ 在模 $p^k$ 意义下的值，再求两次逆元，即可得到 $C_n^m\bmod p^k$ 。但是，问题在于：如何求形如 $\frac{n!}{p^x}\bmod p^k$ 的式子。</p>
+<h3 id="计算-frac-n-p-x-bmod-p-k"><a href="#计算-frac-n-p-x-bmod-p-k" class="headerlink" title="计算 $\frac{n!}{p^x}\bmod p^k$"></a>计算 $\frac{n!}{p^x}\bmod p^k$</h3><p>$n!=1⋅2⋅3⋅\ \cdots\ ⋅n=(p\cdot 2p\cdot 3p\cdots)(1\cdot 2\cdot \cdots)$ ，左括号内为 $1\sim n$ 中 $p$ 的倍数的乘积，右括号内反之。 $1\sim n$ 中 $p$ 的倍数有 $\left\lfloor\frac{n}{p}\right\rfloor$ 个，故 <script type="math/tex">n!=p^{\left\lfloor\frac{n}{p}\right\rfloor}\left\lfloor\frac{n}{p}\right\rfloor!\prod\limits_{i=1}^n i</script>。</p>
+<p>（注：以下<code>\prod</code>中均应有$p$不整除$i$，因为$\LaTeX$似乎有点锅显示不出来）</p>
+<p>计算 $\frac{n!}{p^x}$ 时，可以直接忽略 $p^{\left\lfloor\frac{n}{p}\right\rfloor}$ ，但是 $\left\lfloor\frac{n}{p}\right\rfloor !$ 还可能包含质因子 $p$ ，难以直接忽略其中的质因子；不妨定义函数 $fac(n,p,pk)=\frac{n!}{p^x}\bmod pk$ ，则 $fac(n,p,pk)=fac\left(\left\lfloor\frac{n}{p}\right\rfloor,p,pk\right)\prod\limits_{i=1}^n i$ ，如此一来可以进行递归求解。</p>
+<p> <script type="math/tex">\left(\prod\limits_{i=1}^n i\right)\bmod p^k</script> 是有循环节的，比如当 <script type="math/tex">p=3,t=2,n=19</script> 时，有： <script type="math/tex">19!=3^6\times(1×2×3×4×5×6)×(1×2×4×5×7×8×10×11×13×14×16×17×19)</script> ，右括号中 <script type="math/tex">1×2×4×5×7×8\equiv 10×11×13×14×16×17\pmod {3^2}</script> ，可以看到， <script type="math/tex">\left(\prod\limits_{i=1}^n i\right)\bmod p^k</script> 以 $p^k$ 为一个周期。 </p>
+<p><script type="math/tex">\left(\prod\limits_{i=1}^n i\right)\bmod p^k</script> 是以 $p^k$ 为周期的，每个循环节长度为 $p^k$ ，所以只需要计算最后不满足一个周期的数的乘积（例子中只需要计算 $19$ ）。显然，完整的周期数为 $\left\lfloor\frac{n}{p^k}\right\rfloor$ ， 每个周期模 $p^k$ 意义下的乘积为 <script type="math/tex">\prod\limits_{i=1}^{p^k} i\bmod p^k</script> ；不满足一个周期的数的个数为 $n\bmod p^k$ ，模 $p^k$ 意义下的乘积为 <script type="math/tex">\prod\limits_{i=1}^{n\bmod p^k} i\bmod p^k</script> 。</p>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/OI/" rel="tag">OI</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+  <nav class="article-nav">
+    
+      <a href="/20200726-mo-ni-sai/" class="article-nav-link">
+        <strong class="article-nav-caption">上一篇</strong>
+        <div class="article-nav-title">
+          
+            20200726模拟赛
+          
+        </div>
+      </a>
+    
+    
+      <a href="/kuo-zhan-ou-la-ding-li-xue-xi-bi-ji/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">扩展欧拉定理学习笔记</div>
+      </a>
+    
+  </nav>
+
+  
+     
+</article>
+
+</section>
+      <footer class="footer">
+  <div class="outer">
+    <ul>
+      <li>
+        Copyrights &copy;
+        2020
+        <i class="ri-heart-fill heart_icon"></i> STDquantum
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+      </li>
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      <li>
+        <!-- cnzz统计 -->
+        
+      </li>
+    </ul>
+  </div>
+</footer>
+      <div class="float_btns">
+        <div class="totop" id="totop">
+  <i class="ri-arrow-up-line"></i>
+</div>
+
+      </div>
+    </main>
+    <aside class="sidebar on">
+      <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/1.jpg" alt="STDquantum"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">主页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">归档</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/categories">分类</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/tags">标签</a>
+    </li>
+    
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      
+      <a class="nav-item-link nav-item-search"  title="搜索">
+        <i class="ri-search-line"></i>
+      </a>
+      
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+    </aside>
+    <script>
+      if (window.matchMedia("(max-width: 768px)").matches) {
+        document.querySelector('.content').classList.remove('on');
+        document.querySelector('.sidebar').classList.remove('on');
+      }
+    </script>
+    <div id="mask"></div>
+
+<!-- #reward -->
+<div id="reward">
+  <span class="close"><i class="ri-close-line"></i></span>
+  <p class="reward-p"><i class="ri-cup-line"></i></p>
+  <div class="reward-box">
+    
+    
+  </div>
+</div>
+    
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+
+<script src="/js/lazyload.min.js"></script>
+
+<!-- Tocbot -->
+
+
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  tocbot.init({
+    tocSelector: '.tocbot',
+    contentSelector: '.article-entry',
+    headingSelector: 'h1, h2, h3, h4, h5, h6',
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: 'main',
+    positionFixedSelector: '.tocbot',
+    positionFixedClass: 'is-position-fixed',
+    fixedSidebarOffset: 'auto'
+  });
+</script>
+<!-- Live-2D -->
+<script type="text/javascript" charset="utf-8" src="/js/L2Dwidget.0.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="/js/L2Dwidget.min.js"></script>
+<script type="text/javascript">
+  L2Dwidget.on('*', (name) => {
+    console.log('%c EVENT ' + '%c -> ' + name, 'background: #222; color: yellow', 'background: #fff; color: #000')
+  });
+  L2Dwidget.init({
+    "display": {
+      "superSample": 2,
+      "width": 200,
+      "height": 400,
+      "position": "right",
+      "hOffset": 0,
+      "vOffset": 0
+    },
+    "mobile": {
+      "show": true,
+      "scale": 0.7
+    }
+  });
+</script>
+
+<script src="/js/jquery.modal.min.js"></script>
+<link rel="stylesheet" href="/css/jquery.modal.min.css">
+<script src="/js/jquery.justifiedGallery.min.js"></script>
+
+<script src="/dist/main.js"></script>
+
+<!-- ImageViewer -->
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<link rel="stylesheet" href="/css/photoswipe.min.css">
+<link rel="stylesheet" href="/css/default-skin.min.css">
+<script src="/js/photoswipe.min.js"></script>
+<script src="/js/photoswipe-ui-default.min.js"></script>
+
+<script>
+    function viewer_init() {
+        let pswpElement = document.querySelectorAll('.pswp')[0];
+        let $imgArr = document.querySelectorAll(('.article-entry img:not(.reward-img)'))
+
+        $imgArr.forEach(($em, i) => {
+            $em.onclick = () => {
+                // slider展开状态
+                // todo: 这样不好，后面改成状态
+                if (document.querySelector('.left-col.show')) return
+                let items = []
+                $imgArr.forEach(($em2, i2) => {
+                    let img = $em2.getAttribute('data-idx', i2)
+                    let src = $em2.getAttribute('data-target') || $em2.getAttribute('src')
+                    let title = $em2.getAttribute('alt')
+                    // 获得原图尺寸
+                    const image = new Image()
+                    image.src = src
+                    items.push({
+                        src: src,
+                        w: image.width || $em2.width,
+                        h: image.height || $em2.height,
+                        title: title
+                    })
+                })
+                var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, {
+                    index: parseInt(i)
+                });
+                gallery.init()
+            }
+        })
+    }
+    viewer_init()
+</script>
+
+<!-- MathJax -->
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      extensions: ["tex2jax.js"],
+      jax: ["input/TeX","output/HTML-CSS"],
+      tex2jax: {inlineMath: [["$","$"]]}
+    });
+  </script>
+
+<script src="/mathjax/MathJax.js"></script>
+<script>
+  var ayerConfig = {
+    mathjax: true
+  }
+</script>
+
+<!-- Katex -->
+
+<!-- busuanzi  -->
+
+<!-- ClickLove -->
+
+
+<script src="/js/clickLove.js"></script>
+
+
+<!-- ClickBoom1 -->
+
+<!-- ClickBoom2 -->
+
+<!-- CodeCopy -->
+
+
+<link rel="stylesheet" href="/css/clipboard.css">
+
+<script src="/js/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="ri-file-copy-2-line"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-checkbox-circle-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-checkbox-circle-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-time-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-time-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+
+
+<!-- CanvasBackground -->
+
+
+    
+  </div>
+</body>
+
+</html>

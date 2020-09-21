@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+
+
+<html lang="zh-CN">
+
+
+<head>
+  <meta charset="utf-8" />
+    
+  <meta name="description" content="STDquantum" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <title>
+    CF1406E Deleting Numbers |  STDquantum
+  </title>
+  <meta name="generator" content="hexo-theme-ayer">
+  
+  <link rel="shortcut icon" href="/1.ico" />
+  
+  
+<link rel="stylesheet" href="/dist/main.css">
+
+  
+<link rel="stylesheet" href="/css/remixicon.min.css">
+
+  
+<link rel="stylesheet" href="/css/custom.css">
+
+  
+  
+<script src="/js/pace.min.js"></script>
+
+  
+  
+
+  
+
+</head>
+
+</html>
+
+<body>
+  <div id="app">
+    
+      
+    <main class="content on">
+      <section class="outer">
+  <article
+  id="post-OI/杂题/CF1406E Deleting Numbers"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  CF1406E Deleting Numbers
+</h1>
+ 
+
+    </header>
+     
+    <div class="article-meta">
+      <a href="/cf1406e-deleting-numbers/" class="article-date">
+  <time datetime="2020-09-13T01:33:57.000Z" itemprop="datePublished">2020-09-13</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/OI/">OI</a> / <a class="article-category-link" href="/categories/OI/%E4%BA%A4%E4%BA%92%E9%A2%98/">交互题</a>
+  </div>
+  
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> 字数统计:</span>
+            <span class="post-count">2k</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> 阅读时长≈</span>
+            <span class="post-count">9 分钟</span>
+        </span>
+    </span>
+</div>
+ 
+    </div>
+      
+    <div class="tocbot"></div>
+
+
+
+
+  
+    <div class="article-entry" itemprop="articleBody">
+       
+  <p>CF670 Div2的E题，做的第一道交互。</p>
+<a id="more"></a>
+<p><a href="https://www.luogu.com.cn/problem/CF1406E" target="_blank" rel="noopener">CF1406E Deleting Numbers</a></p>
+<h1 id="Deleting-Numbers"><a href="#Deleting-Numbers" class="headerlink" title="Deleting Numbers"></a>Deleting Numbers</h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>This is an interactive problem.</p>
+<p>There is an unknown integer $ x $ ( $ 1\le x\le n $ ). You want to find $ x $ .</p>
+<p>At first, you have a set of integers $ \{1, 2, \ldots, n\} $ . You can perform the following operations no more than $ 10000 $ times: </p>
+<ul>
+<li>A $ a $ : find how many numbers are multiples of $ a $ in the current set.</li>
+<li>B $ a $ : find how many numbers are multiples of $ a $ in this set, and then delete all multiples of $ a $ , but $ x $ will never be deleted (even if it is a multiple of $ a $ ). In this operation, $ a $ must be greater than $ 1 $ . </li>
+<li>C $ a $ : it means that you know that $ x=a $ . This operation can be only performed once.</li>
+</ul>
+<p>Remember that in the operation of type B $ a&gt;1 $ must hold.</p>
+<p>Write a program, that will find the value of $ x $ .</p>
+<h2 id="输入输出格式"><a href="#输入输出格式" class="headerlink" title="输入输出格式"></a>输入输出格式</h2><h3 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h3><p>The first line contains one integer $ n $ ( $ 1\le n\le 10^5 $ ).</p>
+<p>The remaining parts of the input will be given throughout the interaction process.</p>
+<h3 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h3><p>In each round, your program needs to print a line containing one uppercase letter A, B or C and an integer $ a $ ( $ 1\le a\le n $ for operations A and C, $ 2\le a\le n $ for operation B). This line desribes operation you make.</p>
+<p>If your operation has type C your program should terminate immediately.</p>
+<p>Else your program should read one line containing a single integer, which is the answer to your operation.</p>
+<p>After outputting each line, don’t forget to flush the output.</p>
+<p>To do it use: </p>
+<ul>
+<li><p>fflush(stdout) in C/C++;</p>
+</li>
+<li><p>System.out.flush() in Java; </p>
+</li>
+<li>sys.stdout.flush() in Python;</li>
+<li>flush(output) in Pascal; </li>
+<li>See the documentation for other languages.</li>
+</ul>
+<p>It is guaranteed, that the number $ x $ is fixed and won’t change during the interaction process. </p>
+<p>Hacks:</p>
+<p>To make a hack, use such input format:</p>
+<p>The only line should contain two integers $ n $ , $ x $ ( $ 1 \leq x \leq n \leq 10^5 $ ).</p>
+<h2 id="输入输出样例"><a href="#输入输出样例" class="headerlink" title="输入输出样例"></a>输入输出样例</h2><h3 id="输入样例-1"><a href="#输入样例-1" class="headerlink" title="输入样例 #1"></a>输入样例 #1</h3><figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">10</span></span><br><span class="line"></span><br><span class="line"><span class="number">2</span></span><br><span class="line"></span><br><span class="line"><span class="number">4</span></span><br><span class="line"></span><br><span class="line"><span class="number">0</span></span><br></pre></td></tr></table></figure>
+<h3 id="输出样例-1"><a href="#输出样例-1" class="headerlink" title="输出样例 #1"></a>输出样例 #1</h3><figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">B <span class="number">4</span></span><br><span class="line"></span><br><span class="line">A <span class="number">2</span></span><br><span class="line"></span><br><span class="line">A <span class="number">8</span></span><br><span class="line"></span><br><span class="line">C <span class="number">4</span></span><br></pre></td></tr></table></figure>
+<h2 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h2><p>Note that to make the sample more clear, we added extra empty lines. You shouldn’t print any extra empty lines during the interaction process.</p>
+<p>In the first test $ n=10 $ and $ x=4 $ .</p>
+<p>Initially the set is: $ \{1,2,3,4,5,6,7,8,9,10\} $ .</p>
+<p>In the first operation, you ask how many numbers are multiples of $ 4 $ and delete them. The answer is $ 2 $ because there are two numbers divisible by $ 4 $ : $ \{4,8\} $ . $ 8 $ will be deleted but $ 4 $ won’t, because the number $ x $ will never be deleted. Now the set is $ \{1,2,3,4,5,6,7,9,10\} $ .</p>
+<p>In the second operation, you ask how many numbers are multiples of $ 2 $ . The answer is $ 4 $ because there are four numbers divisible by $ 2 $ : $ \{2,4,6,10\} $ .</p>
+<p>In the third operation, you ask how many numbers are multiples of $ 8 $ . The answer is $ 0 $ because there isn’t any number divisible by $ 8 $ in the current set.</p>
+<p>In the fourth operation, you know that $ x=4 $ , which is the right answer.</p>
+<h2 id="翻译"><a href="#翻译" class="headerlink" title="翻译"></a>翻译</h2><h3 id="题目描述-1"><a href="#题目描述-1" class="headerlink" title="题目描述"></a>题目描述</h3><p>这是一道交互题。</p>
+<p>有一个未知整数 $x$（$ 1\le x\le n $），你需要找到它。</p>
+<p>一开始，你有一个整数集合 $ \{1, 2, \ldots, n\} $，你可以对其进行如下三种操作，操作总数（包括 A, B, C）不超过 $10000$ 次。</p>
+<ul>
+<li>A $a$：询问当前集合中有多少 $a$ 的倍数。</li>
+<li><p>B $a$：询问当前集合中有多少 $a$ 的倍数，并删掉所有 $a$ 的倍数（$x$ 不会被当前操作删去）。此操作中的 $a$ 应大于 $1$。</p>
+</li>
+<li><p>C $a$：进行此操作意味着你知道了 $x=a$，此操作只能执行一次。</p>
+</li>
+</ul>
+<h3 id="输入格式-1"><a href="#输入格式-1" class="headerlink" title="输入格式"></a>输入格式</h3><p>第一行包括一个正整数 $n$。</p>
+<p>其余部分的输入将在交互过程中给出。</p>
+<h3 id="输出格式-1"><a href="#输出格式-1" class="headerlink" title="输出格式"></a>输出格式</h3><p>在每个回合中，你的程序需要输出一行，包括一个大写字母 A, B 或 C，和一个整数 $a$（对操作 A 和 C 应满足 $ 1\le a\le n $，对操作 B 应满足 $ 2\le a\le n $），表示你做的操作。</p>
+<p>如果为操作 C，你的程序应当立即结束。</p>
+<p>否则你应该读入一行，包括一个正整数，表示你查询的结果。</p>
+<p>在输出每一行后，别忘了刷新输出流。</p>
+<ul>
+<li>C++ 中使用 <code>fflush(stdout)</code></li>
+<li><p>Java 中使用 <code>System.out.flush()</code></p>
+</li>
+<li><p>Python 中使用 <code>sys.stdout.flush()</code></p>
+</li>
+<li>Pascal 中使用 <code>flush(output)</code></li>
+</ul>
+<p>保证 $x$ 在交互过程中不会改变。</p>
+<h3 id="提示"><a href="#提示" class="headerlink" title="提示"></a>提示</h3><p>为了使样例更清晰，加入了多余的空行。你的程序不应在交互过程中输出多余空行。</p>
+<h3 id="样例解释"><a href="#样例解释" class="headerlink" title="样例解释"></a>样例解释</h3><p>对当前样例有 $n=10,x=4$。</p>
+<p>最初的集合是：$ \{1,2,3,4,5,6,7,8,9,10\} $。</p>
+<p>在第一次操作中，你询问有多少数是 $4$ 的倍数并删去这些数。答案是 $2$，因为有两个数能被 $4$ 整除：$\{4,8\}$。$8$ 会被删除但是 $4$ 不会，因为 $x$ 永远不会被删掉。现在集合变成了 $ \{1,2,3,4,5,6,7,9,10\} $。</p>
+<p>在第二次操作中，你询问有多少数是 $2$ 的倍数。答案是 $4$，因为有四个数能被 $2$ 整除：$ \{2,4,6,10\} $。</p>
+<p>在第三次操作中，你询问有多少个数是 $8$ 的倍数，答案是 $0$，因为当前集合没有数能被 $8$ 整除。</p>
+<p>在第四次操作中，你知道了 $x=4$，为正确答案。</p>
+<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>这题一个很直接的思路就是直接拿质数来筛出 $x$，如果把 $x$ 的所有质因子和对应指数找到，那么就可以确定 $x$。</p>
+<p>可以证明这么做平均是最快的。</p>
+<p>那么具体怎么做呢？我们考虑把一个质数 $p$ 的所有倍数删去，若有一个数没有被删除成功，那就说明 $x$ 中有 $p$ 这个因子。</p>
+<p>一种朴素的做法是直接删掉所有 $p$ 的倍数，然后查询 $p$ 的倍数有几个，如果是 $1$ 的话就说明有 $p$ 这个因子，然后接着二分 $p$ 的指数。</p>
+<p>但是这样的操作次数是不对的，因为 $100000$ 以内的质数就有 $9592$ 个，一删一查次数就多了，所以考虑怎么优化这个暴力。</p>
+<p>删质数的这一次是肯定要留着的，但是查询有大量的冗余操作，所以可以考虑分批查询。</p>
+<p>这就有一些分块的思想了。</p>
+<p>为了让复杂度尽可能稍微均摊一点，设质数的个数为 $num$，则分成 $\sqrt {num}$ 个块，先全部删掉所有块内的质数，然后查询一个<code>A 1</code>，就可以查看之前一共删了多少个数字。</p>
+<p>如果这个数字和之前删质数时候查询个数的和一样，就说明 $x$ 中是没有这个块内的质因子的。</p>
+<p>如果不一样，说明有这个质因子，一个一个试查询就好了。若确定有这个质因子就寻找其指数，然而我二分容易写锅，就直接一个一个乘上去查。</p>
+<p>可以结合代码理解：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> STDquantum &#123;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">2e6</span> + <span class="number">10</span>;</span><br><span class="line"><span class="keyword">int</span> num, prime[N];</span><br><span class="line"><span class="keyword">bool</span> isprime[N];</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">Get</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123; <span class="comment">// 筛质数</span></span><br><span class="line">    <span class="built_in">memset</span>(isprime, <span class="number">1</span>, <span class="keyword">sizeof</span>(isprime));</span><br><span class="line">    isprime[<span class="number">1</span>] = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">2</span>; i &lt;= n; ++i) &#123;</span><br><span class="line">        <span class="keyword">if</span> (isprime[i]) prime[++num] = i;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= num &amp;&amp; i * prime[j] &lt;= n; ++j) &#123;</span><br><span class="line">            isprime[i * prime[j]] = <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">if</span> (i % prime[j] == <span class="number">0</span>) <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> n, x;</span><br><span class="line">ll ans = <span class="number">1</span>; <span class="comment">// ans代表现在找到的数</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">query</span><span class="params">(<span class="keyword">int</span> type, <span class="keyword">int</span> value)</span> </span>&#123; <span class="comment">// 询问和读入</span></span><br><span class="line">    <span class="keyword">if</span> (type == <span class="number">1</span>) &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"A %d\n"</span>, value);</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (type == <span class="number">2</span>) &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"B %d\n"</span>, value);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"C %d\n"</span>, value);</span><br><span class="line">        fflush(<span class="built_in">stdout</span>);</span><br><span class="line">        <span class="built_in">exit</span>(<span class="number">0</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    fflush(<span class="built_in">stdout</span>);</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;x);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">Find</span><span class="params">(<span class="keyword">int</span> p)</span> </span>&#123; <span class="comment">// 找到x中p的指数</span></span><br><span class="line">    <span class="keyword">while</span> (ans * p &lt;= n) &#123;</span><br><span class="line">        query(<span class="number">1</span>, ans * p);</span><br><span class="line">        <span class="keyword">if</span> (x) &#123;</span><br><span class="line">            ans *= p;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;n), Get(n);</span><br><span class="line">    <span class="keyword">int</span> s = <span class="built_in">sqrt</span>(num); <span class="comment">// 分成s个块</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>, cur = n, sum; i &lt;= num; i += s) &#123; <span class="comment">// 枚举块的左端点</span></span><br><span class="line">        sum = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; i + j &lt;= num &amp;&amp; j &lt; s; ++j) &#123; <span class="comment">// 枚举块内第几个点</span></span><br><span class="line">            query(<span class="number">2</span>, prime[i + j]), sum += x; <span class="comment">// 查询并加和</span></span><br><span class="line">        &#125;</span><br><span class="line">        query(<span class="number">1</span>, <span class="number">1</span>);</span><br><span class="line">        <span class="keyword">int</span> tmp = x; <span class="comment">// 临时记录一下现在集合内还剩多少数</span></span><br><span class="line">        <span class="keyword">if</span> (sum &gt; cur - x) &#123; <span class="comment">// 如果这次删去的数的总数大于实际减少的总数，就说明质因子在此块内出现过</span></span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; i + j &lt;= num &amp;&amp; j &lt; s; ++j) &#123;</span><br><span class="line">                Find(prime[i + j]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        cur = tmp; <span class="comment">// 更新一下集合里当前数字个数</span></span><br><span class="line">    &#125;</span><br><span class="line">    query(<span class="number">3</span>, ans); <span class="comment">// 输出答案，因为ans初始化就是1所以没必要特判了。</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;   <span class="comment">// namespace STDquantum</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    STDquantum::main();</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="UPD-on-20200914"><a href="#UPD-on-20200914" class="headerlink" title="UPD on 20200914"></a>UPD on 20200914</h1><p>09-13 23:08题解通过了</p>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CF/" rel="tag">CF</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E4%BA%A4%E4%BA%92/" rel="tag">交互</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%95%B0%E8%AE%BA/" rel="tag">数论</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+  <nav class="article-nav">
+    
+      <a href="/20200914-mo-ni-sai/" class="article-nav-link">
+        <strong class="article-nav-caption">上一篇</strong>
+        <div class="article-nav-title">
+          
+            20200914模拟赛
+          
+        </div>
+      </a>
+    
+    
+      <a href="/cf1406a-subset-mex/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">CF1406A Subset Mex</div>
+      </a>
+    
+  </nav>
+
+  
+     
+</article>
+
+</section>
+      <footer class="footer">
+  <div class="outer">
+    <ul>
+      <li>
+        Copyrights &copy;
+        2020
+        <i class="ri-heart-fill heart_icon"></i> STDquantum
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+      </li>
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      <li>
+        <!-- cnzz统计 -->
+        
+      </li>
+    </ul>
+  </div>
+</footer>
+      <div class="float_btns">
+        <div class="totop" id="totop">
+  <i class="ri-arrow-up-line"></i>
+</div>
+
+      </div>
+    </main>
+    <aside class="sidebar on">
+      <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/1.jpg" alt="STDquantum"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">主页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">归档</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/categories">分类</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/tags">标签</a>
+    </li>
+    
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      
+      <a class="nav-item-link nav-item-search"  title="搜索">
+        <i class="ri-search-line"></i>
+      </a>
+      
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+    </aside>
+    <script>
+      if (window.matchMedia("(max-width: 768px)").matches) {
+        document.querySelector('.content').classList.remove('on');
+        document.querySelector('.sidebar').classList.remove('on');
+      }
+    </script>
+    <div id="mask"></div>
+
+<!-- #reward -->
+<div id="reward">
+  <span class="close"><i class="ri-close-line"></i></span>
+  <p class="reward-p"><i class="ri-cup-line"></i></p>
+  <div class="reward-box">
+    
+    
+  </div>
+</div>
+    
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+
+<script src="/js/lazyload.min.js"></script>
+
+<!-- Tocbot -->
+
+
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  tocbot.init({
+    tocSelector: '.tocbot',
+    contentSelector: '.article-entry',
+    headingSelector: 'h1, h2, h3, h4, h5, h6',
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: 'main',
+    positionFixedSelector: '.tocbot',
+    positionFixedClass: 'is-position-fixed',
+    fixedSidebarOffset: 'auto'
+  });
+</script>
+<!-- Live-2D -->
+<script type="text/javascript" charset="utf-8" src="/js/L2Dwidget.0.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="/js/L2Dwidget.min.js"></script>
+<script type="text/javascript">
+  L2Dwidget.on('*', (name) => {
+    console.log('%c EVENT ' + '%c -> ' + name, 'background: #222; color: yellow', 'background: #fff; color: #000')
+  });
+  L2Dwidget.init({
+    "display": {
+      "superSample": 2,
+      "width": 200,
+      "height": 400,
+      "position": "right",
+      "hOffset": 0,
+      "vOffset": 0
+    },
+    "mobile": {
+      "show": true,
+      "scale": 0.7
+    }
+  });
+</script>
+
+<script src="/js/jquery.modal.min.js"></script>
+<link rel="stylesheet" href="/css/jquery.modal.min.css">
+<script src="/js/jquery.justifiedGallery.min.js"></script>
+
+<script src="/dist/main.js"></script>
+
+<!-- ImageViewer -->
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<link rel="stylesheet" href="/css/photoswipe.min.css">
+<link rel="stylesheet" href="/css/default-skin.min.css">
+<script src="/js/photoswipe.min.js"></script>
+<script src="/js/photoswipe-ui-default.min.js"></script>
+
+<script>
+    function viewer_init() {
+        let pswpElement = document.querySelectorAll('.pswp')[0];
+        let $imgArr = document.querySelectorAll(('.article-entry img:not(.reward-img)'))
+
+        $imgArr.forEach(($em, i) => {
+            $em.onclick = () => {
+                // slider展开状态
+                // todo: 这样不好，后面改成状态
+                if (document.querySelector('.left-col.show')) return
+                let items = []
+                $imgArr.forEach(($em2, i2) => {
+                    let img = $em2.getAttribute('data-idx', i2)
+                    let src = $em2.getAttribute('data-target') || $em2.getAttribute('src')
+                    let title = $em2.getAttribute('alt')
+                    // 获得原图尺寸
+                    const image = new Image()
+                    image.src = src
+                    items.push({
+                        src: src,
+                        w: image.width || $em2.width,
+                        h: image.height || $em2.height,
+                        title: title
+                    })
+                })
+                var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, {
+                    index: parseInt(i)
+                });
+                gallery.init()
+            }
+        })
+    }
+    viewer_init()
+</script>
+
+<!-- MathJax -->
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      extensions: ["tex2jax.js"],
+      jax: ["input/TeX","output/HTML-CSS"],
+      tex2jax: {inlineMath: [["$","$"]]}
+    });
+  </script>
+
+<script src="/mathjax/MathJax.js"></script>
+<script>
+  var ayerConfig = {
+    mathjax: true
+  }
+</script>
+
+<!-- Katex -->
+
+<!-- busuanzi  -->
+
+<!-- ClickLove -->
+
+
+<script src="/js/clickLove.js"></script>
+
+
+<!-- ClickBoom1 -->
+
+<!-- ClickBoom2 -->
+
+<!-- CodeCopy -->
+
+
+<link rel="stylesheet" href="/css/clipboard.css">
+
+<script src="/js/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="ri-file-copy-2-line"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-checkbox-circle-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-checkbox-circle-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-time-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-time-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+
+
+<!-- CanvasBackground -->
+
+
+    
+  </div>
+</body>
+
+</html>
