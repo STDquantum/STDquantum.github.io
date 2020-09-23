@@ -1,0 +1,879 @@
+<!DOCTYPE html>
+
+
+<html lang="zh-CN">
+
+
+<head>
+  <meta charset="utf-8" />
+    
+  <meta name="description" content="STDquantum" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <title>
+    20191005模拟赛 |  STDquantum
+  </title>
+  <meta name="generator" content="hexo-theme-ayer">
+  
+  <link rel="shortcut icon" href="/1.ico" />
+  
+  
+<link rel="stylesheet" href="/dist/main.css">
+
+  
+<link rel="stylesheet" href="/css/remixicon.min.css">
+
+  
+<link rel="stylesheet" href="/css/custom.css">
+
+  
+  
+<script src="/js/pace.min.js"></script>
+
+  
+  
+
+  
+
+</head>
+
+</html>
+
+<body>
+  <div id="app">
+    
+      
+    <main class="content on">
+      <section class="outer">
+  <article
+  id="post-OI/模拟赛/20191005模拟赛"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  20191005模拟赛
+</h1>
+ 
+
+    </header>
+     
+    <div class="article-meta">
+      <a href="/20191005-mo-ni-sai/" class="article-date">
+  <time datetime="2019-10-05T07:14:45.000Z" itemprop="datePublished">2019-10-05</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/OI/">OI</a> / <a class="article-category-link" href="/categories/OI/%E6%A8%A1%E6%8B%9F%E8%B5%9B/">模拟赛</a>
+  </div>
+  
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> 字数统计:</span>
+            <span class="post-count">4.1k</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> 阅读时长≈</span>
+            <span class="post-count">18 分钟</span>
+        </span>
+    </span>
+</div>
+ 
+    </div>
+      
+    <div class="tocbot"></div>
+
+
+
+
+  
+    <div class="article-entry" itemprop="articleBody">
+       
+  <p>国庆培训的检验。</p>
+<a id="more"></a>
+<p>放一颗pdf吧。</p>
+<object classid="clsid:CA8A9780-280D-11CF-A24D-444553540000" width="100%" height="720"><param name="SRC" value="problem.pdf"><embed width="100%" height="720" fullscreen="yes" src="problem.pdf"></object>
+
+<h1 id="地下党"><a href="#地下党" class="headerlink" title="地下党"></a>地下党</h1><p>underground</p>
+<h2 id="题目背景"><a href="#题目背景" class="headerlink" title="题目背景"></a>题目背景</h2><p>1949 年，解放前夕北平城内潜伏着许多地下党员。悠酱被任命为地下党指挥官，她希望计算地下党员之间的最小通信距离。</p>
+<h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>我们不妨将北平城视为由$N$个点和$M$条边组成的无向图，$K$名地下党员分布在这些点上($K\leq N$)。</p>
+<p>所谓最小通信距离，就是任意两名地下党员间最短路的最小值。</p>
+<h2 id="输入输出格式"><a href="#输入输出格式" class="headerlink" title="输入输出格式"></a>输入输出格式</h2><h3 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h3><p>第一行一个整数$T$，代表数据组数，接下来一共$T$组数据。</p>
+<p>每组数据第一行为三个整数，$N,M,K$，分别表示点数、边数、地下党员数。</p>
+<p>之后$M$行，每行三个整数，$u,v,w$，表示$u$和$v$之间有一条长$w$的无向边。</p>
+<p>之后$1$行，共$K$个整数，表示地下党员所在的结点编号。</p>
+<h3 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h3><p>输出一共$T$行，每行一个整数，代表最小通信距离。</p>
+<p>注意如果最小通信距离为$\infty$，请输出$-1$代替。</p>
+<h2 id="输入输出样例"><a href="#输入输出样例" class="headerlink" title="输入输出样例"></a>输入输出样例</h2><h3 id="输入样例-1"><a href="#输入样例-1" class="headerlink" title="输入样例 #1"></a>输入样例 #1</h3><figure class="highlight basic"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span></span><br><span class="line"><span class="symbol">10 </span><span class="number">13</span> <span class="number">4</span></span><br><span class="line"><span class="symbol">1 </span><span class="number">6</span> <span class="number">484</span></span><br><span class="line"><span class="symbol">1 </span><span class="number">3</span> <span class="number">342</span></span><br><span class="line"><span class="symbol">2 </span><span class="number">3</span> <span class="number">695</span></span><br><span class="line"><span class="symbol">2 </span><span class="number">3</span> <span class="number">791</span></span><br><span class="line"><span class="symbol">2 </span><span class="number">8</span> <span class="number">974</span></span><br><span class="line"><span class="symbol">3 </span><span class="number">9</span> <span class="number">526</span></span><br><span class="line"><span class="symbol">4 </span><span class="number">9</span> <span class="number">584</span></span><br><span class="line"><span class="symbol">4 </span><span class="number">7</span> <span class="number">550</span></span><br><span class="line"><span class="symbol">5 </span><span class="number">9</span> <span class="number">914</span></span><br><span class="line"><span class="symbol">6 </span><span class="number">7</span> <span class="number">444</span></span><br><span class="line"><span class="symbol">6 </span><span class="number">8</span> <span class="number">779</span></span><br><span class="line"><span class="symbol">6 </span><span class="number">10</span> <span class="number">350</span></span><br><span class="line"><span class="symbol">8 </span><span class="number">8</span> <span class="number">394</span></span><br><span class="line"><span class="symbol">9 </span><span class="number">10</span> <span class="number">3</span> <span class="number">7</span></span><br></pre></td></tr></table></figure>
+<h3 id="输出样例-1"><a href="#输出样例-1" class="headerlink" title="输出样例 #1"></a>输出样例 #1</h3><figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">526</span></span><br></pre></td></tr></table></figure>
+<h2 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h2><p>$N\leq 100000, M\leq 200000$ 且 $0\leq w\leq 1000$。</p>
+<p>具体的看 pdf 吧。我实在拿纯 $\LaTeX$ 没办法。</p>
+<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>看着好像多源最短路诶。</p>
+<p>其实不用。。。</p>
+<p>发现能对答案造成贡献的，一定是不同的点（<del>废话</del>）。</p>
+<p>不同的点呢，一定会有一个二进制位不同的。</p>
+<p>于是就枚举到底是哪个二进制位不同，然后把这一位是 $1$（哪个都无所谓，都一样的）的一堆 $dis$ 设为 $0$，跑最短路，用这一位为 $0$ 的 $dis$ 更新答案。</p>
+<p>任羽辰当时没看到题里是给开O2的，然后拿自己的机子跑标程花了7s多，于是就把测试时限也调到了7s多。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> STDquantum &#123;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt; <span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">read</span><span class="params">(T &amp;x)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">char</span> ch;</span><br><span class="line">  <span class="keyword">int</span> f = <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">while</span> (ch = getchar(), !<span class="built_in">isdigit</span>(ch))</span><br><span class="line">    <span class="keyword">if</span> (ch == <span class="string">'-'</span>) f = <span class="number">-1</span>;</span><br><span class="line">  x = (ch ^ <span class="number">48</span>);</span><br><span class="line">  <span class="keyword">while</span> (ch = getchar(), <span class="built_in">isdigit</span>(ch)) x = x * <span class="number">10</span> + (ch ^ <span class="number">48</span>);</span><br><span class="line">  x *= f;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt; <span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">write</span><span class="params">(T x)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">static</span> <span class="keyword">int</span> stk[<span class="number">100</span>], top = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">if</span> (x == <span class="number">0</span>) <span class="keyword">return</span> (<span class="keyword">void</span>)<span class="built_in">putchar</span>(<span class="string">'0'</span>);</span><br><span class="line">  <span class="keyword">if</span> (x &lt; <span class="number">0</span>) x = -x, <span class="built_in">putchar</span>(<span class="string">'-'</span>);</span><br><span class="line">  <span class="keyword">while</span> (x) stk[++top] = x % <span class="number">10</span>, x /= <span class="number">10</span>;</span><br><span class="line">  <span class="keyword">while</span> (top) <span class="built_in">putchar</span>(stk[top--] + <span class="string">'0'</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt; <span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">min</span><span class="params">(<span class="keyword">int</span> &amp;x, <span class="keyword">const</span> T &amp;y)</span> </span>&#123;</span><br><span class="line">  x = x &lt; y ? x : y;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">1e5</span> + <span class="number">10</span>, M = <span class="number">4e5</span> + <span class="number">10</span>, inf = <span class="number">0x3f3f3f3f</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> tot, head[N];</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">E</span> &#123;</span></span><br><span class="line">  <span class="keyword">int</span> next, to, w;</span><br><span class="line">&#125; e[M];</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">add</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y, <span class="keyword">int</span> z)</span> </span>&#123;</span><br><span class="line">  e[++tot] = (E)&#123;head[x], y, z&#125;, head[x] = tot;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">T</span> &#123;</span></span><br><span class="line">  <span class="keyword">int</span> x, dis;</span><br><span class="line">  T(<span class="keyword">int</span> X = <span class="number">0</span>, <span class="keyword">int</span> Dis = <span class="number">0</span>) &#123; x = X, dis = Dis; &#125;</span><br><span class="line">  <span class="keyword">inline</span> <span class="keyword">friend</span> <span class="keyword">bool</span> <span class="keyword">operator</span>&lt;(<span class="keyword">const</span> T &amp;a, <span class="keyword">const</span> T &amp;b) &#123;</span><br><span class="line">    <span class="keyword">return</span> a.dis &gt; b.dis;</span><br><span class="line">  &#125;</span><br><span class="line">&#125; u;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> n, m, k, ans, a[N], dis[N];</span><br><span class="line"></span><br><span class="line">priority_queue&lt;T&gt; q;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Dijkstra</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  <span class="keyword">while</span> (!q.empty()) &#123;</span><br><span class="line">    u = q.top(), q.pop();</span><br><span class="line">    <span class="keyword">if</span> (dis[u.x] != u.dis) <span class="keyword">continue</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = head[u.x], v; i; i = e[i].next) &#123;</span><br><span class="line">      <span class="keyword">if</span> (dis[v = e[i].to] &gt; dis[u.x] + e[i].w) &#123;</span><br><span class="line">        q.push(T(v, dis[v] = dis[u.x] + e[i].w));</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  <span class="keyword">int</span> t;</span><br><span class="line">  read(t);</span><br><span class="line">  <span class="keyword">while</span> (t--) &#123;</span><br><span class="line">    tot = <span class="number">0</span>, <span class="built_in">memset</span>(head, <span class="number">0</span>, <span class="keyword">sizeof</span>(head));</span><br><span class="line">    read(n), read(m), read(k);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>, x, y, z; i &lt;= m; ++i) &#123;</span><br><span class="line">      read(x), read(y), read(z);</span><br><span class="line">      add(x, y, z), add(y, x, z);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= k; ++i) &#123; read(a[i]); &#125;</span><br><span class="line">    ans = inf;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= k; i &lt;&lt;= <span class="number">1</span>) &#123;</span><br><span class="line">      <span class="built_in">memset</span>(dis, <span class="number">0x3f</span>, <span class="keyword">sizeof</span>(dis));</span><br><span class="line">      <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= k; ++j) &#123;</span><br><span class="line">        <span class="keyword">if</span> ((j &amp; i) == <span class="number">0</span>) &#123; q.push(T(a[j], dis[a[j]] = <span class="number">0</span>)); &#125;</span><br><span class="line">      &#125;</span><br><span class="line">      Dijkstra();</span><br><span class="line">      <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= k; ++j) &#123;</span><br><span class="line">        <span class="keyword">if</span> (j &amp; i) &#123; min(ans, dis[a[j]]); &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    write(ans == inf ? <span class="number">-1</span> : ans), <span class="built_in">putchar</span>(<span class="string">'\n'</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;  <span class="comment">// namespace STDquantum</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">ifndef</span> ONLINE_JUDGE</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">ifdef</span> LOCAL</span></span><br><span class="line">  freopen(<span class="string">"D:\\OI\\STDquantum\\test.in"</span>, <span class="string">"r"</span>, <span class="built_in">stdin</span>);</span><br><span class="line">  freopen(<span class="string">"D:\\OI\\STDquantum\\test.out"</span>, <span class="string">"w"</span>, <span class="built_in">stdout</span>);</span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">ifndef</span> LOCAL</span></span><br><span class="line">  freopen(<span class="string">"underground.in"</span>, <span class="string">"r"</span>, <span class="built_in">stdin</span>);</span><br><span class="line">  freopen(<span class="string">"underground.out"</span>, <span class="string">"w"</span>, <span class="built_in">stdout</span>);</span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line">  STDquantum::main();</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="大集会"><a href="#大集会" class="headerlink" title="大集会"></a>大集会</h1><p>gathering</p>
+<h2 id="题目背景-1"><a href="#题目背景-1" class="headerlink" title="题目背景"></a>题目背景</h2><p>2022年，悠酱、任酱和你都毕业了。</p>
+<p>虽然各自奔向了不同的城市，但是距离并不能淡化你们的友谊。</p>
+<p>你们约定每年都要选择一个城市相聚。</p>
+<h2 id="题目描述-1"><a href="#题目描述-1" class="headerlink" title="题目描述"></a>题目描述</h2><p>世界上有$N$座城市，由$N-1$条双向航线连通。</p>
+<p>每年，悠酱、任酱和你都可能在不同于去年的城市。</p>
+<p>每年，悠酱、任酱和你都要选择一个城市相聚，你们希望三人到达该城市所经过的总航线数尽可能少。</p>
+<p>希望你能挑选最合适的城市，保证最优的选择是唯一的。</p>
+<h2 id="输入输出格式-1"><a href="#输入输出格式-1" class="headerlink" title="输入输出格式"></a>输入输出格式</h2><h3 id="输入格式-1"><a href="#输入格式-1" class="headerlink" title="输入格式"></a>输入格式</h3><p>第一行两个整数，$N,Q$，代表有$N$座城市，共$Q$年的询问。</p>
+<p>之后$N-1$行，每行两个整数，$u,v$，表示城市$u$和$v$之间有一条双向航线。</p>
+<p>之后$Q$行，每行三个整数，$a,b,c$，表示悠酱、任酱和你该年所在城市。</p>
+<h3 id="输出格式-1"><a href="#输出格式-1" class="headerlink" title="输出格式"></a>输出格式</h3><p>共$Q$行，每行以空格分割的两个整数，$P,S$，表示该年最合适的聚会城市为$P$，三人经过的总航线数为$S$。</p>
+<h2 id="输入输出样例-1"><a href="#输入输出样例-1" class="headerlink" title="输入输出样例"></a>输入输出样例</h2><h3 id="输入样例-1-1"><a href="#输入样例-1-1" class="headerlink" title="输入样例 #1"></a>输入样例 #1</h3><figure class="highlight basic"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">5 </span><span class="number">1</span></span><br><span class="line"><span class="symbol">1 </span><span class="number">2</span></span><br><span class="line"><span class="symbol">1 </span><span class="number">3</span></span><br><span class="line"><span class="symbol">3 </span><span class="number">4</span></span><br><span class="line"><span class="symbol">1 </span><span class="number">5</span></span><br><span class="line"><span class="symbol">3 </span><span class="number">1</span> <span class="number">2</span></span><br></pre></td></tr></table></figure>
+<h3 id="输出样例-1-1"><a href="#输出样例-1-1" class="headerlink" title="输出样例 #1"></a>输出样例 #1</h3><figure class="highlight basic"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">1 </span><span class="number">2</span></span><br></pre></td></tr></table></figure>
+<h2 id="说明-1"><a href="#说明-1" class="headerlink" title="说明"></a>说明</h2><p>$N,Q\leq 5\times 10^5$</p>
+<h2 id="题解-1"><a href="#题解-1" class="headerlink" title="题解"></a>题解</h2><p>肯定有两对点的 $\rm lca$ 是相同的，不同的那个肯定到这仨点的距离和最短。至于为什么，我也不知道。性感理解一下？</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> STDquantum &#123;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt; <span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">read</span><span class="params">(T &amp;x)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">char</span> ch;</span><br><span class="line">  <span class="keyword">int</span> f = <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">while</span> (ch = getchar(), !<span class="built_in">isdigit</span>(ch))</span><br><span class="line">    <span class="keyword">if</span> (ch == <span class="string">'-'</span>) f = <span class="number">-1</span>;</span><br><span class="line">  x = (ch ^ <span class="number">48</span>);</span><br><span class="line">  <span class="keyword">while</span> (ch = getchar(), <span class="built_in">isdigit</span>(ch)) x = x * <span class="number">10</span> + (ch ^ <span class="number">48</span>);</span><br><span class="line">  x *= f;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt; <span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">write</span><span class="params">(T x)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">static</span> <span class="keyword">int</span> stk[<span class="number">100</span>], top = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">if</span> (x == <span class="number">0</span>) <span class="keyword">return</span> (<span class="keyword">void</span>)<span class="built_in">putchar</span>(<span class="string">'0'</span>);</span><br><span class="line">  <span class="keyword">if</span> (x &lt; <span class="number">0</span>) x = -x, <span class="built_in">putchar</span>(<span class="string">'-'</span>);</span><br><span class="line">  <span class="keyword">while</span> (x) stk[++top] = x % <span class="number">10</span>, x /= <span class="number">10</span>;</span><br><span class="line">  <span class="keyword">while</span> (top) <span class="built_in">putchar</span>(stk[top--] + <span class="string">'0'</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">2e6</span> + <span class="number">10</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> tot, head[N];</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">E</span> &#123;</span></span><br><span class="line">  <span class="keyword">int</span> next, to;</span><br><span class="line">&#125; e[N];</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">add</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y)</span> </span>&#123;</span><br><span class="line">  e[++tot] = (E)&#123;head[x], y&#125;, head[x] = tot;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> cnt;</span><br><span class="line"><span class="keyword">int</span> dfn[N], fa[N], siz[N], dep[N], top[N], son[N];</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dfs1</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> f)</span> </span>&#123;</span><br><span class="line">  fa[x] = f, dfn[x] = ++cnt;</span><br><span class="line">  dep[x] = dep[f] + <span class="number">1</span>, siz[x] = <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> i = head[x], v; i; i = e[i].next) &#123;</span><br><span class="line">    <span class="keyword">if</span> (v = e[i].to, v == f) <span class="keyword">continue</span>;</span><br><span class="line">    dfs1(v, x), siz[x] += siz[v];</span><br><span class="line">    <span class="keyword">if</span> (siz[v] &gt; siz[son[x]]) son[x] = v;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dfs2</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> t)</span> </span>&#123;</span><br><span class="line">  top[x] = t;</span><br><span class="line">  <span class="keyword">if</span> (son[x]) dfs2(son[x], t);</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> i = head[x], v; i; i = e[i].next) &#123;</span><br><span class="line">    <span class="keyword">if</span> (v = e[i].to, v != son[x] &amp;&amp; v != fa[x]) dfs2(v, v);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">int</span> <span class="title">lca</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">while</span> (top[x] != top[y]) &#123;</span><br><span class="line">    <span class="keyword">if</span> (dep[top[x]] &lt; dep[top[y]]) swap(x, y);</span><br><span class="line">    x = fa[top[x]];</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> dep[x] &lt; dep[y] ? x : y;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> n, q, p, ans;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  read(n), read(q);</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>, x, y; i &lt; n; ++i)</span><br><span class="line">    read(x), read(y), add(x, y), add(y, x);</span><br><span class="line">  dfs1(<span class="number">1</span>, <span class="number">0</span>), dfs2(<span class="number">1</span>, <span class="number">1</span>);</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>, x, y, z, L[<span class="number">3</span>]; i &lt;= q; ++i) &#123;</span><br><span class="line">    read(x), read(y), read(z);</span><br><span class="line">    L[<span class="number">0</span>] = lca(x, y), L[<span class="number">1</span>] = lca(x, z), L[<span class="number">2</span>] = lca(y, z);</span><br><span class="line">    <span class="keyword">if</span> (L[<span class="number">0</span>] == L[<span class="number">1</span>]) &#123;</span><br><span class="line">      p = L[<span class="number">2</span>];</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (L[<span class="number">0</span>] == L[<span class="number">2</span>]) &#123;</span><br><span class="line">      p = L[<span class="number">1</span>];</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      p = L[<span class="number">0</span>];</span><br><span class="line">    &#125;</span><br><span class="line">    ans =</span><br><span class="line">        dep[x] + dep[y] + dep[z] - dep[L[<span class="number">0</span>]] - dep[L[<span class="number">1</span>]] - dep[L[<span class="number">2</span>]];</span><br><span class="line">    write(p), <span class="built_in">putchar</span>(<span class="string">' '</span>), write(ans), <span class="built_in">putchar</span>(<span class="string">'\n'</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;  <span class="comment">// namespace STDquantum</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">ifndef</span> ONLINE_JUDGE</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">ifdef</span> LOCAL</span></span><br><span class="line">  freopen(<span class="string">"D:\\OI\\STDquantum\\test.in"</span>, <span class="string">"r"</span>, <span class="built_in">stdin</span>);</span><br><span class="line">  freopen(<span class="string">"D:\\OI\\STDquantum\\test.out"</span>, <span class="string">"w"</span>, <span class="built_in">stdout</span>);</span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">ifndef</span> LOCAL</span></span><br><span class="line">  freopen(<span class="string">"T148367_gathering.in"</span>, <span class="string">"r"</span>, <span class="built_in">stdin</span>);</span><br><span class="line">  freopen(<span class="string">"T148367_gathering.out"</span>, <span class="string">"w"</span>, <span class="built_in">stdout</span>);</span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line">  STDquantum::main();</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="放射性"><a href="#放射性" class="headerlink" title="放射性"></a>放射性</h1><p>radioactive</p>
+<h2 id="题目背景-2"><a href="#题目背景-2" class="headerlink" title="题目背景"></a>题目背景</h2><p>2077 年，地球资源日益枯竭。为了提供足够支撑超级计算机“树形图”运行的能量，悠酱被派遣到核泄漏区域收集放射性物质。</p>
+<h2 id="题目描述-2"><a href="#题目描述-2" class="headerlink" title="题目描述"></a>题目描述</h2><p>悠酱观测到了$N$堆放射性物质。在第$0$时刻，第$i$堆放射性物质具有$E_i$单位能量。</p>
+<p>不幸的是，这些放射性物质的能量正在不断向外流失。</p>
+<p>具体而言，第$i$堆放射性物质每单位时间会流失$L_i$单位能量。</p>
+<p>聪明的悠酱已经知道采集第$i$堆放射性物质需要$T_i$单位时间。</p>
+<p>现在，我们假定悠酱不需要休息、移动不需要时间、采集第$i$堆放射性物质时其不会流失能量。</p>
+<p>那么，悠酱最多可以采集到多少单位能量的放射性物质呢？</p>
+<h2 id="输入输出格式-2"><a href="#输入输出格式-2" class="headerlink" title="输入输出格式"></a>输入输出格式</h2><h3 id="输入格式-2"><a href="#输入格式-2" class="headerlink" title="输入格式"></a>输入格式</h3><p>第一行一个整数$T$，代表数据组数，接下来一共$T$组数据。</p>
+<p>每组数据的第一行为一个整数，$N$，代表放射性物质堆数。</p>
+<p>接下来$N$行，每行三个整数，$E_i,L_i,T_i$，表示第$i$堆物质的属性。</p>
+<h3 id="输出格式-2"><a href="#输出格式-2" class="headerlink" title="输出格式"></a>输出格式</h3><p>输出一共$T$行，每行一个整数，代表最多能采集到的能量。</p>
+<h2 id="输入输出样例-2"><a href="#输入输出样例-2" class="headerlink" title="输入输出样例"></a>输入输出样例</h2><h3 id="输入样例-1-2"><a href="#输入样例-1-2" class="headerlink" title="输入样例 #1"></a>输入样例 #1</h3><figure class="highlight basic"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">2</span></span><br><span class="line"><span class="number">5</span></span><br><span class="line"><span class="symbol">3 </span><span class="number">0</span> <span class="number">3</span></span><br><span class="line"><span class="symbol">2 </span><span class="number">3</span> <span class="number">4</span></span><br><span class="line"><span class="symbol">9 </span><span class="number">0</span> <span class="number">2</span></span><br><span class="line"><span class="symbol">8 </span><span class="number">3</span> <span class="number">5</span></span><br><span class="line"><span class="symbol">4 </span><span class="number">0</span> <span class="number">2</span></span><br><span class="line"><span class="number">5</span></span><br><span class="line"><span class="symbol">2 </span><span class="number">2</span> <span class="number">3</span></span><br><span class="line"><span class="symbol">4 </span><span class="number">4</span> <span class="number">5</span></span><br><span class="line"><span class="symbol">10 </span><span class="number">1</span> <span class="number">1</span></span><br><span class="line"><span class="symbol">8 </span><span class="number">4</span> <span class="number">2</span></span><br><span class="line"><span class="symbol">3 </span><span class="number">3</span> <span class="number">3</span></span><br></pre></td></tr></table></figure>
+<h3 id="输出样例-1-2"><a href="#输出样例-1-2" class="headerlink" title="输出样例 #1"></a>输出样例 #1</h3><figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">24</span></span><br><span class="line"><span class="number">16</span></span><br></pre></td></tr></table></figure>
+<h2 id="说明-2"><a href="#说明-2" class="headerlink" title="说明"></a>说明</h2><p>$ N\leq 100, L_i\leq 100, T_i\leq 10000, E_i\leq 10000$</p>
+<h2 id="题解-2"><a href="#题解-2" class="headerlink" title="题解"></a>题解</h2><p>这题可以先想怎么让损失最小（指流失可能会造成的 $E_i$ 减小，但是不考虑 $E_i$ 的具体值，那是后面背包的内容）。</p>
+<p>当 $T_i=1$ 的时候，肯定要找流得快的先拿啊，这样能把损失降到最小。</p>
+<p>但是 $T_i$ 不是 $1$ 了呢？想想拿 $i$ 在什么时候比 $j$ 优？</p>
+<p>$T_i L_j\lt T_jL_i$。也就是拿 $i$ 造成的 $j$ 流失少一些。</p>
+<p>然后考虑怎么选这些物品。</p>
+<p>只能选一次，流失的直接算进价值里就行。也就是一个01背包。</p>
+<p>所以按照上面的不等式排序，然后进行01背包就可。</p>
+<p>然而，要是考虑到01背包时间维的大小，这题还是过不了。</p>
+<p>这么想，要是每个都不流失，那么需要拿 $\displaystyle\sum_{i=1}^n\max\{ T_i\}$ 也就是 $10^6$ 这么长时间。</p>
+<p>但是，要是不流失的话，还关心时间干什么。直接放到最后一个个全拿走就好了啊。</p>
+<p>所以把那些不流失的先拎出来，答案加上其 $E_i$。</p>
+<p>剩下的接着做01背包。</p>
+<p>这样就可以优化掉很多空间和时间了。剩下的都是要流失的，流失得最慢的也只需要 $\displaystyle\max\left\{\frac {E_i}{L_i}\right\}=10000$ 就流完了。所以如果流得最慢的这个是最后一个被拿的，那么需要花的时间就是 $\displaystyle\max\left\{\frac {E_i}{L_i}\right\}+\max\{T_i\}=20000$。</p>
+<p>啊，所以01背包数组开 $20000$ 就够了。</p>
+<p>这就A了。</p>
+<p>此题是ysq学长特意出的来教我们卡空间卡时间，学到了学到了。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> STDquantum &#123;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt; <span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">read</span><span class="params">(T &amp;x)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">char</span> ch;</span><br><span class="line">  <span class="keyword">int</span> f = <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">while</span> (ch = getchar(), !<span class="built_in">isdigit</span>(ch))</span><br><span class="line">    <span class="keyword">if</span> (ch == <span class="string">'-'</span>) f = <span class="number">-1</span>;</span><br><span class="line">  x = (ch ^ <span class="number">48</span>);</span><br><span class="line">  <span class="keyword">while</span> (ch = getchar(), <span class="built_in">isdigit</span>(ch)) x = x * <span class="number">10</span> + (ch ^ <span class="number">48</span>);</span><br><span class="line">  x *= f;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt; <span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">write</span><span class="params">(T x)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">static</span> <span class="keyword">int</span> stk[<span class="number">100</span>], top = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">if</span> (x == <span class="number">0</span>) <span class="keyword">return</span> (<span class="keyword">void</span>)<span class="built_in">putchar</span>(<span class="string">'0'</span>);</span><br><span class="line">  <span class="keyword">if</span> (x &lt; <span class="number">0</span>) x = -x, <span class="built_in">putchar</span>(<span class="string">'-'</span>);</span><br><span class="line">  <span class="keyword">while</span> (x) stk[++top] = x % <span class="number">10</span>, x /= <span class="number">10</span>;</span><br><span class="line">  <span class="keyword">while</span> (top) <span class="built_in">putchar</span>(stk[top--] + <span class="string">'0'</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt; <span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">max</span><span class="params">(<span class="keyword">int</span> &amp;x, <span class="keyword">const</span> T &amp;y)</span> </span>&#123;</span><br><span class="line">  x = x &lt; y ? y : x;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">2e4</span> + <span class="number">10</span>, M = <span class="number">101</span>, top = N - <span class="number">10</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">E</span> &#123;</span></span><br><span class="line">  <span class="keyword">int</span> e, l, t;</span><br><span class="line">  <span class="keyword">inline</span> <span class="keyword">friend</span> <span class="keyword">bool</span> <span class="keyword">operator</span>&lt;(<span class="keyword">const</span> E &amp;a, <span class="keyword">const</span> E &amp;b) &#123;</span><br><span class="line">    <span class="keyword">return</span> a.t * b.l &lt; b.t * a.l;</span><br><span class="line">  &#125;</span><br><span class="line">&#125; a[M];</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> n, m, ans, sum, f[N];</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  <span class="keyword">int</span> t;</span><br><span class="line">  read(t);</span><br><span class="line">  <span class="keyword">while</span> (t--) &#123;</span><br><span class="line">    read(n);</span><br><span class="line">    ans = sum = m = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; ++i) &#123;</span><br><span class="line">      read(a[i].e), read(a[i].l), read(a[i].t);</span><br><span class="line">      <span class="keyword">if</span> (a[i].l == <span class="number">0</span>) &#123;</span><br><span class="line">        sum += a[i].e;</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        a[++m] = a[i];</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    sort(a + <span class="number">1</span>, a + m + <span class="number">1</span>);</span><br><span class="line">    <span class="built_in">memset</span>(f, <span class="number">0</span>, <span class="keyword">sizeof</span>(f));</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= m; ++i) &#123;</span><br><span class="line">      <span class="keyword">for</span> (<span class="keyword">int</span> j = top; j &gt;= a[i].t; --j) &#123;</span><br><span class="line">        max(f[j], f[j - a[i].t] + a[i].e - a[i].l * (j - a[i].t));</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt;= top; ++i) max(ans, f[i]);</span><br><span class="line">    write(ans + sum), <span class="built_in">putchar</span>(<span class="string">'\n'</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;  <span class="comment">// namespace STDquantum</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">ifndef</span> ONLINE_JUDGE</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">ifdef</span> LOCAL</span></span><br><span class="line">  freopen(<span class="string">"D:\\OI\\STDquantum\\test.in"</span>, <span class="string">"r"</span>, <span class="built_in">stdin</span>);</span><br><span class="line">  freopen(<span class="string">"D:\\OI\\STDquantum\\test.out"</span>, <span class="string">"w"</span>, <span class="built_in">stdout</span>);</span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">ifndef</span> LOCAL</span></span><br><span class="line">  freopen(<span class="string">"T148481_radioactive.in"</span>, <span class="string">"r"</span>, <span class="built_in">stdin</span>);</span><br><span class="line">  freopen(<span class="string">"T148481_radioactive.out"</span>, <span class="string">"w"</span>, <span class="built_in">stdout</span>);</span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line">  STDquantum::main();</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="Simple-Summary"><a href="#Simple-Summary" class="headerlink" title="Simple Summary"></a>Simple Summary</h1><p>Background：2020-09-22到2020-09-23重做模拟赛赛题。</p>
+<p>Comment：很巧妙，学到了不少东西。好题好题。</p>
+<h1 id="Result"><a href="#Result" class="headerlink" title="Result"></a>Result</h1><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>排名</th>
+<th>名称</th>
+<th>underground</th>
+<th>radioactive</th>
+<th>gathering</th>
+<th>总分</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>SiriusRen</td>
+<td>100</td>
+<td>99</td>
+<td>100</td>
+<td>299</td>
+</tr>
+<tr>
+<td>2</td>
+<td>liuhaoming</td>
+<td>50</td>
+<td>27</td>
+<td>100</td>
+<td>177</td>
+</tr>
+<tr>
+<td>3</td>
+<td>LXF</td>
+<td>50</td>
+<td>45</td>
+<td>70</td>
+<td>165</td>
+</tr>
+<tr>
+<td>4</td>
+<td>zhaojinxi</td>
+<td>50</td>
+<td>27</td>
+<td>5</td>
+<td>82</td>
+</tr>
+<tr>
+<td>5</td>
+<td>huanghaiyi</td>
+<td>0</td>
+<td>27</td>
+<td>45</td>
+<td>72</td>
+</tr>
+<tr>
+<td>6</td>
+<td>wxk</td>
+<td>0</td>
+<td>0</td>
+<td>70</td>
+<td>70</td>
+</tr>
+<tr>
+<td>7</td>
+<td>张锦浩</td>
+<td>50</td>
+<td>0</td>
+<td>0</td>
+<td>50</td>
+</tr>
+<tr>
+<td>8</td>
+<td>于文阔</td>
+<td>0</td>
+<td>45</td>
+<td>0</td>
+<td>45</td>
+</tr>
+<tr>
+<td>9</td>
+<td>lihaosen</td>
+<td>0</td>
+<td>27</td>
+<td>0</td>
+<td>27</td>
+</tr>
+<tr>
+<td>9</td>
+<td>赵泽峰</td>
+<td>0</td>
+<td>27</td>
+<td>0</td>
+<td>27</td>
+</tr>
+<tr>
+<td>11</td>
+<td>jiazhaopeng</td>
+<td>0</td>
+<td>0</td>
+<td>20</td>
+<td>20</td>
+</tr>
+<tr>
+<td>11</td>
+<td>lijiahang</td>
+<td>0</td>
+<td>0</td>
+<td>20</td>
+<td>20</td>
+</tr>
+<tr>
+<td>13</td>
+<td>yexiaotian</td>
+<td>0</td>
+<td>18</td>
+<td>0</td>
+<td>18</td>
+</tr>
+<tr>
+<td>14</td>
+<td>WangKunPeng</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>14</td>
+<td>liang</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>14</td>
+<td>lijiaxi</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>14</td>
+<td>liuzhanxu</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>14</td>
+<td>liyuejian</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>14</td>
+<td>renyi</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>14</td>
+<td>shenzishun</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>14</td>
+<td>wangxinke</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>14</td>
+<td>wangxinke,</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>14</td>
+<td>wangzibo</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>14</td>
+<td>zhangjinhao</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>14</td>
+<td>zhangtingyu</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>14</td>
+<td>zhengzhichong</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>14</td>
+<td>zhouluyan</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>14</td>
+<td>王子博</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>二南不幸全部遇难。</p>
+<h1 id="Summary-of-the-Whole-Five-Days"><a href="#Summary-of-the-Whole-Five-Days" class="headerlink" title="Summary of the Whole Five Days"></a>Summary of the Whole Five Days</h1><p>2019国庆五天小结</p>
+<img src="/20191005-mo-ni-sai/1.jpg" class>
+<p>总的来说，前四天都在努力听，最后一天讲树链剖分不行了，听不下去了。</p>
+<p>#define ysq 杨思祺 &amp; YOUSIKI</p>
+<p>#define ryc 任羽辰 &amp; SiriusRen</p>
+<p>{//一部分copy的北校大佬刘皓铭的</p>
+<hr>
+<p>宿舍：住四人间爽的一批，但是D座冷的一批，2011宿舍</p>
+<p>宿舍开灯有莫名的延迟，大概有个三四秒，也许是电流跑完整个学校回来了</p>
+<p>李悦健和王子博从10.2开始在宿舍晚上颓，看视频……</p>
+<p>晚上根本没人管，随便说话随便嗨</p>
+<p>10.3 10.4中午李昂都在，然后一起聊哲学，王子博某一次从物理（特别终极的一些问题），突然聊到把所有恒星行星都缩到一块然后，扔！给！任！亮！（本来想说人类，然后将错就错了）</p>
+<p>10.4晚上李悦健试穿他的小黑裙子，号小了，特别紧</p>
+<p>李悦健和王子博聊了聊他们的女朋友</p>
+<hr>
+<p>饭：饭菜很便宜，早饭六元，午饭晚饭八元（10.3之前）</p>
+<p>然后因为10.3其他竞赛生回来了，这个政策没了</p>
+<p>可惜不天天国庆，那天中午饭菜统一两块</p>
+<p>10.3晚上骨肉相连没来（10.4中午才会来），然后只好买培根，还送了一个</p>
+<p>掉渣饼解决一切问题</p>
+<p>10.5中午送了一碗粥</p>
+<p>前几天食堂只开三楼两个窗口（卖的东西一样），和二楼的清真，饭还行，也不是特别好吃，但也凑合。</p>
+<hr>
+<p>上课：第一天上午状压dp录屏没保存上，第五天上午打表和对拍没录</p>
+<p>山大附中和石门也来听，还有润德的一个小伙子，总共 28 人</p>
+<p>被初中学长爆踩</p>
+<p>ryc问我们有没有女朋友（当然都说没有），给我们买糖吃，让我们去操场玩</p>
+<p>晚上在操场跑了一圈，跳了跳远，逛了逛，然后疯狂补作业</p>
+<p>ryc说，今天代码都不超过五十行，后来才知道他是压行大佬，常规操作是去掉大括号，删掉换行，逗号连接。</p>
+<p>Ryc讲了很多自己上学时候的故事，包括逃课、打游戏等。还说ysq一开始学的生物竞赛因为他喜欢一个小女生，可惜最后没追到，到现在还是单身</p>
+<hr>
+<p>热身赛一共五次，有很多人抄题解，然后10.3晚上ryc怒了，开始查重</p>
+<p>抄题解的初一学长虽然很牛，但是考试就爆了</p>
+<p>Emmmm我虽然抄了一次题解但至少是在完全理解上抄的，就那个Floyd模板，于是我会了Floyd（这五天别的代码一个不会）（n三方的鬼程序，非常容易炸）</p>
+<p>于是最后一天模拟赛，T1T3是ysq出的，有点难，T2是他出的水题</p>
+<p>模拟赛压缩包 ryc 设的密码：YOUSIKI&amp;SiriusRen  Single19yearsysq!</p>
+<p>然后我发现一和二都能用Floyd（唯一会写的代码），然后就用了。第二题本来看出来要用LCA，可惜不会用</p>
+<p>然后打算水个四十分，然后愉快爆零</p>
+<p>把文件放错文件夹了</p>
+<p>然后floyd数组开f[10000][10000]内存炸了</p>
+<p>于是改成1000 1000就好使了</p>
+<p>于是出现了图二的二十分</p>
+<p>愉快极了</p>
+<p>二南集体爆零</p>
+<p>太妙了</p>
+<img src="/20191005-mo-ni-sai/2.png" class>
+<img src="/20191005-mo-ni-sai/3.jpg" class>
+<p>图二 </p>
+<p>总结：嗯嗯嗯嗯  好好学习</p>
+<p>要么就存真一跃解千愁</p>
+<p>真好</p>
+<hr>
+<p>}the end;</p>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/OI/" rel="tag">OI</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%A8%A1%E6%8B%9F%E8%B5%9B/" rel="tag">模拟赛</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+  <nav class="article-nav">
+    
+      <a href="/20191011-mo-ni-sai/" class="article-nav-link">
+        <strong class="article-nav-caption">上一篇</strong>
+        <div class="article-nav-title">
+          
+            20191011模拟赛
+          
+        </div>
+      </a>
+    
+    
+      <a href="/20190922-mo-ni-sai/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">20190922模拟赛</div>
+      </a>
+    
+  </nav>
+
+  
+     
+</article>
+
+</section>
+      <footer class="footer">
+  <div class="outer">
+    <ul>
+      <li>
+        Copyrights &copy;
+        2020
+        <i class="ri-heart-fill heart_icon"></i> STDquantum
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+      </li>
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      <li>
+        <!-- cnzz统计 -->
+        
+      </li>
+    </ul>
+  </div>
+</footer>
+      <div class="float_btns">
+        <div class="totop" id="totop">
+  <i class="ri-arrow-up-line"></i>
+</div>
+
+      </div>
+    </main>
+    <aside class="sidebar on">
+      <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/1.jpg" alt="STDquantum"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">主页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">归档</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/categories">分类</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/tags">标签</a>
+    </li>
+    
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      
+      <a class="nav-item-link nav-item-search"  title="搜索">
+        <i class="ri-search-line"></i>
+      </a>
+      
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+    </aside>
+    <script>
+      if (window.matchMedia("(max-width: 768px)").matches) {
+        document.querySelector('.content').classList.remove('on');
+        document.querySelector('.sidebar').classList.remove('on');
+      }
+    </script>
+    <div id="mask"></div>
+
+<!-- #reward -->
+<div id="reward">
+  <span class="close"><i class="ri-close-line"></i></span>
+  <p class="reward-p"><i class="ri-cup-line"></i></p>
+  <div class="reward-box">
+    
+    
+  </div>
+</div>
+    
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+
+<script src="/js/lazyload.min.js"></script>
+
+<!-- Tocbot -->
+
+
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  tocbot.init({
+    tocSelector: '.tocbot',
+    contentSelector: '.article-entry',
+    headingSelector: 'h1, h2, h3, h4, h5, h6',
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: 'main',
+    positionFixedSelector: '.tocbot',
+    positionFixedClass: 'is-position-fixed',
+    fixedSidebarOffset: 'auto'
+  });
+</script>
+<!-- Live-2D -->
+<script type="text/javascript" charset="utf-8" src="/js/L2Dwidget.0.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="/js/L2Dwidget.min.js"></script>
+<script type="text/javascript">
+  L2Dwidget.on('*', (name) => {
+    console.log('%c EVENT ' + '%c -> ' + name, 'background: #222; color: yellow', 'background: #fff; color: #000')
+  });
+  L2Dwidget.init({
+    "display": {
+      "superSample": 2,
+      "width": 200,
+      "height": 400,
+      "position": "right",
+      "hOffset": 0,
+      "vOffset": 0
+    },
+    "mobile": {
+      "show": true,
+      "scale": 0.7
+    }
+  });
+</script>
+
+<script src="/js/jquery.modal.min.js"></script>
+<link rel="stylesheet" href="/css/jquery.modal.min.css">
+<script src="/js/jquery.justifiedGallery.min.js"></script>
+
+<script src="/dist/main.js"></script>
+
+<!-- ImageViewer -->
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<link rel="stylesheet" href="/css/photoswipe.min.css">
+<link rel="stylesheet" href="/css/default-skin.min.css">
+<script src="/js/photoswipe.min.js"></script>
+<script src="/js/photoswipe-ui-default.min.js"></script>
+
+<script>
+    function viewer_init() {
+        let pswpElement = document.querySelectorAll('.pswp')[0];
+        let $imgArr = document.querySelectorAll(('.article-entry img:not(.reward-img)'))
+
+        $imgArr.forEach(($em, i) => {
+            $em.onclick = () => {
+                // slider展开状态
+                // todo: 这样不好，后面改成状态
+                if (document.querySelector('.left-col.show')) return
+                let items = []
+                $imgArr.forEach(($em2, i2) => {
+                    let img = $em2.getAttribute('data-idx', i2)
+                    let src = $em2.getAttribute('data-target') || $em2.getAttribute('src')
+                    let title = $em2.getAttribute('alt')
+                    // 获得原图尺寸
+                    const image = new Image()
+                    image.src = src
+                    items.push({
+                        src: src,
+                        w: image.width || $em2.width,
+                        h: image.height || $em2.height,
+                        title: title
+                    })
+                })
+                var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, {
+                    index: parseInt(i)
+                });
+                gallery.init()
+            }
+        })
+    }
+    viewer_init()
+</script>
+
+<!-- MathJax -->
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      extensions: ["tex2jax.js"],
+      jax: ["input/TeX","output/HTML-CSS"],
+      tex2jax: {inlineMath: [["$","$"]]}
+    });
+  </script>
+
+<script src="/mathjax/MathJax.js"></script>
+<script>
+  var ayerConfig = {
+    mathjax: true
+  }
+</script>
+
+<!-- Katex -->
+
+<!-- busuanzi  -->
+
+<!-- ClickLove -->
+
+
+<script src="/js/clickLove.js"></script>
+
+
+<!-- ClickBoom1 -->
+
+<!-- ClickBoom2 -->
+
+<!-- CodeCopy -->
+
+
+<link rel="stylesheet" href="/css/clipboard.css">
+
+<script src="/js/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="ri-file-copy-2-line"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-checkbox-circle-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-checkbox-circle-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-time-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-time-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+
+
+<!-- CanvasBackground -->
+
+
+    
+  </div>
+</body>
+
+</html>
