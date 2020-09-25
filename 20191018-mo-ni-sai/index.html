@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+
+
+<html lang="zh-CN">
+
+
+<head>
+  <meta charset="utf-8" />
+    
+  <meta name="description" content="STDquantum" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <title>
+    20191018模拟赛 |  STDquantum
+  </title>
+  <meta name="generator" content="hexo-theme-ayer">
+  
+  <link rel="shortcut icon" href="/1.ico" />
+  
+  
+<link rel="stylesheet" href="/dist/main.css">
+
+  
+<link rel="stylesheet" href="/css/remixicon.min.css">
+
+  
+<link rel="stylesheet" href="/css/custom.css">
+
+  
+  
+<script src="/js/pace.min.js"></script>
+
+  
+  
+
+  
+
+</head>
+
+</html>
+
+<body>
+  <div id="app">
+    
+      
+    <main class="content on">
+      <section class="outer">
+  <article
+  id="post-OI/simulate/20191018模拟赛"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  20191018模拟赛
+</h1>
+ 
+
+    </header>
+     
+    <div class="article-meta">
+      <a href="/20191018-mo-ni-sai/" class="article-date">
+  <time datetime="2019-10-18T07:55:00.000Z" itemprop="datePublished">2019-10-18</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/OI/">OI</a> / <a class="article-category-link" href="/categories/OI/%E6%A8%A1%E6%8B%9F%E8%B5%9B/">模拟赛</a>
+  </div>
+  
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> 字数统计:</span>
+            <span class="post-count">3.2k</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> 阅读时长≈</span>
+            <span class="post-count">14 分钟</span>
+        </span>
+    </span>
+</div>
+ 
+    </div>
+      
+    <div class="tocbot"></div>
+
+
+
+
+  
+    <div class="article-entry" itemprop="articleBody">
+       
+  <blockquote>
+<p>人生不过是午后到黄昏的距离，茶凉言尽，月上柳梢。</p>
+<div align="right">——徐志摩</div>
+
+</blockquote>
+<a id="more"></a>
+<h1 id="USACO19FEB-Painting-The-Barn-S"><a href="#USACO19FEB-Painting-The-Barn-S" class="headerlink" title="[USACO19FEB]Painting The Barn S"></a>[USACO19FEB]Painting The Barn S</h1><p><a href="https://www.luogu.com.cn/problem/P5542" target="_blank" rel="noopener">P5542 [USACO19FEB]Painting The Barn S</a></p>
+<h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>农夫约翰不擅长多任务处理。他经常分心，很难完成长的项目。目前，他正试图在谷仓的一侧上漆，但他一直在画小矩形区域，然后由于照料奶牛的需要而偏离了方向，使得谷仓的某些部分上漆的涂料比其他部分多。</p>
+<p>我们可以将谷仓的一侧描述为一个二维x-y平面，农夫约翰在该平面上绘制n个矩形，每个矩形的边都与坐标轴平行，每个矩形由谷仓的左下角和右上角点的坐标描述。</p>
+<p>农夫约翰想在谷仓上涂几层油漆，这样在不久的将来就不需要再重新粉刷了。但是，他不想浪费时间涂太多的油漆。结果表明，K涂层是最佳用量。请在他画完所有的长方形后，帮他确定谷仓有多少面积被K层油漆覆盖。</p>
+<h2 id="输入输出格式"><a href="#输入输出格式" class="headerlink" title="输入输出格式"></a>输入输出格式</h2><p>输入的第一行包含n和k（1≤k≤n≤100000）。其余n行中的每一行包含四个整数x1、y1、x2、y2，描述正在绘制的矩形区域，左下角（x1、y1）和右上角（x2、y2）。所有x和y值都在0…1000范围内，并且所有矩形都有正面积。</p>
+<h3 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h3><p>请输出谷仓被K层油漆覆盖的区域。</p>
+<h2 id="输入输出样例"><a href="#输入输出样例" class="headerlink" title="输入输出样例"></a>输入输出样例</h2><h3 id="输入样例-1"><a href="#输入样例-1" class="headerlink" title="输入样例 #1"></a>输入样例 #1</h3><figure class="highlight basic"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">3 </span><span class="number">2</span></span><br><span class="line"><span class="symbol">1 </span><span class="number">1</span> <span class="number">5</span> <span class="number">5</span></span><br><span class="line"><span class="symbol">4 </span><span class="number">4</span> <span class="number">7</span> <span class="number">6</span></span><br><span class="line"><span class="symbol">3 </span><span class="number">3</span> <span class="number">8</span> <span class="number">7</span></span><br></pre></td></tr></table></figure>
+<h3 id="输出样例-1"><a href="#输出样例-1" class="headerlink" title="输出样例 #1"></a>输出样例 #1</h3><figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">8</span></span><br></pre></td></tr></table></figure>
+<h2 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h2><p>USACO 2019 二月月赛银牌组第二题</p>
+<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>这是一道二维差分的板子，当然我打算采用二维树状数组。</p>
+<p>发现给出的是点坐标，但是要求的却是矩形，所以将左下角横纵坐标都加一。</p>
+<p>考虑一下要在哪些地方修改使得前缀和即为所求值。</p>
+<p>拿<code>0 0 1 1</code>举例，我们想让位置为 $(1,1)$ 的矩形全部加一，那么肯定是要在左下角处加一。</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">1</th>
+<th style="text-align:center">1</th>
+<th style="text-align:center">1</th>
+<th style="text-align:center">1</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">1</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">1</td>
+</tr>
+<tr>
+<td style="text-align:center">1</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">1</td>
+</tr>
+<tr>
+<td style="text-align:center">1</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">1</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>变成这样，我们想去掉右边的影响，就在 $(1,2)$ 和 $(2,1)$ 处分别减一。</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">1-1</th>
+<th style="text-align:center">1-1-1</th>
+<th style="text-align:center">1-1-1</th>
+<th style="text-align:center">1-1-1</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">1-1</td>
+<td style="text-align:center">1-1-1</td>
+<td style="text-align:center">1-1-1</td>
+<td style="text-align:center">1-1-1</td>
+</tr>
+<tr>
+<td style="text-align:center">1-1</td>
+<td style="text-align:center">1-1-1</td>
+<td style="text-align:center">1-1-1</td>
+<td style="text-align:center">1-1-1</td>
+</tr>
+<tr>
+<td style="text-align:center">1</td>
+<td style="text-align:center">1-1</td>
+<td style="text-align:center">1-1</td>
+<td style="text-align:center">1-1</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>发现 $x=1$ 的和 $y=1$ 的都对了，但其余都多减了一个 $1$，所以把 $(2,2)$ 处加一。</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">1-1</th>
+<th style="text-align:center">1-1-1+1</th>
+<th style="text-align:center">1-1-1+1</th>
+<th style="text-align:center">1-1-1+1</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">1-1</td>
+<td style="text-align:center">1-1-1+1</td>
+<td style="text-align:center">1-1-1+1</td>
+<td style="text-align:center">1-1-1+1</td>
+</tr>
+<tr>
+<td style="text-align:center">1-1</td>
+<td style="text-align:center">1-1-1+1</td>
+<td style="text-align:center">1-1-1+1</td>
+<td style="text-align:center">1-1-1+1</td>
+</tr>
+<tr>
+<td style="text-align:center">1</td>
+<td style="text-align:center">1-1</td>
+<td style="text-align:center">1-1</td>
+<td style="text-align:center">1-1</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>现在只有 $(1,1)$ 的矩形是一，其他都变成了 $0$。</p>
+<p>总结：想要让 $(x_1,y_1)$ 到 $(x_2,y_2)$ 的矩形都加 $1$，就要从查分上的 $(x_1,y_1)$ 和 $(x_2+1,y_2+1)$ 处加一，在 $(x_1,y_2+1)$ 和 $(x_2+1,y_1)$ 处减一。</p>
+<p>代码：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> STDquantum &#123;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt; <span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">read</span><span class="params">(T &amp;x)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">char</span> ch;</span><br><span class="line">  <span class="keyword">int</span> f = <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">while</span> (ch = getchar(), !<span class="built_in">isdigit</span>(ch))</span><br><span class="line">    <span class="keyword">if</span> (ch == <span class="string">'-'</span>) f = <span class="number">-1</span>;</span><br><span class="line">  x = (ch ^ <span class="number">48</span>);</span><br><span class="line">  <span class="keyword">while</span> (ch = getchar(), <span class="built_in">isdigit</span>(ch)) x = x * <span class="number">10</span> + (ch ^ <span class="number">48</span>);</span><br><span class="line">  x *= f;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt; <span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">write</span><span class="params">(T x)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">static</span> <span class="keyword">int</span> stk[<span class="number">100</span>], top = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">if</span> (x == <span class="number">0</span>) <span class="keyword">return</span> (<span class="keyword">void</span>)<span class="built_in">putchar</span>(<span class="string">'0'</span>);</span><br><span class="line">  <span class="keyword">if</span> (x &lt; <span class="number">0</span>) x = -x, <span class="built_in">putchar</span>(<span class="string">'-'</span>);</span><br><span class="line">  <span class="keyword">while</span> (x) stk[++top] = x % <span class="number">10</span>, x /= <span class="number">10</span>;</span><br><span class="line">  <span class="keyword">while</span> (top) <span class="built_in">putchar</span>(stk[top--] + <span class="string">'0'</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">1e3</span> + <span class="number">10</span>, top = <span class="number">1000</span>;</span><br><span class="line"><span class="keyword">int</span> t[N][N];</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">add</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y, <span class="keyword">int</span> z)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> i = x; i &lt;= top; i += i &amp; -i) &#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> j = y; j &lt;= top; j += j &amp; -j) &#123; t[i][j] += z; &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">int</span> <span class="title">query</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">int</span> tmp = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> i = x; i; i -= i &amp; -i) &#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> j = y; j; j -= j &amp; -j) &#123; tmp += t[i][j]; &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> tmp;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> n, k, ans;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  read(n), read(k);</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>, x1, x2, y1, y2; i &lt;= n; ++i) &#123;</span><br><span class="line">    read(x1), read(y1), read(x2), read(y2);</span><br><span class="line">    ++x1, ++y1;</span><br><span class="line">    add(x1, y1, <span class="number">1</span>), add(x2 + <span class="number">1</span>, y2 + <span class="number">1</span>, <span class="number">1</span>);</span><br><span class="line">    add(x1, y2 + <span class="number">1</span>, <span class="number">-1</span>), add(x2 + <span class="number">1</span>, y1, <span class="number">-1</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= top; ++i) &#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= top; ++j) &#123;</span><br><span class="line">      <span class="keyword">if</span> (query(i, j) == k) ++ans;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  write(ans);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;  <span class="comment">// namespace STDquantum</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">ifndef</span> ONLINE_JUDGE</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">ifdef</span> LOCAL</span></span><br><span class="line">  freopen(<span class="string">"D:\\OI\\STDquantum\\test.in"</span>, <span class="string">"r"</span>, <span class="built_in">stdin</span>);</span><br><span class="line">  freopen(<span class="string">"D:\\OI\\STDquantum\\test.out"</span>, <span class="string">"w"</span>, <span class="built_in">stdout</span>);</span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">ifndef</span> LOCAL</span></span><br><span class="line">  freopen(<span class="string">"P5542_[USACO19FEB]_Painting_The_Barn_S.in"</span>, <span class="string">"r"</span>, <span class="built_in">stdin</span>);</span><br><span class="line">  freopen(<span class="string">"P5542_[USACO19FEB]_Painting_The_Barn_S.out"</span>, <span class="string">"w"</span>, <span class="built_in">stdout</span>);</span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line">  STDquantum::main();</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="USACO19FEB-The-Great-Revegetation-S"><a href="#USACO19FEB-The-Great-Revegetation-S" class="headerlink" title="[USACO19FEB]The Great Revegetation S"></a>[USACO19FEB]The Great Revegetation S</h1><p><a href="https://www.luogu.com.cn/problem/P5543" target="_blank" rel="noopener">P5543 [USACO19FEB]The Great Revegetation S</a></p>
+<h2 id="题目描述-1"><a href="#题目描述-1" class="headerlink" title="题目描述"></a>题目描述</h2><p>一场漫长的干旱使农场主约翰的N牧场没有草。然而，随着雨季的到来，是时候“重新种植”了。在农夫约翰的小屋里，他有两个桶，每个桶都有不同类型的草籽。他想在他的每一个N牧场种草，在每一个牧场中选择一种类型的草。</p>
+<p>作为一名奶农，农场主约翰想确保他能满足他那几头奶牛的特殊饮食需求。他的每头m奶牛都有两个最喜欢的牧场。他的一些奶牛有一个饮食限制，那就是他们应该只吃一种类型的草，因此农场主约翰希望确保在这类奶牛最喜欢的两个田里种植同一种类型的草。其他的奶牛有一个非常不同的饮食限制，要求他们吃不同类型的草。对于那些奶牛，农场主约翰当然想确保他们最喜欢的两块田地里有不同的草。</p>
+<p>请帮助农场主约翰确定他在他的N牧场上种植草的不同方式的数量。</p>
+<h2 id="输入输出格式-1"><a href="#输入输出格式-1" class="headerlink" title="输入输出格式"></a>输入输出格式</h2><h3 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h3><p>输入的第一行包含N（2≤n≤1e5）和m（1≤m≤1e5）。</p>
+<p>下一行m中的每一行都包含一个“s”或“d”字符，后跟两个1…n范围内的整数，描述农场主约翰的一头牛最喜欢的两个牧场。如果字符是“s”，则这一行表示一头母牛在其两个最喜爱的牧场中需要相同类型的草。如果字符为“d”，则该行表示需要不同草类型的奶牛。</p>
+<h3 id="输出格式-1"><a href="#输出格式-1" class="headerlink" title="输出格式"></a>输出格式</h3><p>输出农场主约翰在他的N牧场上植草的方式。请用二进制写你的答案。</p>
+<h2 id="输入输出样例-1"><a href="#输入输出样例-1" class="headerlink" title="输入输出样例"></a>输入输出样例</h2><h3 id="输入样例-1-1"><a href="#输入样例-1-1" class="headerlink" title="输入样例 #1"></a>输入样例 #1</h3><figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">3</span> <span class="number">2</span></span><br><span class="line">S <span class="number">1</span> <span class="number">2</span></span><br><span class="line">D <span class="number">3</span> <span class="number">2</span></span><br></pre></td></tr></table></figure>
+<h3 id="输出样例-1-1"><a href="#输出样例-1-1" class="headerlink" title="输出样例 #1"></a>输出样例 #1</h3><figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">10</span></span><br></pre></td></tr></table></figure>
+<h2 id="说明-1"><a href="#说明-1" class="headerlink" title="说明"></a>说明</h2><p>USACO 2019 二月月赛银牌组第三题</p>
+<h2 id="题解-1"><a href="#题解-1" class="headerlink" title="题解"></a>题解</h2><p>判断有没有冲突，可以考虑用并查集。</p>
+<p>首先不管是<code>S</code>还是<code>D</code>，都要把两个元素塞进一个并查集，把这个用来统计答案的作为 $ans$，代表这两个牧场被联合在了一起。最后答案就是<code>1</code>加上 $cnt$（$ans$ 内的连通块数）个零。</p>
+<p>然后分别考虑每一种情况。</p>
+<p>如果是<code>S</code>，那么说明这两个元素应该在一个连通块内，这时发现一个并查集已经不够了，再建一个叫 $g$ 的并查集。在 $g$ 里把 $x$ 和 $y$ 并在一起。</p>
+<p>如果是<code>D</code>，那么说明这两个元素不应该在一个连通块内，在 $g$ 里判断一下，如果连通就输出 $0$，结束程序就行。但是怎么记录这两个不在一个连通块内呢？两个并查集又不够了（川一_一）。所以需要再来一个。新来的这个就叫 $f$ 吧。</p>
+<p>嗯。所以需要重新考虑一下怎么加。</p>
+<p>用 $g$ 和 $f$ 内部 $x$ 和 $y$ 连通表示这俩应该连通，用 $g$ 和 $f$ 之间 $x$ 和 $y$ 连通表示这俩不应该连通。</p>
+<p>那么在<code>S</code>的情况下，需要查询一下 $g$ 和 $f$ 间 $x$ 和 $y$ 是否连通，要是连通就冲突。</p>
+<p>在<code>D</code>的情况下，需要查询一下 $g$ 和 $f$ 内部 $x$ 和 $y$ 是否连通，要是连通就冲突。</p>
+<p>过了。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> STDquantum &#123;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt; <span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">read</span><span class="params">(T &amp;x)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">char</span> ch;</span><br><span class="line">  <span class="keyword">int</span> f = <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">while</span> (ch = getchar(), !<span class="built_in">isdigit</span>(ch))</span><br><span class="line">    <span class="keyword">if</span> (ch == <span class="string">'-'</span>) f = <span class="number">-1</span>;</span><br><span class="line">  x = (ch ^ <span class="number">48</span>);</span><br><span class="line">  <span class="keyword">while</span> (ch = getchar(), <span class="built_in">isdigit</span>(ch)) x = x * <span class="number">10</span> + (ch ^ <span class="number">48</span>);</span><br><span class="line">  x *= f;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt; <span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">write</span><span class="params">(T x)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">static</span> <span class="keyword">int</span> stk[<span class="number">100</span>], top = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">if</span> (x == <span class="number">0</span>) <span class="keyword">return</span> (<span class="keyword">void</span>)<span class="built_in">putchar</span>(<span class="string">'0'</span>);</span><br><span class="line">  <span class="keyword">if</span> (x &lt; <span class="number">0</span>) x = -x, <span class="built_in">putchar</span>(<span class="string">'-'</span>);</span><br><span class="line">  <span class="keyword">while</span> (x) stk[++top] = x % <span class="number">10</span>, x /= <span class="number">10</span>;</span><br><span class="line">  <span class="keyword">while</span> (top) <span class="built_in">putchar</span>(stk[top--] + <span class="string">'0'</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">3e5</span> + <span class="number">10</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">UF</span> &#123;</span></span><br><span class="line">  <span class="keyword">int</span> fa[N];</span><br><span class="line">  UF() &#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; N; ++i) fa[i] = i;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="function"><span class="keyword">inline</span> <span class="keyword">int</span> <span class="title">Find</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> x == fa[x] ? x : fa[x] = Find(fa[x]);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">Union</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y)</span> </span>&#123; fa[Find(x)] = Find(y); &#125;</span><br><span class="line">&#125; a;</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> f(x) x + n</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> g(x) x + 2 * n</span></span><br><span class="line"><span class="keyword">int</span> n, m, ans;</span><br><span class="line"><span class="keyword">char</span> s[<span class="number">2</span>];</span><br><span class="line"><span class="keyword">bool</span> vis[N];</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  read(n), read(m);</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>, x, y; i &lt;= m; ++i) &#123;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%s"</span>, s);</span><br><span class="line">    read(x), read(y), a.Union(x, y);</span><br><span class="line">    <span class="keyword">if</span> (*s == <span class="string">'S'</span>) &#123;</span><br><span class="line">      <span class="keyword">if</span> (a.Find(f(x)) == a.Find(g(y)) ||</span><br><span class="line">          a.Find(g(x)) == a.Find(f(y))) &#123;</span><br><span class="line">        <span class="built_in">putchar</span>(<span class="string">'0'</span>), <span class="built_in">exit</span>(<span class="number">0</span>);</span><br><span class="line">      &#125;</span><br><span class="line">      a.Union(f(x), f(y));</span><br><span class="line">      a.Union(g(x), g(y));</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="keyword">if</span> (a.Find(f(x)) == a.Find(f(y)) ||</span><br><span class="line">          a.Find(g(x)) == a.Find(g(y))) &#123;</span><br><span class="line">        <span class="built_in">putchar</span>(<span class="string">'0'</span>), <span class="built_in">exit</span>(<span class="number">0</span>);</span><br><span class="line">      &#125;</span><br><span class="line">      a.Union(f(x), g(y));</span><br><span class="line">      a.Union(f(y), g(x));</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>, f; i &lt;= n; ++i) &#123;</span><br><span class="line">    <span class="keyword">if</span> (!vis[f = a.Find(i)]) vis[f] = <span class="literal">true</span>, ++ans;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="built_in">putchar</span>(<span class="string">'1'</span>);</span><br><span class="line">  <span class="keyword">while</span> (ans--) <span class="built_in">putchar</span>(<span class="string">'0'</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;  <span class="comment">// namespace STDquantum</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">ifndef</span> ONLINE_JUDGE</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">ifdef</span> LOCAL</span></span><br><span class="line">  freopen(<span class="string">"D:\\OI\\STDquantum\\test.in"</span>, <span class="string">"r"</span>, <span class="built_in">stdin</span>);</span><br><span class="line">  freopen(<span class="string">"D:\\OI\\STDquantum\\test.out"</span>, <span class="string">"w"</span>, <span class="built_in">stdout</span>);</span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">ifndef</span> LOCAL</span></span><br><span class="line">  freopen(<span class="string">"P5543_[USACO19FEB]_The_Great_Revegetation_S.in"</span>, <span class="string">"r"</span>,</span><br><span class="line">          <span class="built_in">stdin</span>);</span><br><span class="line">  freopen(<span class="string">"P5543_[USACO19FEB]_The_Great_Revegetation_S.out"</span>, <span class="string">"w"</span>,</span><br><span class="line">          <span class="built_in">stdout</span>);</span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line">  STDquantum::main();</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="USACO19FEB-Sleepy-Cow-Herding-S"><a href="#USACO19FEB-Sleepy-Cow-Herding-S" class="headerlink" title="[USACO19FEB]Sleepy Cow Herding S"></a>[USACO19FEB]Sleepy Cow Herding S</h1><h2 id="题目描述-2"><a href="#题目描述-2" class="headerlink" title="题目描述"></a>题目描述</h2><p>Farmer John的N头奶牛，总是会迷路走到农场上遥远的地方去！他需要你帮助将她们一起赶回来。</p>
+<p>农场的草地大体是一块狭长的区域——我们可以将其想象成一条数轴，奶牛可以占据数轴上的任意整数位置。这N头奶牛现在正位于不同的整数位置，Farmer John想要移动她们，使得她们占据N个相邻的位置（例如，位置6、7、8）。</p>
+<p>不幸的是，奶牛们现在很困，Farmer John要让她们集中精力听从命令移动并不容易。任意时刻，他只能使得一头处在“端点”（在所有奶牛中位置最小或最大）位置的奶牛移动。当他移动奶牛时，他可以命令她走到任意一个未被占用的整数位置，只要在新的位置上她不再是一个端点。可以看到随着时间的推移，这样的移动可以使奶牛们趋向越来越近。</p>
+<p>请求出使得奶牛们集中到相邻位置所进行的移动次数的最小和最大可能值。</p>
+<h2 id="输入输出格式-2"><a href="#输入输出格式-2" class="headerlink" title="输入输出格式"></a>输入输出格式</h2><h3 id="输入格式-1"><a href="#输入格式-1" class="headerlink" title="输入格式"></a>输入格式</h3><p>先输入一个整数N(N&lt;=100000)，接下来输入N个数，表示N头奶牛的位置。</p>
+<h3 id="输出格式-2"><a href="#输出格式-2" class="headerlink" title="输出格式"></a>输出格式</h3><p>输出的第一行包含Farmer John需要将奶牛们聚集起来所需进行的最小移动次数。第二行包含他将奶牛聚集起来能够进行的最大移动次数。</p>
+<h2 id="输入输出样例-2"><a href="#输入输出样例-2" class="headerlink" title="输入输出样例"></a>输入输出样例</h2><h3 id="输入样例-1-2"><a href="#输入样例-1-2" class="headerlink" title="输入样例 #1"></a>输入样例 #1</h3><figure class="highlight basic"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">3 </span></span><br><span class="line"><span class="symbol">4 </span></span><br><span class="line"><span class="symbol">7 </span></span><br><span class="line"><span class="number">9</span></span><br></pre></td></tr></table></figure>
+<h3 id="输出样例-1-2"><a href="#输出样例-1-2" class="headerlink" title="输出样例 #1"></a>输出样例 #1</h3><figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span></span><br><span class="line"><span class="number">2</span></span><br></pre></td></tr></table></figure>
+<h2 id="说明-2"><a href="#说明-2" class="headerlink" title="说明"></a>说明</h2><p>2019 USACO二月月赛银牌组第一题</p>
+<h2 id="题解-2"><a href="#题解-2" class="headerlink" title="题解"></a>题解</h2><p>上来先排序。</p>
+<p>最小值需要看长度为 $n$ 的线段最多能覆盖几个牛，用 $n$ 减去这个数，$\mathcal{O}(n^2)$ 扫一下就好（因为远远到不了这个复杂度）。</p>
+<p>需要特判一下 $n-1$ 头牛抱成一团，另一头离得很远的情况，因为移动后不能放到另一个端点。</p>
+<p>最大值就是 $n-1$ 头牛最大的空地数 $+2$，也就是把移动的那头牛放到有空地的最远端，最后是最小值特判的情况。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> STDquantum &#123;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt; <span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">read</span><span class="params">(T &amp;x)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">char</span> ch;</span><br><span class="line">  <span class="keyword">int</span> f = <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">while</span> (ch = getchar(), !<span class="built_in">isdigit</span>(ch))</span><br><span class="line">    <span class="keyword">if</span> (ch == <span class="string">'-'</span>) f = <span class="number">-1</span>;</span><br><span class="line">  x = (ch ^ <span class="number">48</span>);</span><br><span class="line">  <span class="keyword">while</span> (ch = getchar(), <span class="built_in">isdigit</span>(ch)) x = x * <span class="number">10</span> + (ch ^ <span class="number">48</span>);</span><br><span class="line">  x *= f;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt; <span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">write</span><span class="params">(T x)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">static</span> <span class="keyword">int</span> stk[<span class="number">100</span>], top = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">if</span> (x == <span class="number">0</span>) <span class="keyword">return</span> (<span class="keyword">void</span>)<span class="built_in">putchar</span>(<span class="string">'0'</span>);</span><br><span class="line">  <span class="keyword">if</span> (x &lt; <span class="number">0</span>) x = -x, <span class="built_in">putchar</span>(<span class="string">'-'</span>);</span><br><span class="line">  <span class="keyword">while</span> (x) stk[++top] = x % <span class="number">10</span>, x /= <span class="number">10</span>;</span><br><span class="line">  <span class="keyword">while</span> (top) <span class="built_in">putchar</span>(stk[top--] + <span class="string">'0'</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">2e6</span> + <span class="number">10</span>;</span><br><span class="line"><span class="keyword">int</span> n, ans, a[N];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  read(n);</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; ++i) read(a[i]);</span><br><span class="line">  sort(a + <span class="number">1</span>, a + n + <span class="number">1</span>);</span><br><span class="line">  <span class="keyword">if</span> ((a[n - <span class="number">1</span>] - a[<span class="number">1</span>] == n - <span class="number">2</span> &amp;&amp; a[n] - a[n - <span class="number">1</span>] &gt; <span class="number">2</span>) ||</span><br><span class="line">      (a[n] - a[<span class="number">2</span>] == n - <span class="number">2</span> &amp;&amp; a[<span class="number">2</span>] - a[<span class="number">1</span>] &gt; <span class="number">2</span>)) &#123;</span><br><span class="line">    <span class="built_in">puts</span>(<span class="string">"2"</span>);</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>, j; i &lt;= n; ++i) &#123;</span><br><span class="line">      j = i;</span><br><span class="line">      <span class="keyword">while</span> (j &lt; n &amp;&amp; a[j + <span class="number">1</span>] - a[i] &lt;= n - <span class="number">1</span>) ++j;</span><br><span class="line">      ans = max(ans, j - i + <span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    write(n - ans), <span class="built_in">putchar</span>(<span class="string">'\n'</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  write(max(a[n - <span class="number">1</span>] - a[<span class="number">1</span>], a[n] - a[<span class="number">2</span>]) - n + <span class="number">2</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;  <span class="comment">// namespace STDquantum</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">ifndef</span> ONLINE_JUDGE</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">ifdef</span> LOCAL</span></span><br><span class="line">  freopen(<span class="string">"D:\\OI\\STDquantum\\test.in"</span>, <span class="string">"r"</span>, <span class="built_in">stdin</span>);</span><br><span class="line">  freopen(<span class="string">"D:\\OI\\STDquantum\\test.out"</span>, <span class="string">"w"</span>, <span class="built_in">stdout</span>);</span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">ifndef</span> LOCAL</span></span><br><span class="line">  freopen(<span class="string">"P5541_[USACO19FEB]_Sleepy_Cow_Herding_S.in"</span>, <span class="string">"r"</span>, <span class="built_in">stdin</span>);</span><br><span class="line">  freopen(<span class="string">"P5541_[USACO19FEB]_Sleepy_Cow_Herding_S.out"</span>, <span class="string">"w"</span>, <span class="built_in">stdout</span>);</span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line">  STDquantum::main();</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%A8%A1%E6%8B%9F%E8%B5%9B/" rel="tag">模拟赛</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+  <nav class="article-nav">
+    
+      <a href="/20191026-mo-ni-sai/" class="article-nav-link">
+        <strong class="article-nav-caption">上一篇</strong>
+        <div class="article-nav-title">
+          
+            20191026模拟赛
+          
+        </div>
+      </a>
+    
+    
+      <a href="/20191011-mo-ni-sai/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">20191011模拟赛</div>
+      </a>
+    
+  </nav>
+
+  
+     
+</article>
+
+</section>
+      <footer class="footer">
+  <div class="outer">
+    <ul>
+      <li>
+        Copyrights &copy;
+        2020
+        <i class="ri-heart-fill heart_icon"></i> STDquantum
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+      </li>
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      <li>
+        <!-- cnzz统计 -->
+        
+      </li>
+    </ul>
+  </div>
+</footer>
+      <div class="float_btns">
+        <div class="totop" id="totop">
+  <i class="ri-arrow-up-line"></i>
+</div>
+
+      </div>
+    </main>
+    <aside class="sidebar on">
+      <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/1.jpg" alt="STDquantum"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">主页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">归档</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/categories">分类</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/tags">标签</a>
+    </li>
+    
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      
+      <a class="nav-item-link nav-item-search"  title="搜索">
+        <i class="ri-search-line"></i>
+      </a>
+      
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+    </aside>
+    <script>
+      if (window.matchMedia("(max-width: 768px)").matches) {
+        document.querySelector('.content').classList.remove('on');
+        document.querySelector('.sidebar').classList.remove('on');
+      }
+    </script>
+    <div id="mask"></div>
+
+<!-- #reward -->
+<div id="reward">
+  <span class="close"><i class="ri-close-line"></i></span>
+  <p class="reward-p"><i class="ri-cup-line"></i></p>
+  <div class="reward-box">
+    
+    
+  </div>
+</div>
+    
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+
+<script src="/js/lazyload.min.js"></script>
+
+<!-- Tocbot -->
+
+
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  tocbot.init({
+    tocSelector: '.tocbot',
+    contentSelector: '.article-entry',
+    headingSelector: 'h1, h2, h3, h4, h5, h6',
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: 'main',
+    positionFixedSelector: '.tocbot',
+    positionFixedClass: 'is-position-fixed',
+    fixedSidebarOffset: 'auto'
+  });
+</script>
+<!-- Live-2D -->
+<script type="text/javascript" charset="utf-8" src="/js/L2Dwidget.0.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="/js/L2Dwidget.min.js"></script>
+<script type="text/javascript">
+  L2Dwidget.on('*', (name) => {
+    console.log('%c EVENT ' + '%c -> ' + name, 'background: #222; color: yellow', 'background: #fff; color: #000')
+  });
+  L2Dwidget.init({
+    "display": {
+      "superSample": 2,
+      "width": 200,
+      "height": 400,
+      "position": "right",
+      "hOffset": 0,
+      "vOffset": 0
+    },
+    "mobile": {
+      "show": true,
+      "scale": 0.7
+    }
+  });
+</script>
+
+<script src="/js/jquery.modal.min.js"></script>
+<link rel="stylesheet" href="/css/jquery.modal.min.css">
+<script src="/js/jquery.justifiedGallery.min.js"></script>
+
+<script src="/dist/main.js"></script>
+
+<!-- ImageViewer -->
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<link rel="stylesheet" href="/css/photoswipe.min.css">
+<link rel="stylesheet" href="/css/default-skin.min.css">
+<script src="/js/photoswipe.min.js"></script>
+<script src="/js/photoswipe-ui-default.min.js"></script>
+
+<script>
+    function viewer_init() {
+        let pswpElement = document.querySelectorAll('.pswp')[0];
+        let $imgArr = document.querySelectorAll(('.article-entry img:not(.reward-img)'))
+
+        $imgArr.forEach(($em, i) => {
+            $em.onclick = () => {
+                // slider展开状态
+                // todo: 这样不好，后面改成状态
+                if (document.querySelector('.left-col.show')) return
+                let items = []
+                $imgArr.forEach(($em2, i2) => {
+                    let img = $em2.getAttribute('data-idx', i2)
+                    let src = $em2.getAttribute('data-target') || $em2.getAttribute('src')
+                    let title = $em2.getAttribute('alt')
+                    // 获得原图尺寸
+                    const image = new Image()
+                    image.src = src
+                    items.push({
+                        src: src,
+                        w: image.width || $em2.width,
+                        h: image.height || $em2.height,
+                        title: title
+                    })
+                })
+                var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, {
+                    index: parseInt(i)
+                });
+                gallery.init()
+            }
+        })
+    }
+    viewer_init()
+</script>
+
+<!-- MathJax -->
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      extensions: ["tex2jax.js"],
+      jax: ["input/TeX","output/HTML-CSS"],
+      tex2jax: {inlineMath: [["$","$"]]}
+    });
+  </script>
+
+<script src="/mathjax/MathJax.js"></script>
+<script>
+  var ayerConfig = {
+    mathjax: true
+  }
+</script>
+
+<!-- Katex -->
+
+<!-- busuanzi  -->
+
+<!-- ClickLove -->
+
+
+<script src="/js/clickLove.js"></script>
+
+
+<!-- ClickBoom1 -->
+
+<!-- ClickBoom2 -->
+
+<!-- CodeCopy -->
+
+
+<link rel="stylesheet" href="/css/clipboard.css">
+
+<script src="/js/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="ri-file-copy-2-line"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-checkbox-circle-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-checkbox-circle-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-time-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-time-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+
+
+<!-- CanvasBackground -->
+
+
+    
+  </div>
+</body>
+
+</html>
