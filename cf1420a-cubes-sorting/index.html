@@ -76,7 +76,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">1k</span>
+            <span class="post-count">1.5k</span>
         </span>
     </span>
 
@@ -85,7 +85,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> 阅读时长≈</span>
-            <span class="post-count">5 分钟</span>
+            <span class="post-count">8 分钟</span>
         </span>
     </span>
 </div>
@@ -102,9 +102,34 @@
        
   <p><a href="https://codeforces.com/contest/1420" target="_blank" rel="noopener">Codeforces Round #672 (Div. 2)</a> A题</p>
 <a id="more"></a>
+<h1 id="Cubes-Sorting"><a href="#Cubes-Sorting" class="headerlink" title="Cubes Sorting"></a>Cubes Sorting</h1><p><a href="https://www.luogu.com.cn/problem/CF1420A" target="_blank" rel="noopener">CF1420A Cubes Sorting</a></p>
+<h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>For god’s sake, you’re boxes with legs! It is literally your only purpose! Walking onto buttons! How can you not do the one thing you were designed for?Oh, that’s funny, is it? Oh it’s funny? Because we’ve been at this for twelve hours and you haven’t solved it either, so I don’t know why you’re laughing. You’ve got one hour! Solve it!</p>
+<p>Wheatley decided to try to make a test chamber. He made a nice test chamber, but there was only one detail absent — cubes.</p>
+<p>For completing the chamber Wheatley needs $ n $ cubes. $ i $ -th cube has a volume $ a_i $ .</p>
+<p>Wheatley has to place cubes in such a way that they would be sorted in a non-decreasing order by their volume. Formally, for each $ i&gt;1 $ , $ a_{i-1} \le a_i $ must hold.</p>
+<p>To achieve his goal, Wheatley can exchange two neighbouring cubes. It means that for any $ i&gt;1 $ you can exchange cubes on positions $ i-1 $ and $ i $ .</p>
+<p>But there is a problem: Wheatley is very impatient. If Wheatley needs more than $ \frac{n \cdot (n-1)}{2}-1 $ exchange operations, he won’t do this boring work. </p>
+<p>Wheatly wants to know: can cubes be sorted under this conditions?</p>
+<h2 id="输入输出格式"><a href="#输入输出格式" class="headerlink" title="输入输出格式"></a>输入输出格式</h2><h3 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h3><p>Each test contains multiple test cases.</p>
+<p>The first line contains one positive integer $ t $ ( $ 1 \le t \le 1000 $ ), denoting the number of test cases. Description of the test cases follows.</p>
+<p>The first line of each test case contains one positive integer $ n $ ( $ 2 \le n \le 5 \cdot 10^4 $ ) — number of cubes.</p>
+<p>The second line contains $ n $ positive integers $ a_i $ ( $ 1 \le a_i \le 10^9 $ ) — volumes of cubes.</p>
+<p>It is guaranteed that the sum of $ n $ over all test cases does not exceed $ 10^5 $ .</p>
+<h3 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h3><p>For each test case, print a word in a single line: “YES” (without quotation marks) if the cubes can be sorted and “NO” (without quotation marks) otherwise.</p>
+<h2 id="输入输出样例"><a href="#输入输出样例" class="headerlink" title="输入输出样例"></a>输入输出样例</h2><h3 id="输入样例-1"><a href="#输入样例-1" class="headerlink" title="输入样例 #1"></a>输入样例 #1</h3><figure class="highlight basic"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">3</span></span><br><span class="line"><span class="number">5</span></span><br><span class="line"><span class="symbol">5 </span><span class="number">3</span> <span class="number">2</span> <span class="number">1</span> <span class="number">4</span></span><br><span class="line"><span class="number">6</span></span><br><span class="line"><span class="symbol">2 </span><span class="number">2</span> <span class="number">2</span> <span class="number">2</span> <span class="number">2</span> <span class="number">2</span></span><br><span class="line"><span class="number">2</span></span><br><span class="line"><span class="symbol">2 </span><span class="number">1</span></span><br></pre></td></tr></table></figure>
+<h3 id="输出样例-1"><a href="#输出样例-1" class="headerlink" title="输出样例 #1"></a>输出样例 #1</h3><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="literal">YES</span></span><br><span class="line"><span class="literal">YES</span></span><br><span class="line"><span class="literal">NO</span></span><br></pre></td></tr></table></figure>
+<h2 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h2><p>In the first test case it is possible to sort all the cubes in $ 7 $ exchanges.</p>
+<p>In the second test case the cubes are already sorted.</p>
+<p>In the third test case we can make $ 0 $ exchanges, but the cubes are not sorted yet, so the answer is “NO”.</p>
 <h2 id="题目翻译"><a href="#题目翻译" class="headerlink" title="题目翻译"></a>题目翻译</h2><p>给出一个序列，定义一次操作为交换任意相邻元素。</p>
 <p>若该序列能在 $\displaystyle \frac{n\cdot (n-1)}2-1$ 次操作内变成不降的序列，则输出<code>YES</code>，否则输出<code>NO</code>。</p>
 <p>多组数据。</p>
+<h2 id="题意翻译（洛谷）"><a href="#题意翻译（洛谷）" class="headerlink" title="题意翻译（洛谷）"></a>题意翻译（洛谷）</h2><ul>
+<li><p>给你一个长度为 n 的序列 $a_{1 \cdots n}$，每次你可以交换相邻的两个数，如果你可以在 $\frac{n \cdot(n-1)}{2}-1$ 次内使得数列有序(单调不减)，输出 <code>YES</code>,否则输出 <code>NO</code>。</p>
+</li>
+<li><p><strong>多组数据</strong> ， 保证 $1 \leq t \leq 1000 , \sum ^{t}_{i=1}n \leq 10^5 , n \le 5 \cdot 10^4,1 \leq a_i \leq 10^9$。</p>
+</li>
+</ul>
 <h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>发现这个序列变成不降的序列所需要的次数就是逆序对（$i\lt j$ 且 $a_i&gt;a_j$）数，因为每次操作都会减少一个逆序对。</p>
 <p>于是我们想出了第一种AC做法：树状数组求逆序对。</p>
 <p>先把 $a$ 数组离散化（最大值设为 $top$），然后开一个权值树状数组。</p>

@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+
+
+<html lang="zh-CN">
+
+
+<head>
+  <meta charset="utf-8" />
+    
+  <meta name="description" content="STDquantum" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <title>
+    20200925模拟赛 |  STDquantum
+  </title>
+  <meta name="generator" content="hexo-theme-ayer">
+  
+  <link rel="shortcut icon" href="/1.ico" />
+  
+  
+<link rel="stylesheet" href="/dist/main.css">
+
+  
+<link rel="stylesheet" href="/css/remixicon.min.css">
+
+  
+<link rel="stylesheet" href="/css/custom.css">
+
+  
+  
+<script src="/js/pace.min.js"></script>
+
+  
+  
+
+  
+
+</head>
+
+</html>
+
+<body>
+  <div id="app">
+    
+      
+    <main class="content on">
+      <section class="outer">
+  <article
+  id="post-OI/simulate/20200925模拟赛"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  20200925模拟赛
+</h1>
+ 
+
+    </header>
+     
+    <div class="article-meta">
+      <a href="/20200925-mo-ni-sai/" class="article-date">
+  <time datetime="2020-09-25T10:22:19.000Z" itemprop="datePublished">2020-09-25</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/OI/">OI</a> / <a class="article-category-link" href="/categories/OI/%E6%A8%A1%E6%8B%9F%E8%B5%9B/">模拟赛</a>
+  </div>
+  
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> 字数统计:</span>
+            <span class="post-count">2.3k</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> 阅读时长≈</span>
+            <span class="post-count">9 分钟</span>
+        </span>
+    </span>
+</div>
+ 
+    </div>
+      
+    <div class="tocbot"></div>
+
+
+
+
+  
+    <div class="article-entry" itemprop="articleBody">
+       
+  <blockquote>
+<p>月上柳梢头，人约黄昏后。</p>
+<div align="right">——欧阳修《生查子·元夕》</div>
+
+</blockquote>
+<a id="more"></a>
+<h1 id="【愚蠢的戴夫】向日葵代沟"><a href="#【愚蠢的戴夫】向日葵代沟" class="headerlink" title="【愚蠢的戴夫】向日葵代沟"></a>【愚蠢的戴夫】向日葵代沟</h1><h2 id="题目背景"><a href="#题目背景" class="headerlink" title="题目背景"></a>题目背景</h2><p>愚蠢的戴夫和向日葵聊天。</p>
+<p>如果向日葵之间产生了代沟，她们就再也不会交流了。</p>
+<h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>一些向日葵站在上排在一列花盆上，她们通过传话的方式互相交流。</p>
+<p>话说多了，自然就产生了代沟。一旦有了代沟，两个向日葵就不说话了，话就传不过去。</p>
+<p>有$m$个向日葵，$m$个事件。每一个事件都是这样的：</p>
+<p>给定一个$k$，排在第$k$的向日葵和排在第$k+1$的向日葵产生了代沟，事件按发生顺序给出。</p>
+<p>每一次事件发生后，愚蠢的戴夫想知道有多少个无序数对$(a,b)$，使得排在$a$和排在$b$的向日葵事件发生前可以交流，事件发生后无法交流。</p>
+<h2 id="输入输出格式"><a href="#输入输出格式" class="headerlink" title="输入输出格式"></a>输入输出格式</h2><h3 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h3><p>第一行两个整数$n,m$，表示向日葵的个数和事件数量。</p>
+<p>接下来$m$行，每行一个正整数，描述一个事件。</p>
+<h3 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h3><p>共$m$行，每一个事件发生后，输出题目所求。</p>
+<h2 id="输入输出样例"><a href="#输入输出样例" class="headerlink" title="输入输出样例"></a>输入输出样例</h2><h3 id="输入样例-1"><a href="#输入样例-1" class="headerlink" title="输入样例 #1"></a>输入样例 #1</h3><figure class="highlight basic"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">6 </span><span class="number">3</span></span><br><span class="line"><span class="number">3</span></span><br><span class="line"><span class="number">2</span></span><br><span class="line"><span class="number">4</span></span><br></pre></td></tr></table></figure>
+<h3 id="输出样例-1"><a href="#输出样例-1" class="headerlink" title="输出样例 #1"></a>输出样例 #1</h3><figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">9</span></span><br><span class="line"><span class="number">2</span></span><br><span class="line"><span class="number">2</span></span><br></pre></td></tr></table></figure>
+<h3 id="输入样例-2"><a href="#输入样例-2" class="headerlink" title="输入样例 #2"></a>输入样例 #2</h3><figure class="highlight basic"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">6 </span><span class="number">3</span></span><br><span class="line"><span class="number">4</span></span><br><span class="line"><span class="number">2</span></span><br><span class="line"><span class="number">5</span></span><br></pre></td></tr></table></figure>
+<h3 id="输出样例-2"><a href="#输出样例-2" class="headerlink" title="输出样例 #2"></a>输出样例 #2</h3><figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">8</span></span><br><span class="line"><span class="number">4</span></span><br><span class="line"><span class="number">1</span></span><br></pre></td></tr></table></figure>
+<h2 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h2><p>样例$1$解释：</p>
+<p>事件一后，$(1,6),(2,6),(3,6),(1,5),(2,5),(3,5),(1,4),(2,4),(3,4)$共九对无序数对满足要求。</p>
+<p>事件二后，$(1,3),(2,3)$共两对无序数对满足要求。</p>
+<p>事件三后，$(4,6),(4,5)$共两对无序数对满足要求。</p>
+<ul>
+<li>对于$10\%$的数据：$n,m\leq 50$。</li>
+<li>对于$20\%$的数据：$n,m\leq 200$。</li>
+<li>对于$40\%$的数据：$n,m\leq 2000$。</li>
+<li>对于$50\%$的数据：$n\leq 10^5, m\leq 2000$。</li>
+<li>对于$100\%$的数据：$1\leq m&lt; n\leq 10^5, 1\leq k&lt;n$。</li>
+</ul>
+<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>发现每次事件都是在分割整个序列，每次影响到的只有左边最近的分割点 $L$ 到右边最近的分割点 $R$。</p>
+<p>那么答案就是 $(k-L+1)\cdot(R-(k+1)+1)$，也就是这两部分任意选。</p>
+<p>至于怎么维护这个最近的分割点，暴力肯定不行。所以直接线段树优化到 $\mathcal{O}(\log n)$，查询也就是 $\mathcal{O}(\log n)$，能通过此题。</p>
+<p>线段树维护当前节点左边分割点是啥，右边分割点是啥，每次修改都是区间赋值，每次查询都是单点查询。</p>
+<p>可以写两套修改查询，也可以用数组的方式直接一套搞定。</p>
+<p>我懒。所以写了两套。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> STDquantum &#123;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt; <span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">read</span><span class="params">(T &amp;x)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">char</span> ch;</span><br><span class="line">  <span class="keyword">int</span> f = <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">while</span> (ch = getchar(), !<span class="built_in">isdigit</span>(ch))</span><br><span class="line">    <span class="keyword">if</span> (ch == <span class="string">'-'</span>) f = <span class="number">-1</span>;</span><br><span class="line">  x = (ch ^ <span class="number">48</span>);</span><br><span class="line">  <span class="keyword">while</span> (ch = getchar(), <span class="built_in">isdigit</span>(ch)) x = x * <span class="number">10</span> + (ch ^ <span class="number">48</span>);</span><br><span class="line">  x *= f;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt; <span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">write</span><span class="params">(T x)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">static</span> <span class="keyword">int</span> stk[<span class="number">100</span>], top = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">if</span> (x == <span class="number">0</span>) <span class="keyword">return</span> (<span class="keyword">void</span>)<span class="built_in">putchar</span>(<span class="string">'0'</span>);</span><br><span class="line">  <span class="keyword">if</span> (x &lt; <span class="number">0</span>) x = -x, <span class="built_in">putchar</span>(<span class="string">'-'</span>);</span><br><span class="line">  <span class="keyword">while</span> (x) stk[++top] = x % <span class="number">10</span>, x /= <span class="number">10</span>;</span><br><span class="line">  <span class="keyword">while</span> (top) <span class="built_in">putchar</span>(stk[top--] + <span class="string">'0'</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">2e5</span> + <span class="number">10</span>;</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> lson (k &lt;&lt; 1)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> rson (k &lt;&lt; 1 | 1)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> mid ((l + r) &gt;&gt; 1)</span></span><br><span class="line"><span class="keyword">int</span> top;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">T</span> &#123;</span></span><br><span class="line">  <span class="keyword">int</span> lzL, lzR, left, right;</span><br><span class="line">&#125; t[N &lt;&lt; <span class="number">2</span>];</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">pushdownL</span><span class="params">(<span class="keyword">int</span> k)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (t[k].lzL) &#123;</span><br><span class="line">    t[lson].lzL = t[rson].lzL = t[k].lzL;</span><br><span class="line">    t[lson].left = t[rson].left = t[k].lzL;</span><br><span class="line">    t[k].lzL = <span class="number">0</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">pushdownR</span><span class="params">(<span class="keyword">int</span> k)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (t[k].lzR) &#123;</span><br><span class="line">    t[lson].lzR = t[rson].lzR = t[k].lzR;</span><br><span class="line">    t[lson].right = t[rson].right = t[k].lzR;</span><br><span class="line">    t[k].lzR = <span class="number">0</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">modifyL</span><span class="params">(<span class="keyword">int</span> k, <span class="keyword">int</span> L, <span class="keyword">int</span> R, <span class="keyword">int</span> w, <span class="keyword">int</span> l = <span class="number">1</span>,</span></span></span><br><span class="line"><span class="function"><span class="params">                    <span class="keyword">int</span> r = top)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (L &lt;= l &amp;&amp; r &lt;= R) &#123; <span class="keyword">return</span> t[k].left = t[k].lzL = w, <span class="keyword">void</span>(); &#125;</span><br><span class="line">  pushdownL(k);</span><br><span class="line">  <span class="keyword">if</span> (mid &gt;= L) modifyL(lson, L, R, w, l, mid);</span><br><span class="line">  <span class="keyword">if</span> (mid &lt; R) modifyL(rson, L, R, w, mid + <span class="number">1</span>, r);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">modifyR</span><span class="params">(<span class="keyword">int</span> k, <span class="keyword">int</span> L, <span class="keyword">int</span> R, <span class="keyword">int</span> w, <span class="keyword">int</span> l = <span class="number">1</span>,</span></span></span><br><span class="line"><span class="function"><span class="params">                    <span class="keyword">int</span> r = top)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (L &lt;= l &amp;&amp; r &lt;= R) &#123; <span class="keyword">return</span> t[k].right = t[k].lzR = w, <span class="keyword">void</span>(); &#125;</span><br><span class="line">  pushdownR(k);</span><br><span class="line">  <span class="keyword">if</span> (mid &gt;= L) modifyR(lson, L, R, w, l, mid);</span><br><span class="line">  <span class="keyword">if</span> (mid &lt; R) modifyR(rson, L, R, w, mid + <span class="number">1</span>, r);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">int</span> <span class="title">queryL</span><span class="params">(<span class="keyword">int</span> k, <span class="keyword">int</span> pos, <span class="keyword">int</span> l = <span class="number">1</span>, <span class="keyword">int</span> r = top)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (l == r) <span class="keyword">return</span> t[k].left;</span><br><span class="line">  pushdownL(k);</span><br><span class="line">  <span class="keyword">if</span> (mid &gt;= pos) &#123;</span><br><span class="line">    <span class="keyword">return</span> queryL(lson, pos, l, mid);</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> queryL(rson, pos, mid + <span class="number">1</span>, r);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">int</span> <span class="title">queryR</span><span class="params">(<span class="keyword">int</span> k, <span class="keyword">int</span> pos, <span class="keyword">int</span> l = <span class="number">1</span>, <span class="keyword">int</span> r = top)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (l == r) <span class="keyword">return</span> t[k].right;</span><br><span class="line">  pushdownR(k);</span><br><span class="line">  <span class="keyword">if</span> (mid &gt;= pos) &#123;</span><br><span class="line">    <span class="keyword">return</span> queryR(lson, pos, l, mid);</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> queryR(rson, pos, mid + <span class="number">1</span>, r);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> n, m;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  read(n), read(m), top = n;</span><br><span class="line">  modifyL(<span class="number">1</span>, <span class="number">1</span>, n, <span class="number">1</span>), modifyR(<span class="number">1</span>, <span class="number">1</span>, n, n);</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>, k, L, R; i &lt;= m; ++i) &#123;</span><br><span class="line">    read(k);</span><br><span class="line">    L = queryL(<span class="number">1</span>, k), R = queryR(<span class="number">1</span>, k + <span class="number">1</span>); <span class="comment">// 找到最近分割点</span></span><br><span class="line">    modifyL(<span class="number">1</span>, k + <span class="number">1</span>, R, k + <span class="number">1</span>), modifyR(<span class="number">1</span>, L, k, k); <span class="comment">// 影响到的区间重新赋值</span></span><br><span class="line">    write((ll)(k - L + <span class="number">1</span>) * (R - k)), <span class="built_in">putchar</span>(<span class="string">'\n'</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;  <span class="comment">// namespace STDquantum</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">ifndef</span> ONLINE_JUDGE</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">ifdef</span> LOCAL</span></span><br><span class="line">  freopen(<span class="string">"D:\\OI\\STDquantum\\test.in"</span>, <span class="string">"r"</span>, <span class="built_in">stdin</span>);</span><br><span class="line">  freopen(<span class="string">"D:\\OI\\STDquantum\\test.out"</span>, <span class="string">"w"</span>, <span class="built_in">stdout</span>);</span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">ifndef</span> LOCAL</span></span><br><span class="line">  freopen(<span class="string">"T148740.in"</span>, <span class="string">"r"</span>, <span class="built_in">stdin</span>);</span><br><span class="line">  freopen(<span class="string">"T148740.out"</span>, <span class="string">"w"</span>, <span class="built_in">stdout</span>);</span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line">  STDquantum::main();</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="【愚蠢的戴夫】树上的僵尸"><a href="#【愚蠢的戴夫】树上的僵尸" class="headerlink" title="【愚蠢的戴夫】树上的僵尸"></a>【愚蠢的戴夫】树上的僵尸</h1><h2 id="题目背景-1"><a href="#题目背景-1" class="headerlink" title="题目背景"></a>题目背景</h2><p>愚蠢的戴夫种了一棵树。</p>
+<p>树上有一堆相互讨厌的僵尸。</p>
+<p>每一只僵尸都会从树上的任意一个节点走最短路到树上的另外一个节点，并且结束点的编号不小于起始点的编号。</p>
+<p>因为僵尸相互讨厌，所以它们在树上的路径不能<strong>全部</strong>交于一点。</p>
+<p>因为僵尸已经很久没有吃到植物了，所以僵尸最多只能经过一定数量的边，不然它们就会饿死在树上。</p>
+<h2 id="题目描述-1"><a href="#题目描述-1" class="headerlink" title="题目描述"></a>题目描述</h2><p>给定$n$个节点的树，以及$m$个僵尸（$m\geq 2$）。</p>
+<p>给定$k$，表示僵尸各自最多能走$k$条边（$k\leq n-1$）。</p>
+<p>询问所有满足条件的僵尸路径方案数：</p>
+<ul>
+<li>结束点编号不小于起始点编号。</li>
+<li><strong>不存在</strong>所有僵尸的路径交于一点。</li>
+<li>僵尸各自的路径包含的边数不超过$k$。</li>
+</ul>
+<p>答案对$998244353$取模。</p>
+<h2 id="输入输出格式-1"><a href="#输入输出格式-1" class="headerlink" title="输入输出格式"></a>输入输出格式</h2><h3 id="输入格式-1"><a href="#输入格式-1" class="headerlink" title="输入格式"></a>输入格式</h3><p>第一行三个整数$n,m,k$，表示树的节点个数，僵尸个数以及僵尸最多能走$k$条边。</p>
+<p>接下来$n-1$行，每行两个数$a_i,b_i$，表示编号为$a_i$的节点和编号为$b_i$的节点之间有一条边。</p>
+<p>保证形成的是一棵树。</p>
+<h3 id="输出格式-1"><a href="#输出格式-1" class="headerlink" title="输出格式"></a>输出格式</h3><p>一个整数，表示满足条件的方案数。</p>
+<h2 id="输入输出样例-1"><a href="#输入输出样例-1" class="headerlink" title="输入输出样例"></a>输入输出样例</h2><h3 id="输入样例-1-1"><a href="#输入样例-1-1" class="headerlink" title="输入样例 #1"></a>输入样例 #1</h3><figure class="highlight basic"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">3 </span><span class="number">2</span> <span class="number">1</span></span><br><span class="line"><span class="symbol">1 </span><span class="number">2</span></span><br><span class="line"><span class="symbol">1 </span><span class="number">3</span></span><br></pre></td></tr></table></figure>
+<h3 id="输出样例-1-1"><a href="#输出样例-1-1" class="headerlink" title="输出样例 #1"></a>输出样例 #1</h3><figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">10</span></span><br></pre></td></tr></table></figure>
+<h3 id="输入样例-2-1"><a href="#输入样例-2-1" class="headerlink" title="输入样例 #2"></a>输入样例 #2</h3><figure class="highlight basic"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">7 </span><span class="number">2</span> <span class="number">4</span></span><br><span class="line"><span class="symbol">1 </span><span class="number">2</span></span><br><span class="line"><span class="symbol">2 </span><span class="number">3</span></span><br><span class="line"><span class="symbol">1 </span><span class="number">4</span></span><br><span class="line"><span class="symbol">4 </span><span class="number">5</span></span><br><span class="line"><span class="symbol">5 </span><span class="number">6</span></span><br><span class="line"><span class="symbol">6 </span><span class="number">7</span></span><br></pre></td></tr></table></figure>
+<h3 id="输出样例-2-1"><a href="#输出样例-2-1" class="headerlink" title="输出样例 #2"></a>输出样例 #2</h3><figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">248</span></span><br></pre></td></tr></table></figure>
+<h2 id="说明-1"><a href="#说明-1" class="headerlink" title="说明"></a>说明</h2><p>共$20$个测试点，每个点$5$分</p>
+<ul>
+<li>测试点$1-2$： $n\leq 10 ,  m=2,  k\leq 10$ 。</li>
+<li>测试点$3-4$： $n\leq 100,  m\leq 3,  k\leq 50$；保证树的形态为一条链，且链上的编号为$1,2,…,n。$</li>
+<li>测试点$5-6$： $n,m,k\leq 10^6$；保证树的形态为一条链，且链上的编号为$1,2,…,n$ 。</li>
+<li>测试点$7-8$：$n,m\leq 10^6,  k=0$。</li>
+<li>测试点$9-10$： $n,m\leq 10^6,  k=n-1$。</li>
+<li>测试点$11-14$： $n\leq 10^3,  m\leq 10^{6},  k\leq 50$。</li>
+<li>测试点$15-20$： $n,k\leq 10^3,  m\leq 10^{6}$。</li>
+</ul>
+<h2 id="题解-1"><a href="#题解-1" class="headerlink" title="题解"></a>题解</h2><h1 id="【愚蠢的戴夫】豌豆射手"><a href="#【愚蠢的戴夫】豌豆射手" class="headerlink" title="【愚蠢的戴夫】豌豆射手"></a>【愚蠢的戴夫】豌豆射手</h1><h2 id="题目背景-2"><a href="#题目背景-2" class="headerlink" title="题目背景"></a>题目背景</h2><p>愚蠢的戴夫种了一些豌豆射手。</p>
+<p>愚蠢的戴夫只会把豌豆射手种在一列草坪上，并且因为戴夫不懂得种植向日葵，所以他并没有足够的阳光使得这一列都放满豌豆射手。</p>
+<p>但这些豌豆射手除了会向前喷射豌豆，还会向左右喷射豌豆，并且向左右喷射豌豆有一个飞行距离限制。</p>
+<p>一大波僵尸即将来临，戴夫想要知道，有多少种安排豌豆射手的方案，使得没有两个豌豆射手会相互攻击。</p>
+<h2 id="题目描述-2"><a href="#题目描述-2" class="headerlink" title="题目描述"></a>题目描述</h2><p>现在有$n$个豌豆射手，要把它们放在长度为$d$的一列草坪上。</p>
+<p>每一个豌豆射手都有一个攻击半径$r_i$，如果将这个豌豆射手放在$pos$位置，那么$[pos-r_i+1,pos+r_i-1]$将不能有其他的豌豆射手。</p>
+<p>戴夫要把这$n$个豌豆射手放在长度为$d$的草坪上，使得它们不会相互攻击，求方案数。答案对$10^9+7$取模。</p>
+<h2 id="输入输出格式-2"><a href="#输入输出格式-2" class="headerlink" title="输入输出格式"></a>输入输出格式</h2><h3 id="输入格式-2"><a href="#输入格式-2" class="headerlink" title="输入格式"></a>输入格式</h3><p>第一行两个整数$n,d$，表示有$n$个豌豆射手，草坪的长度为$d。$</p>
+<p>第二行$n$个整数$r_i$，表示每一个豌豆射手的攻击半径。</p>
+<h3 id="输出格式-2"><a href="#输出格式-2" class="headerlink" title="输出格式"></a>输出格式</h3><p>一行一个整数，表示合法的方案数。</p>
+<h2 id="输入输出样例-2"><a href="#输入输出样例-2" class="headerlink" title="输入输出样例"></a>输入输出样例</h2><h3 id="输入样例-1-2"><a href="#输入样例-1-2" class="headerlink" title="输入样例 #1"></a>输入样例 #1</h3><figure class="highlight basic"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">4 </span><span class="number">4</span></span><br><span class="line"><span class="symbol">1 </span><span class="number">1</span> <span class="number">1</span> <span class="number">1</span></span><br></pre></td></tr></table></figure>
+<h3 id="输出样例-1-2"><a href="#输出样例-1-2" class="headerlink" title="输出样例 #1"></a>输出样例 #1</h3><figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">24</span></span><br></pre></td></tr></table></figure>
+<h3 id="输入样例-2-2"><a href="#输入样例-2-2" class="headerlink" title="输入样例 #2"></a>输入样例 #2</h3><figure class="highlight basic"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">3 </span><span class="number">47</span></span><br><span class="line"><span class="symbol">4 </span><span class="number">8</span> <span class="number">9</span></span><br></pre></td></tr></table></figure>
+<h3 id="输出样例-2-2"><a href="#输出样例-2-2" class="headerlink" title="输出样例 #2"></a>输出样例 #2</h3><figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">28830</span></span><br></pre></td></tr></table></figure>
+<h3 id="输入样例-3"><a href="#输入样例-3" class="headerlink" title="输入样例 #3"></a>输入样例 #3</h3><figure class="highlight basic"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">8 </span><span class="number">100000</span></span><br><span class="line"><span class="symbol">21 </span><span class="number">37</span> <span class="number">23</span> <span class="number">13</span> <span class="number">32</span> <span class="number">22</span> <span class="number">9</span> <span class="number">39</span></span><br></pre></td></tr></table></figure>
+<h3 id="输出样例-3"><a href="#输出样例-3" class="headerlink" title="输出样例 #3"></a>输出样例 #3</h3><figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">923016564</span></span><br></pre></td></tr></table></figure>
+<h2 id="说明-2"><a href="#说明-2" class="headerlink" title="说明"></a>说明</h2><ul>
+<li>对于$20\%$的数据：$n\le 5,  d\le 14$。</li>
+<li>对于$60\%$的数据：$n\le 18$</li>
+<li>对于$100\%$的数据：$\displaystyle n\le 40,  d\le 10^5,  1\le r_i\le 40,  \sum_{i=1}^{n}r_i\leq d$</li>
+</ul>
+<h2 id="题解-2"><a href="#题解-2" class="headerlink" title="题解"></a>题解</h2><h1 id="Result"><a href="#Result" class="headerlink" title="Result"></a>Result</h1><img src="/20200925-mo-ni-sai/1.jpg" class> 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/OI/" rel="tag">OI</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%A8%A1%E6%8B%9F%E8%B5%9B/" rel="tag">模拟赛</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+  <nav class="article-nav">
+    
+      <a href="/20191027-mo-ni-sai/" class="article-nav-link">
+        <strong class="article-nav-caption">上一篇</strong>
+        <div class="article-nav-title">
+          
+            20191027模拟赛
+          
+        </div>
+      </a>
+    
+    
+      <a href="/cf1420c2-pokemon-army-hard-version/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">CF1420C2 Pokémon Army (Hard Version)</div>
+      </a>
+    
+  </nav>
+
+  
+     
+</article>
+
+</section>
+      <footer class="footer">
+  <div class="outer">
+    <ul>
+      <li>
+        Copyrights &copy;
+        2020
+        <i class="ri-heart-fill heart_icon"></i> STDquantum
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+      </li>
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      <li>
+        <!-- cnzz统计 -->
+        
+      </li>
+    </ul>
+  </div>
+</footer>
+      <div class="float_btns">
+        <div class="totop" id="totop">
+  <i class="ri-arrow-up-line"></i>
+</div>
+
+      </div>
+    </main>
+    <aside class="sidebar on">
+      <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/1.jpg" alt="STDquantum"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">主页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">归档</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/categories">分类</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/tags">标签</a>
+    </li>
+    
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      
+      <a class="nav-item-link nav-item-search"  title="搜索">
+        <i class="ri-search-line"></i>
+      </a>
+      
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+    </aside>
+    <script>
+      if (window.matchMedia("(max-width: 768px)").matches) {
+        document.querySelector('.content').classList.remove('on');
+        document.querySelector('.sidebar').classList.remove('on');
+      }
+    </script>
+    <div id="mask"></div>
+
+<!-- #reward -->
+<div id="reward">
+  <span class="close"><i class="ri-close-line"></i></span>
+  <p class="reward-p"><i class="ri-cup-line"></i></p>
+  <div class="reward-box">
+    
+    
+  </div>
+</div>
+    
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+
+<script src="/js/lazyload.min.js"></script>
+
+<!-- Tocbot -->
+
+
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  tocbot.init({
+    tocSelector: '.tocbot',
+    contentSelector: '.article-entry',
+    headingSelector: 'h1, h2, h3, h4, h5, h6',
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: 'main',
+    positionFixedSelector: '.tocbot',
+    positionFixedClass: 'is-position-fixed',
+    fixedSidebarOffset: 'auto'
+  });
+</script>
+<!-- Live-2D -->
+<script type="text/javascript" charset="utf-8" src="/js/L2Dwidget.0.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="/js/L2Dwidget.min.js"></script>
+<script type="text/javascript">
+  L2Dwidget.on('*', (name) => {
+    console.log('%c EVENT ' + '%c -> ' + name, 'background: #222; color: yellow', 'background: #fff; color: #000')
+  });
+  L2Dwidget.init({
+    "display": {
+      "superSample": 2,
+      "width": 200,
+      "height": 400,
+      "position": "right",
+      "hOffset": 0,
+      "vOffset": 0
+    },
+    "mobile": {
+      "show": true,
+      "scale": 0.7
+    }
+  });
+</script>
+
+<script src="/js/jquery.modal.min.js"></script>
+<link rel="stylesheet" href="/css/jquery.modal.min.css">
+<script src="/js/jquery.justifiedGallery.min.js"></script>
+
+<script src="/dist/main.js"></script>
+
+<!-- ImageViewer -->
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<link rel="stylesheet" href="/css/photoswipe.min.css">
+<link rel="stylesheet" href="/css/default-skin.min.css">
+<script src="/js/photoswipe.min.js"></script>
+<script src="/js/photoswipe-ui-default.min.js"></script>
+
+<script>
+    function viewer_init() {
+        let pswpElement = document.querySelectorAll('.pswp')[0];
+        let $imgArr = document.querySelectorAll(('.article-entry img:not(.reward-img)'))
+
+        $imgArr.forEach(($em, i) => {
+            $em.onclick = () => {
+                // slider展开状态
+                // todo: 这样不好，后面改成状态
+                if (document.querySelector('.left-col.show')) return
+                let items = []
+                $imgArr.forEach(($em2, i2) => {
+                    let img = $em2.getAttribute('data-idx', i2)
+                    let src = $em2.getAttribute('data-target') || $em2.getAttribute('src')
+                    let title = $em2.getAttribute('alt')
+                    // 获得原图尺寸
+                    const image = new Image()
+                    image.src = src
+                    items.push({
+                        src: src,
+                        w: image.width || $em2.width,
+                        h: image.height || $em2.height,
+                        title: title
+                    })
+                })
+                var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, {
+                    index: parseInt(i)
+                });
+                gallery.init()
+            }
+        })
+    }
+    viewer_init()
+</script>
+
+<!-- MathJax -->
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      extensions: ["tex2jax.js"],
+      jax: ["input/TeX","output/HTML-CSS"],
+      tex2jax: {inlineMath: [["$","$"]]}
+    });
+  </script>
+
+<script src="/mathjax/MathJax.js"></script>
+<script>
+  var ayerConfig = {
+    mathjax: true
+  }
+</script>
+
+<!-- Katex -->
+
+<!-- busuanzi  -->
+
+<!-- ClickLove -->
+
+
+<script src="/js/clickLove.js"></script>
+
+
+<!-- ClickBoom1 -->
+
+<!-- ClickBoom2 -->
+
+<!-- CodeCopy -->
+
+
+<link rel="stylesheet" href="/css/clipboard.css">
+
+<script src="/js/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="ri-file-copy-2-line"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-checkbox-circle-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-checkbox-circle-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-time-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-time-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+
+
+<!-- CanvasBackground -->
+
+
+    
+  </div>
+</body>
+
+</html>

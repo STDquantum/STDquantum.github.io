@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+
+
+<html lang="zh-CN">
+
+
+<head>
+  <meta charset="utf-8" />
+    
+  <meta name="description" content="STDquantum" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <title>
+    20200926模拟赛 |  STDquantum
+  </title>
+  <meta name="generator" content="hexo-theme-ayer">
+  
+  <link rel="shortcut icon" href="/1.ico" />
+  
+  
+<link rel="stylesheet" href="/dist/main.css">
+
+  
+<link rel="stylesheet" href="/css/remixicon.min.css">
+
+  
+<link rel="stylesheet" href="/css/custom.css">
+
+  
+  
+<script src="/js/pace.min.js"></script>
+
+  
+  
+
+  
+
+</head>
+
+</html>
+
+<body>
+  <div id="app">
+    
+      
+    <main class="content on">
+      <section class="outer">
+  <article
+  id="post-OI/simulate/20200926模拟赛"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  20200926模拟赛
+</h1>
+ 
+
+    </header>
+     
+    <div class="article-meta">
+      <a href="/20200926-mo-ni-sai/" class="article-date">
+  <time datetime="2020-09-26T10:22:26.000Z" itemprop="datePublished">2020-09-26</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/OI/">OI</a> / <a class="article-category-link" href="/categories/OI/%E6%A8%A1%E6%8B%9F%E8%B5%9B/">模拟赛</a>
+  </div>
+  
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> 字数统计:</span>
+            <span class="post-count">2.3k</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> 阅读时长≈</span>
+            <span class="post-count">10 分钟</span>
+        </span>
+    </span>
+</div>
+ 
+    </div>
+      
+    <div class="tocbot"></div>
+
+
+
+
+  
+    <div class="article-entry" itemprop="articleBody">
+       
+  <blockquote>
+<p>我姑且举灰黑的手装作喝干一杯酒，我将在不知道时候的时候独自远行。</p>
+<div align="right">——鲁迅《野草·影的告别》</div>
+
+</blockquote>
+<a id="more"></a>
+<h1 id="简单的序列（bracket）"><a href="#简单的序列（bracket）" class="headerlink" title="简单的序列（bracket）"></a>简单的序列（bracket）</h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>给定一个括号序列$ s $，满足$ |s| = m$。你需要统计括号序列对$ (p, q) $的数量。</p>
+<p>其中$ (p, q)$ 满足$ |p| + |s| + |q| = n $，且$ p + s + q $是一个合法的括号序列。</p>
+<h2 id="输入输出格式"><a href="#输入输出格式" class="headerlink" title="输入输出格式"></a>输入输出格式</h2><h3 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h3><p>第一行两个正整数$ n, m。$ 第二行一个长度为$ m $的括号序列，表示$ s $。</p>
+<h3 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h3><p>输出一行一个整数，表示符合条件的$ (p, q) $的数量对$ 10^9 + 7 $取模的值。</p>
+<h2 id="输入输出样例"><a href="#输入输出样例" class="headerlink" title="输入输出样例"></a>输入输出样例</h2><h3 id="输入样例-1"><a href="#输入样例-1" class="headerlink" title="输入样例 #1"></a>输入样例 #1</h3><figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">4</span> <span class="number">1</span> </span><br><span class="line">(</span><br></pre></td></tr></table></figure>
+<h3 id="输出样例-1"><a href="#输出样例-1" class="headerlink" title="输出样例 #1"></a>输出样例 #1</h3><figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">4</span></span><br></pre></td></tr></table></figure>
+<h3 id="输入样例-2"><a href="#输入样例-2" class="headerlink" title="输入样例 #2"></a>输入样例 #2</h3><figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">4</span> <span class="number">4</span> </span><br><span class="line">(())</span><br></pre></td></tr></table></figure>
+<h3 id="输出样例-2"><a href="#输出样例-2" class="headerlink" title="输出样例 #2"></a>输出样例 #2</h3><figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span></span><br></pre></td></tr></table></figure>
+<h3 id="输入样例-3"><a href="#输入样例-3" class="headerlink" title="输入样例 #3"></a>输入样例 #3</h3><figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">4</span> <span class="number">3</span> </span><br><span class="line">(((</span><br></pre></td></tr></table></figure>
+<h3 id="输出样例-3"><a href="#输出样例-3" class="headerlink" title="输出样例 #3"></a>输出样例 #3</h3><figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">0</span></span><br></pre></td></tr></table></figure>
+<h2 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h2><h3 id="样例解释"><a href="#样例解释" class="headerlink" title="样例解释"></a>样例解释</h3><p>样例1：</p>
+<p>四种方案：</p>
+<p>(1)p=空，q=())</p>
+<p>(2)p=空，q=)()</p>
+<p>(3)p=(,q=))</p>
+<p>(4)p=(), q=)</p>
+<p>样例2：p=空，q=空</p>
+<p>样例3：无方案 </p>
+<h3 id="【数据范围】"><a href="#【数据范围】" class="headerlink" title="【数据范围】"></a>【数据范围】</h3><p>对于 10% 的数据，n ≤ 20；</p>
+<p>对于 25% 的数据，n ≤ 200；</p>
+<p>对于另外 5% 的数据，n = m；</p>
+<p>对于 55% 的数据，n − m ≤ 200；</p>
+<p>对于 100% 的数据，1 ≤ m ≤ n ≤ 10^5, n − m ≤ 2000。</p>
+<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>复杂度肯定和 $n-m$ 挂钩，不然为啥给 $n-m$ 的范围。</p>
+<p>先记录一下 $s$ 内部左右扩号消完（匹配就消）剩的扩号（形如 <code>)))(((</code> 因为只要形状不一样就会被消掉）里的左括号和右括号数量，分别记为 $cntL$ 和 $cntR$。</p>
+<p>考虑一个 $\mathcal{O}\left((n-m)^2\right)$ 的 DP，$f_{i,j,0}$ 代表前 $i$ 个括号里面左括号减右括号为 $j$ 个的方案数，这里就钦定左括号数量不小于右括号数量（然后后文枚举的时候就枚举 $p$ 的状态，也就是 $s$ 左边的状态，必须要让 $p$ 消完以后的左括号数量不小于 $cntR$ 才能符合条件，不然枚举出负数了谁负责）。</p>
+<p>如果求出这个的话，$p$ 的状态确定了，那么对应的 $q$ 的状态也确定了（因为从左边 $i,j$ 就可以推出右边的 $i,j$）。</p>
+<p>然后枚举 $p$ 的状态，左右一乘，就行了。</p>
+<p>初始化 $f_{0,0,0}=1$。</p>
+<p>然后对于 $i\gt 0$ 的 $f_{i,0,0}$，由于钦定了左括号不小于右括号，所以只能让 $i$ 这里是右括号，也就是 $f_{i,0,0}=f_{i-1,1,0}$。</p>
+<p>其他的话考虑第 $i$ 个可能是什么括号，如果是右括号那就从 $f_{i-1,j+1,0}$ 转移，如果是左括号那就从 $f_{i-1,j-1,0}$ 转移，$f_{i,j,0}=f_{i-1,j+1,0}+f_{i-1,j-1,0}$。</p>
+<p>可能有细心的同学发现了，我 DP 状态是三维，但是全程只用到了两维。</p>
+<p>于是同理可证，设 $f_{i,j,1}$ 为前 $i$ 个括号里面右括号减左括号为 $j$ 个的方案数，则有转移：</p>
+<p>$\left\{\begin{array}{l}f_{0,0,1}=1，\\ f_{i,0,1}=f_{i-1,1,1},\\ f_{i,j,1}=f_{i-1,j+1,1}+f_{i-1,j-1,1}\end{array}\right.$。</p>
+<p>完全一样不是吗？这是为什么呢？</p>
+<p>因为 任何一个左括号多于右括号的序列 倒过来就是 右括号多于左括号的序列。于是。。。状态数完全一样。于是就能把第三维去掉直接用两维数组。</p>
+<p>然后枚举 $p$ 的状态 $i\in[0,n-m],j\in[0,i]$，也就是 $p$ 最少有 $0$ 个，最多有 $n-m$ 个扩号，这里面左括号减右括号最多是 $i$（也就是全是左括号）。</p>
+<p>如果 $p$ 有 $i$ 个扩号，那么 $q$ 就有 $n-m-i$ 个扩号；如果 $p$ 的左括号减右括号数为 $j$，总的是 $0$，还有 $s$ 的左括号减右括号是 $cntL-cntR$，于是 $q$ 的左括号减右括号数就是 $0-j-cntL+cntR$，但是由于 $q$ 这序列要承接 $s$ 多出来的左括号，所以 $0-j-cntL+cntR$ 这个数一定小于等于 $0$，也就是 $j+cntL-cntR$ 就是 $q$ 的右括号减左括号数。于是乎，$p$ 的 $i,j$ 状态所造成的贡献就是 $f_{i,j,0}\times f_{n-m-i,j+cntL-cntR,1}$（为了便于理解还是把第三维加上）。</p>
+<p>于是需要注意特判一下不合法的情况，对应 $j+cntL-cntR$ 这个下标要大于等于 $0$，还要保证 $p$ 多出来的左括号能匹配上 $s$ 多出来的右括号，即 $j\ge cntR$，其实这个解决办法就是直接让 $j$ 从 $cntR$ 枚举就行。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> STDquantum &#123;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt; <span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">read</span><span class="params">(T &amp;x)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">char</span> ch;</span><br><span class="line">  <span class="keyword">int</span> f = <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">while</span> (ch = getchar(), !<span class="built_in">isdigit</span>(ch))</span><br><span class="line">    <span class="keyword">if</span> (ch == <span class="string">'-'</span>) f = <span class="number">-1</span>;</span><br><span class="line">  x = (ch ^ <span class="number">48</span>);</span><br><span class="line">  <span class="keyword">while</span> (ch = getchar(), <span class="built_in">isdigit</span>(ch)) x = x * <span class="number">10</span> + (ch ^ <span class="number">48</span>);</span><br><span class="line">  x *= f;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt; <span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">write</span><span class="params">(T x)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">static</span> <span class="keyword">int</span> stk[<span class="number">100</span>], top = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">if</span> (x == <span class="number">0</span>) <span class="keyword">return</span> (<span class="keyword">void</span>)<span class="built_in">putchar</span>(<span class="string">'0'</span>);</span><br><span class="line">  <span class="keyword">if</span> (x &lt; <span class="number">0</span>) x = -x, <span class="built_in">putchar</span>(<span class="string">'-'</span>);</span><br><span class="line">  <span class="keyword">while</span> (x) stk[++top] = x % <span class="number">10</span>, x /= <span class="number">10</span>;</span><br><span class="line">  <span class="keyword">while</span> (top) <span class="built_in">putchar</span>(stk[top--] + <span class="string">'0'</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt; <span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">min</span><span class="params">(<span class="keyword">int</span> &amp;x, <span class="keyword">const</span> T &amp;y)</span> </span>&#123;</span><br><span class="line">  x = x &lt; y ? x : y;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">2e6</span> + <span class="number">10</span>, mod = <span class="number">1e9</span> + <span class="number">7</span>, M = <span class="number">2e3</span> + <span class="number">10</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> n, m, f[M][M];</span><br><span class="line"><span class="keyword">char</span> s[N];</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  read(n), read(m);</span><br><span class="line">  <span class="keyword">if</span> (n &amp; <span class="number">1</span>) <span class="built_in">exit</span>(<span class="built_in">puts</span>(<span class="string">"0"</span>)); <span class="comment">// 是奇数就没必要再进行了，运行了也会输出0。</span></span><br><span class="line">  <span class="built_in">scanf</span>(<span class="string">"%s"</span>, s + <span class="number">1</span>);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">int</span> cntL = <span class="number">0</span>, cntR = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; s[i]; ++i) &#123;</span><br><span class="line">    <span class="keyword">if</span> (s[i] == <span class="string">'('</span>) &#123;</span><br><span class="line">      ++cntL;</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (cntL) &#123;</span><br><span class="line">      --cntL;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      ++cntR;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">int</span> tot = cntL - cntR, top = n - m; <span class="comment">// 看着简洁，减少计算次数</span></span><br><span class="line">  f[<span class="number">0</span>][<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= top; ++i) &#123;</span><br><span class="line">    f[i][<span class="number">0</span>] = f[i - <span class="number">1</span>][<span class="number">1</span>];</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= i; ++j) &#123;</span><br><span class="line">      f[i][j] = ((ll)f[i - <span class="number">1</span>][j - <span class="number">1</span>] + f[i - <span class="number">1</span>][j + <span class="number">1</span>]) % mod;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  ll ans = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt;= top; ++i) &#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> j = cntR; j &lt;= i; ++j) &#123;</span><br><span class="line">      <span class="keyword">if</span> (j + tot &gt;= <span class="number">0</span>) &#123;</span><br><span class="line">        (ans += (ll)f[i][j] * f[top - i][j + tot] % mod) %= mod;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  write(ans);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;  <span class="comment">// namespace STDquantum</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">ifndef</span> ONLINE_JUDGE</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">ifdef</span> LOCAL</span></span><br><span class="line">  freopen(<span class="string">"D:\\OI\\STDquantum\\test.in"</span>, <span class="string">"r"</span>, <span class="built_in">stdin</span>);</span><br><span class="line">  freopen(<span class="string">"D:\\OI\\STDquantum\\test.out"</span>, <span class="string">"w"</span>, <span class="built_in">stdout</span>);</span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">ifndef</span> LOCAL</span></span><br><span class="line">  freopen(<span class="string">"T148911_Bracket.in"</span>, <span class="string">"r"</span>, <span class="built_in">stdin</span>);</span><br><span class="line">  freopen(<span class="string">"T148911_Bracket.out"</span>, <span class="string">"w"</span>, <span class="built_in">stdout</span>);</span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line">  STDquantum::main();</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="简单的期望（exp）"><a href="#简单的期望（exp）" class="headerlink" title="简单的期望（exp）"></a>简单的期望（exp）</h1><h2 id="题目描述-1"><a href="#题目描述-1" class="headerlink" title="题目描述"></a>题目描述</h2><p>给定一个变量$ x $的初始值。</p>
+<p>依次执行$ n $次操作，每次操作有$ p \% $的概率令$ x = x × 2，(100 − p)\% $的概率令$ x = x + 1 $。</p>
+<p>假设最后得到的值为$ w $，令$ d $为$ w $的质因数分解中$ 2 $的次数，求$ d $的期望。</p>
+<h2 id="输入输出格式-1"><a href="#输入输出格式-1" class="headerlink" title="输入输出格式"></a>输入输出格式</h2><h3 id="输入格式-1"><a href="#输入格式-1" class="headerlink" title="输入格式"></a>输入格式</h3><p>第一行三个整数$ x, n, p $，含义见题目描述。</p>
+<h3 id="输出格式-1"><a href="#输出格式-1" class="headerlink" title="输出格式"></a>输出格式</h3><p>一行一个实数，表示$ d $的期望。</p>
+<p>如果你的答案与标准答案的误差不超过$ 10^{-6} $，则判定为正确。</p>
+<h2 id="输入输出样例-1"><a href="#输入输出样例-1" class="headerlink" title="输入输出样例"></a>输入输出样例</h2><h3 id="输入样例-1-1"><a href="#输入样例-1-1" class="headerlink" title="输入样例 #1"></a>输入样例 #1</h3><figure class="highlight basic"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">1 </span><span class="number">1</span> <span class="number">50</span></span><br></pre></td></tr></table></figure>
+<h3 id="输出样例-1-1"><a href="#输出样例-1-1" class="headerlink" title="输出样例 #1"></a>输出样例 #1</h3><figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.0000000000</span></span><br></pre></td></tr></table></figure>
+<h3 id="输入样例-2-1"><a href="#输入样例-2-1" class="headerlink" title="输入样例 #2"></a>输入样例 #2</h3><figure class="highlight basic"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">5 </span><span class="number">3</span> <span class="number">0</span></span><br></pre></td></tr></table></figure>
+<h3 id="输出样例-2-1"><a href="#输出样例-2-1" class="headerlink" title="输出样例 #2"></a>输出样例 #2</h3><figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">3.0000000000</span></span><br></pre></td></tr></table></figure>
+<h3 id="输入样例-3-1"><a href="#输入样例-3-1" class="headerlink" title="输入样例 #3"></a>输入样例 #3</h3><figure class="highlight basic"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">5 </span><span class="number">3</span> <span class="number">25</span></span><br></pre></td></tr></table></figure>
+<h3 id="输出样例-3-1"><a href="#输出样例-3-1" class="headerlink" title="输出样例 #3"></a>输出样例 #3</h3><figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.9218750000</span></span><br></pre></td></tr></table></figure>
+<h2 id="说明-1"><a href="#说明-1" class="headerlink" title="说明"></a>说明</h2><p>【数据范围】</p>
+<p>对于$20\%$的数据，$n\leqslant 20$；</p>
+<p>对于$30\%$的数据，$n\leqslant 50$；</p>
+<p>对于$50\%$的数据，$n\leqslant 100$；</p>
+<p>对于$100\%$的数据，$x\leqslant 10^9,n\leqslant 200,0\leqslant p\leqslant 100$。</p>
+<h2 id="题解-1"><a href="#题解-1" class="headerlink" title="题解"></a>题解</h2><p>首先，质因数分解中$2$的个数即为二进制表示下末尾$0$的个数。</p>
+<p>考虑$DP$，设$dp[i][s][j][0/1]$表示进行第$i$次操作后，当前数的二进制表示后$8$位为$s$，第九位为$0/1$，从第九位开始往前连续$j$位相同的概率。</p>
+<p>先来解释后$8$位的原因，因为至少要$2^8+1$次操作才可以向$9$进位，而操作数只有$200$，所以不会对答案造成贡献。</p>
+<p>再来解释$j$的用途，假如后$8$位都是$1$第九位也是$1$，那么我们在进行$+1$的操作后会变成$1000……$，而$j$是为了计算出这个$1$的位置。</p>
+<p>转移一共有$8$个，不再一一赘述，具体可以看代码。</p>
+<p>时间复杂度：$\mathcal{O}(2^8n^2)$。</p>
+<h1 id="简单的操作（merge）"><a href="#简单的操作（merge）" class="headerlink" title="简单的操作（merge）"></a>简单的操作（merge）</h1><h2 id="题目描述-2"><a href="#题目描述-2" class="headerlink" title="题目描述"></a>题目描述</h2><p>有个包含$ n $个点，$ m $条边，无自环和重边的无向图。</p>
+<p>对于两个没有直接连边的点$ u,v $，你可以将它们合并。具体来说，你可以删除$ u,v $及所有以它们作为端点的边，然后加入一个新点$ x $，将它与所有在原图中与$ u $或$ v $直接连边的点连边。</p>
+<p>你需要判断是否能通过若干次合并操作使得原图成为一条链，如果能，你还需要求出这条链的最大长度。</p>
+<h2 id="输入输出格式-2"><a href="#输入输出格式-2" class="headerlink" title="输入输出格式"></a>输入输出格式</h2><h3 id="输入格式-2"><a href="#输入格式-2" class="headerlink" title="输入格式"></a>输入格式</h3><p>第一行两个正整数$ n,m $，表示图的点数和边数。</p>
+<p>接下来$ m $行，每行两个正整数$ u,v $，表示$ u $和$ v $之间有一条无向边</p>
+<h3 id="输出格式-2"><a href="#输出格式-2" class="headerlink" title="输出格式"></a>输出格式</h3><p>如果能通过若干次合并操作使得原图成为一条链，输出链的最大长度，否则输出$ -1 $</p>
+<h2 id="输入输出样例-2"><a href="#输入输出样例-2" class="headerlink" title="输入输出样例"></a>输入输出样例</h2><h3 id="输入样例-1-2"><a href="#输入样例-1-2" class="headerlink" title="输入样例 #1"></a>输入样例 #1</h3><figure class="highlight basic"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">5 </span><span class="number">4</span></span><br><span class="line"><span class="symbol">1 </span><span class="number">2</span></span><br><span class="line"><span class="symbol">2 </span><span class="number">3</span></span><br><span class="line"><span class="symbol">3 </span><span class="number">4</span></span><br><span class="line"><span class="symbol">3 </span><span class="number">5</span></span><br></pre></td></tr></table></figure>
+<h3 id="输出样例-1-2"><a href="#输出样例-1-2" class="headerlink" title="输出样例 #1"></a>输出样例 #1</h3><figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">3</span></span><br></pre></td></tr></table></figure>
+<h3 id="输入样例-2-2"><a href="#输入样例-2-2" class="headerlink" title="输入样例 #2"></a>输入样例 #2</h3><figure class="highlight basic"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">4 </span><span class="number">6</span></span><br><span class="line"><span class="symbol">1 </span><span class="number">2</span></span><br><span class="line"><span class="symbol">2 </span><span class="number">3</span></span><br><span class="line"><span class="symbol">1 </span><span class="number">3</span></span><br><span class="line"><span class="symbol">3 </span><span class="number">4</span></span><br><span class="line"><span class="symbol">2 </span><span class="number">4</span></span><br><span class="line"><span class="symbol">1 </span><span class="number">4</span></span><br></pre></td></tr></table></figure>
+<h3 id="输出样例-2-2"><a href="#输出样例-2-2" class="headerlink" title="输出样例 #2"></a>输出样例 #2</h3><figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">-1</span></span><br></pre></td></tr></table></figure>
+<h2 id="说明-2"><a href="#说明-2" class="headerlink" title="说明"></a>说明</h2><h3 id="样例1解释："><a href="#样例1解释：" class="headerlink" title="样例1解释："></a>样例1解释：</h3><p>只要合并4和5就变成一条长度为3的链。1-2-3-x(4,5)</p>
+<h3 id="【数据范围】-1"><a href="#【数据范围】-1" class="headerlink" title="【数据范围】"></a>【数据范围】</h3><p>对于$30\%$的数据，$n\lt10$</p>
+<p>对于$70\%$的数据，$n\lt2,000$</p>
+<p>对于$100\%$的数据，$n\leq 1,000,m\leq 10^5$</p>
+<h2 id="题解-2"><a href="#题解-2" class="headerlink" title="题解"></a>题解</h2><p>发现有三元环是不可能成链的，因为想要</p>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/OI/" rel="tag">OI</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%A8%A1%E6%8B%9F%E8%B5%9B/" rel="tag">模拟赛</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+  <nav class="article-nav">
+    
+    
+      <a href="/cf1420e-battle-lemmings/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">CF1420E Battle Lemmings</div>
+      </a>
+    
+  </nav>
+
+  
+     
+</article>
+
+</section>
+      <footer class="footer">
+  <div class="outer">
+    <ul>
+      <li>
+        Copyrights &copy;
+        2020
+        <i class="ri-heart-fill heart_icon"></i> STDquantum
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+      </li>
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      <li>
+        <!-- cnzz统计 -->
+        
+      </li>
+    </ul>
+  </div>
+</footer>
+      <div class="float_btns">
+        <div class="totop" id="totop">
+  <i class="ri-arrow-up-line"></i>
+</div>
+
+      </div>
+    </main>
+    <aside class="sidebar on">
+      <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/1.jpg" alt="STDquantum"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">主页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">归档</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/categories">分类</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/tags">标签</a>
+    </li>
+    
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      
+      <a class="nav-item-link nav-item-search"  title="搜索">
+        <i class="ri-search-line"></i>
+      </a>
+      
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+    </aside>
+    <script>
+      if (window.matchMedia("(max-width: 768px)").matches) {
+        document.querySelector('.content').classList.remove('on');
+        document.querySelector('.sidebar').classList.remove('on');
+      }
+    </script>
+    <div id="mask"></div>
+
+<!-- #reward -->
+<div id="reward">
+  <span class="close"><i class="ri-close-line"></i></span>
+  <p class="reward-p"><i class="ri-cup-line"></i></p>
+  <div class="reward-box">
+    
+    
+  </div>
+</div>
+    
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+
+<script src="/js/lazyload.min.js"></script>
+
+<!-- Tocbot -->
+
+
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  tocbot.init({
+    tocSelector: '.tocbot',
+    contentSelector: '.article-entry',
+    headingSelector: 'h1, h2, h3, h4, h5, h6',
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: 'main',
+    positionFixedSelector: '.tocbot',
+    positionFixedClass: 'is-position-fixed',
+    fixedSidebarOffset: 'auto'
+  });
+</script>
+<!-- Live-2D -->
+<script type="text/javascript" charset="utf-8" src="/js/L2Dwidget.0.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="/js/L2Dwidget.min.js"></script>
+<script type="text/javascript">
+  L2Dwidget.on('*', (name) => {
+    console.log('%c EVENT ' + '%c -> ' + name, 'background: #222; color: yellow', 'background: #fff; color: #000')
+  });
+  L2Dwidget.init({
+    "display": {
+      "superSample": 2,
+      "width": 200,
+      "height": 400,
+      "position": "right",
+      "hOffset": 0,
+      "vOffset": 0
+    },
+    "mobile": {
+      "show": true,
+      "scale": 0.7
+    }
+  });
+</script>
+
+<script src="/js/jquery.modal.min.js"></script>
+<link rel="stylesheet" href="/css/jquery.modal.min.css">
+<script src="/js/jquery.justifiedGallery.min.js"></script>
+
+<script src="/dist/main.js"></script>
+
+<!-- ImageViewer -->
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<link rel="stylesheet" href="/css/photoswipe.min.css">
+<link rel="stylesheet" href="/css/default-skin.min.css">
+<script src="/js/photoswipe.min.js"></script>
+<script src="/js/photoswipe-ui-default.min.js"></script>
+
+<script>
+    function viewer_init() {
+        let pswpElement = document.querySelectorAll('.pswp')[0];
+        let $imgArr = document.querySelectorAll(('.article-entry img:not(.reward-img)'))
+
+        $imgArr.forEach(($em, i) => {
+            $em.onclick = () => {
+                // slider展开状态
+                // todo: 这样不好，后面改成状态
+                if (document.querySelector('.left-col.show')) return
+                let items = []
+                $imgArr.forEach(($em2, i2) => {
+                    let img = $em2.getAttribute('data-idx', i2)
+                    let src = $em2.getAttribute('data-target') || $em2.getAttribute('src')
+                    let title = $em2.getAttribute('alt')
+                    // 获得原图尺寸
+                    const image = new Image()
+                    image.src = src
+                    items.push({
+                        src: src,
+                        w: image.width || $em2.width,
+                        h: image.height || $em2.height,
+                        title: title
+                    })
+                })
+                var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, {
+                    index: parseInt(i)
+                });
+                gallery.init()
+            }
+        })
+    }
+    viewer_init()
+</script>
+
+<!-- MathJax -->
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      extensions: ["tex2jax.js"],
+      jax: ["input/TeX","output/HTML-CSS"],
+      tex2jax: {inlineMath: [["$","$"]]}
+    });
+  </script>
+
+<script src="/mathjax/MathJax.js"></script>
+<script>
+  var ayerConfig = {
+    mathjax: true
+  }
+</script>
+
+<!-- Katex -->
+
+<!-- busuanzi  -->
+
+<!-- ClickLove -->
+
+
+<script src="/js/clickLove.js"></script>
+
+
+<!-- ClickBoom1 -->
+
+<!-- ClickBoom2 -->
+
+<!-- CodeCopy -->
+
+
+<link rel="stylesheet" href="/css/clipboard.css">
+
+<script src="/js/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="ri-file-copy-2-line"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-checkbox-circle-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-checkbox-circle-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-time-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-time-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+
+
+<!-- CanvasBackground -->
+
+
+    
+  </div>
+</body>
+
+</html>

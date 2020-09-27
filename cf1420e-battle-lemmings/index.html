@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+
+
+<html lang="zh-CN">
+
+
+<head>
+  <meta charset="utf-8" />
+    
+  <meta name="description" content="STDquantum" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <title>
+    CF1420E Battle Lemmings |  STDquantum
+  </title>
+  <meta name="generator" content="hexo-theme-ayer">
+  
+  <link rel="shortcut icon" href="/1.ico" />
+  
+  
+<link rel="stylesheet" href="/dist/main.css">
+
+  
+<link rel="stylesheet" href="/css/remixicon.min.css">
+
+  
+<link rel="stylesheet" href="/css/custom.css">
+
+  
+  
+<script src="/js/pace.min.js"></script>
+
+  
+  
+
+  
+
+</head>
+
+</html>
+
+<body>
+  <div id="app">
+    
+      
+    <main class="content on">
+      <section class="outer">
+  <article
+  id="post-OI/vary/CF1420E Battle Lemmings"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  CF1420E Battle Lemmings
+</h1>
+ 
+
+    </header>
+     
+    <div class="article-meta">
+      <a href="/cf1420e-battle-lemmings/" class="article-date">
+  <time datetime="2020-09-26T01:53:56.000Z" itemprop="datePublished">2020-09-26</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/OI/">OI</a> / <a class="article-category-link" href="/categories/OI/DP/">DP</a>
+  </div>
+  
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> 字数统计:</span>
+            <span class="post-count">2.1k</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> 阅读时长≈</span>
+            <span class="post-count">10 分钟</span>
+        </span>
+    </span>
+</div>
+ 
+    </div>
+      
+    <div class="tocbot"></div>
+
+
+
+
+  
+    <div class="article-entry" itemprop="articleBody">
+       
+  <p><a href="https://codeforces.com/contest/1420" target="_blank" rel="noopener">Codeforces Round #672 (Div. 2)</a> E题。</p>
+<a id="more"></a>
+<h1 id="Battle-Lemmings"><a href="#Battle-Lemmings" class="headerlink" title="Battle Lemmings"></a>Battle Lemmings</h1><p><a href="https://www.luogu.com.cn/problem/CF1420E" target="_blank" rel="noopener">CF1420E Battle Lemmings</a></p>
+<h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>A lighthouse keeper Peter commands an army of $ n $ battle lemmings. He ordered his army to stand in a line and numbered the lemmings from $ 1 $ to $ n $ from left to right. Some of the lemmings hold shields. Each lemming cannot hold more than one shield.</p>
+<p>The more protected Peter’s army is, the better. To calculate the protection of the army, he finds the number of protected pairs of lemmings, that is such pairs that both lemmings in the pair don’t hold a shield, but there is a lemming with a shield between them.</p>
+<p>Now it’s time to prepare for defence and increase the protection of the army. To do this, Peter can give orders. He chooses a lemming with a shield and gives him one of the two orders:</p>
+<ul>
+<li>give the shield to the left neighbor if it exists and doesn’t have a shield; </li>
+<li>give the shield to the right neighbor if it exists and doesn’t have a shield.</li>
+</ul>
+<p>In one second Peter can give exactly one order.</p>
+<p>It’s not clear how much time Peter has before the defence. So he decided to determine the maximal value of army protection for each $ k $ from $ 0 $ to $ \frac{n(n-1)}2 $ , if he gives no more that $ k $ orders. Help Peter to calculate it!</p>
+<h2 id="输入输出格式"><a href="#输入输出格式" class="headerlink" title="输入输出格式"></a>输入输出格式</h2><h3 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h3><p>First line contains a single integer $ n $ ( $ 1 \le n \le 80 $ ), the number of lemmings in Peter’s army.</p>
+<p>Second line contains $ n $ integers $ a_i $ ( $ 0 \le a_i \le 1 $ ). If $ a_i = 1 $ , then the $ i $ -th lemming has a shield, otherwise $ a_i = 0 $ .</p>
+<h3 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h3><p>Print $ \frac{n(n-1)}2 + 1 $ numbers, the greatest possible protection after no more than $ 0, 1, \dots, \frac{n(n-1)}2 $ orders.</p>
+<h2 id="输入输出样例"><a href="#输入输出样例" class="headerlink" title="输入输出样例"></a>输入输出样例</h2><h3 id="输入样例-1"><a href="#输入样例-1" class="headerlink" title="输入样例 #1"></a>输入样例 #1</h3><figure class="highlight basic"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">5</span></span><br><span class="line"><span class="symbol">1 </span><span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">1</span></span><br></pre></td></tr></table></figure>
+<h3 id="输出样例-1"><a href="#输出样例-1" class="headerlink" title="输出样例 #1"></a>输出样例 #1</h3><figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">0</span> <span class="number">2</span> <span class="number">3</span> <span class="number">3</span> <span class="number">3</span> <span class="number">3</span> <span class="number">3</span> <span class="number">3</span> <span class="number">3</span> <span class="number">3</span> <span class="number">3</span></span><br></pre></td></tr></table></figure>
+<h3 id="输入样例-2"><a href="#输入样例-2" class="headerlink" title="输入样例 #2"></a>输入样例 #2</h3><figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">12</span></span><br><span class="line"><span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">1</span> <span class="number">1</span> <span class="number">1</span> <span class="number">1</span> <span class="number">0</span> <span class="number">1</span> <span class="number">1</span> <span class="number">0</span></span><br></pre></td></tr></table></figure>
+<h3 id="输出样例-2"><a href="#输出样例-2" class="headerlink" title="输出样例 #2"></a>输出样例 #2</h3><figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">9</span> <span class="number">12</span> <span class="number">13</span> <span class="number">14</span> <span class="number">14</span> <span class="number">14</span> <span class="number">15</span> <span class="number">15</span> <span class="number">15</span> <span class="number">15</span> <span class="number">15</span> <span class="number">15</span> <span class="number">15</span> <span class="number">15</span> <span class="number">15</span> <span class="number">15</span> <span class="number">15</span> <span class="number">15</span> <span class="number">15</span> <span class="number">15</span> <span class="number">15</span> <span class="number">15</span> <span class="number">15</span> <span class="number">15</span> <span class="number">15</span> <span class="number">15</span> <span class="number">15</span> <span class="number">15</span> <span class="number">15</span> <span class="number">15</span> <span class="number">15</span> <span class="number">15</span> <span class="number">15</span> <span class="number">15</span> <span class="number">15</span> <span class="number">15</span> <span class="number">15</span> <span class="number">15</span> <span class="number">15</span> <span class="number">15</span> <span class="number">15</span> <span class="number">15</span> <span class="number">15</span> <span class="number">15</span> <span class="number">15</span> <span class="number">15</span> <span class="number">15</span> <span class="number">15</span> <span class="number">15</span> <span class="number">15</span> <span class="number">15</span> <span class="number">15</span> <span class="number">15</span> <span class="number">15</span> <span class="number">15</span> <span class="number">15</span> <span class="number">15</span> <span class="number">15</span> <span class="number">15</span> <span class="number">15</span> <span class="number">15</span> <span class="number">15</span> <span class="number">15</span> <span class="number">15</span> <span class="number">15</span> <span class="number">15</span> <span class="number">15</span></span><br></pre></td></tr></table></figure>
+<h2 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h2><p>Consider the first example.</p>
+<p>The protection is initially equal to zero, because for each pair of lemmings without shields there is no lemmings with shield.</p>
+<p>In one second Peter can order the first lemming give his shield to the right neighbor. In this case, the protection is two, as there are two protected pairs of lemmings, $ (1, 3) $ and $ (1, 4) $ .</p>
+<p>In two seconds Peter can act in the following way. First, he orders the fifth lemming to give a shield to the left neighbor. Then, he orders the first lemming to give a shield to the right neighbor. In this case Peter has three protected pairs of lemmings — $ (1, 3) $ , $ (1, 5) $ and $ (3, 5) $ .</p>
+<p>You can make sure that it’s impossible to give orders in such a way that the protection becomes greater than three.</p>
+<h2 id="题意翻译"><a href="#题意翻译" class="headerlink" title="题意翻译"></a>题意翻译</h2><p>给出一个 01 序列 $a$。定义一次操作为交换任意相邻的 0 和 1。</p>
+<p>一个二元组 $(i,j)$（满足 $i\lt j$）能对答案产生 $1$ 的贡献当且仅当 $a_i=a_j=0$ 且区间 $(i,j)$ 内存在 $k$ 满足 $a_k=1$。</p>
+<p>计算序列分别在进行不超过 $0$ 到 $\displaystyle\frac{n\cdot (n-1)}2$ 次操作时的最大答案。</p>
+<h2 id="题意翻译（luogu）"><a href="#题意翻译（luogu）" class="headerlink" title="题意翻译（luogu）"></a>题意翻译（luogu）</h2><p>有 $n$ 个守卫排成一行，编号为 $1$ 到 $n$。这些守卫里有的拿着盾牌，有的没有。<strong>一个守卫只能同时拿一个盾牌</strong>。</p>
+<p>称一对守卫是被保护的，当且仅当这两个守卫都没拿盾牌，但他们之间有守卫拿了盾牌。</p>
+<p>每一秒，指挥官可以下达两种命令中的一种，分别是：</p>
+<ul>
+<li>选一个带盾牌的守卫，把它的盾牌给他左边的守卫 </li>
+<li>选一个带盾牌的守卫，把它的盾牌给他右边的守卫</li>
+</ul>
+<p>请求出时刻 $0$ 到 $\frac{n \times (n - 1)}{2}$ 中每个时刻最多有多少对守卫是被保护的。</p>
+<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>可以先考虑一下如何简化问题。</p>
+<hr>
+<p>首先可以简化一下题目中的 01 串。</p>
+<p>发现连续的 0 对答案的贡献可以用乘积计算（如<code>100101</code>贡献就是 $2\times 1=2$），所以用连续 0 的个数来表示整个序列（如<code>100101</code>表示为 $\{0,2,1,0\}$）（新表示法元素个数为原序列 1 的个数加一）。于是整个序列的贡献就可以用 任意两个数乘积 的和来表示。</p>
+<hr>
+<p>改变了表示法，再考虑在一次操作过后会对新的表示法序列造成什么影响。</p>
+<p>如<code>100101</code>交换第一个 1 和第一个 0，成为<code>010101</code>，表示法变为 $\{1,1,1,0\}$。其改变就是在相邻两个元素做更改，一个加一，一个减一。</p>
+<p>设 $S$ 为转化后的序列，元素为 $s_i$，元素个数 $k$，答案 $ans$ 为：</p>
+<script type="math/tex; mode=display">
+\begin{align}
+ans&=\sum_{i=1}^k\sum_{j=1}^{i-1}s_is_j \\
+&=\frac12\left(\sum_{i=1}^k\sum_{j=1}^ks_is_j[i\neq j]\right)\\
+&=\frac12\left(\sum_{i=1}^ks_i\sum_{j=1}^ks_j[i\neq j]\right)\\
+&=\frac12\left(\left(\sum_{i=1}^ks_i\right)^2-\sum_{i=1}^ks_i^2\right)
+\end{align}</script><p>观察 $\displaystyle \sum_{i=1}^ks_i$ 这个式子的意义是什么。由 $S$ 的定义不难推出它代表原序列中 0 的数量。所以我们想要最大化答案，就要最小化 $\displaystyle \sum_{i=1}^ks_i^2$。</p>
+<hr>
+<p>然后我们还需要考虑从 $A$ 状态转移到 $B$ 状态所需要的最少步数（因为要枚举状态方便转移）。每次操作最多只能让相邻元素一个加一一个减一。设 $g_{A,B}(i)$ 为让 $A$ 中的前 $i$ 个数和 $B$ 中前 $i$ 个相同的最小步数，对 $i=1$ 显然为 $\vert a_1-b_1\vert$，而扩展到 $i$ 更大的情况，就会有 $\displaystyle g_{A,B}(i)=\left\vert\sum_{j=1}^ia_j-\sum_{j=1}^ib_j \right\vert$。而想要将 $A$ 变成 $B$，总的需要的步数为 $\displaystyle \sum_{i=1}^{k-1}g_{A,B}(i)$（$A$ 和 $B$ 均有 $k$ 个元素）。</p>
+<p>如果不太理解上式的同学可以看下这里，举个例子说明一下：</p>
+<p>比如 $A=\{5,8\},B=\{8,5\}$，想要让 $A$ 变成 $B$，需要的操作次数就是 $\vert5-8\vert=3$；</p>
+<p>比如 $A=\{5,9,3\},B=\{8,3,6\}$，首先要把 $A$ 的第一个元素变成 $8$，这样需要的次数是 $\vert5-8\vert=3$，然后这时就相当于 $A^\prime=\{6,3\},B^\prime=\{3,6\}$，需要的次数是 $\vert6-3\vert=3$，为啥不是 $\vert9-3\vert=6$ 呢？因为 $5$ 已经帮忙把 $9$ 减少 $3$ 了，也就是这个 $9$ 还要加上一个 $5-8$，也就是 $a_1-b_1$。那个大求和式就可以用这种方法一步一步分解掉。</p>
+<hr>
+<p>做好了准备工作，就可以开始准备 DP 了。我们想要得到答案的话可以考虑 DP，设 $f_{i,sum,op}$ 为考虑到前 $i$ 个 $S$ 中的元素（$i\le k$），已经完成了 $op$ 次操作，经过 $op$ 次操作后 $\displaystyle \sum_{i=1}^{op}s_i=sum$，这时最小的 $\displaystyle \sum_{i=1}^{op}s_i^2$。</p>
+<p>最终答案就是 $\displaystyle \frac12\left(cnt_0^2-f_{k,cnt_0,op}\right)$，$cnt_0$ 是原序列中 $0$ 的数量，或者说是 $\displaystyle \sum_{i=1}^ks_i$。</p>
+<p>设 $\displaystyle z_i=\sum_{j=1}^is_i$，也就是原序列新表示法的前缀和（用于状态之间的转移）。</p>
+<p>那么转移就可以先枚举 $i$ 从 $0$ 到 $k-1$，然后枚举 $sum$ 从 $0$ 到 $z_k$，再枚举 $op$ 从 $0$ 到 $\displaystyle \frac{n\cdot (n-1)}2$，最后一层枚举是 $q$ 介于 $sum$ 和 $z_k$ 之间，表示要转移到的 $sum^\prime$，那么我们转移就相当于在表示法末尾又添加了一个元素 $h=q-sum$。则 $f_{i+1,q,op+\vert q-z_{i+1}\vert}=f_{i,sum,op}+h^2$，默认是和自己取 $\min$。</p>
+<p>这样总时间复杂度是 $\mathcal{O}(n^5)$，空间复杂度 $\mathcal{O}(n^4)$。但由于有很多状态根本不存在，所以很多 $q$ 的枚举是无法进行的。而且 DP 常数较小，可以通过本题。</p>
+<p>代码：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">80</span> + <span class="number">6</span>, inf = <span class="number">0x3f3f3f3f</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">min</span><span class="params">(<span class="keyword">int</span> &amp;x, <span class="keyword">const</span> <span class="keyword">int</span> &amp;y)</span> </span>&#123; x = x &lt; y ? x : y; &#125; <span class="comment">// 节省代码长度</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> n, k, s[N], z[N], f[N][N][N * N];</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  read(n);</span><br><span class="line"></span><br><span class="line">  <span class="comment">/* 求出新表示法及其前缀和 */</span></span><br><span class="line">  <span class="keyword">int</span> a, cnt = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; ++i) &#123;</span><br><span class="line">    read(a);</span><br><span class="line">    <span class="keyword">if</span> (a) &#123;</span><br><span class="line">      s[++k] = cnt, cnt = <span class="number">0</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      ++cnt;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  s[++k] = cnt;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= k; ++i) z[i] = z[i - <span class="number">1</span>] + s[i];</span><br><span class="line"></span><br><span class="line">  <span class="comment">/* DP过程 */</span></span><br><span class="line">  <span class="built_in">memset</span>(f, <span class="number">0x3f</span>, <span class="keyword">sizeof</span>(f)), f[<span class="number">0</span>][<span class="number">0</span>][<span class="number">0</span>] = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">int</span> top = n * (n - <span class="number">1</span>) / <span class="number">2</span>, maxx = z[k];</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; k; ++i) &#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> sum = <span class="number">0</span>; sum &lt;= maxx; ++sum) &#123;</span><br><span class="line">      <span class="keyword">for</span> (<span class="keyword">int</span> op = <span class="number">0</span>; op &lt;= top; ++op) &#123;</span><br><span class="line">        <span class="keyword">if</span> (f[i][sum][op] == inf) <span class="keyword">continue</span>; <span class="comment">// 状态不存在不需要转移</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> q = sum, tmp, h; q &lt;= maxx; ++q) &#123;</span><br><span class="line">          <span class="keyword">if</span> ((tmp = op + <span class="built_in">abs</span>(q - z[i + <span class="number">1</span>])) &gt; top) <span class="keyword">continue</span>; <span class="comment">// 超过所需次数没必要转移</span></span><br><span class="line">          h = q - sum;</span><br><span class="line">          min(f[i + <span class="number">1</span>][q][tmp], f[i][sum][op] + h * h);</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">int</span> minn = inf;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt;= top; ++i) &#123;</span><br><span class="line">    min(minn, f[k][maxx][i]); <span class="comment">// 取最优值</span></span><br><span class="line">    write((maxx * maxx - minn) / <span class="number">2</span>), <span class="built_in">putchar</span>(<span class="string">' '</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="UPD-on-2020-09-27-11-00"><a href="#UPD-on-2020-09-27-11-00" class="headerlink" title="UPD on 2020-09-27 11:00"></a>UPD on 2020-09-27 11:00</h1><p>终于把 672 div2 怼完了。。。。</p>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CF/" rel="tag">CF</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+  <nav class="article-nav">
+    
+      <a href="/20200926-mo-ni-sai/" class="article-nav-link">
+        <strong class="article-nav-caption">上一篇</strong>
+        <div class="article-nav-title">
+          
+            20200926模拟赛
+          
+        </div>
+      </a>
+    
+    
+      <a href="/cf1420d-rescue-nibel/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">CF1420D Rescue Nibel!</div>
+      </a>
+    
+  </nav>
+
+  
+     
+</article>
+
+</section>
+      <footer class="footer">
+  <div class="outer">
+    <ul>
+      <li>
+        Copyrights &copy;
+        2020
+        <i class="ri-heart-fill heart_icon"></i> STDquantum
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+      </li>
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      <li>
+        <!-- cnzz统计 -->
+        
+      </li>
+    </ul>
+  </div>
+</footer>
+      <div class="float_btns">
+        <div class="totop" id="totop">
+  <i class="ri-arrow-up-line"></i>
+</div>
+
+      </div>
+    </main>
+    <aside class="sidebar on">
+      <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/1.jpg" alt="STDquantum"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">主页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">归档</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/categories">分类</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/tags">标签</a>
+    </li>
+    
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      
+      <a class="nav-item-link nav-item-search"  title="搜索">
+        <i class="ri-search-line"></i>
+      </a>
+      
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+    </aside>
+    <script>
+      if (window.matchMedia("(max-width: 768px)").matches) {
+        document.querySelector('.content').classList.remove('on');
+        document.querySelector('.sidebar').classList.remove('on');
+      }
+    </script>
+    <div id="mask"></div>
+
+<!-- #reward -->
+<div id="reward">
+  <span class="close"><i class="ri-close-line"></i></span>
+  <p class="reward-p"><i class="ri-cup-line"></i></p>
+  <div class="reward-box">
+    
+    
+  </div>
+</div>
+    
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+
+<script src="/js/lazyload.min.js"></script>
+
+<!-- Tocbot -->
+
+
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  tocbot.init({
+    tocSelector: '.tocbot',
+    contentSelector: '.article-entry',
+    headingSelector: 'h1, h2, h3, h4, h5, h6',
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: 'main',
+    positionFixedSelector: '.tocbot',
+    positionFixedClass: 'is-position-fixed',
+    fixedSidebarOffset: 'auto'
+  });
+</script>
+<!-- Live-2D -->
+<script type="text/javascript" charset="utf-8" src="/js/L2Dwidget.0.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="/js/L2Dwidget.min.js"></script>
+<script type="text/javascript">
+  L2Dwidget.on('*', (name) => {
+    console.log('%c EVENT ' + '%c -> ' + name, 'background: #222; color: yellow', 'background: #fff; color: #000')
+  });
+  L2Dwidget.init({
+    "display": {
+      "superSample": 2,
+      "width": 200,
+      "height": 400,
+      "position": "right",
+      "hOffset": 0,
+      "vOffset": 0
+    },
+    "mobile": {
+      "show": true,
+      "scale": 0.7
+    }
+  });
+</script>
+
+<script src="/js/jquery.modal.min.js"></script>
+<link rel="stylesheet" href="/css/jquery.modal.min.css">
+<script src="/js/jquery.justifiedGallery.min.js"></script>
+
+<script src="/dist/main.js"></script>
+
+<!-- ImageViewer -->
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<link rel="stylesheet" href="/css/photoswipe.min.css">
+<link rel="stylesheet" href="/css/default-skin.min.css">
+<script src="/js/photoswipe.min.js"></script>
+<script src="/js/photoswipe-ui-default.min.js"></script>
+
+<script>
+    function viewer_init() {
+        let pswpElement = document.querySelectorAll('.pswp')[0];
+        let $imgArr = document.querySelectorAll(('.article-entry img:not(.reward-img)'))
+
+        $imgArr.forEach(($em, i) => {
+            $em.onclick = () => {
+                // slider展开状态
+                // todo: 这样不好，后面改成状态
+                if (document.querySelector('.left-col.show')) return
+                let items = []
+                $imgArr.forEach(($em2, i2) => {
+                    let img = $em2.getAttribute('data-idx', i2)
+                    let src = $em2.getAttribute('data-target') || $em2.getAttribute('src')
+                    let title = $em2.getAttribute('alt')
+                    // 获得原图尺寸
+                    const image = new Image()
+                    image.src = src
+                    items.push({
+                        src: src,
+                        w: image.width || $em2.width,
+                        h: image.height || $em2.height,
+                        title: title
+                    })
+                })
+                var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, {
+                    index: parseInt(i)
+                });
+                gallery.init()
+            }
+        })
+    }
+    viewer_init()
+</script>
+
+<!-- MathJax -->
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      extensions: ["tex2jax.js"],
+      jax: ["input/TeX","output/HTML-CSS"],
+      tex2jax: {inlineMath: [["$","$"]]}
+    });
+  </script>
+
+<script src="/mathjax/MathJax.js"></script>
+<script>
+  var ayerConfig = {
+    mathjax: true
+  }
+</script>
+
+<!-- Katex -->
+
+<!-- busuanzi  -->
+
+<!-- ClickLove -->
+
+
+<script src="/js/clickLove.js"></script>
+
+
+<!-- ClickBoom1 -->
+
+<!-- ClickBoom2 -->
+
+<!-- CodeCopy -->
+
+
+<link rel="stylesheet" href="/css/clipboard.css">
+
+<script src="/js/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="ri-file-copy-2-line"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-checkbox-circle-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-checkbox-circle-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-time-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-time-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+
+
+<!-- CanvasBackground -->
+
+
+    
+  </div>
+</body>
+
+</html>
