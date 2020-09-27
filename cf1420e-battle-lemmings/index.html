@@ -158,7 +158,7 @@ ans&=\sum_{i=1}^k\sum_{j=1}^{i-1}s_is_j \\
 <hr>
 <p>做好了准备工作，就可以开始准备 DP 了。我们想要得到答案的话可以考虑 DP，设 $f_{i,sum,op}$ 为考虑到前 $i$ 个 $S$ 中的元素（$i\le k$），已经完成了 $op$ 次操作，经过 $op$ 次操作后 $\displaystyle \sum_{i=1}^{op}s_i=sum$，这时最小的 $\displaystyle \sum_{i=1}^{op}s_i^2$。</p>
 <p>最终答案就是 $\displaystyle \frac12\left(cnt_0^2-f_{k,cnt_0,op}\right)$，$cnt_0$ 是原序列中 $0$ 的数量，或者说是 $\displaystyle \sum_{i=1}^ks_i$。</p>
-<p>设 $\displaystyle z_i=\sum_{j=1}^is_i$，也就是原序列新表示法的前缀和（用于状态之间的转移）。</p>
+<p>设 $\displaystyle z_i=\sum_{j=1}^is_j$，也就是原序列新表示法的前缀和（用于状态之间的转移）。</p>
 <p>那么转移就可以先枚举 $i$ 从 $0$ 到 $k-1$，然后枚举 $sum$ 从 $0$ 到 $z_k$，再枚举 $op$ 从 $0$ 到 $\displaystyle \frac{n\cdot (n-1)}2$，最后一层枚举是 $q$ 介于 $sum$ 和 $z_k$ 之间，表示要转移到的 $sum^\prime$，那么我们转移就相当于在表示法末尾又添加了一个元素 $h=q-sum$。则 $f_{i+1,q,op+\vert q-z_{i+1}\vert}=f_{i,sum,op}+h^2$，默认是和自己取 $\min$。</p>
 <p>这样总时间复杂度是 $\mathcal{O}(n^5)$，空间复杂度 $\mathcal{O}(n^4)$。但由于有很多状态根本不存在，所以很多 $q$ 的枚举是无法进行的。而且 DP 常数较小，可以通过本题。</p>
 <p>代码：</p>
