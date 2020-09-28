@@ -301,7 +301,25 @@ s_1 = 1\\t_i = s_{i-1} + 1 (1 < i \leq K)\\t_K = T</script><h3 id="输出格式-
   <ul class="nav">
     <li class="nav-item">
       
-      <a class="nav-item-link nav-item-search"  title="搜索">
+      <script type="text/javascript">
+        window.onload = function () {
+          var but = document.getElementById("OpenOrCloseLive-2d");
+          but.onclick = function () {
+            var live = document.getElementById("live2d-widget");
+            if (live.style.display === "block") {
+              live.style.display = "none";
+            } else {
+              live.style.display = "block";
+            }
+          }
+        }
+      </script>
+      <a id="OpenOrCloseLive-2d" style="font-size: 15px;color:rgb(209, 196, 168);">
+        看板娘
+      </a>
+      
+      
+      <a class="nav-item-link nav-item-search" title="搜索">
         <i class="ri-search-line"></i>
       </a>
       
@@ -371,7 +389,8 @@ s_1 = 1\\t_i = s_{i-1} + 1 (1 < i \leq K)\\t_K = T</script><h3 id="输出格式-
       "height": 400,
       "position": "right",
       "hOffset": 0,
-      "vOffset": 0
+      "vOffset": 0,
+
     },
     "mobile": {
       "show": true,

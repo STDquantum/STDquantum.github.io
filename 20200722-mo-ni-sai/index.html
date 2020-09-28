@@ -339,7 +339,25 @@ fortune=p_1^{k_1} \times p_2^{k_2} \times \ldots p_{60}^{k_{60}}</script><p>领�
   <ul class="nav">
     <li class="nav-item">
       
-      <a class="nav-item-link nav-item-search"  title="搜索">
+      <script type="text/javascript">
+        window.onload = function () {
+          var but = document.getElementById("OpenOrCloseLive-2d");
+          but.onclick = function () {
+            var live = document.getElementById("live2d-widget");
+            if (live.style.display === "block") {
+              live.style.display = "none";
+            } else {
+              live.style.display = "block";
+            }
+          }
+        }
+      </script>
+      <a id="OpenOrCloseLive-2d" style="font-size: 15px;color:rgb(209, 196, 168);">
+        看板娘
+      </a>
+      
+      
+      <a class="nav-item-link nav-item-search" title="搜索">
         <i class="ri-search-line"></i>
       </a>
       
@@ -409,7 +427,8 @@ fortune=p_1^{k_1} \times p_2^{k_2} \times \ldots p_{60}^{k_{60}}</script><p>领�
       "height": 400,
       "position": "right",
       "hOffset": 0,
-      "vOffset": 0
+      "vOffset": 0,
+
     },
     "mobile": {
       "show": true,
