@@ -159,10 +159,10 @@
 <h3 id="输入样例-3-1"><a href="#输入样例-3-1" class="headerlink" title="输入样例 #3"></a>输入样例 #3</h3><figure class="highlight basic"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">5 </span><span class="number">3</span> <span class="number">25</span></span><br></pre></td></tr></table></figure>
 <h3 id="输出样例-3-1"><a href="#输出样例-3-1" class="headerlink" title="输出样例 #3"></a>输出样例 #3</h3><figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.9218750000</span></span><br></pre></td></tr></table></figure>
 <h2 id="说明-1"><a href="#说明-1" class="headerlink" title="说明"></a>说明</h2><p>【数据范围】</p>
-<p>对于 $20\%$ 的数据，$n\leqslant 20$；</p>
-<p>对于 $30\%$ 的数据，$n\leqslant 50$；</p>
-<p>对于 $50\%$ 的数据，$n\leqslant 100$；</p>
-<p>对于 $100\%$ 的数据，$x\leqslant 10^9,n\leqslant 200,0\leqslant p\leqslant 100$。</p>
+<p>对于 $20\%$ 的数据，$n\le 20$；</p>
+<p>对于 $30\%$ 的数据，$n\le 50$；</p>
+<p>对于 $50\%$ 的数据，$n\le 100$；</p>
+<p>对于 $100\%$ 的数据，$x\le 10^9,n\le 200,0\le p\le 100$。</p>
 <h2 id="题解-1"><a href="#题解-1" class="headerlink" title="题解"></a>题解</h2><p>首先，质因数分解中 $2$ 的个数即为二进制表示下末尾 $0$ 的个数。</p>
 <p>考虑 DP，设 $f_{i,s,j,0/1}$ 表示进行第 $i$ 次操作后，当前数的二进制表示后 $8$ 位为 $s$，第九位为 $0/1$，从第九位开始往前连续 $j$ 位相同的概率。</p>
 <p>先来解释后 $8$ 位的原因，因为至少要 $2^8+1$ 次操作才可以向 $9$ 进位，而操作数只有 $200$，所以不会对答案造成贡献。</p>
@@ -234,6 +234,15 @@
 
    
   <nav class="article-nav">
+    
+      <a href="/cf1417a-copy-paste/" class="article-nav-link">
+        <strong class="article-nav-caption">上一篇</strong>
+        <div class="article-nav-title">
+          
+            CF1417A Copy-Paste
+          
+        </div>
+      </a>
     
     
       <a href="/cf1420e-battle-lemmings/" class="article-nav-link">
