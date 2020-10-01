@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+
+
+<html lang="zh-CN">
+
+
+<head>
+  <meta charset="utf-8" />
+    
+  <meta name="description" content="STDquantum" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <title>
+    CF Round 674 Div3 |  STDquantum
+  </title>
+  <meta name="generator" content="hexo-theme-ayer">
+  
+  <link rel="shortcut icon" href="/1.ico" />
+  
+  
+<link rel="stylesheet" href="/dist/main.css">
+
+  
+<link rel="stylesheet" href="/css/remixicon.min.css">
+
+  
+<link rel="stylesheet" href="/css/custom.css">
+
+  
+  
+<script src="/js/pace.min.js"></script>
+
+  
+  
+
+  
+
+</head>
+
+</html>
+
+<body>
+  <div id="app">
+    
+      
+    <main class="content on">
+      <section class="outer">
+  <article
+  id="post-OI/vary/CF Round 674 div3"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  CF Round 674 Div3
+</h1>
+ 
+
+    </header>
+     
+    <div class="article-meta">
+      <a href="/cf-round-674-div3/" class="article-date">
+  <time datetime="2020-09-29T01:07:32.000Z" itemprop="datePublished">2020-09-29</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/OI/">OI</a> / <a class="article-category-link" href="/categories/OI/%E6%9E%84%E9%80%A0/">构造</a> / <a class="article-category-link" href="/categories/OI/%E8%B4%AA%E5%BF%83/">贪心</a>
+  </div>
+  
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> 字数统计:</span>
+            <span class="post-count">6.3k</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> 阅读时长≈</span>
+            <span class="post-count">34 分钟</span>
+        </span>
+    </span>
+</div>
+ 
+    </div>
+      
+    <div class="tocbot"></div>
+
+
+
+
+  
+    <div class="article-entry" itemprop="articleBody">
+       
+  <p>掉分大赛。</p>
+<a id="more"></a>
+<h1 id="Floor-Number"><a href="#Floor-Number" class="headerlink" title="Floor Number"></a>Floor Number</h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>Vasya goes to visit his classmate Petya. Vasya knows that Petya’s apartment number is $ n $ .</p>
+<p>There is only one entrance in Petya’s house and the distribution of apartments is the following: the first floor contains $ 2 $ apartments, every other floor contains $ x $ apartments each. Apartments are numbered starting from one, from the first floor. I.e. apartments on the first floor have numbers $ 1 $ and $ 2 $ , apartments on the second floor have numbers from $ 3 $ to $ (x + 2) $ , apartments on the third floor have numbers from $ (x + 3) $ to $ (2 \cdot x + 2) $ , and so on.</p>
+<p>Your task is to find the number of floor on which Petya lives. Assume that the house is always high enough to fit at least $ n $ apartments.</p>
+<p>You have to answer $ t $ independent test cases.</p>
+<h2 id="输入输出格式"><a href="#输入输出格式" class="headerlink" title="输入输出格式"></a>输入输出格式</h2><h3 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h3><p>The first line of the input contains one integer $ t $ ( $ 1 \le t \le 1000 $ ) — the number of test cases. Then $ t $ test cases follow.</p>
+<p>The only line of the test case contains two integers $ n $ and $ x $ ( $ 1 \le n, x \le 1000 $ ) — the number of Petya’s apartment and the number of apartments on each floor of the house except the first one (there are two apartments on the first floor).</p>
+<h3 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h3><p>For each test case, print the answer: the number of floor on which Petya lives.</p>
+<h2 id="输入输出样例"><a href="#输入输出样例" class="headerlink" title="输入输出样例"></a>输入输出样例</h2><h3 id="输入样例-1"><a href="#输入样例-1" class="headerlink" title="输入样例 #1"></a>输入样例 #1</h3><figure class="highlight basic"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">4</span></span><br><span class="line"><span class="symbol">7 </span><span class="number">3</span></span><br><span class="line"><span class="symbol">1 </span><span class="number">5</span></span><br><span class="line"><span class="symbol">22 </span><span class="number">5</span></span><br><span class="line"><span class="symbol">987 </span><span class="number">13</span></span><br></pre></td></tr></table></figure>
+<h3 id="输出样例-1"><a href="#输出样例-1" class="headerlink" title="输出样例 #1"></a>输出样例 #1</h3><figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">3</span></span><br><span class="line"><span class="number">1</span></span><br><span class="line"><span class="number">5</span></span><br><span class="line"><span class="number">77</span></span><br></pre></td></tr></table></figure>
+<h2 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h2><p>Consider the first test case of the example: the first floor contains apartments with numbers $ 1 $ and $ 2 $ , the second one contains apartments with numbers $ 3 $ , $ 4 $ and $ 5 $ , the third one contains apartments with numbers $ 6 $ , $ 7 $ and $ 8 $ . Therefore, Petya lives on the third floor.</p>
+<p>In the second test case of the example, Petya lives in the apartment $ 1 $ which is on the first floor.</p>
+<h2 id="题意翻译"><a href="#题意翻译" class="headerlink" title="题意翻译"></a>题意翻译</h2><ul>
+<li>除第一层有 $1,2$ 两个房间外，其余层皆有 $x$ 个房间。这些房间的门牌号从第一层起逐层递增。</li>
+<li>给出 $n$ 和 $x$，求出门牌号为 $n$ 的房间在第几层。</li>
+<li>数据组数 $t\le1000$，$1\le n,x\le1000$。</li>
+</ul>
+<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>先特判一下第一层，若是第一层的直接输出。</p>
+<p>否则令 $n:=n-2$，每层 $x$ 个，第一层上面有 $\displaystyle \left\lfloor\frac nx\right\rfloor$ 个完整楼层，若 $x$ 不整除 $n$，则说明还有一个不完整的楼层，答案再加上一。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> n, x, t;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (read(t); t--;) &#123;</span><br><span class="line">        read(n), read(x);</span><br><span class="line">        <span class="keyword">if</span> (n &lt;= <span class="number">2</span>) &#123; <span class="comment">// 特判</span></span><br><span class="line">            <span class="built_in">puts</span>(<span class="string">"1"</span>);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            n -= <span class="number">2</span>;</span><br><span class="line">            write(n / x + <span class="keyword">bool</span>(n % x) + <span class="number">1</span>), <span class="built_in">putchar</span>(<span class="string">'\n'</span>); <span class="comment">// bool类型为0或1，可以代替if</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> STDquantum &#123;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt; <span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">read</span><span class="params">(T &amp;x)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">char</span> ch;</span><br><span class="line">  <span class="keyword">int</span> f = <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">while</span> (ch = getchar(), !<span class="built_in">isdigit</span>(ch))</span><br><span class="line">    <span class="keyword">if</span> (ch == <span class="string">'-'</span>) f = <span class="number">-1</span>;</span><br><span class="line">  x = (ch ^ <span class="number">48</span>);</span><br><span class="line">  <span class="keyword">while</span> (ch = getchar(), <span class="built_in">isdigit</span>(ch)) x = x * <span class="number">10</span> + (ch ^ <span class="number">48</span>);</span><br><span class="line">  x *= f;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt; <span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">write</span><span class="params">(T x)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">static</span> <span class="keyword">int</span> stk[<span class="number">100</span>], top = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">if</span> (x == <span class="number">0</span>) <span class="keyword">return</span> (<span class="keyword">void</span>)<span class="built_in">putchar</span>(<span class="string">'0'</span>);</span><br><span class="line">  <span class="keyword">if</span> (x &lt; <span class="number">0</span>) x = -x, <span class="built_in">putchar</span>(<span class="string">'-'</span>);</span><br><span class="line">  <span class="keyword">while</span> (x) stk[++top] = x % <span class="number">10</span>, x /= <span class="number">10</span>;</span><br><span class="line">  <span class="keyword">while</span> (top) <span class="built_in">putchar</span>(stk[top--] + <span class="string">'0'</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> n, x, t;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  <span class="keyword">for</span> (read(t); t--;) &#123;</span><br><span class="line">    read(n), read(x);</span><br><span class="line">    <span class="keyword">if</span> (n &lt;= <span class="number">2</span>) &#123;</span><br><span class="line">      <span class="built_in">puts</span>(<span class="string">"1"</span>);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      n -= <span class="number">2</span>;</span><br><span class="line">      write(n / x + <span class="keyword">bool</span>(n % x) + <span class="number">1</span>), <span class="built_in">putchar</span>(<span class="string">'\n'</span>);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;  <span class="comment">// namespace STDquantum</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">ifndef</span> ONLINE_JUDGE</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">ifdef</span> LOCAL</span></span><br><span class="line">  freopen(<span class="string">"D:\\OI\\STDquantum\\test.in"</span>, <span class="string">"r"</span>, <span class="built_in">stdin</span>);</span><br><span class="line">  freopen(<span class="string">"D:\\OI\\STDquantum\\test.out"</span>, <span class="string">"w"</span>, <span class="built_in">stdout</span>);</span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">ifndef</span> LOCAL</span></span><br><span class="line">  freopen(<span class="string">"CF1426A_Floor_Number.in"</span>, <span class="string">"r"</span>, <span class="built_in">stdin</span>);</span><br><span class="line">  freopen(<span class="string">"CF1426A_Floor_Number.out"</span>, <span class="string">"w"</span>, <span class="built_in">stdout</span>);</span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line">  STDquantum::main();</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="Symmetric-Matrix"><a href="#Symmetric-Matrix" class="headerlink" title="Symmetric Matrix"></a>Symmetric Matrix</h1><h2 id="题目描述-1"><a href="#题目描述-1" class="headerlink" title="题目描述"></a>题目描述</h2><p>Masha has $ n $ types of tiles of size $ 2 \times 2 $ . Each cell of the tile contains one integer. Masha has an infinite number of tiles of each type.</p>
+<p>Masha decides to construct the square of size $ m \times m $ consisting of the given tiles. This square also has to be a symmetric with respect to the main diagonal matrix, and each cell of this square has to be covered with exactly one tile cell, and also sides of tiles should be parallel to the sides of the square. All placed tiles cannot intersect with each other. Also, each tile should lie inside the square. See the picture in Notes section for better understanding.</p>
+<p>Symmetric with respect to the main diagonal matrix is such a square $ s $ that for each pair $ (i, j) $ the condition $ s[i][j] = s[j][i] $ holds. I.e. it is true that the element written in the $ i $ -row and $ j $ -th column equals to the element written in the $ j $ -th row and $ i $ -th column.</p>
+<p>Your task is to determine if Masha can construct a square of size $ m \times m $ which is a symmetric matrix and consists of tiles she has. Masha can use any number of tiles of each type she has to construct the square. Note that she can not rotate tiles, she can only place them in the orientation they have in the input.</p>
+<p>You have to answer $ t $ independent test cases.</p>
+<h2 id="输入输出格式-1"><a href="#输入输出格式-1" class="headerlink" title="输入输出格式"></a>输入输出格式</h2><h3 id="输入格式-1"><a href="#输入格式-1" class="headerlink" title="输入格式"></a>输入格式</h3><p>The first line of the input contains one integer $ t $ ( $ 1 \le t \le 100 $ ) — the number of test cases. Then $ t $ test cases follow.</p>
+<p>The first line of the test case contains two integers $ n $ and $ m $ ( $ 1 \le n \le 100 $ , $ 1 \le m \le 100 $ ) — the number of types of tiles and the size of the square Masha wants to construct.</p>
+<p>The next $ 2n $ lines of the test case contain descriptions of tiles types. Types of tiles are written one after another, each type is written on two lines.</p>
+<p>The first line of the description contains two positive (greater than zero) integers not exceeding $ 100 $ — the number written in the top left corner of the tile and the number written in the top right corner of the tile of the current type. The second line of the description contains two positive (greater than zero) integers not exceeding $ 100 $ — the number written in the bottom left corner of the tile and the number written in the bottom right corner of the tile of the current type.</p>
+<p>It is forbidden to rotate tiles, it is only allowed to place them in the orientation they have in the input.</p>
+<h3 id="输出格式-1"><a href="#输出格式-1" class="headerlink" title="输出格式"></a>输出格式</h3><p>For each test case print the answer: “YES” (without quotes) if Masha can construct the square of size $ m \times m $ which is a symmetric matrix. Otherwise, print “NO” (withtout quotes).</p>
+<h2 id="输入输出样例-1"><a href="#输入输出样例-1" class="headerlink" title="输入输出样例"></a>输入输出样例</h2><h3 id="输入样例-1-1"><a href="#输入样例-1-1" class="headerlink" title="输入样例 #1"></a>输入样例 #1</h3><figure class="highlight basic"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">6</span></span><br><span class="line"><span class="symbol">3 </span><span class="number">4</span></span><br><span class="line"><span class="symbol">1 </span><span class="number">2</span></span><br><span class="line"><span class="symbol">5 </span><span class="number">6</span></span><br><span class="line"><span class="symbol">5 </span><span class="number">7</span></span><br><span class="line"><span class="symbol">7 </span><span class="number">4</span></span><br><span class="line"><span class="symbol">8 </span><span class="number">9</span></span><br><span class="line"><span class="symbol">9 </span><span class="number">8</span></span><br><span class="line"><span class="symbol">2 </span><span class="number">5</span></span><br><span class="line"><span class="symbol">1 </span><span class="number">1</span></span><br><span class="line"><span class="symbol">1 </span><span class="number">1</span></span><br><span class="line"><span class="symbol">2 </span><span class="number">2</span></span><br><span class="line"><span class="symbol">2 </span><span class="number">2</span></span><br><span class="line"><span class="symbol">1 </span><span class="number">100</span></span><br><span class="line"><span class="symbol">10 </span><span class="number">10</span></span><br><span class="line"><span class="symbol">10 </span><span class="number">10</span></span><br><span class="line"><span class="symbol">1 </span><span class="number">2</span></span><br><span class="line"><span class="symbol">4 </span><span class="number">5</span></span><br><span class="line"><span class="symbol">8 </span><span class="number">4</span></span><br><span class="line"><span class="symbol">2 </span><span class="number">2</span></span><br><span class="line"><span class="symbol">1 </span><span class="number">1</span></span><br><span class="line"><span class="symbol">1 </span><span class="number">1</span></span><br><span class="line"><span class="symbol">1 </span><span class="number">2</span></span><br><span class="line"><span class="symbol">3 </span><span class="number">4</span></span><br><span class="line"><span class="symbol">1 </span><span class="number">2</span></span><br><span class="line"><span class="symbol">1 </span><span class="number">1</span></span><br><span class="line"><span class="symbol">1 </span><span class="number">1</span></span><br></pre></td></tr></table></figure>
+<h3 id="输出样例-1-1"><a href="#输出样例-1-1" class="headerlink" title="输出样例 #1"></a>输出样例 #1</h3><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="literal">YES</span></span><br><span class="line"><span class="literal">NO</span></span><br><span class="line"><span class="literal">YES</span></span><br><span class="line"><span class="literal">NO</span></span><br><span class="line"><span class="literal">YES</span></span><br><span class="line"><span class="literal">YES</span></span><br></pre></td></tr></table></figure>
+<h2 id="说明-1"><a href="#说明-1" class="headerlink" title="说明"></a>说明</h2><p>The first test case of the input has three types of tiles, they are shown on the picture below. </p>
+<img src="/cf-round-674-div3/1.png" class>
+<p>Masha can construct, for example, the following square of size $ 4 \times 4 $ which is a symmetric matrix: </p>
+<img src="/cf-round-674-div3/2.png" class>
+<h2 id="题意翻译-1"><a href="#题意翻译-1" class="headerlink" title="题意翻译"></a>题意翻译</h2><ul>
+<li>定义 $m\times m$ 的矩阵为对称的当且仅当对于任意 $i,j\in [1,m]$，都有 $s_{i,j}=s_{j,i}$。</li>
+<li>给出 $n$ 种大小为 $2\times 2$ 的矩阵和 $m$，每种矩阵不限数量。若能用这些矩阵组成（不可旋转）$m\times m$ 的对称矩阵，输出 <code>YES</code>，否则输出 <code>NO</code>。</li>
+<li><p>输入格式：先输入数据组数 $t$。每组数据第一行为 $n,m$，随后 $2n$ 行描述了 $n$ 种 $2\times2$ 的矩阵，每个矩阵输入数据中依次为矩阵左上角、右上角、左下角、右下角。</p>
+</li>
+<li><p>数据组数 $t\le100$，$1\le n,m\le100$。</p>
+</li>
+</ul>
+<h2 id="题解-1"><a href="#题解-1" class="headerlink" title="题解"></a>题解</h2><p>我们来观察一下题目中的条件，对于任意 $i,j\in [1,m]$，都有 $s_{i,j}=s_{j,i}$。</p>
+<p>这个条件怎么进行转化呢？</p>
+<p>先来看一个 $4\times4$ 的矩阵，我用相同的颜色表示了值应该相同的部分。</p>
+<img src="/cf-round-674-div3/3.png" class>
+<p>可以看出来这个矩阵应当是关于左上右下的对角线对称的。</p>
+<p>并可以发现一个性质，如果一个格子的行数 $i$ 与 $j$ 同奇或同偶，那么它和它对称过去的那个格子应该在拼成大矩阵的小矩阵的同一位置。如浅绿色的格子 $(1,3)$，在小矩阵左上角，对称过去还是小矩阵的左上角。</p>
+<p>证明很简单，因为若 $i\equiv j\pmod 2$，那么一定会在小矩阵的同一位置；否则若 $(i,j)$ 在右上角，$(j,i)$ 必定在左下角，反之亦然。</p>
+<p>于是我们能得出一个结论：只要能拼成一个大的对称矩阵，有至少一个左下右上相同的小矩阵就够了。</p>
+<p>当然 $m$ 必须能被二整除，否则有多少个小矩形都没用。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> n, t, m;</span><br><span class="line"><span class="keyword">bool</span> vis;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (read(t); t--; vis = <span class="literal">false</span>) &#123; <span class="comment">// 清空</span></span><br><span class="line">        read(n), read(m);</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>, x1, x2, y1, y2; i &lt;= n; ++i) &#123;</span><br><span class="line">            read(x1), read(x2), read(y1), read(y2);</span><br><span class="line">            <span class="keyword">if</span> (x2 == y1) vis = <span class="literal">true</span>; <span class="comment">// 左下等于右上</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (m % <span class="number">2</span>) &#123; vis = <span class="literal">false</span>; &#125;</span><br><span class="line">        <span class="built_in">puts</span>(vis ? <span class="string">"YES"</span> : <span class="string">"NO"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="Code-1"><a href="#Code-1" class="headerlink" title="Code"></a>Code</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> STDquantum &#123;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt; <span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">read</span><span class="params">(T &amp;x)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">char</span> ch;</span><br><span class="line">  <span class="keyword">int</span> f = <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">while</span> (ch = getchar(), !<span class="built_in">isdigit</span>(ch))</span><br><span class="line">    <span class="keyword">if</span> (ch == <span class="string">'-'</span>) f = <span class="number">-1</span>;</span><br><span class="line">  x = (ch ^ <span class="number">48</span>);</span><br><span class="line">  <span class="keyword">while</span> (ch = getchar(), <span class="built_in">isdigit</span>(ch)) x = x * <span class="number">10</span> + (ch ^ <span class="number">48</span>);</span><br><span class="line">  x *= f;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> n, t, m;</span><br><span class="line"><span class="keyword">bool</span> vis;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  <span class="keyword">for</span> (read(t); t--; vis = <span class="literal">false</span>) &#123;</span><br><span class="line">    read(n), read(m);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>, x1, x2, y1, y2; i &lt;= n; ++i) &#123;</span><br><span class="line">      read(x1), read(x2), read(y1), read(y2);</span><br><span class="line">      <span class="keyword">if</span> (x2 == y1) vis = <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (m % <span class="number">2</span>) &#123; vis = <span class="literal">false</span>; &#125;</span><br><span class="line">    <span class="built_in">puts</span>(vis ? <span class="string">"YES"</span> : <span class="string">"NO"</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;  <span class="comment">// namespace STDquantum</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">ifndef</span> ONLINE_JUDGE</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">ifdef</span> LOCAL</span></span><br><span class="line">  freopen(<span class="string">"D:\\OI\\STDquantum\\test.in"</span>, <span class="string">"r"</span>, <span class="built_in">stdin</span>);</span><br><span class="line">  freopen(<span class="string">"D:\\OI\\STDquantum\\test.out"</span>, <span class="string">"w"</span>, <span class="built_in">stdout</span>);</span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">ifndef</span> LOCAL</span></span><br><span class="line">  freopen(<span class="string">"CF1426B_Symmetric_Matrix.in"</span>, <span class="string">"r"</span>, <span class="built_in">stdin</span>);</span><br><span class="line">  freopen(<span class="string">"CF1426B_Symmetric_Matrix.out"</span>, <span class="string">"w"</span>, <span class="built_in">stdout</span>);</span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line">  STDquantum::main();</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="Increase-and-Copy"><a href="#Increase-and-Copy" class="headerlink" title="Increase and Copy"></a>Increase and Copy</h1><h2 id="题意翻译-2"><a href="#题意翻译-2" class="headerlink" title="题意翻译"></a>题意翻译</h2><p>初始给你一个元素 $1$ ，每次操作你可以选择让一个元素 $+1$ 或者复制一个元素.</p>
+<p>求最少需要多少次操作使其总和不小于 $n$ .</p>
+<h2 id="题目描述-2"><a href="#题目描述-2" class="headerlink" title="题目描述"></a>题目描述</h2><p>Initially, you have the array $ a $ consisting of one element $ 1 $ ( $ a = [1] $ ).</p>
+<p>In one move, you can do one of the following things:</p>
+<ul>
+<li>Increase some (single) element of $ a $ by $ 1 $ (choose some $ i $ from $ 1 $ to the current length of $ a $ and increase $ a_i $ by one);</li>
+<li>Append the copy of some (single) element of $ a $ to the end of the array (choose some $ i $ from $ 1 $ to the current length of $ a $ and append $ a_i $ to the end of the array).</li>
+</ul>
+<p>For example, consider the sequence of five moves:</p>
+<ol>
+<li>You take the first element $ a_1 $ , append its copy to the end of the array and get $ a = [1, 1] $ . </li>
+<li>You take the first element $ a_1 $ , increase it by $ 1 $ and get $ a = [2, 1] $ . </li>
+<li>You take the second element $ a_2 $ , append its copy to the end of the array and get $ a = [2, 1, 1] $ .</li>
+<li>You take the first element $ a_1 $ , append its copy to the end of the array and get $ a = [2, 1, 1, 2] $ . </li>
+<li>You take the fourth element $ a_4 $ , increase it by $ 1 $ and get $ a = [2, 1, 1, 3] $ .</li>
+</ol>
+<p>Your task is to find the minimum number of moves required to obtain the array with the sum at least $ n $ .</p>
+<p>You have to answer $ t $ independent test cases.</p>
+<h2 id="输入输出格式-2"><a href="#输入输出格式-2" class="headerlink" title="输入输出格式"></a>输入输出格式</h2><h3 id="输入格式-2"><a href="#输入格式-2" class="headerlink" title="输入格式"></a>输入格式</h3><p>The first line of the input contains one integer $ t $ ( $ 1 \le t \le 1000 $ ) — the number of test cases. Then $ t $ test cases follow.</p>
+<p>The only line of the test case contains one integer $ n $ ( $ 1 \le n \le 10^9 $ ) — the lower bound on the sum of the array.</p>
+<h3 id="输出格式-2"><a href="#输出格式-2" class="headerlink" title="输出格式"></a>输出格式</h3><p>For each test case, print the answer: the minimum number of moves required to obtain the array with the sum at least $ n $ .</p>
+<h2 id="输入输出样例-2"><a href="#输入输出样例-2" class="headerlink" title="输入输出样例"></a>输入输出样例</h2><h3 id="输入样例-1-2"><a href="#输入样例-1-2" class="headerlink" title="输入样例 #1"></a>输入样例 #1</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">5</span><br><span class="line">1</span><br><span class="line">5</span><br><span class="line">42</span><br><span class="line">1337</span><br><span class="line">1000000000</span><br></pre></td></tr></table></figure>
+<h3 id="输出样例-1-2"><a href="#输出样例-1-2" class="headerlink" title="输出样例 #1"></a>输出样例 #1</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">0</span><br><span class="line">3</span><br><span class="line">11</span><br><span class="line">72</span><br><span class="line">63244</span><br></pre></td></tr></table></figure>
+<h2 id="题解-2"><a href="#题解-2" class="headerlink" title="题解"></a>题解</h2><p>可以发现一个性质：操作同样多的次数，加和复制交错进行没有先统一加再统一复制能得到的和大。</p>
+<p>证明：若 $a$ 中已经存在大于 $1$ 的数，那么复制操作一定比加操作优。因为复制操作用更少的步数逼近了答案。</p>
+<p>所以我们只能一直加那一个 $1$，然后加到一定程度再将这个数不断复制。</p>
+<p>那么我们现在的目标就是找到这个数字 $x$。</p>
+<p>可以推断出答案次数 $ans=(x-1)+\left(\displaystyle \left\lfloor\frac nx\right\rfloor-1\right)+[n\bmod x\gt0]$，也就是加到 $x$ 要花 $x-1$ 步，复制到 $n$ 需要 $\displaystyle \left\lfloor\frac nx\right\rfloor-1$ 步，也就是 $\displaystyle \left\lfloor\frac {n-x}x\right\rfloor$，若 $x$ 不能整除 $n$，还要再进行一次复制操作使得和大于 $n$。</p>
+<p>把下取整转化一下：</p>
+<p>当 $x\mid n$ 时，</p>
+<script type="math/tex; mode=display">
+x+\left\lfloor\frac nx\right\rfloor+[n\bmod x\gt0]=x+\frac nx\ge 2\sqrt{n}</script><p>当且仅当 $\displaystyle  x=\frac nx$，即 $x=\sqrt n$ 时等号成立，取到最小值。</p>
+<p>当 $x$ 不能整除 $n $ 时， </p>
+<script type="math/tex; mode=display">
+x+\left\lfloor\frac nx\right\rfloor+[n\bmod x\gt0]=x+\frac nx +1\ge2\sqrt{n}+1</script><p>当且仅当 $\displaystyle  x=\frac nx$，即 $x=\sqrt n$ 时等号成立，然而 $x$ 是整数，所以 $\displaystyle \left\vert x-\sqrt n \right\vert\le1$ 时取到最小值。</p>
+<p>所以代码在跑的时候，加一个小小的扰动，让 $x$ 遍历 $\displaystyle [\lfloor\sqrt n\rfloor - 1,\lfloor\sqrt n\rfloor +1]$， 找到答案最小值就行。</p>
+<p>（实际上 $x=\lfloor\sqrt n\rfloor$ 就能过）</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"><span class="keyword">const</span> ll inf = <span class="number">0x7fffffffffffffff</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">min</span><span class="params">(ll &amp;x, <span class="keyword">const</span> ll &amp;y)</span> </span>&#123; x = x &lt; y ? x : y; &#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> n, t;</span><br><span class="line">ll ans, x;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (read(t); t--;) &#123;</span><br><span class="line">        read(n), ans = inf;</span><br><span class="line">        <span class="keyword">if</span> (n == <span class="number">1</span>) &#123; <span class="comment">// 特判（因为要除x）</span></span><br><span class="line">            <span class="built_in">puts</span>(<span class="string">"0"</span>);</span><br><span class="line">            <span class="keyword">continue</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> s = <span class="built_in">sqrt</span>(n);</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">-1</span>; i &lt;= <span class="number">1</span>; ++i) &#123; <span class="comment">// 扰动</span></span><br><span class="line">            x = s + i;</span><br><span class="line">            <span class="keyword">if</span> (x &lt;= <span class="number">0</span>) <span class="keyword">continue</span>; <span class="comment">// 防止出错</span></span><br><span class="line">            min(ans, x + n / x - <span class="number">2</span> + <span class="keyword">bool</span>(n % x));</span><br><span class="line">        &#125;</span><br><span class="line">        write(ans), <span class="built_in">putchar</span>(<span class="string">'\n'</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="Code-2"><a href="#Code-2" class="headerlink" title="Code"></a>Code</h1><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> STDquantum &#123;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt; <span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">read</span><span class="params">(T &amp;x)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">char</span> ch;</span><br><span class="line">  <span class="keyword">int</span> f = <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">while</span> (ch = getchar(), !<span class="built_in">isdigit</span>(ch))</span><br><span class="line">    <span class="keyword">if</span> (ch == <span class="string">'-'</span>) f = <span class="number">-1</span>;</span><br><span class="line">  x = (ch ^ <span class="number">48</span>);</span><br><span class="line">  <span class="keyword">while</span> (ch = getchar(), <span class="built_in">isdigit</span>(ch)) x = x * <span class="number">10</span> + (ch ^ <span class="number">48</span>);</span><br><span class="line">  x *= f;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt; <span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">write</span><span class="params">(T x)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">static</span> <span class="keyword">int</span> stk[<span class="number">100</span>], top = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">if</span> (x == <span class="number">0</span>) <span class="keyword">return</span> (<span class="keyword">void</span>)<span class="built_in">putchar</span>(<span class="string">'0'</span>);</span><br><span class="line">  <span class="keyword">if</span> (x &lt; <span class="number">0</span>) x = -x, <span class="built_in">putchar</span>(<span class="string">'-'</span>);</span><br><span class="line">  <span class="keyword">while</span> (x) stk[++top] = x % <span class="number">10</span>, x /= <span class="number">10</span>;</span><br><span class="line">  <span class="keyword">while</span> (top) <span class="built_in">putchar</span>(stk[top--] + <span class="string">'0'</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"><span class="keyword">const</span> ll inf = <span class="number">0x7fffffffffffffff</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">min</span><span class="params">(ll &amp;x, <span class="keyword">const</span> ll &amp;y)</span> </span>&#123; x = x &lt; y ? x : y; &#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> n, t;</span><br><span class="line">ll ans, x;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  <span class="keyword">for</span> (read(t); t--;) &#123;</span><br><span class="line">    read(n), ans = inf;</span><br><span class="line">    <span class="keyword">if</span> (n == <span class="number">1</span>) &#123;</span><br><span class="line">      <span class="built_in">puts</span>(<span class="string">"0"</span>);</span><br><span class="line">      <span class="keyword">continue</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> s = <span class="built_in">sqrt</span>(n);</span><br><span class="line">    write(s + n / s - <span class="number">2</span> + <span class="keyword">bool</span>(n % s)), <span class="built_in">putchar</span>(<span class="string">'\n'</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;  <span class="comment">// namespace STDquantum</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">ifndef</span> ONLINE_JUDGE</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">ifdef</span> LOCAL</span></span><br><span class="line">  freopen(<span class="string">"D:\\OI\\STDquantum\\test.in"</span>, <span class="string">"r"</span>, <span class="built_in">stdin</span>);</span><br><span class="line">  freopen(<span class="string">"D:\\OI\\STDquantum\\test.out"</span>, <span class="string">"w"</span>, <span class="built_in">stdout</span>);</span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">ifndef</span> LOCAL</span></span><br><span class="line">  freopen(<span class="string">"CF1426C_Increase_and_Copy.in"</span>, <span class="string">"r"</span>, <span class="built_in">stdin</span>);</span><br><span class="line">  freopen(<span class="string">"CF1426C_Increase_and_Copy.out"</span>, <span class="string">"w"</span>, <span class="built_in">stdout</span>);</span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line">  STDquantum::main();</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="Non-zero-Segments"><a href="#Non-zero-Segments" class="headerlink" title="Non-zero Segments"></a>Non-zero Segments</h1><h2 id="题意翻译-3"><a href="#题意翻译-3" class="headerlink" title="题意翻译"></a>题意翻译</h2><p>给定一个序列,求最少插入多少数,才能使此序列任意子段和均不为 $0$ .</p>
+<p>插入的数字可以是你能想到的所有数,比如说 $\pi$ ,$114514^{1919810}$.</p>
+<h2 id="题目描述-3"><a href="#题目描述-3" class="headerlink" title="题目描述"></a>题目描述</h2><p>Kolya got an integer array $ a_1, a_2, \dots, a_n $ . The array can contain both positive and negative integers, but Kolya doesn’t like $ 0 $ , so the array doesn’t contain any zeros.</p>
+<p>Kolya doesn’t like that the sum of some subsegments of his array can be $ 0 $ . The subsegment is some consecutive segment of elements of the array.</p>
+<p>You have to help Kolya and change his array in such a way that it doesn’t contain any subsegments with the sum $ 0 $ . To reach this goal, you can insert any integers between any pair of adjacent elements of the array (integers can be really any: positive, negative, $ 0 $ , any by absolute value, even such a huge that they can’t be represented in most standard programming languages).</p>
+<p>Your task is to find the minimum number of integers you have to insert into Kolya’s array in such a way that the resulting array doesn’t contain any subsegments with the sum $ 0 $ .</p>
+<h2 id="输入输出格式-3"><a href="#输入输出格式-3" class="headerlink" title="输入输出格式"></a>输入输出格式</h2><h3 id="输入格式-3"><a href="#输入格式-3" class="headerlink" title="输入格式"></a>输入格式</h3><p>The first line of the input contains one integer $ n $ ( $ 2 \le n \le 200\,000 $ ) — the number of elements in Kolya’s array.</p>
+<p>The second line of the input contains $ n $ integers $ a_1, a_2, \dots, a_n $ ( $ -10^{9} \le a_i \le 10^{9}, a_i \neq 0 $ ) — the description of Kolya’s array.</p>
+<h3 id="输出格式-3"><a href="#输出格式-3" class="headerlink" title="输出格式"></a>输出格式</h3><p>Print the minimum number of integers you have to insert into Kolya’s array in such a way that the resulting array doesn’t contain any subsegments with the sum $ 0 $ .</p>
+<h2 id="输入输出样例-3"><a href="#输入输出样例-3" class="headerlink" title="输入输出样例"></a>输入输出样例</h2><h3 id="输入样例-1-3"><a href="#输入样例-1-3" class="headerlink" title="输入样例 #1"></a>输入样例 #1</h3><figure class="highlight basic"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">4</span></span><br><span class="line"><span class="symbol">1 </span>-<span class="number">5</span> <span class="number">3</span> <span class="number">2</span></span><br></pre></td></tr></table></figure>
+<h3 id="输出样例-1-3"><a href="#输出样例-1-3" class="headerlink" title="输出样例 #1"></a>输出样例 #1</h3><figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span></span><br></pre></td></tr></table></figure>
+<h3 id="输入样例-2"><a href="#输入样例-2" class="headerlink" title="输入样例 #2"></a>输入样例 #2</h3><figure class="highlight basic"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">5</span></span><br><span class="line"><span class="symbol">4 </span>-<span class="number">2</span> <span class="number">3</span> -<span class="number">9</span> <span class="number">2</span></span><br></pre></td></tr></table></figure>
+<h3 id="输出样例-2"><a href="#输出样例-2" class="headerlink" title="输出样例 #2"></a>输出样例 #2</h3><figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">0</span></span><br></pre></td></tr></table></figure>
+<h3 id="输入样例-3"><a href="#输入样例-3" class="headerlink" title="输入样例 #3"></a>输入样例 #3</h3><figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">9</span></span><br><span class="line"><span class="number">-1</span> <span class="number">1</span> <span class="number">-1</span> <span class="number">1</span> <span class="number">-1</span> <span class="number">1</span> <span class="number">1</span> <span class="number">-1</span> <span class="number">-1</span></span><br></pre></td></tr></table></figure>
+<h3 id="输出样例-3"><a href="#输出样例-3" class="headerlink" title="输出样例 #3"></a>输出样例 #3</h3><figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">6</span></span><br></pre></td></tr></table></figure>
+<h3 id="输入样例-4"><a href="#输入样例-4" class="headerlink" title="输入样例 #4"></a>输入样例 #4</h3><figure class="highlight basic"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">8</span></span><br><span class="line"><span class="symbol">16 </span>-<span class="number">5</span> -<span class="number">11</span> -<span class="number">15</span> <span class="number">10</span> <span class="number">5</span> <span class="number">4</span> -<span class="number">4</span></span><br></pre></td></tr></table></figure>
+<h3 id="输出样例-4"><a href="#输出样例-4" class="headerlink" title="输出样例 #4"></a>输出样例 #4</h3><figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">3</span></span><br></pre></td></tr></table></figure>
+<h2 id="说明-2"><a href="#说明-2" class="headerlink" title="说明"></a>说明</h2><p>Consider the first example. There is only one subsegment with the sum $ 0 $ . It starts in the second element and ends in the fourth element. It’s enough to insert one element so the array doesn’t contain any subsegments with the sum equal to zero. For example, it is possible to insert the integer $ 1 $ between second and third elements of the array. </p>
+<p>There are no subsegments having sum $ 0 $ in the second example so you don’t need to do anything.</p>
+<h2 id="题解-3"><a href="#题解-3" class="headerlink" title="题解"></a>题解</h2><p>直接暴力做是过不去的，想想咋子段和为零。</p>
+<p>前缀和相减为 $0$。</p>
+<p>开一个 set（或者 map 或者手写平衡树啥的），记录在上次插入数以后都有什么前缀和的值。</p>
+<p>如果找到一个前缀和在 set 里出现了，就说明找到一段和为 $0$ 的，在最后一个元素前面加入一个随便什么大数（比如 tree(3)）或者无理数（比如 $\pi$），让前面怎么加也不可能为零。</p>
+<p>然后把最后一个元素作为新前缀和的开始，清空 set，接着再来。</p>
+<p><code>long long</code>！</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> STDquantum &#123;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt; <span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">read</span><span class="params">(T &amp;x)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">char</span> ch;</span><br><span class="line">  <span class="keyword">int</span> f = <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">while</span> (ch = getchar(), !<span class="built_in">isdigit</span>(ch))</span><br><span class="line">    <span class="keyword">if</span> (ch == <span class="string">'-'</span>) f = <span class="number">-1</span>;</span><br><span class="line">  x = (ch ^ <span class="number">48</span>);</span><br><span class="line">  <span class="keyword">while</span> (ch = getchar(), <span class="built_in">isdigit</span>(ch)) x = x * <span class="number">10</span> + (ch ^ <span class="number">48</span>);</span><br><span class="line">  x *= f;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt; <span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">write</span><span class="params">(T x)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">static</span> <span class="keyword">int</span> stk[<span class="number">100</span>], top = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">if</span> (x == <span class="number">0</span>) <span class="keyword">return</span> (<span class="keyword">void</span>)<span class="built_in">putchar</span>(<span class="string">'0'</span>);</span><br><span class="line">  <span class="keyword">if</span> (x &lt; <span class="number">0</span>) x = -x, <span class="built_in">putchar</span>(<span class="string">'-'</span>);</span><br><span class="line">  <span class="keyword">while</span> (x) stk[++top] = x % <span class="number">10</span>, x /= <span class="number">10</span>;</span><br><span class="line">  <span class="keyword">while</span> (top) <span class="built_in">putchar</span>(stk[top--] + <span class="string">'0'</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">2e5</span> + <span class="number">10</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> n, cnt;</span><br><span class="line"><span class="built_in">set</span>&lt;ll&gt; q;</span><br><span class="line">ll sum;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  read(n);</span><br><span class="line">  q.insert(<span class="number">0</span>);</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>, x; i &lt;= n; ++i) &#123;</span><br><span class="line">    read(x), sum += x;</span><br><span class="line">    <span class="keyword">if</span> (q.find(sum) != q.end()) &#123;</span><br><span class="line">      ++cnt, q.clear();</span><br><span class="line">      sum = x, q.insert(<span class="number">0</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    q.insert(sum);</span><br><span class="line">  &#125;</span><br><span class="line">  write(cnt);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;  <span class="comment">// namespace STDquantum</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">ifndef</span> ONLINE_JUDGE</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">ifdef</span> LOCAL</span></span><br><span class="line">  freopen(<span class="string">"D:\\OI\\STDquantum\\test.in"</span>, <span class="string">"r"</span>, <span class="built_in">stdin</span>);</span><br><span class="line">  freopen(<span class="string">"D:\\OI\\STDquantum\\test.out"</span>, <span class="string">"w"</span>, <span class="built_in">stdout</span>);</span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">ifndef</span> LOCAL</span></span><br><span class="line">  freopen(<span class="string">"CF1426D_Non-zero_Segments.in"</span>, <span class="string">"r"</span>, <span class="built_in">stdin</span>);</span><br><span class="line">  freopen(<span class="string">"CF1426D_Non-zero_Segments.out"</span>, <span class="string">"w"</span>, <span class="built_in">stdout</span>);</span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line">  STDquantum::main();</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="Rock-Paper-Scissors"><a href="#Rock-Paper-Scissors" class="headerlink" title="Rock, Paper, Scissors"></a>Rock, Paper, Scissors</h1><h2 id="题意翻译-4"><a href="#题意翻译-4" class="headerlink" title="题意翻译"></a>题意翻译</h2><p>Alice和Bob进行剪刀石头布的游戏，总共进行$n$局。</p>
+<p>Alice出石头$a_1$次，出剪刀$a_2$次，出布$a_3$次。</p>
+<p>Bob出石头$b_1$次，出剪刀$b_2$次，出布$b_3$次。</p>
+<p>问Alice最多赢多少次，最少赢多少次。 </p>
+<h3 id="输入格式："><a href="#输入格式：" class="headerlink" title="输入格式："></a>输入格式：</h3><p>第一行输入$n$</p>
+<p>第二行输入$a_1$，$a_2$，$a_3$</p>
+<p>第三行输入$b_1$，$b_2$，$b_3$</p>
+<h2 id="题目描述-4"><a href="#题目描述-4" class="headerlink" title="题目描述"></a>题目描述</h2><p>Alice and Bob have decided to play the game “Rock, Paper, Scissors”.</p>
+<p>The game consists of several rounds, each round is independent of each other. In each round, both players show one of the following things at the same time: rock, paper or scissors. If both players showed the same things then the round outcome is a draw. Otherwise, the following rules applied: </p>
+<ul>
+<li>if one player showed rock and the other one showed scissors, then the player who showed rock is considered the winner and the other one is considered the loser; </li>
+<li>if one player showed scissors and the other one showed paper, then the player who showed scissors is considered the winner and the other one is considered the loser; </li>
+<li>if one player showed paper and the other one showed rock, then the player who showed paper is considered the winner and the other one is considered the loser.</li>
+</ul>
+<p>Alice and Bob decided to play exactly $ n $ rounds of the game described above. Alice decided to show rock $ a_1 $ times, show scissors $ a_2 $ times and show paper $ a_3 $ times. Bob decided to show rock $ b_1 $ times, show scissors $ b_2 $ times and show paper $ b_3 $ times. Though, both Alice and Bob did not choose the sequence in which they show things. It is guaranteed that $ a_1 + a_2 + a_3 = n $ and $ b_1 + b_2 + b_3 = n $ .</p>
+<p>Your task is to find two numbers:</p>
+<ol>
+<li>the minimum number of round Alice can win; </li>
+<li>the maximum number of rounds Alice can win.</li>
+</ol>
+<h2 id="输入输出格式-4"><a href="#输入输出格式-4" class="headerlink" title="输入输出格式"></a>输入输出格式</h2><h3 id="输入格式-4"><a href="#输入格式-4" class="headerlink" title="输入格式"></a>输入格式</h3><p>The first line of the input contains one integer $ n $ ( $ 1 \le n \le 10^{9} $ ) — the number of rounds.</p>
+<p>The second line of the input contains three integers $ a_1, a_2, a_3 $ ( $ 0 \le a_i \le n $ ) — the number of times Alice will show rock, scissors and paper, respectively. It is guaranteed that $ a_1 + a_2 + a_3 = n $ .</p>
+<p>The third line of the input contains three integers $ b_1, b_2, b_3 $ ( $ 0 \le b_j \le n $ ) — the number of times Bob will show rock, scissors and paper, respectively. It is guaranteed that $ b_1 + b_2 + b_3 = n $ .</p>
+<h3 id="输出格式-4"><a href="#输出格式-4" class="headerlink" title="输出格式"></a>输出格式</h3><p>Print two integers: the minimum and the maximum number of rounds Alice can win.</p>
+<h2 id="输入输出样例-4"><a href="#输入输出样例-4" class="headerlink" title="输入输出样例"></a>输入输出样例</h2><h3 id="输入样例-1-4"><a href="#输入样例-1-4" class="headerlink" title="输入样例 #1"></a>输入样例 #1</h3><figure class="highlight basic"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">2</span></span><br><span class="line"><span class="symbol">0 </span><span class="number">1</span> <span class="number">1</span></span><br><span class="line"><span class="symbol">1 </span><span class="number">1</span> <span class="number">0</span></span><br></pre></td></tr></table></figure>
+<h3 id="输出样例-1-4"><a href="#输出样例-1-4" class="headerlink" title="输出样例 #1"></a>输出样例 #1</h3><figure class="highlight basic"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">0 </span><span class="number">1</span></span><br></pre></td></tr></table></figure>
+<h3 id="输入样例-2-1"><a href="#输入样例-2-1" class="headerlink" title="输入样例 #2"></a>输入样例 #2</h3><figure class="highlight basic"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">15</span></span><br><span class="line"><span class="symbol">5 </span><span class="number">5</span> <span class="number">5</span></span><br><span class="line"><span class="symbol">5 </span><span class="number">5</span> <span class="number">5</span></span><br></pre></td></tr></table></figure>
+<h3 id="输出样例-2-1"><a href="#输出样例-2-1" class="headerlink" title="输出样例 #2"></a>输出样例 #2</h3><figure class="highlight basic"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">0 </span><span class="number">15</span></span><br></pre></td></tr></table></figure>
+<h3 id="输入样例-3-1"><a href="#输入样例-3-1" class="headerlink" title="输入样例 #3"></a>输入样例 #3</h3><figure class="highlight basic"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">3</span></span><br><span class="line"><span class="symbol">0 </span><span class="number">0</span> <span class="number">3</span></span><br><span class="line"><span class="symbol">3 </span><span class="number">0</span> <span class="number">0</span></span><br></pre></td></tr></table></figure>
+<h3 id="输出样例-3-1"><a href="#输出样例-3-1" class="headerlink" title="输出样例 #3"></a>输出样例 #3</h3><figure class="highlight basic"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">3 </span><span class="number">3</span></span><br></pre></td></tr></table></figure>
+<h3 id="输入样例-4-1"><a href="#输入样例-4-1" class="headerlink" title="输入样例 #4"></a>输入样例 #4</h3><figure class="highlight basic"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">686</span></span><br><span class="line"><span class="symbol">479 </span><span class="number">178</span> <span class="number">29</span></span><br><span class="line"><span class="symbol">11 </span><span class="number">145</span> <span class="number">530</span></span><br></pre></td></tr></table></figure>
+<h3 id="输出样例-4-1"><a href="#输出样例-4-1" class="headerlink" title="输出样例 #4"></a>输出样例 #4</h3><figure class="highlight basic"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">22 </span><span class="number">334</span></span><br></pre></td></tr></table></figure>
+<h3 id="输入样例-5"><a href="#输入样例-5" class="headerlink" title="输入样例 #5"></a>输入样例 #5</h3><figure class="highlight basic"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">319</span></span><br><span class="line"><span class="symbol">10 </span><span class="number">53</span> <span class="number">256</span></span><br><span class="line"><span class="symbol">182 </span><span class="number">103</span> <span class="number">34</span></span><br></pre></td></tr></table></figure>
+<h3 id="输出样例-5"><a href="#输出样例-5" class="headerlink" title="输出样例 #5"></a>输出样例 #5</h3><figure class="highlight basic"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">119 </span><span class="number">226</span></span><br></pre></td></tr></table></figure>
+<h2 id="说明-3"><a href="#说明-3" class="headerlink" title="说明"></a>说明</h2><p>In the first example, Alice will not win any rounds if she shows scissors and then paper and Bob shows rock and then scissors. In the best outcome, Alice will win one round if she shows paper and then scissors, and Bob shows rock and then scissors.</p>
+<p>In the second example, Alice will not win any rounds if Bob shows the same things as Alice each round.</p>
+<p>In the third example, Alice always shows paper and Bob always shows rock so Alice will win all three rounds anyway.</p>
+<h2 id="题解-4"><a href="#题解-4" class="headerlink" title="题解"></a>题解</h2><p>可以非常简单地求出 Alice 赢的最多次数，只要能赢就赢，也就是 $maxAns=\min(a_1,b_2)+\min(a_2,b_3)+\min(a_3,b_1)$。</p>
+<p>但是要是求最少次数，如何平衡打平和输掉的次数呢？</p>
+<p>我们可以考虑枚举每一种顺序（即三种打平和三种输掉的不同组合顺序），用到了一个 STL 好东西叫 <code>next_permutation</code>。</p>
+<p>时间复杂度 $\mathcal{O}(6!)$。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">E</span> &#123;</span> <span class="comment">// alice 和 bob</span></span><br><span class="line">    <span class="keyword">int</span> ch[<span class="number">5</span>];</span><br><span class="line">&#125; a, b;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">OP</span> &#123;</span></span><br><span class="line">    <span class="keyword">int</span> x, y;</span><br><span class="line">    OP(<span class="keyword">int</span> X = <span class="number">0</span>, <span class="keyword">int</span> Y = <span class="number">0</span>) &#123; x = X, y = Y; &#125;</span><br><span class="line">    <span class="keyword">inline</span> <span class="keyword">friend</span> <span class="keyword">bool</span> <span class="keyword">operator</span>&lt;(<span class="keyword">const</span> OP &amp;a, <span class="keyword">const</span> OP &amp;b) &#123; <span class="comment">// next_permutation要用到小于号</span></span><br><span class="line">        <span class="keyword">return</span> a.x == b.x ? a.y &lt; b.y : a.x &lt; b.x;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> n;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">workMin</span><span class="params">()</span> </span>&#123; <span class="comment">// 计算最少能赢多少次</span></span><br><span class="line">    <span class="comment">/* 初始化操作：输入操作序列 */</span></span><br><span class="line">    <span class="built_in">vector</span>&lt;OP&gt; op;</span><br><span class="line">    <span class="built_in">vector</span>&lt;OP&gt;::iterator it;</span><br><span class="line">    op.push_back(OP(<span class="number">1</span>, <span class="number">1</span>));</span><br><span class="line">    op.push_back(OP(<span class="number">2</span>, <span class="number">2</span>));</span><br><span class="line">    op.push_back(OP(<span class="number">3</span>, <span class="number">3</span>));</span><br><span class="line">    op.push_back(OP(<span class="number">1</span>, <span class="number">3</span>));</span><br><span class="line">    op.push_back(OP(<span class="number">2</span>, <span class="number">1</span>));</span><br><span class="line">    op.push_back(OP(<span class="number">3</span>, <span class="number">2</span>));</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> tmp, ans = <span class="number">0x3f3f3f3f</span>;</span><br><span class="line">    <span class="keyword">do</span> &#123;</span><br><span class="line">        E tmpA = a, tmpB = b; <span class="comment">// </span></span><br><span class="line">        <span class="keyword">for</span> (it = op.begin(); it != op.end(); ++it) &#123;</span><br><span class="line">            <span class="comment">/* it-&gt;x就是循环到当前的结构体的x，it-&gt;y同理 */</span></span><br><span class="line">            tmp = min(tmpA.ch[it-&gt;x], tmpB.ch[it-&gt;y]);</span><br><span class="line">            tmpA.ch[it-&gt;x] -= tmp;</span><br><span class="line">            tmpB.ch[it-&gt;y] -= tmp;</span><br><span class="line">        &#125;</span><br><span class="line">        tmp = min(tmpA.ch[<span class="number">1</span>], tmpB.ch[<span class="number">2</span>]) + min(tmpA.ch[<span class="number">2</span>], tmpB.ch[<span class="number">3</span>]) +</span><br><span class="line">              min(tmpA.ch[<span class="number">3</span>], tmpB.ch[<span class="number">1</span>]);</span><br><span class="line">        ans = min(ans, tmp); <span class="comment">// 计算最少赢的次数</span></span><br><span class="line">    &#125; <span class="keyword">while</span> (next_permutation(op.begin(), op.end()));</span><br><span class="line">    write(ans), <span class="built_in">putchar</span>(<span class="string">' '</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">workMax</span><span class="params">()</span> </span>&#123; <span class="comment">// 计算最多能赢多少次</span></span><br><span class="line">    <span class="keyword">int</span> tmp = <span class="number">0</span>;</span><br><span class="line">    tmp += min(a.ch[<span class="number">1</span>], b.ch[<span class="number">2</span>]) + min(a.ch[<span class="number">2</span>], b.ch[<span class="number">3</span>]) +</span><br><span class="line">           min(a.ch[<span class="number">3</span>], b.ch[<span class="number">1</span>]);</span><br><span class="line">    write(tmp);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    read(n);</span><br><span class="line">    read(a.ch[<span class="number">1</span>]), read(a.ch[<span class="number">2</span>]), read(a.ch[<span class="number">3</span>]);</span><br><span class="line">    read(b.ch[<span class="number">1</span>]), read(b.ch[<span class="number">2</span>]), read(b.ch[<span class="number">3</span>]);</span><br><span class="line">    workMin(), workMax();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="Code-3"><a href="#Code-3" class="headerlink" title="Code"></a>Code</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> STDquantum &#123;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt; <span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">read</span><span class="params">(T &amp;x)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">char</span> ch;</span><br><span class="line">  <span class="keyword">int</span> f = <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">while</span> (ch = getchar(), !<span class="built_in">isdigit</span>(ch))</span><br><span class="line">    <span class="keyword">if</span> (ch == <span class="string">'-'</span>) f = <span class="number">-1</span>;</span><br><span class="line">  x = (ch ^ <span class="number">48</span>);</span><br><span class="line">  <span class="keyword">while</span> (ch = getchar(), <span class="built_in">isdigit</span>(ch)) x = x * <span class="number">10</span> + (ch ^ <span class="number">48</span>);</span><br><span class="line">  x *= f;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt; <span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">write</span><span class="params">(T x)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">static</span> <span class="keyword">int</span> stk[<span class="number">100</span>], top = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">if</span> (x == <span class="number">0</span>) <span class="keyword">return</span> (<span class="keyword">void</span>)<span class="built_in">putchar</span>(<span class="string">'0'</span>);</span><br><span class="line">  <span class="keyword">if</span> (x &lt; <span class="number">0</span>) x = -x, <span class="built_in">putchar</span>(<span class="string">'-'</span>);</span><br><span class="line">  <span class="keyword">while</span> (x) stk[++top] = x % <span class="number">10</span>, x /= <span class="number">10</span>;</span><br><span class="line">  <span class="keyword">while</span> (top) <span class="built_in">putchar</span>(stk[top--] + <span class="string">'0'</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">E</span> &#123;</span></span><br><span class="line">  <span class="keyword">int</span> ch[<span class="number">5</span>];</span><br><span class="line">&#125; a, b;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">OP</span> &#123;</span></span><br><span class="line">  <span class="keyword">int</span> x, y;</span><br><span class="line">  OP(<span class="keyword">int</span> X = <span class="number">0</span>, <span class="keyword">int</span> Y = <span class="number">0</span>) &#123; x = X, y = Y; &#125;</span><br><span class="line">  <span class="keyword">inline</span> <span class="keyword">friend</span> <span class="keyword">bool</span> <span class="keyword">operator</span>&lt;(<span class="keyword">const</span> OP &amp;a, <span class="keyword">const</span> OP &amp;b) &#123;</span><br><span class="line">    <span class="keyword">return</span> a.x == b.x ? a.y &lt; b.y : a.x &lt; b.x;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> n;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">workMin</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  <span class="built_in">vector</span>&lt;OP&gt; op;</span><br><span class="line">  <span class="built_in">vector</span>&lt;OP&gt;::iterator it;</span><br><span class="line">  op.push_back(OP(<span class="number">1</span>, <span class="number">1</span>));</span><br><span class="line">  op.push_back(OP(<span class="number">2</span>, <span class="number">2</span>));</span><br><span class="line">  op.push_back(OP(<span class="number">3</span>, <span class="number">3</span>));</span><br><span class="line">  op.push_back(OP(<span class="number">1</span>, <span class="number">3</span>));</span><br><span class="line">  op.push_back(OP(<span class="number">2</span>, <span class="number">1</span>));</span><br><span class="line">  op.push_back(OP(<span class="number">3</span>, <span class="number">2</span>));</span><br><span class="line"></span><br><span class="line">  <span class="keyword">int</span> tmp, ans = <span class="number">0x3f3f3f3f</span>;</span><br><span class="line">  <span class="keyword">do</span> &#123;</span><br><span class="line">    E tmpA = a, tmpB = b;</span><br><span class="line">    <span class="keyword">for</span> (it = op.begin(); it != op.end(); ++it) &#123;</span><br><span class="line">      tmp = min(tmpA.ch[it-&gt;x], tmpB.ch[it-&gt;y]);</span><br><span class="line">      tmpA.ch[it-&gt;x] -= tmp;</span><br><span class="line">      tmpB.ch[it-&gt;y] -= tmp;</span><br><span class="line">    &#125;</span><br><span class="line">    tmp = min(tmpA.ch[<span class="number">1</span>], tmpB.ch[<span class="number">2</span>]) + min(tmpA.ch[<span class="number">2</span>], tmpB.ch[<span class="number">3</span>]) +</span><br><span class="line">          min(tmpA.ch[<span class="number">3</span>], tmpB.ch[<span class="number">1</span>]);</span><br><span class="line">    ans = min(ans, tmp);</span><br><span class="line">  &#125; <span class="keyword">while</span> (next_permutation(op.begin(), op.end()));</span><br><span class="line">  write(ans), <span class="built_in">putchar</span>(<span class="string">' '</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">workMax</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  <span class="keyword">int</span> tmp = <span class="number">0</span>;</span><br><span class="line">  tmp += min(a.ch[<span class="number">1</span>], b.ch[<span class="number">2</span>]) + min(a.ch[<span class="number">2</span>], b.ch[<span class="number">3</span>]) +</span><br><span class="line">         min(a.ch[<span class="number">3</span>], b.ch[<span class="number">1</span>]);</span><br><span class="line">  write(tmp);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  read(n);</span><br><span class="line">  read(a.ch[<span class="number">1</span>]), read(a.ch[<span class="number">2</span>]), read(a.ch[<span class="number">3</span>]);</span><br><span class="line">  read(b.ch[<span class="number">1</span>]), read(b.ch[<span class="number">2</span>]), read(b.ch[<span class="number">3</span>]);</span><br><span class="line">  workMin(), workMax();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;  <span class="comment">// namespace STDquantum</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">ifndef</span> ONLINE_JUDGE</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">ifdef</span> LOCAL</span></span><br><span class="line">  freopen(<span class="string">"D:\\OI\\STDquantum\\test.in"</span>, <span class="string">"r"</span>, <span class="built_in">stdin</span>);</span><br><span class="line">  freopen(<span class="string">"D:\\OI\\STDquantum\\test.out"</span>, <span class="string">"w"</span>, <span class="built_in">stdout</span>);</span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">ifndef</span> LOCAL</span></span><br><span class="line">  freopen(<span class="string">"CF1426E_Rock,_Paper,_Scissors.in"</span>, <span class="string">"r"</span>, <span class="built_in">stdin</span>);</span><br><span class="line">  freopen(<span class="string">"CF1426E_Rock,_Paper,_Scissors.out"</span>, <span class="string">"w"</span>, <span class="built_in">stdout</span>);</span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line">  STDquantum::main();</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="Number-of-Subsequences"><a href="#Number-of-Subsequences" class="headerlink" title="Number of Subsequences"></a>Number of Subsequences</h1><h2 id="题意翻译-5"><a href="#题意翻译-5" class="headerlink" title="题意翻译"></a>题意翻译</h2><p>给定一个含有<code>abc?</code>的字符串,<code>?</code>可能是<code>abc</code>中的任意一个,求所有可能的无<code>?</code>字符串中,子序列<code>abc</code>出现的次数.</p>
+<h2 id="题目描述-5"><a href="#题目描述-5" class="headerlink" title="题目描述"></a>题目描述</h2><p>You are given a string $ s $ consisting of lowercase Latin letters “a”, “b” and “c” and question marks “?”.</p>
+<p>Let the number of question marks in the string $ s $ be $ k $ . Let’s replace each question mark with one of the letters “a”, “b” and “c”. Here we can obtain all $ 3^{k} $ possible strings consisting only of letters “a”, “b” and “c”. For example, if $ s = $ “ac?b?c” then we can obtain the following strings: $ [ $ “acabac”, “acabbc”, “acabcc”, “acbbac”, “acbbbc”, “acbbcc”, “accbac”, “accbbc”, “accbcc” $ ] $ .</p>
+<p>Your task is to count the total number of subsequences “abc” in all resulting strings. Since the answer can be very large, print it modulo $ 10^{9} + 7 $ .</p>
+<p>A subsequence of the string $ t $ is such a sequence that can be derived from the string $ t $ after removing some (possibly, zero) number of letters without changing the order of remaining letters. For example, the string “baacbc” contains two subsequences “abc” — a subsequence consisting of letters at positions $ (2, 5, 6) $ and a subsequence consisting of letters at positions $ (3, 5, 6) $ .</p>
+<h2 id="输入输出格式-5"><a href="#输入输出格式-5" class="headerlink" title="输入输出格式"></a>输入输出格式</h2><h3 id="输入格式-5"><a href="#输入格式-5" class="headerlink" title="输入格式"></a>输入格式</h3><p>The first line of the input contains one integer $ n $ $ (3 \le n \le 200\,000) $ — the length of $ s $ .</p>
+<p>The second line of the input contains the string $ s $ of length $ n $ consisting of lowercase Latin letters “a”, “b” and “c” and question marks”?”.</p>
+<h3 id="输出格式-5"><a href="#输出格式-5" class="headerlink" title="输出格式"></a>输出格式</h3><p>Print the total number of subsequences “abc” in all strings you can obtain if you replace all question marks with letters “a”, “b” and “c”, modulo $ 10^{9} + 7 $ .</p>
+<h2 id="输入输出样例-5"><a href="#输入输出样例-5" class="headerlink" title="输入输出样例"></a>输入输出样例</h2><h3 id="输入样例-1-5"><a href="#输入样例-1-5" class="headerlink" title="输入样例 #1"></a>输入样例 #1</h3><figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">6</span></span><br><span class="line">ac?b?c</span><br></pre></td></tr></table></figure>
+<h3 id="输出样例-1-5"><a href="#输出样例-1-5" class="headerlink" title="输出样例 #1"></a>输出样例 #1</h3><figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">24</span></span><br></pre></td></tr></table></figure>
+<h3 id="输入样例-2-2"><a href="#输入样例-2-2" class="headerlink" title="输入样例 #2"></a>输入样例 #2</h3><figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">7</span></span><br><span class="line">???????</span><br></pre></td></tr></table></figure>
+<h3 id="输出样例-2-2"><a href="#输出样例-2-2" class="headerlink" title="输出样例 #2"></a>输出样例 #2</h3><figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">2835</span></span><br></pre></td></tr></table></figure>
+<h3 id="输入样例-3-2"><a href="#输入样例-3-2" class="headerlink" title="输入样例 #3"></a>输入样例 #3</h3><figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">9</span></span><br><span class="line">cccbbbaaa</span><br></pre></td></tr></table></figure>
+<h3 id="输出样例-3-2"><a href="#输出样例-3-2" class="headerlink" title="输出样例 #3"></a>输出样例 #3</h3><figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">0</span></span><br></pre></td></tr></table></figure>
+<h3 id="输入样例-4-2"><a href="#输入样例-4-2" class="headerlink" title="输入样例 #4"></a>输入样例 #4</h3><figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">5</span></span><br><span class="line">a???c</span><br></pre></td></tr></table></figure>
+<h3 id="输出样例-4-2"><a href="#输出样例-4-2" class="headerlink" title="输出样例 #4"></a>输出样例 #4</h3><figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">46</span></span><br></pre></td></tr></table></figure>
+<h2 id="说明-4"><a href="#说明-4" class="headerlink" title="说明"></a>说明</h2><p>In the first example, we can obtain $ 9 $ strings:</p>
+<ul>
+<li>“acabac” — there are $ 2 $ subsequences “abc”,</li>
+<li>“acabbc” — there are $ 4 $ subsequences “abc”,</li>
+<li>“acabcc” — there are $ 4 $ subsequences “abc”,</li>
+<li>“acbbac” — there are $ 2 $ subsequences “abc”,</li>
+<li>“acbbbc” — there are $ 3 $ subsequences “abc”,</li>
+<li>“acbbcc” — there are $ 4 $ subsequences “abc”,</li>
+<li>“accbac” — there is $ 1 $ subsequence “abc”,</li>
+<li>“accbbc” — there are $ 2 $ subsequences “abc”,</li>
+<li>“accbcc” — there are $ 2 $ subsequences “abc”.</li>
+</ul>
+<p>So, there are $ 2 + 4 + 4 + 2 + 3 + 4 + 1 + 2 + 2 = 24 $ subsequences “abc” in total.</p>
+<h2 id="题解-5"><a href="#题解-5" class="headerlink" title="题解"></a>题解</h2><p>设 $f_{i,0}$ 为前 $i$ 个字符里面有的子序列 <code>a</code> 的个数，$f_{i,1}$ 为前 $i$ 个字符里面有的子序列 <code>ab</code> 的个数，$cnt_i$ 为 $3^{sum_i}$，$sum_i$ 为前 $i$ 个有多少是 <code>?</code>。</p>
+<p>当 $s_i=\rm a$ 时，子序列 <code>a</code> 的数量会增加 $cnt_{i-1}$。</p>
+<p>当 $s_i=\rm b$ 时，子序列 <code>ab</code> 的数量会增加 $f_{i-1,0}$。</p>
+<p>当 $s_i=\rm c$ 时，答案会增加 $f_{i-1,1}$。</p>
+<p>当 $s_i=\rm ?$ 时：</p>
+<ul>
+<li>子序列 <code>a</code> 的数量首先会乘 $3$，也就是不考虑这一位的数量增加量；还会增加的是 $cnt_{i-1}$，也就是问号变成 $\rm a$ 加上的子序列数量。</li>
+<li>子序列 <code>ab</code> 同理，不过第二步增加的就是 $f_{i-1,0}$。</li>
+<li>答案也同理，不过第二步增加的就是 $f_{i-1,1}$。</li>
+<li>$cnt_i$ 会变为原来 $3$ 倍，因为 $sum_i$ 增加了。</li>
+</ul>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> STDquantum &#123;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt; <span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">read</span><span class="params">(T &amp;x)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">char</span> ch;</span><br><span class="line">  <span class="keyword">int</span> f = <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">while</span> (ch = getchar(), !<span class="built_in">isdigit</span>(ch))</span><br><span class="line">    <span class="keyword">if</span> (ch == <span class="string">'-'</span>) f = <span class="number">-1</span>;</span><br><span class="line">  x = (ch ^ <span class="number">48</span>);</span><br><span class="line">  <span class="keyword">while</span> (ch = getchar(), <span class="built_in">isdigit</span>(ch)) x = x * <span class="number">10</span> + (ch ^ <span class="number">48</span>);</span><br><span class="line">  x *= f;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt; <span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">write</span><span class="params">(T x)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">static</span> <span class="keyword">int</span> stk[<span class="number">100</span>], top = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">if</span> (x == <span class="number">0</span>) <span class="keyword">return</span> (<span class="keyword">void</span>)<span class="built_in">putchar</span>(<span class="string">'0'</span>);</span><br><span class="line">  <span class="keyword">if</span> (x &lt; <span class="number">0</span>) x = -x, <span class="built_in">putchar</span>(<span class="string">'-'</span>);</span><br><span class="line">  <span class="keyword">while</span> (x) stk[++top] = x % <span class="number">10</span>, x /= <span class="number">10</span>;</span><br><span class="line">  <span class="keyword">while</span> (top) <span class="built_in">putchar</span>(stk[top--] + <span class="string">'0'</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">2e5</span> + <span class="number">10</span>, mod = <span class="number">1e9</span> + <span class="number">7</span>;</span><br><span class="line"></span><br><span class="line">ll n, ans, cnt = <span class="number">1</span>, f[<span class="number">2</span>];</span><br><span class="line"><span class="keyword">char</span> s[N];</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  read(n), <span class="built_in">scanf</span>(<span class="string">"%s"</span>, s + <span class="number">1</span>);</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; ++i) &#123;</span><br><span class="line">    <span class="keyword">if</span> (s[i] == <span class="string">'a'</span>) &#123;</span><br><span class="line">      (f[<span class="number">0</span>] += cnt) %= mod;</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (s[i] == <span class="string">'b'</span>) &#123;</span><br><span class="line">      (f[<span class="number">1</span>] += f[<span class="number">0</span>]) %= mod;</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (s[i] == <span class="string">'c'</span>) &#123;</span><br><span class="line">      (ans += f[<span class="number">1</span>]) %= mod;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      (ans = ans * <span class="number">3</span> + f[<span class="number">1</span>]) %= mod;</span><br><span class="line">      (f[<span class="number">1</span>] = f[<span class="number">1</span>] * <span class="number">3</span> + f[<span class="number">0</span>]) %= mod;</span><br><span class="line">      (f[<span class="number">0</span>] = f[<span class="number">0</span>] * <span class="number">3</span> + cnt) %= mod;</span><br><span class="line">      cnt = cnt * <span class="number">3</span> % mod;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  write(ans);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;  <span class="comment">// namespace STDquantum</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">ifndef</span> ONLINE_JUDGE</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">ifdef</span> LOCAL</span></span><br><span class="line">  freopen(<span class="string">"D:\\OI\\STDquantum\\test.in"</span>, <span class="string">"r"</span>, <span class="built_in">stdin</span>);</span><br><span class="line">  freopen(<span class="string">"D:\\OI\\STDquantum\\test.out"</span>, <span class="string">"w"</span>, <span class="built_in">stdout</span>);</span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">ifndef</span> LOCAL</span></span><br><span class="line">  freopen(<span class="string">"CF1426F_Number_of_Subsequences.in"</span>, <span class="string">"r"</span>, <span class="built_in">stdin</span>);</span><br><span class="line">  freopen(<span class="string">"CF1426F_Number_of_Subsequences.out"</span>, <span class="string">"w"</span>, <span class="built_in">stdout</span>);</span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line">  STDquantum::main();</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="Upd-on-2020-09-29-11-20"><a href="#Upd-on-2020-09-29-11-20" class="headerlink" title="Upd on 2020-09-29 11:20"></a>Upd on 2020-09-29 11:20</h1><p>A、B题的题解和翻译都过了。</p>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CF/" rel="tag">CF</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+  <nav class="article-nav">
+    
+      <a href="/20200929-mo-ni-sai/" class="article-nav-link">
+        <strong class="article-nav-caption">上一篇</strong>
+        <div class="article-nav-title">
+          
+            20200929模拟赛
+          
+        </div>
+      </a>
+    
+    
+      <a href="/20200928-mo-ni-sai/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">20200928模拟赛</div>
+      </a>
+    
+  </nav>
+
+  
+     
+</article>
+
+</section>
+      <footer class="footer">
+  <div class="outer">
+    <ul>
+      <li>
+        Copyrights &copy;
+        2020
+        <i class="ri-heart-fill heart_icon"></i> STDquantum
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+      </li>
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      <li>
+        <!-- cnzz统计 -->
+        
+      </li>
+    </ul>
+  </div>
+</footer>
+      <div class="float_btns">
+        <div class="totop" id="totop">
+  <i class="ri-arrow-up-line"></i>
+</div>
+
+      </div>
+    </main>
+    <aside class="sidebar on">
+      <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/1.jpg" alt="STDquantum"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">主页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">归档</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/categories">分类</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/tags">标签</a>
+    </li>
+    
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      
+      <script type="text/javascript">
+        window.onload = function () {
+          var but = document.getElementById("OpenOrCloseLive-2d");
+          but.onclick = function () {
+            var live = document.getElementById("live2d-widget");
+            if (live.style.display === "block") {
+              live.style.display = "none";
+            } else {
+              live.style.display = "block";
+            }
+          }
+        }
+      </script>
+      <a id="OpenOrCloseLive-2d" style="font-size: 15px;color:rgb(209, 196, 168);">
+        看板娘
+      </a>
+      
+      
+      <a class="nav-item-link nav-item-search" title="搜索">
+        <i class="ri-search-line"></i>
+      </a>
+      
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+    </aside>
+    <script>
+      if (window.matchMedia("(max-width: 768px)").matches) {
+        document.querySelector('.content').classList.remove('on');
+        document.querySelector('.sidebar').classList.remove('on');
+      }
+    </script>
+    <div id="mask"></div>
+
+<!-- #reward -->
+<div id="reward">
+  <span class="close"><i class="ri-close-line"></i></span>
+  <p class="reward-p"><i class="ri-cup-line"></i></p>
+  <div class="reward-box">
+    
+    
+  </div>
+</div>
+    
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+
+<script src="/js/lazyload.min.js"></script>
+
+<!-- Tocbot -->
+
+
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  tocbot.init({
+    tocSelector: '.tocbot',
+    contentSelector: '.article-entry',
+    headingSelector: 'h1, h2, h3, h4, h5, h6',
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: 'main',
+    positionFixedSelector: '.tocbot',
+    positionFixedClass: 'is-position-fixed',
+    fixedSidebarOffset: 'auto'
+  });
+</script>
+<!-- Live-2D -->
+<script type="text/javascript" charset="utf-8" src="/js/L2Dwidget.0.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="/js/L2Dwidget.min.js"></script>
+<script type="text/javascript">
+  L2Dwidget.on('*', (name) => {
+    console.log('%c EVENT ' + '%c -> ' + name, 'background: #222; color: yellow', 'background: #fff; color: #000')
+  });
+  L2Dwidget.init({
+    "display": {
+      "superSample": 2,
+      "width": 200,
+      "height": 400,
+      "position": "right",
+      "hOffset": 0,
+      "vOffset": 0
+    },
+    "mobile": {
+      "show": true,
+      "scale": 0.7
+    }
+  });
+</script>
+
+<script src="/js/jquery.modal.min.js"></script>
+<link rel="stylesheet" href="/css/jquery.modal.min.css">
+<script src="/js/jquery.justifiedGallery.min.js"></script>
+
+<script src="/dist/main.js"></script>
+
+<!-- ImageViewer -->
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<link rel="stylesheet" href="/css/photoswipe.min.css">
+<link rel="stylesheet" href="/css/default-skin.min.css">
+<script src="/js/photoswipe.min.js"></script>
+<script src="/js/photoswipe-ui-default.min.js"></script>
+
+<script>
+    function viewer_init() {
+        let pswpElement = document.querySelectorAll('.pswp')[0];
+        let $imgArr = document.querySelectorAll(('.article-entry img:not(.reward-img)'))
+
+        $imgArr.forEach(($em, i) => {
+            $em.onclick = () => {
+                // slider展开状态
+                // todo: 这样不好，后面改成状态
+                if (document.querySelector('.left-col.show')) return
+                let items = []
+                $imgArr.forEach(($em2, i2) => {
+                    let img = $em2.getAttribute('data-idx', i2)
+                    let src = $em2.getAttribute('data-target') || $em2.getAttribute('src')
+                    let title = $em2.getAttribute('alt')
+                    // 获得原图尺寸
+                    const image = new Image()
+                    image.src = src
+                    items.push({
+                        src: src,
+                        w: image.width || $em2.width,
+                        h: image.height || $em2.height,
+                        title: title
+                    })
+                })
+                var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, {
+                    index: parseInt(i)
+                });
+                gallery.init()
+            }
+        })
+    }
+    viewer_init()
+</script>
+
+<!-- MathJax -->
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      extensions: ["tex2jax.js"],
+      jax: ["input/TeX","output/HTML-CSS"],
+      tex2jax: {inlineMath: [["$","$"]]}
+    });
+  </script>
+
+<script src="/mathjax/MathJax.js"></script>
+<script>
+  var ayerConfig = {
+    mathjax: true
+  }
+</script>
+
+<!-- Katex -->
+
+<!-- busuanzi  -->
+
+<!-- ClickLove -->
+
+
+<script src="/js/clickLove.js"></script>
+
+
+<!-- ClickBoom1 -->
+
+<!-- ClickBoom2 -->
+
+<!-- CodeCopy -->
+
+
+<link rel="stylesheet" href="/css/clipboard.css">
+
+<script src="/js/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="ri-file-copy-2-line"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-checkbox-circle-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-checkbox-circle-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-time-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-time-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+
+
+<!-- CanvasBackground -->
+
+
+    
+  </div>
+</body>
+
+</html>

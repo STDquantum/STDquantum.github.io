@@ -76,7 +76,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">486</span>
+            <span class="post-count">1k</span>
         </span>
     </span>
 
@@ -85,7 +85,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> 阅读时长≈</span>
-            <span class="post-count">2 分钟</span>
+            <span class="post-count">5 分钟</span>
         </span>
     </span>
 </div>
@@ -102,7 +102,8 @@
        
   <p><a href="https://codeforces.com/contest/1417" target="_blank" rel="noopener">Codeforces Round #673 (Div. 2)</a> D题。</p>
 <a id="more"></a>
-<h1 id="Make-Them-Equal"><a href="#Make-Them-Equal" class="headerlink" title="Make Them Equal"></a>Make Them Equal</h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>You are given an array $ a $ consisting of $ n $ positive integers, numbered from $ 1 $ to $ n $ . You can perform the following operation no more than $ 3n $ times:</p>
+<h1 id="Make-Them-Equal"><a href="#Make-Them-Equal" class="headerlink" title="Make Them Equal"></a>Make Them Equal</h1><p><a href="https://www.luogu.com.cn/problem/CF1416B" target="_blank" rel="noopener">CF1416B Make Them Equal</a></p>
+<h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>You are given an array $ a $ consisting of $ n $ positive integers, numbered from $ 1 $ to $ n $ . You can perform the following operation no more than $ 3n $ times:</p>
 <ol>
 <li>choose three integers $ i $ , $ j $ and $ x $ ( $ 1 \le i, j \le n $ ; $ 0 \le x \le 10^9 $ ); </li>
 <li>assign $ a_i := a_i - x \cdot i $ , $ a_j := a_j + x \cdot i $ .</li>
@@ -131,7 +132,14 @@
 <li><p>数据组数 $t\le10^4$，序列长度 $n\le10^4$，元素大小 $1\le a_i\le10^5$。</p>
 </li>
 </ul>
-<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>首先呢，如果令 $i$ 等于 $1$，那么只要 $a_1$ 足够大，就可以</p>
+<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>首先呢，如果令 $i$ 等于 $1$，那么只要 $a_1$ 足够大，就可以给任意元素赋任何值。</p>
+<p>那么我们有一个小小的想法：把所有下标不是一的元素用 $2n$ 次操作清零，这样就可以用 $n-1$ 次操作把所有平均数从 $a_1$ 搬过来。</p>
+<p>怎么把下标不是一的元素清零呢？肯定是要做减法，但是减法只能减下标的倍数啊，所以我们就先把所有 $i\mid a_i$ 的挪到 $1$ 处（设不满足 $i\mid a_i$ 的个数为 $cnt$），步数 $n-1-cnt$。</p>
+<p>现在只剩下那些不能整除的数了，我们可以从 $1$ 那里借一些数，借到 $i\mid a_i$ 为止，然后再用一步全挪回 $1$，每个数需要两步，总步数 $2\cdot cnt$。</p>
+<p>于是当 $cnt=n-1$ 时，最大步数就是 $2\cdot cnt+n-1=3n-3$，可以通过本题。</p>
+<p>注：代码中 $cnt$ 为操作个数，实际并不需要记录有多少数不能被下标整除，只是分析可行性会用到。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">1e4</span> + <span class="number">10</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> cnt; <span class="comment">// 操作个数</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">O</span> &#123;</span> <span class="comment">// 记录操作</span></span><br><span class="line">    <span class="keyword">int</span> i, j, x;</span><br><span class="line">&#125; o[N &lt;&lt; <span class="number">2</span>];</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">operate</span><span class="params">(<span class="keyword">int</span> i, <span class="keyword">int</span> j, <span class="keyword">int</span> x)</span> </span>&#123; <span class="comment">// 节省代码长度</span></span><br><span class="line">    write(i), <span class="built_in">putchar</span>(<span class="string">' '</span>);</span><br><span class="line">    write(j), <span class="built_in">putchar</span>(<span class="string">' '</span>);</span><br><span class="line">    write(x), <span class="built_in">putchar</span>(<span class="string">'\n'</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> n, t, a[N];</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (read(t); t--; cnt = <span class="number">0</span>) &#123; <span class="comment">// 记得清空cnt</span></span><br><span class="line">        read(n);</span><br><span class="line">        <span class="keyword">int</span> sum = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; ++i) read(a[i]), sum += a[i]; <span class="comment">// 记录一下序列和</span></span><br><span class="line">        <span class="keyword">if</span> (sum % n) &#123; <span class="comment">// 不能使所有元素相等</span></span><br><span class="line">            <span class="built_in">puts</span>(<span class="string">"-1"</span>);</span><br><span class="line">            <span class="keyword">goto</span> school; <span class="comment">// 节省bool变量，直接跳转</span></span><br><span class="line">        &#125;</span><br><span class="line">        sum /= n; <span class="comment">// 最后的平均值</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">2</span>; i &lt;= n; ++i) &#123;</span><br><span class="line">            <span class="keyword">if</span> (a[i] % i == <span class="number">0</span>) &#123; o[++cnt] = (O)&#123;i, <span class="number">1</span>, a[i] / i&#125;; &#125; <span class="comment">// 整除就一次全拿过去</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">2</span>; i &lt;= n; ++i) &#123;</span><br><span class="line">            <span class="keyword">if</span> (a[i] % i) &#123; <span class="comment">// 不整除就先凑齐i的倍数再全拿到1</span></span><br><span class="line">                o[++cnt] = (O)&#123;<span class="number">1</span>, i, i - a[i] % i&#125;;</span><br><span class="line">                o[++cnt] = (O)&#123;i, <span class="number">1</span>, a[i] / i + <span class="number">1</span>&#125;;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">2</span>; i &lt;= n; ++i) &#123; o[++cnt] = (O)&#123;<span class="number">1</span>, i, sum&#125;; &#125; <span class="comment">// 分配</span></span><br><span class="line">        write(cnt), <span class="built_in">putchar</span>(<span class="string">'\n'</span>);</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= cnt; ++i) &#123;</span><br><span class="line">            operate(o[i].i, o[i].j, o[i].x);</span><br><span class="line">        &#125;</span><br><span class="line">    school:;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="Upd-on-2020-09-28-15-52"><a href="#Upd-on-2020-09-28-15-52" class="headerlink" title="Upd on 2020-09-28 15:52"></a>Upd on 2020-09-28 15:52</h1><p>翻译过了。。</p>
  
       <!-- reward -->
       
@@ -149,6 +157,15 @@
 
    
   <nav class="article-nav">
+    
+      <a href="/20200928-mo-ni-sai/" class="article-nav-link">
+        <strong class="article-nav-caption">上一篇</strong>
+        <div class="article-nav-title">
+          
+            20200928模拟赛
+          
+        </div>
+      </a>
     
     
       <a href="/cf1416a-k-amazing-numbers/" class="article-nav-link">
@@ -323,8 +340,7 @@
       "height": 400,
       "position": "right",
       "hOffset": 0,
-      "vOffset": 0,
-
+      "vOffset": 0
     },
     "mobile": {
       "show": true,
