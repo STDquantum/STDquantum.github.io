@@ -254,10 +254,10 @@ f[now][pre][pree][f3][xn][f4][f8]</script><p>而<code>solve1</code>函数也应�
           var but = document.getElementById("OpenOrCloseLive-2d");
           but.onclick = function () {
             var live = document.getElementById("live2d-widget");
-            if (live.style.display === "block") {
-              live.style.display = "none";
-            } else {
+            if (live.style.display === "none") {
               live.style.display = "block";
+            } else {
+              live.style.display = "none";
             }
           }
         }

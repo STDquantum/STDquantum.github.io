@@ -366,10 +366,10 @@ g_u=&\ g_{fa_u}+d_{fa_u}+\sum_{son_u}f_{son_{fa_u}}
           var but = document.getElementById("OpenOrCloseLive-2d");
           but.onclick = function () {
             var live = document.getElementById("live2d-widget");
-            if (live.style.display === "block") {
-              live.style.display = "none";
-            } else {
+            if (live.style.display === "none") {
               live.style.display = "block";
+            } else {
+              live.style.display = "none";
             }
           }
         }

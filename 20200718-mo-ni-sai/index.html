@@ -306,10 +306,10 @@ s_1 = 1\\t_i = s_{i-1} + 1 (1 < i \leq K)\\t_K = T</script><h3 id="输出格式-
           var but = document.getElementById("OpenOrCloseLive-2d");
           but.onclick = function () {
             var live = document.getElementById("live2d-widget");
-            if (live.style.display === "block") {
-              live.style.display = "none";
-            } else {
+            if (live.style.display === "none") {
               live.style.display = "block";
+            } else {
+              live.style.display = "none";
             }
           }
         }

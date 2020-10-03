@@ -326,10 +326,10 @@ f[i][j]=\min_{0\le o\le \min\{k,len_i-1,j\}}\{f[i-1][j-o]+p[len_i][o]\}</script>
           var but = document.getElementById("OpenOrCloseLive-2d");
           but.onclick = function () {
             var live = document.getElementById("live2d-widget");
-            if (live.style.display === "block") {
-              live.style.display = "none";
-            } else {
+            if (live.style.display === "none") {
               live.style.display = "block";
+            } else {
+              live.style.display = "none";
             }
           }
         }

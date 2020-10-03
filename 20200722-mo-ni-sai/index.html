@@ -344,10 +344,10 @@ fortune=p_1^{k_1} \times p_2^{k_2} \times \ldots p_{60}^{k_{60}}</script><p>é¢†è
           var but = document.getElementById("OpenOrCloseLive-2d");
           but.onclick = function () {
             var live = document.getElementById("live2d-widget");
-            if (live.style.display === "block") {
-              live.style.display = "none";
-            } else {
+            if (live.style.display === "none") {
               live.style.display = "block";
+            } else {
+              live.style.display = "none";
             }
           }
         }

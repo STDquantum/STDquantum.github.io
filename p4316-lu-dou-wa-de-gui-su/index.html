@@ -243,10 +243,10 @@ f[x]=\sum_{e[x][y]}\frac{f[y]+w[x][y]}{d[y]}</script><p>bfs倒着跑不用考虑
           var but = document.getElementById("OpenOrCloseLive-2d");
           but.onclick = function () {
             var live = document.getElementById("live2d-widget");
-            if (live.style.display === "block") {
-              live.style.display = "none";
-            } else {
+            if (live.style.display === "none") {
               live.style.display = "block";
+            } else {
+              live.style.display = "none";
             }
           }
         }

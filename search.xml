@@ -244,8 +244,8 @@ x+\left\lfloor\frac nx\right\rfloor+[n\bmod x\gt0]=x+\frac nx +1\ge2\sqrt{n}+1</
         <category>模拟赛</category>
       </categories>
       <tags>
-        <tag>模拟赛</tag>
         <tag>OI</tag>
+        <tag>模拟赛</tag>
       </tags>
   </entry>
   <entry>
@@ -561,8 +561,8 @@ x+\left\lfloor\frac nx\right\rfloor+[n\bmod x\gt0]=x+\frac nx +1\ge2\sqrt{n}+1</
         <category>模拟赛</category>
       </categories>
       <tags>
-        <tag>模拟赛</tag>
         <tag>OI</tag>
+        <tag>模拟赛</tag>
       </tags>
   </entry>
   <entry>
@@ -705,8 +705,8 @@ ans&=\sum_{i=1}^k\sum_{j=1}^{i-1}s_is_j \\
         <category>模拟赛</category>
       </categories>
       <tags>
-        <tag>模拟赛</tag>
         <tag>OI</tag>
+        <tag>模拟赛</tag>
       </tags>
   </entry>
   <entry>
@@ -809,8 +809,8 @@ ans&=\sum_{i=1}^k\sum_{j=1}^{i-1}s_is_j \\
         <category>模拟赛</category>
       </categories>
       <tags>
-        <tag>模拟赛</tag>
         <tag>OI</tag>
+        <tag>模拟赛</tag>
       </tags>
   </entry>
   <entry>
@@ -1326,8 +1326,8 @@ g_u=&\ g_{fa_u}+d_{fa_u}+\sum_{son_u}f_{son_{fa_u}}
         <category>模拟赛</category>
       </categories>
       <tags>
-        <tag>模拟赛</tag>
         <tag>OI</tag>
+        <tag>模拟赛</tag>
       </tags>
   </entry>
   <entry>
@@ -1563,8 +1563,8 @@ g_u=&\ g_{fa_u}+d_{fa_u}+\sum_{son_u}f_{son_{fa_u}}
         <category>模拟赛</category>
       </categories>
       <tags>
-        <tag>模拟赛</tag>
         <tag>OI</tag>
+        <tag>模拟赛</tag>
       </tags>
   </entry>
   <entry>
@@ -1799,8 +1799,8 @@ g_u=&\ g_{fa_u}+d_{fa_u}+\sum_{son_u}f_{son_{fa_u}}
         <category>模拟赛</category>
       </categories>
       <tags>
-        <tag>模拟赛</tag>
         <tag>OI</tag>
+        <tag>模拟赛</tag>
       </tags>
   </entry>
   <entry>
@@ -2002,8 +2002,8 @@ g_u=&\ g_{fa_u}+d_{fa_u}+\sum_{son_u}f_{son_{fa_u}}
         <category>模拟赛</category>
       </categories>
       <tags>
-        <tag>模拟赛</tag>
         <tag>OI</tag>
+        <tag>模拟赛</tag>
       </tags>
   </entry>
   <entry>
@@ -2589,8 +2589,8 @@ g_u=&\ g_{fa_u}+d_{fa_u}+\sum_{son_u}f_{son_{fa_u}}
         <category>模拟赛</category>
       </categories>
       <tags>
-        <tag>模拟赛</tag>
         <tag>OI</tag>
+        <tag>模拟赛</tag>
       </tags>
   </entry>
   <entry>
@@ -4056,8 +4056,8 @@ g_u=&\ g_{fa_u}+d_{fa_u}+\sum_{son_u}f_{son_{fa_u}}
         <category>模拟赛</category>
       </categories>
       <tags>
-        <tag>模拟赛</tag>
         <tag>OI</tag>
+        <tag>模拟赛</tag>
       </tags>
   </entry>
   <entry>
@@ -4178,8 +4178,8 @@ f[i][j]=\min_{0\le o\le \min\{k,len_i-1,j\}}\{f[i-1][j-o]+p[len_i][o]\}</script>
         <category>模拟赛</category>
       </categories>
       <tags>
-        <tag>模拟赛</tag>
         <tag>OI</tag>
+        <tag>模拟赛</tag>
       </tags>
   </entry>
   <entry>
@@ -4338,8 +4338,8 @@ n^2-(n-1)^2=2(n-1)+1\\
         <category>模拟赛</category>
       </categories>
       <tags>
-        <tag>模拟赛</tag>
         <tag>OI</tag>
+        <tag>模拟赛</tag>
       </tags>
   </entry>
   <entry>
@@ -4499,8 +4499,8 @@ n^2-(n-1)^2=2(n-1)+1\\
         <category>模拟赛</category>
       </categories>
       <tags>
-        <tag>模拟赛</tag>
         <tag>OI</tag>
+        <tag>模拟赛</tag>
       </tags>
   </entry>
   <entry>
@@ -4620,8 +4620,8 @@ f[i][j+1]=\min(f[i][j+1], f[i][j] + 1)\\
         <category>模拟赛</category>
       </categories>
       <tags>
-        <tag>模拟赛</tag>
         <tag>OI</tag>
+        <tag>模拟赛</tag>
       </tags>
   </entry>
   <entry>
@@ -5405,8 +5405,8 @@ f[s]=\sum_{i\in s} f[s\mbox{ xor }(1<<i)]\times p[i]+f[s]*(1-\sum_{i\in s}p[i])+
         <category>模拟赛</category>
       </categories>
       <tags>
-        <tag>模拟赛</tag>
         <tag>OI</tag>
+        <tag>模拟赛</tag>
       </tags>
   </entry>
   <entry>
@@ -7393,8 +7393,8 @@ f[x]=\sum_{e[x][y]}\frac{f[y]+w[x][y]}{d[y]}</script><p>bfs倒着跑不用考虑
         <category>数位DP</category>
       </categories>
       <tags>
-        <tag>刷题</tag>
         <tag>数位DP</tag>
+        <tag>刷题</tag>
       </tags>
   </entry>
   <entry>
@@ -7444,8 +7444,8 @@ f[now][pre][pree][f3][xn][f4][f8]</script><p>而<code>solve1</code>函数也应�
         <category>数位DP</category>
       </categories>
       <tags>
-        <tag>刷题</tag>
         <tag>数位DP</tag>
+        <tag>刷题</tag>
       </tags>
   </entry>
   <entry>
@@ -7479,8 +7479,8 @@ f[now][pre][pree][f3][xn][f4][f8]</script><p>而<code>solve1</code>函数也应�
         <category>数位DP</category>
       </categories>
       <tags>
-        <tag>刷题</tag>
         <tag>数位DP</tag>
+        <tag>刷题</tag>
       </tags>
   </entry>
   <entry>
@@ -9747,8 +9747,8 @@ d[i][j] = (m!/(m-j)!) * F[l[i]][j] * \sum d[i-1][k] – d[i-1][j] * F[l[i]][j] *
         <category>模拟赛</category>
       </categories>
       <tags>
-        <tag>模拟赛</tag>
         <tag>OI</tag>
+        <tag>模拟赛</tag>
       </tags>
   </entry>
   <entry>
@@ -10131,8 +10131,8 @@ d[i][j] = (m!/(m-j)!) * F[l[i]][j] * \sum d[i-1][k] – d[i-1][j] * F[l[i]][j] *
         <category>模拟赛</category>
       </categories>
       <tags>
-        <tag>模拟赛</tag>
         <tag>OI</tag>
+        <tag>模拟赛</tag>
       </tags>
   </entry>
   <entry>
@@ -10271,8 +10271,8 @@ d[i][j] = (m!/(m-j)!) * F[l[i]][j] * \sum d[i-1][k] – d[i-1][j] * F[l[i]][j] *
         <category>模拟赛</category>
       </categories>
       <tags>
-        <tag>模拟赛</tag>
         <tag>OI</tag>
+        <tag>模拟赛</tag>
       </tags>
   </entry>
 </search>

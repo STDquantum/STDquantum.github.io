@@ -599,10 +599,10 @@ f[s]=\sum_{i\in s} f[s\mbox{ xor }(1<<i)]\times p[i]+f[s]*(1-\sum_{i\in s}p[i])+
           var but = document.getElementById("OpenOrCloseLive-2d");
           but.onclick = function () {
             var live = document.getElementById("live2d-widget");
-            if (live.style.display === "block") {
-              live.style.display = "none";
-            } else {
+            if (live.style.display === "none") {
               live.style.display = "block";
+            } else {
+              live.style.display = "none";
             }
           }
         }
