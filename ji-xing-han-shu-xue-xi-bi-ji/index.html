@@ -111,8 +111,6 @@
 </li>
 <li><p>$\displaystyle \mu(n)=\left\{\begin{array}{ll}1 &amp; n=1\\ (-1)^k &amp; n=p_1p_2\dots p_k\\0 &amp; {\rm else}\end{array}\right.=\begin{cases}1 &amp; n=1 \\ 0 &amp; \exists d&gt;1:d^{2} \mid n \\ (-1)^{\omega(n)} &amp; {\rm otherwise}\end{cases}$，莫比乌斯函数。</p>
 </li>
-<li><p>$\displaystyle\omega(n)=\sum_{i=1}^n[i\mid n][i\in\text{prime}]$，不同质因子个数。</p>
-</li>
 <li><p>$\gcd(n,k)$，$k$ 是常数。</p>
 </li>
 <li><p>$σ_k(n)$ —— 除数函数，$n$ 的所有正因数的 $k$ 次幂之和，当中 $k$ 可为任何复数。在特例中有：</p>
@@ -125,6 +123,11 @@
 </li>
 <li><p>$\varepsilon(n)=[n=1]$，单位元函数。</p>
 </li>
+<li><p>$C^f$，$C$ 为常数，$f$ 为加性函数。</p>
+</li>
+</ul>
+<h2 id="常见加性函数"><a href="#常见加性函数" class="headerlink" title="常见加性函数"></a>常见加性函数</h2><ul>
+<li>$\displaystyle\omega(n)=\sum_{i=1}^n[i\mid n][i\in\text{prime}]$，不同质因子个数。</li>
 </ul>
 <h2 id="积性函数证明技巧"><a href="#积性函数证明技巧" class="headerlink" title="积性函数证明技巧"></a>积性函数证明技巧</h2><p>当想要证明一个函数是积性函数时，如 $\displaystyle\text{F}(n)=\sum_{d\mid n}d\cdot\mu(d)$。</p>
 <p>可以考虑 $a,b\in[1,n],a\perp b$（垂直符号表示 $a,b$ 互质），$\displaystyle \text{F}(a)=\sum_{d\mid a}d\cdot\mu(d),\,\text{F}(b)=\sum_{d\mid b}d\cdot\mu(d)$。</p>
