@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+
+
+<html lang="zh-CN">
+
+
+<head>
+  <meta charset="utf-8" />
+    
+  <meta name="description" content="STDquantum" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <title>
+    20201026模拟赛 |  STDquantum
+  </title>
+  <meta name="generator" content="hexo-theme-ayer">
+  
+  <link rel="shortcut icon" href="/1.ico" />
+  
+  
+<link rel="stylesheet" href="/dist/main.css">
+
+  
+<link rel="stylesheet" href="/css/remixicon.min.css">
+
+  
+<link rel="stylesheet" href="/css/custom.css">
+
+  
+  
+<script src="/js/pace.min.js"></script>
+
+  
+  
+
+  
+
+</head>
+
+</html>
+
+<body>
+  <div id="app">
+    
+      
+    <main class="content on">
+      <section class="outer">
+  <article
+  id="post-OI/simulate/20201026模拟赛"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  20201026模拟赛
+</h1>
+ 
+
+    </header>
+     
+    <div class="article-meta">
+      <a href="/20201026-mo-ni-sai/" class="article-date">
+  <time datetime="2020-10-26T00:18:45.000Z" itemprop="datePublished">2020-10-26</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/OI/">OI</a> / <a class="article-category-link" href="/categories/OI/%E6%A8%A1%E6%8B%9F%E8%B5%9B/">模拟赛</a>
+  </div>
+  
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> 字数统计:</span>
+            <span class="post-count">2.5k</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> 阅读时长≈</span>
+            <span class="post-count">10 分钟</span>
+        </span>
+    </span>
+</div>
+ 
+    </div>
+      
+    <div class="tocbot"></div>
+
+
+
+
+  
+    <div class="article-entry" itemprop="articleBody">
+       
+  <p>牛客第一场提高组原题/jk</p>
+<a id="more"></a>
+<h1 id="牛牛的方程式"><a href="#牛牛的方程式" class="headerlink" title="牛牛的方程式"></a>牛牛的方程式</h1><p>时间限制：C/C++ 1秒，其他语言2秒</p>
+<p>空间限制：C/C++ 262144K，其他语言524288K</p>
+<p>64bit IO Format: %lld</p>
+<h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>牛牛最近对三元一次方程非常感兴趣。众所周知，三元一次方程至少需要三个方程组成一个方程组，才有可能得出一组解。</p>
+<p>牛牛现在想要知道对于方程 $ax+by+cz=d$ 中有没有至少存在一组 $\{x,y,z\}$ 的解，且 $x,y,z$ 都为整数，使得方程式成立。</p>
+<h2 id="输入描述"><a href="#输入描述" class="headerlink" title="输入描述:"></a>输入描述:</h2><p>第一行输入一个正整数 $T$，表示测试点中测试样例的组数。</p>
+<p>接下来 $T$ 行，每行四个整数 $a,b,c,d$ 表示方程中的 $a,b, c,d$。</p>
+<h2 id="输出描述"><a href="#输出描述" class="headerlink" title="输出描述:"></a>输出描述:</h2><p>如果至少存在一组 $\{x,y,z\}$ 能够满足方程式等式成立，且 $x,y,z$ 均为整数，请输出”YES”，否则请输出”NO”。</p>
+<h2 id="示例1"><a href="#示例1" class="headerlink" title="示例1"></a>示例1</h2><h3 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">2</span><br><span class="line">3 1 2 0</span><br><span class="line">2 8 8 3</span><br></pre></td></tr></table></figure>
+<h3 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">YES</span><br><span class="line">NO</span><br></pre></td></tr></table></figure>
+<h3 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h3><p>$1*3+(-1)*1+(-1)*2=0$<br>得到一组 $x,y,z$ 的解为 $\{1,-1,-1\}$ 为整数使得等式成立，所以输出”YES”。</p>
+<p>不存在 $x,y,z$ 为整数使得方程 $2x+8y+8z=3$ 成立，所以输出”NO”。</p>
+<h2 id="备注"><a href="#备注" class="headerlink" title="备注:"></a>备注:</h2><p>对于 $10\%$ 的测试数据，保证<br>$T=1,-10 \leq a,b,c,d \leq10$；</p>
+<p>对于 $30\%$ 的测试数据，保证 $-100 \leq a,b,c,d\leq 100$；</p>
+<p>对于 $100\%$ 的测试数据，保证 $-10^{18}\leq a,b,c,d\leq 10^{18} ,1 \leq T \leq 100$。</p>
+<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>大意：判断三元一次方程有无整数解。</p>
+<p>类似于二元一次方程 $ax+by=c$ 有整数解条件 $\gcd(a ,b)\mid c$，三元一次方程 $ax+by+cz=d$ 有整数解的条件为 $\gcd(a,b,c)\mid d$。</p>
+<p>证明：</p>
+<p>由二元一次方程有整数解条件可知 $ax+by$ 可以表示 $\gcd(a,b)$ 的任意整数倍，所以三元一次方程 $ax+by+cz=d$ 就可以转化为 $\gcd(a,b)\cdot x+cz=d$，而其有整数解条件为 $\gcd(\gcd(a,b),c)\mid d$，即 $\gcd(a,b,c)\mid d$。</p>
+<p>Q.E.D.</p>
+<p>代码实现时要注意 $a,b,c$ 均为 $0$ 的情况，不然对 $0$ 取模会出错。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> Sweet &#123;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt; <span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">read</span><span class="params">(T &amp;x)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">char</span> ch;</span><br><span class="line">    <span class="keyword">int</span> f = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span> (ch = getchar(), ch &gt; <span class="string">'9'</span> || ch &lt; <span class="string">'0'</span>)</span><br><span class="line">        (ch == <span class="string">'-'</span>) &amp;&amp; (f = <span class="number">-1</span>);</span><br><span class="line">    x = (ch ^ <span class="number">48</span>);</span><br><span class="line">    <span class="keyword">while</span> (ch = getchar(), ch &gt;= <span class="string">'0'</span> &amp;&amp; ch &lt;= <span class="string">'9'</span>)</span><br><span class="line">        x = x * <span class="number">10</span> + (ch ^ <span class="number">48</span>);</span><br><span class="line">    x *= f;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"><span class="function">ll <span class="title">gcd</span><span class="params">(ll a, ll b)</span> </span>&#123; <span class="keyword">return</span> b == <span class="number">0</span> ? a : gcd(b, a % b); &#125;</span><br><span class="line"></span><br><span class="line">ll a, b, c, d;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> SWEET;</span><br><span class="line">    <span class="keyword">for</span> (read(SWEET); SWEET--;) &#123;</span><br><span class="line">        read(a), read(b), read(c), read(d);</span><br><span class="line">        <span class="keyword">if</span> (!a &amp;&amp; !b &amp;&amp; !c) &#123;</span><br><span class="line">            <span class="built_in">puts</span>(d ? <span class="string">"NO"</span> : <span class="string">"YES"</span>);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="built_in">puts</span>(d % gcd(a, gcd(b, c)) ? <span class="string">"NO"</span> : <span class="string">"YES"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;    <span class="comment">// namespace Sweet</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">ifndef</span> ONLINE_JUDGE</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">ifdef</span> LOCAL</span></span><br><span class="line">    freopen(<span class="string">"D:\\OI\\STDquantum\\test.in"</span>, <span class="string">"r"</span>, <span class="built_in">stdin</span>);</span><br><span class="line">    freopen(<span class="string">"D:\\OI\\STDquantum\\test.out"</span>, <span class="string">"w"</span>, <span class="built_in">stdout</span>);</span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">ifndef</span> LOCAL</span></span><br><span class="line">    freopen(<span class="string">"NC7605A_Equation.in"</span>, <span class="string">"r"</span>, <span class="built_in">stdin</span>);</span><br><span class="line">    freopen(<span class="string">"NC7605A_Equation.out"</span>, <span class="string">"w"</span>, <span class="built_in">stdout</span>);</span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line">    Sweet::main();</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="牛牛的猜球游戏"><a href="#牛牛的猜球游戏" class="headerlink" title="牛牛的猜球游戏"></a>牛牛的猜球游戏</h1><p>时间限制：C/C++ 1秒，其他语言2秒</p>
+<p>空间限制：C/C++ 262144K，其他语言524288K</p>
+<p>64bit IO Format: %lld</p>
+<h2 id="题目描述-1"><a href="#题目描述-1" class="headerlink" title="题目描述"></a>题目描述</h2><p>牛牛和牛妹在玩猜球游戏，牛牛首先准备了 $10$ 个小球，小球的编号从 $0\sim9$。首先牛牛把这 $10$ 个球按照从左到右编号为 $0,1,2,3,\dots,9$ 的顺序摆在了桌子上，接下来牛牛把这 $10 $ 个球用 $10$ 个不透明的杯子倒扣住。<br>牛牛接下来会按照一定的操作顺序以极快的速度交换这些杯子。<br>换完以后他问牛妹你看清楚从左到右的杯子中小球的编号了么？</p>
+<p>由于牛妹的动态视力不是很好，所以她跑来向你求助。你在调查后发现牛牛置换杯子其实是有一定原则的。</p>
+<p>具体来讲，牛牛有一个长度大小为 $n$ 的操作序列。</p>
+<p>操作序列的每一行表示一次操作都有两个非负整数 $a,b$，表示本次操作将会交换从左往右数第 $a$ 个杯子和从左往右数第 $b$ 个杯子（$a$ 和 $b$ 均从 $0$ 开始数）。请注意是换杯子，而不是直接交换 $a$ 号球和 $b$ 号球。</p>
+<p>牛牛和牛妹一共玩了 $m$ 次猜球游戏，在每一轮游戏开始时，他都将杯子中的小球重置到从左往右依次为 $0,1,2,3,\dots,9$ 的状态。</p>
+<p>然后在第 $i$ 轮游戏中牛牛会按照操作序列中的第 $l_i$ 个操作开始做，一直做到第 $r_i$ 个操作结束（$l$ 和 $r$ 的编号从 $1$ 开始计算）。</p>
+<p>由于你提前搞到了牛牛的操作序列以及每一次游戏的 $l,r$。请你帮助牛妹回答出牛牛每一轮游戏结束时，从左至右的杯子中小球的编号各是多少。</p>
+<h2 id="输入描述-1"><a href="#输入描述-1" class="headerlink" title="输入描述:"></a>输入描述:</h2><p>首先输入一行两个正整数 $n,m$，表示操作序列的长度以及进行游戏的次数。</p>
+<p>接下来 $n$ 行每行两个非负整数 $a,b$，表示交换左数第 $a$ 个杯子和左数第 $b$ 个杯子（$a,b$ 均从 $0$ 开始数起）。</p>
+<p>接下来 $m$ 行每行两个正整数 $l,r$ 表示该轮游戏中牛牛从第 $l$ 个操作开始做，一直做到第 $r$ 个操作结束（$l$ 和 $r$ 的编号从 $1$ 开始计算）。</p>
+<h2 id="输出描述-1"><a href="#输出描述-1" class="headerlink" title="输出描述:"></a>输出描述:</h2><p>对于每一轮游戏，输出一行 $10$ 个非负整数，表示从左至右每一个杯子中小球，输出的整数之间用空格隔开，行末不允许有多余空格。</p>
+<h2 id="示例1-1"><a href="#示例1-1" class="headerlink" title="示例1"></a>示例1</h2><h3 id="输入-1"><a href="#输入-1" class="headerlink" title="输入"></a>输入</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">5 3</span><br><span class="line">0 1</span><br><span class="line">1 2</span><br><span class="line">2 3</span><br><span class="line">0 1</span><br><span class="line">9 0</span><br><span class="line">1 5</span><br><span class="line">5 5</span><br><span class="line">3 5</span><br></pre></td></tr></table></figure>
+<h3 id="输出-1"><a href="#输出-1" class="headerlink" title="输出"></a>输出</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">9 1 3 0 4 5 6 7 8 2</span><br><span class="line">9 1 2 3 4 5 6 7 8 0</span><br><span class="line">9 0 3 2 4 5 6 7 8 1</span><br></pre></td></tr></table></figure>
+<h2 id="备注-1"><a href="#备注-1" class="headerlink" title="备注:"></a>备注:</h2><p>对于 $30\%$ 的测试数据，保证<br>$1 \leq n,m \leq 500$；</p>
+<p>对于 $60\%$ 的测试数据，保证 $1 \leq n,m \leq 4 \times 10^4$；</p>
+<p>对于 $60\%$ 以外另 $10\%$ 的数据，保证输入的 $a,b \in \{0,1,2\}$；</p>
+<p>对于 $100\%$ 的测试数据，保证 $1 \leq n,m \leq 10^5,0 \leq a,b \leq 9 ,1 \leq l\leq r \leq n$。</p>
+<h2 id="题解-1"><a href="#题解-1" class="headerlink" title="题解"></a>题解</h2><p>对于这种进行一个区间的可减性操作，可以考虑用操作的前缀和来代表从第一个操作做到当前位置所有操作对序列的影响。然后每个区间操作相当于一种映射，要是减去 $sum_{l-1}$ 只要反着映射一下其操作就好了。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> Sweet &#123;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt; <span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">read</span><span class="params">(T &amp;x)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">char</span> ch;</span><br><span class="line">    <span class="keyword">int</span> f = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span> (ch = getchar(), ch &gt; <span class="string">'9'</span> || ch &lt; <span class="string">'0'</span>)</span><br><span class="line">        (ch == <span class="string">'-'</span>) &amp;&amp; (f = <span class="number">-1</span>);</span><br><span class="line">    x = (ch ^ <span class="number">48</span>);</span><br><span class="line">    <span class="keyword">while</span> (ch = getchar(), ch &gt;= <span class="string">'0'</span> &amp;&amp; ch &lt;= <span class="string">'9'</span>)</span><br><span class="line">        x = x * <span class="number">10</span> + (ch ^ <span class="number">48</span>);</span><br><span class="line">    x *= f;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt; <span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">write</span><span class="params">(T x)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">int</span> stk[<span class="number">100</span>], top = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">if</span> (x == <span class="number">0</span>) <span class="keyword">return</span> (<span class="keyword">void</span>)<span class="built_in">putchar</span>(<span class="string">'0'</span>);</span><br><span class="line">    <span class="keyword">if</span> (x &lt; <span class="number">0</span>) x = -x, <span class="built_in">putchar</span>(<span class="string">'-'</span>);</span><br><span class="line">    <span class="keyword">while</span> (x) stk[++top] = x % <span class="number">10</span>, x /= <span class="number">10</span>;</span><br><span class="line">    <span class="keyword">while</span> (top) <span class="built_in">putchar</span>(stk[top--] + <span class="string">'0'</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">1e5</span> + <span class="number">10</span>, B = <span class="number">10</span>;</span><br><span class="line"></span><br><span class="line">basic_string&lt;<span class="keyword">int</span>&gt; tmp, sequence[N];</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> n, m;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    read(n), read(m);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; B; ++i) &#123; sequence[<span class="number">0</span>] += i; &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>, a, b; i &lt;= n; ++i) &#123;</span><br><span class="line">        sequence[i] = sequence[i - <span class="number">1</span>];</span><br><span class="line">        read(a), read(b), swap(sequence[i][a], sequence[i][b]);</span><br><span class="line">    &#125;</span><br><span class="line">    tmp.resize(B);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>, l, r; i &lt;= m; ++i) &#123;</span><br><span class="line">        read(l), read(r);</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; B; ++j) tmp[sequence[l - <span class="number">1</span>][j]] = j; <span class="comment">// 反映射</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; B; ++j)</span><br><span class="line">            write(tmp[sequence[r][j]]), <span class="built_in">putchar</span>(<span class="string">' '</span>); <span class="comment">// 正映射</span></span><br><span class="line">        <span class="built_in">putchar</span>(<span class="string">'\n'</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;    <span class="comment">// namespace Sweet</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">ifndef</span> ONLINE_JUDGE</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">ifdef</span> LOCAL</span></span><br><span class="line">    freopen(<span class="string">"D:\\OI\\STDquantum\\test.in"</span>, <span class="string">"r"</span>, <span class="built_in">stdin</span>);</span><br><span class="line">    freopen(<span class="string">"D:\\OI\\STDquantum\\test.out"</span>, <span class="string">"w"</span>, <span class="built_in">stdout</span>);</span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">ifndef</span> LOCAL</span></span><br><span class="line">    freopen(<span class="string">"NC7605B_Guess_Balls.in"</span>, <span class="string">"r"</span>, <span class="built_in">stdin</span>);</span><br><span class="line">    freopen(<span class="string">"NC7605B_Guess_Balls.out"</span>, <span class="string">"w"</span>, <span class="built_in">stdout</span>);</span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line">    Sweet::main();</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="牛牛的凑数游戏"><a href="#牛牛的凑数游戏" class="headerlink" title="牛牛的凑数游戏"></a>牛牛的凑数游戏</h1><p>时间限制：C/C++ 1秒，其他语言2秒</p>
+<p>空间限制：C/C++ 262144K，其他语言524288K</p>
+<p>64bit IO Format: %lld</p>
+<h2 id="题目描述-2"><a href="#题目描述-2" class="headerlink" title="题目描述"></a>题目描述</h2><p>对于一个多重数集 $S$，对于一非负整数 $x$，若存在 $S^\prime\subseteq S$ 且 $S^\prime$ 中所有数字之和恰好等于 $x$，则说 $S$ 可以表示 $x$。</p>
+<p>显然对于任意的多重数集都可以表示 $0$，因为空集是所有集合的子集。</p>
+<p>牛牛定义集合 $S$ 的最小不能表示数为，一个最小的非负整数 $x$，$S$ 不能表示 $x$。举个例子来说，例如 $S=\{1,2,3,8,9\}$，那么集合 $S$ 的最小不能表示数就为 $7$。</p>
+<p>因为子集 $\{\}$ 和为 $0$，子集 $\{1\}$ 的和为 $1$，子集 $\{2\}$ 的和为 $2$，子集 $\{1,2\}$ 的和为 $3$，子集 $\{1,3\}$ 的和为 $4$，子集 $\{2,3\}$ 的和为 $5$，子集 $\{1,2,3\}$ 的和为 $6$。但是无法找到子集权值和恰好为 $7$ 的子集，所以 $7$ 无法表示。</p>
+<p>现在有一个长度大小为 $n$ 的正整数数组，牛牛每次选择一个区间 $[l,r]$，他想要知道假定给出的多重数集为 $\{a_l,a_{l+1},\dots,a_{r}\}$ 时，该集合的最小不能表示数是多少。</p>
+<h2 id="输入描述-2"><a href="#输入描述-2" class="headerlink" title="输入描述:"></a>输入描述:</h2><p>第一行输入两个正整数 $n,m$。</p>
+<p>接下来一行输入 $n$ 个正整数表示输入的正整数数组。</p>
+<p>接下来 $m$ 行，每行输入两个正整数 $l,r$ 表示查询的区间。</p>
+<h2 id="输出描述-2"><a href="#输出描述-2" class="headerlink" title="输出描述:"></a>输出描述:</h2><p>对于每一个查询，输出最小不能表示数。</p>
+<h2 id="示例1-2"><a href="#示例1-2" class="headerlink" title="示例1"></a>示例1</h2><h3 id="输入-2"><a href="#输入-2" class="headerlink" title="输入"></a>输入</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">8 6</span><br><span class="line">1 2 3 4 5 17 1 99</span><br><span class="line">1 5</span><br><span class="line">2 5</span><br><span class="line">1 6</span><br><span class="line">1 7</span><br><span class="line">1 8</span><br><span class="line">3 8</span><br></pre></td></tr></table></figure>
+<h3 id="输出-2"><a href="#输出-2" class="headerlink" title="输出"></a>输出</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">16</span><br><span class="line">1</span><br><span class="line">16</span><br><span class="line">34</span><br><span class="line">34</span><br><span class="line">2</span><br></pre></td></tr></table></figure>
+<h2 id="备注-2"><a href="#备注-2" class="headerlink" title="备注:"></a>备注:</h2><p>对于前 $10\% $ 的测试数据，保证<br>$1 \leq n,m \leq 10 ,1 \leq a_i \leq 100$；</p>
+<p>对于前 $20\%$ 的测试数据，保证 $1 \leq n,m \leq 500$；</p>
+<p>对于另 $10\%$ 的测试数据，保证输入的单调非降；</p>
+<p>对于另 $10\%$ 的测试数据，保证输入的为 $2$ 的非负整数幂；</p>
+<p>对于 $100\%$ 的测试数据，保证 $1 \leq n,m \leq 10^5,1 \leq a_i \leq 10^9 ,1 \leq l \leq r \leq n$。</p>
+<h2 id="题解-2"><a href="#题解-2" class="headerlink" title="题解"></a>题解</h2><p>对区间内的数排序，可以发现若 $sum_i+1&lt;a_{i+1}$，则最小不能表示出来的就是 $sum_i+1$。</p>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%A8%A1%E6%8B%9F%E8%B5%9B/" rel="tag">模拟赛</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+  <nav class="article-nav">
+    
+      <a href="/cf632f-magic-matrix/" class="article-nav-link">
+        <strong class="article-nav-caption">上一篇</strong>
+        <div class="article-nav-title">
+          
+            CF632F Magic Matrix
+          
+        </div>
+      </a>
+    
+    
+      <a href="/p4318-wan-quan-ping-fang-shu/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">P4318 完全平方数</div>
+      </a>
+    
+  </nav>
+
+  
+     
+</article>
+
+</section>
+      <footer class="footer">
+  <div class="outer">
+    <ul>
+      <li>
+        Copyrights &copy;
+        2020
+        <i class="ri-heart-fill heart_icon"></i> STDquantum
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+      </li>
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      <li>
+        <!-- cnzz统计 -->
+        
+      </li>
+    </ul>
+  </div>
+</footer>
+      <div class="float_btns">
+        <div class="totop" id="totop">
+  <i class="ri-arrow-up-line"></i>
+</div>
+
+      </div>
+    </main>
+    <aside class="sidebar on">
+      <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/1.jpg" alt="STDquantum"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">主页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">归档</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/categories">分类</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/friends">友链</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/tags">标签</a>
+    </li>
+    
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      
+      <script type="text/javascript">
+        window.onload = function () {
+          var but = document.getElementById("OpenOrCloseLive-2d");
+          but.onclick = function () {
+            var live = document.getElementById("live2d-widget");
+            if (live.style.display === "none") {
+              live.style.display = "block";
+            } else {
+              live.style.display = "none";
+            }
+          }
+        }
+      </script>
+      <a id="OpenOrCloseLive-2d" style="font-size: 15px;color:rgb(209, 196, 168);">
+        看板娘
+      </a>
+      
+      
+      <a class="nav-item-link nav-item-search" title="搜索">
+        <i class="ri-search-line"></i>
+      </a>
+      
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+    </aside>
+    <script>
+      if (window.matchMedia("(max-width: 768px)").matches) {
+        document.querySelector('.content').classList.remove('on');
+        document.querySelector('.sidebar').classList.remove('on');
+      }
+    </script>
+    <div id="mask"></div>
+
+<!-- #reward -->
+<div id="reward">
+  <span class="close"><i class="ri-close-line"></i></span>
+  <p class="reward-p"><i class="ri-cup-line"></i></p>
+  <div class="reward-box">
+    
+    
+  </div>
+</div>
+    
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+
+<script src="/js/lazyload.min.js"></script>
+
+<!-- Tocbot -->
+
+
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  tocbot.init({
+    tocSelector: '.tocbot',
+    contentSelector: '.article-entry',
+    headingSelector: 'h1, h2, h3, h4, h5, h6',
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: 'main',
+    positionFixedSelector: '.tocbot',
+    positionFixedClass: 'is-position-fixed',
+    fixedSidebarOffset: 'auto'
+  });
+</script>
+<!-- Live-2D -->
+<script type="text/javascript" charset="utf-8" src="/js/L2Dwidget.0.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="/js/L2Dwidget.min.js"></script>
+<script type="text/javascript">
+  L2Dwidget.on('*', (name) => {
+    console.log('%c EVENT ' + '%c -> ' + name, 'background: #222; color: yellow', 'background: #fff; color: #000')
+  });
+  L2Dwidget.init({
+    "display": {
+      "superSample": 2,
+      "width": 200,
+      "height": 400,
+      "position": "right",
+      "hOffset": 0,
+      "vOffset": 0
+    },
+    "mobile": {
+      "show": true,
+      "scale": 0.7
+    }
+  });
+</script>
+
+<script src="/js/jquery.modal.min.js"></script>
+<link rel="stylesheet" href="/css/jquery.modal.min.css">
+<script src="/js/jquery.justifiedGallery.min.js"></script>
+
+<script src="/dist/main.js"></script>
+
+<!-- ImageViewer -->
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<link rel="stylesheet" href="/css/photoswipe.min.css">
+<link rel="stylesheet" href="/css/default-skin.min.css">
+<script src="/js/photoswipe.min.js"></script>
+<script src="/js/photoswipe-ui-default.min.js"></script>
+
+<script>
+    function viewer_init() {
+        let pswpElement = document.querySelectorAll('.pswp')[0];
+        let $imgArr = document.querySelectorAll(('.article-entry img:not(.reward-img)'))
+
+        $imgArr.forEach(($em, i) => {
+            $em.onclick = () => {
+                // slider展开状态
+                // todo: 这样不好，后面改成状态
+                if (document.querySelector('.left-col.show')) return
+                let items = []
+                $imgArr.forEach(($em2, i2) => {
+                    let img = $em2.getAttribute('data-idx', i2)
+                    let src = $em2.getAttribute('data-target') || $em2.getAttribute('src')
+                    let title = $em2.getAttribute('alt')
+                    // 获得原图尺寸
+                    const image = new Image()
+                    image.src = src
+                    items.push({
+                        src: src,
+                        w: image.width || $em2.width,
+                        h: image.height || $em2.height,
+                        title: title
+                    })
+                })
+                var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, {
+                    index: parseInt(i)
+                });
+                gallery.init()
+            }
+        })
+    }
+    viewer_init()
+</script>
+
+<!-- MathJax -->
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      extensions: ["tex2jax.js"],
+      jax: ["input/TeX","output/HTML-CSS"],
+      tex2jax: {inlineMath: [["$","$"]]}
+    });
+  </script>
+
+<script src="/mathjax/MathJax.js"></script>
+<script>
+  var ayerConfig = {
+    mathjax: true
+  }
+</script>
+
+<!-- Katex -->
+
+<!-- busuanzi  -->
+
+<!-- ClickLove -->
+
+
+<script src="/js/clickLove.js"></script>
+
+
+<!-- ClickBoom1 -->
+
+<!-- ClickBoom2 -->
+
+<!-- CodeCopy -->
+
+
+<link rel="stylesheet" href="/css/clipboard.css">
+
+<script src="/js/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="ri-file-copy-2-line"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-checkbox-circle-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-checkbox-circle-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-time-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-time-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+
+
+<!-- CanvasBackground -->
+
+
+    
+  </div>
+</body>
+
+</html>

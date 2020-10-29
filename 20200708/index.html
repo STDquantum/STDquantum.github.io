@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+
+
+<html lang="zh-CN">
+
+
+<head>
+  <meta charset="utf-8" />
+    
+  <meta name="description" content="STDquantum" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <title>
+    20200708 |  STDquantum
+  </title>
+  <meta name="generator" content="hexo-theme-ayer">
+  
+  <link rel="shortcut icon" href="/1.ico" />
+  
+  
+<link rel="stylesheet" href="/dist/main.css">
+
+  
+<link rel="stylesheet" href="/css/remixicon.min.css">
+
+  
+<link rel="stylesheet" href="/css/custom.css">
+
+  
+  
+<script src="/js/pace.min.js"></script>
+
+  
+  
+
+  
+
+</head>
+
+</html>
+
+<body>
+  <div id="app">
+    
+      
+    <main class="content on">
+      <section class="outer">
+  <article
+  id="post-Other/diary/20200708"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  20200708
+</h1>
+ 
+
+    </header>
+     
+    <div class="article-meta">
+      <a href="/20200708/" class="article-date">
+  <time datetime="2020-07-08T12:17:58.000Z" itemprop="datePublished">2020-07-08</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E5%8A%A8%E6%80%81/">动态</a>
+  </div>
+  
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> 字数统计:</span>
+            <span class="post-count">2.4k</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> 阅读时长≈</span>
+            <span class="post-count">8 分钟</span>
+        </span>
+    </span>
+</div>
+ 
+    </div>
+      
+    <div class="tocbot"></div>
+
+
+
+
+  
+    <div class="article-entry" itemprop="articleBody">
+       
+  <p><del>✿✿ヽ(°▽°)ノ✿<strong>庆祝博客完全离线</strong></del></p>
+<p><b><font size="5">现在是真的完全离线了！！</font></b></p>
+<a id="more"></a>
+<h1 id="说说原文"><a href="#说说原文" class="headerlink" title="说说原文"></a>说说原文</h1><p>庆祝博客离线工作正式完成，解决了最后一部分的mathjax。历时两天的大工程（其实是两个下午），虽然走了不少弯路不过也值了。即使在hexo server上实现不了但是phpstudy能实现也挺不错了。</p>
+<p>又学了一点点html，剩下的工作都是重复性的各种搬东西。mathjax这东找西找就是不知道找找人家原来github上的readme，浪费了几个小时还搞坏了好几份备份。得亏搞坏的是备份。</p>
+<p>在线博客会咕咕咕的，因为这个是离线博客。这两个的距离越来越远了啊。。</p>
+<h1 id="说说感想"><a href="#说说感想" class="headerlink" title="说说感想"></a>说说感想</h1><h2 id="第一天"><a href="#第一天" class="headerlink" title="第一天"></a>第一天</h2><p>这个呢，经历了很长的一个过程。之前0606断网模拟赛的时候，发现自己博客有一些奇奇怪怪的按钮加载不出来，有的动效也出现不了。因为之前一直以为这玩意是完全离线的，就感觉很疑惑。但是当时也没有时间来弄这件事，再加上平常也不会经常断网，所以需求不大。但是在相当于暑假的这段时间里，时间异常充裕，再加上也非常想做这件事，就打算去源码里找找答案。首先打开了生成的index，Ctrl+F搜索http，发现了十四个外链的其他网站，内容都是一些JavaScript和CSS。然后同时我也发现了一些本地加载的js和CSS，src是/js或css/*.js或css，因为以前翻主题ayer的源码时候发现source里的东西都会原封不动地复制到生成的网站文件里，而里面就有两个文件夹分别叫js和css。</p>
+<p>好的，发现了如何引用这些东西，就开始寻找解决方案。首先发现这些js或css（以下统称需求文件）都是简单的一个文件，而不是什么别的奇奇怪怪的网址，所以就把这些文件都下载下来放到source对应的文件夹里。然后就寻找引用时引用需求文件的方式。翻了几个源码，发现这些背后的东西远比自己想象的要复杂，一个一个读是绝无可能的，也没有这么多的精力来做这件事。所以就用vscode的搜索功能，搜索index里面这些引用的网址。因为源码是很多个不同的小块切开了，但是该加进生成文件的东西肯定都在里面其中一个或者几个，于是就用类似的方法解决了其中的十三个，剩下一个mathjax.js改完以后数学公式还是加载不出来。于是想到了F12的network，发现发出的请求还是有很多在外链上，但这些url都是用函数组织起来的，而不是直接一个url复制上去，我就没办法再一个一个改了。而且mathjax的需求文件巨多，也没办法一个一个全下下来（前面14个是这么做到的）。然后就搜嘛，发现有人写用mathjax-node-page和一个js实现mathjax的离线渲染，然后原理我也不太懂，复制一通不好使。然后又想到了KaTex，联网弄了一下发现根本不是自己想要的那种，支持的东西太少了（拿<a href="../wang-ke-wu-li-bi-ji">网课物理笔记</a>做测试，好多公式加载不出来，好多和汉字有关的东西都有问题），联网需求也满足不了，就不用说试着搞离线了。于是第一天下午就这么闷闷地过去了，还打算着先这样，毕竟已经走了一大步了嘛。</p>
+<h2 id="第二天"><a href="#第二天" class="headerlink" title="第二天"></a>第二天</h2><p>今天考会考科目，题简单还有人帮忙，再加上蓟马给放假，一天基本上没啥事。所以上午打了会游戏，下午待半天才想起来mathjax的问题。也不知道到底怎么样，抱着试试的心态去github上搜mathjax（为什么不先找本家，真是迷惑行为），闲着没事读readme，然后就发现我想要的东西了：</p>
+<img src="/20200708/1.png" class>
+<p>正是我想要的东西啊喂。于是心里像炸了一样，赶快按照指示开始下载。下载齁慢，四个兆的东西花了好久也没下完。其实第一次下载挺快的，但是中间因为忘了改<code>mv mj-tmp/es5 &lt;path-to-server-location&gt;/mathjax</code>尖括号里的东西，这个指令失败了下个指令就执行了，于是愉快地把下载完的东西统统删掉。干得漂亮。第二次下载就慢的一批，等一半我等不了了，拿idm整，还算快吧，有个五六分钟就下下来了，然后赶紧重新生成，发现“诶？不行”。啥么原因呢？我不清楚。我觉得是这个方法就不行。然后抱着试试看的心态在<code>/mathjax/tex-chtml.js</code>前面加上了<code>https://www.stdquantum.com</code>，然后打开hexo server，还是不行。。</p>
+<p>果然吗？我已经万念俱灰了。然后突然觉得哪里不太对劲。是不是server里面没法访问我重定向的域名？然后失望地重新生成+cmd+1（这个见后面的补充吧，不是这个过程中的事），心态平和地打开<code>https://www.stdquantum.com</code>，心情凝重地点开<a href="../20200707-mo-ni-sai">20200707模拟赛</a>，心里想着还会看到一堆美元符号中间夹着一点也不好看的式子，第一眼看还想对自己说一句：“你看吧，没用。”然鹅，还真就加载出来了。</p>
+<p>我心里是狂喜的，可是面无表情，因为什么我也不清楚，反正很高兴，却高兴不起来。</p>
+<p>然后面带微笑发了一个说说，就是上面那个。</p>
+<p>其实我挺高兴的，终于能看到一个完全离线的博客了，以后再遇到别管什么问题，兵来将挡水来土掩嘛。事情总会变好的。</p>
+<p>我真的很高兴。</p>
+<h2 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h2><p>在git bash里打开cmd会出一些奇奇怪怪的问题，但是基本功能能用，比如运行一些可执行程序。我当时为了把public里的文件复制到phpstudy设置的网站文件夹里，为了节省点时间和手嘛，就写（其实是复制）了一段python程序。然后又发现bash里面没法用python，得手动点脚本运行，就很麻烦，于是写了一个<code>1.bat</code>，里面就一句话<code>python -u forcopypublic.py</code>，python的命令行运行指令。然后又发现bash里面连bat都运行不了，而cmd里面打一个<code>1</code>就可以了。于是就开发出了在bash里开一个cmd，然后打一个<code>1</code>用来复制的流程。</p>
+<p>因为我实在不知道怎么把这个过程嵌入<code>hexo g</code>里面，hexo背后的码量太大了没法研究，所以只能出此下策，当然以后可能会改的嘛。</p>
+<p>（以前手动复制删除的时候又慢又麻烦也没想到要用python，果然计算机会制造懒人的，以后没准重复性、单一的工作都叫机器人或者计算机来搞了，是好事是坏事现在我也不知道，到时再说嘛）</p>
+<h1 id="Update-2020-07-09-17-09"><a href="#Update-2020-07-09-17-09" class="headerlink" title="Update [2020-07-09 17:09]"></a>Update [2020-07-09 17:09]</h1><p>行吧我彻底服了。昨天晚上看成功了就打算删掉几个中间下的没用的插件，然后就把有用的插件删了一个。然后就算再下回来也彻底不能用了。估计之前的就是回光返照那种？</p>
+<p>今天早上打算按照之前的一切操作从之前的纯净版本复刻了一个新的版本，但是不灵了，可以查询到<code>tex-chtml.js</code>但是后面就啥操作也没有了。我严重怀疑是不是之前的回光返照是《球状闪电》里那种“化身博士”假说，就是阴差阳错歪打正着。然后后来再也找不到之前的配方了。</p>
+<p>我彻底佛了，不搞了，以后学了这些东西，自己写一个主题，把一切都搞得这么复杂我挺难受的。</p>
+<p>没有什么是完美的，也许博客正是因为它的这种不完美而变得完美，要有上升、发展空间的嘛，就像第八十一难。</p>
+<p>把一切事物都看开了，就一切都美好了qwq</p>
+<p>真好~</p>
+<h1 id="upd-on-2020-08-06-20-53"><a href="#upd-on-2020-08-06-20-53" class="headerlink" title="upd on 2020-08-06 20:53"></a>upd on 2020-08-06 20:53</h1><p>哈哈哈哈哈我居然成功了hhh</p>
+<p>之前发现mathjax3支持的东西有点少，于是毅然决定离线mathjax2。</p>
+<p>无意中发现了mathjax2包里的test文件们是可以离线渲染出公式的。</p>
+<p>于是就从这里发现了契机。</p>
+<p>翻源码发现它的配置是可以的，而我这个不行。。。</p>
+<p>config果然是个神奇的东西。</p>
+<p>于是像以前一样都复制了过来（并升级成了2.7.8）</p>
+<p>然后。。。</p>
+<p>成功了！！</p>
+<p>虽然有的公式不支持，比如<code>binom</code>、<code>dfrac</code>、<code>nmid</code>等，似乎后两个的前缀都用不了。然而在线能用。</p>
+<p>但是无所谓/ts</p>
+<p>替换掉这些就可以了qwq</p>
+<p>然后顺便解决了remixicon的锅，改了一些引用路径。</p>
+<p>哇。。。</p>
+<p>真的实现了。哭（T_T）</p>
+<p>好激动啊。</p>
+<p>行了，俩小时就干了这一件事，但是值了hhhh</p>
+<p>nice！</p>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%8A%A8%E6%80%81/" rel="tag">动态</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+  <nav class="article-nav">
+    
+      <a href="/p2602-zjoi2010-shu-zi-ji-shu/" class="article-nav-link">
+        <strong class="article-nav-caption">上一篇</strong>
+        <div class="article-nav-title">
+          
+            P2602 [ZJOI2010]数字计数
+          
+        </div>
+      </a>
+    
+    
+      <a href="/20200707-mo-ni-sai/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">20200707模拟赛</div>
+      </a>
+    
+  </nav>
+
+  
+     
+</article>
+
+</section>
+      <footer class="footer">
+  <div class="outer">
+    <ul>
+      <li>
+        Copyrights &copy;
+        2020
+        <i class="ri-heart-fill heart_icon"></i> STDquantum
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+      </li>
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      <li>
+        <!-- cnzz统计 -->
+        
+      </li>
+    </ul>
+  </div>
+</footer>
+      <div class="float_btns">
+        <div class="totop" id="totop">
+  <i class="ri-arrow-up-line"></i>
+</div>
+
+      </div>
+    </main>
+    <aside class="sidebar on">
+      <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/1.jpg" alt="STDquantum"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">主页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">归档</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/categories">分类</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/friends">友链</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/tags">标签</a>
+    </li>
+    
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      
+      <script type="text/javascript">
+        window.onload = function () {
+          var but = document.getElementById("OpenOrCloseLive-2d");
+          but.onclick = function () {
+            var live = document.getElementById("live2d-widget");
+            if (live.style.display === "none") {
+              live.style.display = "block";
+            } else {
+              live.style.display = "none";
+            }
+          }
+        }
+      </script>
+      <a id="OpenOrCloseLive-2d" style="font-size: 15px;color:rgb(209, 196, 168);">
+        看板娘
+      </a>
+      
+      
+      <a class="nav-item-link nav-item-search" title="搜索">
+        <i class="ri-search-line"></i>
+      </a>
+      
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+    </aside>
+    <script>
+      if (window.matchMedia("(max-width: 768px)").matches) {
+        document.querySelector('.content').classList.remove('on');
+        document.querySelector('.sidebar').classList.remove('on');
+      }
+    </script>
+    <div id="mask"></div>
+
+<!-- #reward -->
+<div id="reward">
+  <span class="close"><i class="ri-close-line"></i></span>
+  <p class="reward-p"><i class="ri-cup-line"></i></p>
+  <div class="reward-box">
+    
+    
+  </div>
+</div>
+    
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+
+<script src="/js/lazyload.min.js"></script>
+
+<!-- Tocbot -->
+
+
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  tocbot.init({
+    tocSelector: '.tocbot',
+    contentSelector: '.article-entry',
+    headingSelector: 'h1, h2, h3, h4, h5, h6',
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: 'main',
+    positionFixedSelector: '.tocbot',
+    positionFixedClass: 'is-position-fixed',
+    fixedSidebarOffset: 'auto'
+  });
+</script>
+<!-- Live-2D -->
+<script type="text/javascript" charset="utf-8" src="/js/L2Dwidget.0.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="/js/L2Dwidget.min.js"></script>
+<script type="text/javascript">
+  L2Dwidget.on('*', (name) => {
+    console.log('%c EVENT ' + '%c -> ' + name, 'background: #222; color: yellow', 'background: #fff; color: #000')
+  });
+  L2Dwidget.init({
+    "display": {
+      "superSample": 2,
+      "width": 200,
+      "height": 400,
+      "position": "right",
+      "hOffset": 0,
+      "vOffset": 0
+    },
+    "mobile": {
+      "show": true,
+      "scale": 0.7
+    }
+  });
+</script>
+
+<script src="/js/jquery.modal.min.js"></script>
+<link rel="stylesheet" href="/css/jquery.modal.min.css">
+<script src="/js/jquery.justifiedGallery.min.js"></script>
+
+<script src="/dist/main.js"></script>
+
+<!-- ImageViewer -->
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<link rel="stylesheet" href="/css/photoswipe.min.css">
+<link rel="stylesheet" href="/css/default-skin.min.css">
+<script src="/js/photoswipe.min.js"></script>
+<script src="/js/photoswipe-ui-default.min.js"></script>
+
+<script>
+    function viewer_init() {
+        let pswpElement = document.querySelectorAll('.pswp')[0];
+        let $imgArr = document.querySelectorAll(('.article-entry img:not(.reward-img)'))
+
+        $imgArr.forEach(($em, i) => {
+            $em.onclick = () => {
+                // slider展开状态
+                // todo: 这样不好，后面改成状态
+                if (document.querySelector('.left-col.show')) return
+                let items = []
+                $imgArr.forEach(($em2, i2) => {
+                    let img = $em2.getAttribute('data-idx', i2)
+                    let src = $em2.getAttribute('data-target') || $em2.getAttribute('src')
+                    let title = $em2.getAttribute('alt')
+                    // 获得原图尺寸
+                    const image = new Image()
+                    image.src = src
+                    items.push({
+                        src: src,
+                        w: image.width || $em2.width,
+                        h: image.height || $em2.height,
+                        title: title
+                    })
+                })
+                var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, {
+                    index: parseInt(i)
+                });
+                gallery.init()
+            }
+        })
+    }
+    viewer_init()
+</script>
+
+<!-- MathJax -->
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      extensions: ["tex2jax.js"],
+      jax: ["input/TeX","output/HTML-CSS"],
+      tex2jax: {inlineMath: [["$","$"]]}
+    });
+  </script>
+
+<script src="/mathjax/MathJax.js"></script>
+<script>
+  var ayerConfig = {
+    mathjax: true
+  }
+</script>
+
+<!-- Katex -->
+
+<!-- busuanzi  -->
+
+<!-- ClickLove -->
+
+
+<script src="/js/clickLove.js"></script>
+
+
+<!-- ClickBoom1 -->
+
+<!-- ClickBoom2 -->
+
+<!-- CodeCopy -->
+
+
+<link rel="stylesheet" href="/css/clipboard.css">
+
+<script src="/js/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="ri-file-copy-2-line"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-checkbox-circle-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-checkbox-circle-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-time-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-time-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+
+
+<!-- CanvasBackground -->
+
+
+    
+  </div>
+</body>
+
+</html>
