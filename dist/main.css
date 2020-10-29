@@ -216,14 +216,14 @@ html {
 
 html {
     font-size: 62.5%;
+    -ms-text-size-adjust: 100%;
     -ms-overflow-style: scrollbar;
     -webkit-tap-highlight-color: transparent
 }
 
 body,
 html {
-    -webkit-text-size-adjust: 100%;
-    -ms-text-size-adjust: 100%
+    -webkit-text-size-adjust: 100%
 }
 
 body {
@@ -316,6 +316,15 @@ body.darkmode input::-moz-input-placeholder {
 
 body.darkmode input::-ms-input-placeholder {
     color: #ccc
+}
+
+body.darkmode .categories-box a {
+    color: #f2f2f2
+}
+
+body.darkmode #friends_link .friends_li a {
+    background-color: hsla(0, 0%, 100%, .15);
+    color: #fff
 }
 
 a {
@@ -468,10 +477,6 @@ button {
 
 .article-entry table td:first-child {
     white-space: nowrap
-}
-
-.article-entry table td:nth-child(2) {
-    text-align: left!important
 }
 
 .article-entry blockquote {
@@ -1771,9 +1776,10 @@ a.toc-link {
 }
 
 .page-nav {
-    margin: 3rem auto;
+    margin: 3rem auto 5rem;
     text-align: center;
-    overflow: hidden
+    overflow: hidden;
+    font-size: 115%
 }
 
 .page-nav:after,
@@ -1795,6 +1801,12 @@ a.toc-link {
 
 .page-nav .prev {
     float: left
+}
+
+.page-nav .next,
+.page-nav .prev {
+    border-radius: 6px;
+    border: 1px solid
 }
 
 .page-nav .next {
@@ -2287,6 +2299,11 @@ pre .id {
     to {
         transform: translateY(-100%)
     }
+}
+
+#reward-out {
+    position: relative;
+    width: 100%
 }
 
 #reward-btn {
