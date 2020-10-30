@@ -1260,6 +1260,14 @@ button {
     float: left
 }
 
+.article-nav-title {
+    border-radius: 6px;
+    border: 1px solid;
+    padding-left: 3px;
+    padding-right: 3px;
+    margin-top: 4px;
+}
+
 .article-nav-link:last-child {
     float: right;
     text-align: right
