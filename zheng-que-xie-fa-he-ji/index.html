@@ -106,7 +106,7 @@
 <h3 id="错误写法："><a href="#错误写法：" class="headerlink" title="错误写法："></a>错误写法：</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">del</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">  --bit[cnt[a[x]]];</span><br><span class="line">  <span class="keyword">if</span> (cnt[a[x]] == Cnt &amp;&amp; !bit[cnt[a[x]]]) --Cnt;</span><br><span class="line">  ++bit[--cnt[a[x]]];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>或者：</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">del</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (!--bit[cnt[a[x]]] &amp;&amp; cnt[a[x]] == Cnt) --Cnt;</span><br><span class="line">  ++bit[--cnt[a[x]]];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
- 
+<h1 id><a href="#" class="headerlink" title="#"></a>#</h1> 
       <!-- reward -->
       
     </div>
