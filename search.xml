@@ -1,6 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>HE迷惑行为合集</title>
+    <url>/he-mi-huo-xing-wei-he-ji/</url>
+    <content><![CDATA[<p>/qiang</p>
+<a id="more"></a>
+<p>来康康 CSP2020-S2 中 HE 选手的代码吧。</p>
+<h2 id="简单统计"><a href="#简单统计" class="headerlink" title="简单统计"></a>简单统计</h2><p>本次共有 303 名正式组选手、17 名体验组选手参加。</p>
+<p>总共交上来各种不同文件 1090 个，其中 1084 个 cpp 文件。（其余见下）</p>
+<p>在这些代码中共有 10014 个 <code>int</code>，1053 个 <code>long long</code>，166 个 <code>unsigned long long</code>，310 个 <code>char</code>。</p>
+<h2 id="文件"><a href="#文件" class="headerlink" title="文件"></a>文件</h2><img src="/he-mi-huo-xing-wei-he-ji/29.png" class>
+<img src="/he-mi-huo-xing-wei-he-ji/25.png" class><img src="/he-mi-huo-xing-wei-he-ji/26.png" class>
+<p>唯一一个超过 100KB 的：</p>
+<img src="/he-mi-huo-xing-wei-he-ji/30.png" class>
+<h2 id="文件名"><a href="#文件名" class="headerlink" title="文件名"></a>文件名</h2><img src="/he-mi-huo-xing-wei-he-ji/1.png" class><img src="/he-mi-huo-xing-wei-he-ji/2.png" class><img src="/he-mi-huo-xing-wei-he-ji/3.png" class>
+<p>估计是没开扩展名。</p>
+<p>在 Linux 里就不会出现这样的情况了。</p>
+<img src="/he-mi-huo-xing-wei-he-ji/31.png" class><img src="/he-mi-huo-xing-wei-he-ji/32.png" class><img src="/he-mi-huo-xing-wei-he-ji/33.png" class><img src="/he-mi-huo-xing-wei-he-ji/34.png" class>
+<img src="/he-mi-huo-xing-wei-he-ji/35.png" class><img src="/he-mi-huo-xing-wei-he-ji/36.png" class>
+<h2 id="freopen-写错"><a href="#freopen-写错" class="headerlink" title="freopen 写错"></a>freopen 写错</h2><h3 id="r-w-写错的"><a href="#r-w-写错的" class="headerlink" title="r w 写错的"></a>r w 写错的</h3><img src="/he-mi-huo-xing-wei-he-ji/4.png" class><img src="/he-mi-huo-xing-wei-he-ji/16.png" class><img src="/he-mi-huo-xing-wei-he-ji/17.png" class><img src="/he-mi-huo-xing-wei-he-ji/39.png" class>
+<h3 id="注释掉的"><a href="#注释掉的" class="headerlink" title="注释掉的"></a>注释掉的</h3><img src="/he-mi-huo-xing-wei-he-ji/5.png" class><img src="/he-mi-huo-xing-wei-he-ji/6.png" class><img src="/he-mi-huo-xing-wei-he-ji/7.png" class><img src="/he-mi-huo-xing-wei-he-ji/8.png" class><img src="/he-mi-huo-xing-wei-he-ji/9.png" class><img src="/he-mi-huo-xing-wei-he-ji/10.png" class><img src="/he-mi-huo-xing-wei-he-ji/11.png" class><img src="/he-mi-huo-xing-wei-he-ji/12.png" class><img src="/he-mi-huo-xing-wei-he-ji/13.png" class><img src="/he-mi-huo-xing-wei-he-ji/14.png" class><img src="/he-mi-huo-xing-wei-he-ji/18.png" class>
+<h3 id="其他迷惑行为"><a href="#其他迷惑行为" class="headerlink" title="其他迷惑行为"></a>其他迷惑行为</h3><img src="/he-mi-huo-xing-wei-he-ji/15.png" class>
+<h3 id="人上人"><a href="#人上人" class="headerlink" title="人上人"></a>人上人</h3><img src="/he-mi-huo-xing-wei-he-ji/19.png" class><img src="/he-mi-huo-xing-wei-he-ji/20.png" class><img src="/he-mi-huo-xing-wei-he-ji/22.png" class><img src="/he-mi-huo-xing-wei-he-ji/21.png" class>
+<h2 id="迷惑"><a href="#迷惑" class="headerlink" title="迷惑"></a>迷惑</h2><img src="/he-mi-huo-xing-wei-he-ji/23.png" class>
+<img src="/he-mi-huo-xing-wei-he-ji/28.png" class><img src="/he-mi-huo-xing-wei-he-ji/27.png" class>
+<img src="/he-mi-huo-xing-wei-he-ji/24.png" class>
+<h2 id="变量名"><a href="#变量名" class="headerlink" title="变量名"></a>变量名</h2><img src="/he-mi-huo-xing-wei-he-ji/37.png" class>
+<p>全 HE 唯一在代码中打出 f**k 的。</p>
+<img src="/he-mi-huo-xing-wei-he-ji/38.png" class>]]></content>
+      <categories>
+        <category>OI</category>
+        <category>杂项</category>
+      </categories>
+      <tags>
+        <tag>杂项</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>CSP2020游记</title>
     <url>/csp2020-you-ji/</url>
     <content><![CDATA[<blockquote>
@@ -408,11 +444,27 @@ x\times 2^M+y\times (n+1)=L</script><p>发现了吗？这就是 exgcd。</p>
     <url>/zheng-que-xie-fa-he-ji/</url>
     <content><![CDATA[<p>都是贼正确的写法。</p>
 <a id="more"></a>
-<h2 id="莫队统计区间众数的-del"><a href="#莫队统计区间众数的-del" class="headerlink" title="莫队统计区间众数的 del"></a>莫队统计区间众数的 del</h2><h3 id="正确写法："><a href="#正确写法：" class="headerlink" title="正确写法："></a>正确写法：</h3><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">del</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (cnt[a[x]] == Cnt &amp;&amp; !--bit[cnt[a[x]]]) --Cnt; <span class="comment">// 短路表达式的妙用</span></span><br><span class="line">  ++bit[--cnt[a[x]]];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="错误写法："><a href="#错误写法：" class="headerlink" title="错误写法："></a>错误写法：</h3><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">del</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">  --bit[cnt[a[x]]];</span><br><span class="line">  <span class="keyword">if</span> (cnt[a[x]] == Cnt &amp;&amp; !bit[cnt[a[x]]]) --Cnt;</span><br><span class="line">  ++bit[--cnt[a[x]]];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="莫队统计区间众数的-del"><a href="#莫队统计区间众数的-del" class="headerlink" title="莫队统计区间众数的 del"></a>莫队统计区间众数的 del</h2><p><strong>正确写法：</strong></p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">del</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (cnt[a[x]] == Cnt &amp;&amp; !--bit[cnt[a[x]]]) --Cnt; <span class="comment">// 短路表达式的妙用</span></span><br><span class="line">  ++bit[--cnt[a[x]]];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>错误写法：</strong></p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">del</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">  --bit[cnt[a[x]]];</span><br><span class="line">  <span class="keyword">if</span> (cnt[a[x]] == Cnt &amp;&amp; !bit[cnt[a[x]]]) --Cnt;</span><br><span class="line">  ++bit[--cnt[a[x]]];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>或者：</p>
 <figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">del</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (!--bit[cnt[a[x]]] &amp;&amp; cnt[a[x]] == Cnt) --Cnt;</span><br><span class="line">  ++bit[--cnt[a[x]]];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h1 id><a href="#" class="headerlink" title="#"></a>#</h1>]]></content>
+<h2 id="树剖-dfs1"><a href="#树剖-dfs1" class="headerlink" title="树剖 dfs1"></a>树剖 dfs1</h2><p><strong>正确写法：</strong></p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dfs1</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> f)</span> </span>&#123;</span><br><span class="line">    dep[x] = dep[f] + <span class="number">1</span>, fa[x] = f;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = head[x], v; i; i = e[i].next) &#123;</span><br><span class="line">        <span class="keyword">if</span> (v = e[i].to, v != f) &#123;</span><br><span class="line">            dis[v] = dis[x] + e[i].w;</span><br><span class="line">            dfs1(v, x), sz[x] += sz[v];</span><br><span class="line">            (sz[son[x]] &lt; sz[v]) &amp;&amp; (son[x] = v);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>错误写法：</strong></p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dfs1</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> f)</span> </span>&#123;</span><br><span class="line">    dep[x] = dep[f] + <span class="number">1</span>, fa[x] = f, sz[x] = <span class="number">1</span>; <span class="comment">// sz一定不能初始化为 1！这样就会有重儿子了！</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = head[x], v; i; i = e[i].next) &#123;</span><br><span class="line">        <span class="keyword">if</span> (v = e[i].to, v != f) &#123;</span><br><span class="line">            dis[v] = dis[x] + e[i].w;</span><br><span class="line">            dfs1(v, x), sz[x] += sz[v];</span><br><span class="line">            (sz[son[x]] &lt; sz[v]) &amp;&amp; (son[x] = v);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="常数问题"><a href="#常数问题" class="headerlink" title="常数问题"></a>常数问题</h2><h3 id="1-儒略日"><a href="#1-儒略日" class="headerlink" title="1 儒略日"></a>1 儒略日</h3><blockquote>
+<p>其定义为从<strong>公元前 4713 年 1 月 1 日正午 12 点到此后某一时刻间所经过的天数</strong>。</p>
+</blockquote>
+<p><strong>正确写法：</strong></p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line">tmp = n / <span class="number">1461</span>;</span><br><span class="line"><span class="keyword">if</span> (tmp * <span class="number">1461l</span>l == n) &#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"31 12 %d"</span>, <span class="number">4731</span> - tmp * <span class="number">4</span> + <span class="number">1</span>);</span><br><span class="line">    <span class="keyword">goto</span> end;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>错误写法：</strong></p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line">tmp = n / <span class="number">1461</span>;</span><br><span class="line"><span class="keyword">if</span> (tmp * <span class="number">1461l</span>l == n) &#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"31 12 %d"</span>, <span class="number">4713</span> - tmp * <span class="number">4</span> + <span class="number">1</span>);</span><br><span class="line">    <span class="keyword">goto</span> end;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h3><p>遇到常数一定不能复制粘贴，尤其是很多位的大常数一定要手打！增加正确率！</p>
+<h2 id="对拍"><a href="#对拍" class="headerlink" title="对拍"></a>对拍</h2><h3 id="1"><a href="#1" class="headerlink" title="1"></a>1</h3><p>背景叙述：我对拍里面，文件是放在 pai1 和 pai2 里的。</p>
+<p>于是我正确地把两个完全相同的暴力放在了 pai1 和 pai2 里面，对拍了一个小时没有出错。</p>
+]]></content>
       <categories>
         <category>OI</category>
         <category>杂项</category>
@@ -1444,8 +1496,8 @@ f_r(n)=\sum_{d\mid n}f_{r-1}(d)</script><p>发现这是一个狄利克雷卷积�
         <category>数论</category>
       </categories>
       <tags>
-        <tag>数论</tag>
         <tag>积性函数</tag>
+        <tag>数论</tag>
         <tag>CF</tag>
       </tags>
   </entry>
@@ -8897,8 +8949,8 @@ f[x]=\sum_{e[x][y]}\frac{f[y]+w[x][y]}{d[y]}</script><p>bfs倒着跑不用考虑
         <category>数位DP</category>
       </categories>
       <tags>
-        <tag>数位DP</tag>
         <tag>刷题</tag>
+        <tag>数位DP</tag>
       </tags>
   </entry>
   <entry>
@@ -8948,8 +9000,8 @@ f[now][pre][pree][f3][xn][f4][f8]</script><p>而<code>solve1</code>函数也应�
         <category>数位DP</category>
       </categories>
       <tags>
-        <tag>数位DP</tag>
         <tag>刷题</tag>
+        <tag>数位DP</tag>
       </tags>
   </entry>
   <entry>
@@ -8983,8 +9035,8 @@ f[now][pre][pree][f3][xn][f4][f8]</script><p>而<code>solve1</code>函数也应�
         <category>数位DP</category>
       </categories>
       <tags>
-        <tag>数位DP</tag>
         <tag>刷题</tag>
+        <tag>数位DP</tag>
       </tags>
   </entry>
   <entry>
