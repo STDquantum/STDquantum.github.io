@@ -11,7 +11,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <title>
-    正确写法合集 |  STDquantum
+    易错写法合集 |  STDquantum
   </title>
   <meta name="generator" content="hexo-theme-ayer">
   
@@ -46,7 +46,7 @@
     <main class="content on">
       <section class="outer">
   <article
-  id="post-OI/minor/正确写法合集"
+  id="post-OI/minor/易错写法合集"
   class="article article-type-post"
   itemscope
   itemprop="blogPost"
@@ -57,14 +57,14 @@
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  正确写法合集
+  易错写法合集
 </h1>
  
 
     </header>
      
     <div class="article-meta">
-      <a href="/zheng-que-xie-fa-he-ji/" class="article-date">
+      <a href="/yi-cuo-xie-fa-he-ji/" class="article-date">
   <time datetime="2020-10-30T02:27:27.000Z" itemprop="datePublished">2020-10-30</time>
 </a> 
   <div class="article-category">
@@ -76,7 +76,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">441</span>
+            <span class="post-count">630</span>
         </span>
     </span>
 
@@ -85,7 +85,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> 阅读时长≈</span>
-            <span class="post-count">2 分钟</span>
+            <span class="post-count">3 分钟</span>
         </span>
     </span>
 </div>
@@ -100,28 +100,40 @@
   
     <div class="article-entry" itemprop="articleBody">
        
-  <p>都是贼正确的写法。</p>
+  <p>快哭了</p>
 <a id="more"></a>
-<h2 id="莫队统计区间众数的-del"><a href="#莫队统计区间众数的-del" class="headerlink" title="莫队统计区间众数的 del"></a>莫队统计区间众数的 del</h2><p><strong>正确写法：</strong></p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">del</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (cnt[a[x]] == Cnt &amp;&amp; !--bit[cnt[a[x]]]) --Cnt; <span class="comment">// 短路表达式的妙用</span></span><br><span class="line">  ++bit[--cnt[a[x]]];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><strong>错误写法：</strong></p>
+<h2 id="莫队统计区间众数的-del"><a href="#莫队统计区间众数的-del" class="headerlink" title="莫队统计区间众数的 del"></a>莫队统计区间众数的 del</h2><p><strong>错误写法：</strong></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">del</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (cnt[a[x]] == Cnt &amp;&amp; !--bit[cnt[a[x]]]) --Cnt; <span class="comment">// 短路表达式！</span></span><br><span class="line">  ++bit[--cnt[a[x]]];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>正确写法：</strong></p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">del</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">  --bit[cnt[a[x]]];</span><br><span class="line">  <span class="keyword">if</span> (cnt[a[x]] == Cnt &amp;&amp; !bit[cnt[a[x]]]) --Cnt;</span><br><span class="line">  ++bit[--cnt[a[x]]];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>或者：</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">del</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (!--bit[cnt[a[x]]] &amp;&amp; cnt[a[x]] == Cnt) --Cnt;</span><br><span class="line">  ++bit[--cnt[a[x]]];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="树剖-dfs1"><a href="#树剖-dfs1" class="headerlink" title="树剖 dfs1"></a>树剖 dfs1</h2><p><strong>正确写法：</strong></p>
+<h2 id="树剖-dfs1"><a href="#树剖-dfs1" class="headerlink" title="树剖 dfs1"></a>树剖 dfs1</h2><p><strong>错误写法：</strong></p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dfs1</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> f)</span> </span>&#123;</span><br><span class="line">    dep[x] = dep[f] + <span class="number">1</span>, fa[x] = f;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = head[x], v; i; i = e[i].next) &#123;</span><br><span class="line">        <span class="keyword">if</span> (v = e[i].to, v != f) &#123;</span><br><span class="line">            dis[v] = dis[x] + e[i].w;</span><br><span class="line">            dfs1(v, x), sz[x] += sz[v];</span><br><span class="line">            (sz[son[x]] &lt; sz[v]) &amp;&amp; (son[x] = v);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><strong>错误写法：</strong></p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dfs1</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> f)</span> </span>&#123;</span><br><span class="line">    dep[x] = dep[f] + <span class="number">1</span>, fa[x] = f, sz[x] = <span class="number">1</span>; <span class="comment">// sz一定不能初始化为 1！这样就会有重儿子了！</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = head[x], v; i; i = e[i].next) &#123;</span><br><span class="line">        <span class="keyword">if</span> (v = e[i].to, v != f) &#123;</span><br><span class="line">            dis[v] = dis[x] + e[i].w;</span><br><span class="line">            dfs1(v, x), sz[x] += sz[v];</span><br><span class="line">            (sz[son[x]] &lt; sz[v]) &amp;&amp; (son[x] = v);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>正确写法：</strong></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dfs1</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> f)</span> </span>&#123;</span><br><span class="line">    dep[x] = dep[f] + <span class="number">1</span>, fa[x] = f, sz[x] = <span class="number">1</span>; <span class="comment">// sz初始化为 1！要有重儿子！</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = head[x], v; i; i = e[i].next) &#123;</span><br><span class="line">        <span class="keyword">if</span> (v = e[i].to, v != f) &#123;</span><br><span class="line">            dis[v] = dis[x] + e[i].w;</span><br><span class="line">            dfs1(v, x), sz[x] += sz[v];</span><br><span class="line">            (sz[son[x]] &lt; sz[v]) &amp;&amp; (son[x] = v);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="常数问题"><a href="#常数问题" class="headerlink" title="常数问题"></a>常数问题</h2><h3 id="1-儒略日"><a href="#1-儒略日" class="headerlink" title="1 儒略日"></a>1 儒略日</h3><blockquote>
 <p>其定义为从<strong>公元前 4713 年 1 月 1 日正午 12 点到此后某一时刻间所经过的天数</strong>。</p>
 </blockquote>
-<p><strong>正确写法：</strong></p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">tmp = n / <span class="number">1461</span>;</span><br><span class="line"><span class="keyword">if</span> (tmp * <span class="number">1461l</span>l == n) &#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"31 12 %d"</span>, <span class="number">4731</span> - tmp * <span class="number">4</span> + <span class="number">1</span>);</span><br><span class="line">    <span class="keyword">goto</span> end;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p><strong>错误写法：</strong></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">tmp = n / <span class="number">1461</span>;</span><br><span class="line"><span class="keyword">if</span> (tmp * <span class="number">1461l</span>l == n) &#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"31 12 %d"</span>, <span class="number">4731</span> - tmp * <span class="number">4</span> + <span class="number">1</span>);</span><br><span class="line">    <span class="keyword">goto</span> end;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>正确写法：</strong></p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">tmp = n / <span class="number">1461</span>;</span><br><span class="line"><span class="keyword">if</span> (tmp * <span class="number">1461l</span>l == n) &#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"31 12 %d"</span>, <span class="number">4713</span> - tmp * <span class="number">4</span> + <span class="number">1</span>);</span><br><span class="line">    <span class="keyword">goto</span> end;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h3><p>遇到常数一定不能复制粘贴，尤其是很多位的大常数一定要手打！增加正确率！</p>
-<h2 id="对拍"><a href="#对拍" class="headerlink" title="对拍"></a>对拍</h2><h3 id="1"><a href="#1" class="headerlink" title="1"></a>1</h3><p>背景叙述：我对拍里面，文件是放在 pai1 和 pai2 里的。</p>
-<p>于是我正确地把两个完全相同的暴力放在了 pai1 和 pai2 里面，对拍了一个小时没有出错。</p>
+<h3 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h3><p>遇到常数一定复制粘贴，尤其是很多位的大常数一定不能手打！增加正确率！</p>
+<h2 id="对拍"><a href="#对拍" class="headerlink" title="对拍"></a>对拍</h2><p>背景叙述：对拍文件是放在 pai1 和 pai2 里的。</p>
+<h3 id="1"><a href="#1" class="headerlink" title="1"></a>1</h3><p>于是把两个完全相同的暴力放在了 pai1 和 pai2 里面，对拍了一个小时没有出错。</p>
+<h3 id="2"><a href="#2" class="headerlink" title="2"></a>2</h3><p>2020-11-12：pai1 文件没编译成功，但之前还保留着 exe 文件。于是就一直用之前编译出来的 exe 运行拍了好久。</p>
+<h2 id="图论"><a href="#图论" class="headerlink" title="图论"></a>图论</h2><h3 id="图的遍历——邻接表"><a href="#图的遍历——邻接表" class="headerlink" title="图的遍历——邻接表"></a>图的遍历——邻接表</h3><p>TIME：2020年11月13日11:23:55。题目：<a href="https://www.luogu.com.cn/problem/AT1981" target="_blank" rel="noopener">AT1981 [AGC001C] Shorten Diameter</a>。</p>
+<p>如果打算用这种方式遍历：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = head[x]; i; i = e[i].next) &#123;&#125;</span><br></pre></td></tr></table></figure>
+<p>还打算用异或一得到反向边的方式存图：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> tot = <span class="number">-1</span>, head[N];</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">E</span> &#123;</span></span><br><span class="line">  <span class="keyword">int</span> next, to;</span><br><span class="line">&#125; e[N];</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">add</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y)</span> </span>&#123;</span><br><span class="line">  e[++tot] = (E)&#123;head[x], y&#125;, head[x] = tot;</span><br><span class="line">  e[++tot] = (E)&#123;head[y], x&#125;, head[y] = tot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>不 <code>memset(head, -1, sizeof(head))</code> 的情况下，第一条边是存储在 <code>e[0]</code> 里的，用这种方式遍历无法访问到这条边。</p>
+<p>所以两种解决办法：</p>
+<ol>
+<li>写 <code>memset(head, -1, sizeof(head))</code>， 遍历用 <code>~i</code>。</li>
+<li>还是把 <code>tot</code> 设成 <code>1</code> 比较方便。</li>
+</ol>
  
       <!-- reward -->
       
