@@ -76,7 +76,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">0</span>
+            <span class="post-count">440</span>
         </span>
     </span>
 
@@ -85,20 +85,53 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> 阅读时长≈</span>
-            <span class="post-count">1 分钟</span>
+            <span class="post-count">2 分钟</span>
         </span>
     </span>
 </div>
  
     </div>
       
+    <div class="tocbot"></div>
+
 
 
 
   
     <div class="article-entry" itemprop="articleBody">
        
-  <a id="more"></a> 
+  <p>yoho！~</p>
+<a id="more"></a>
+<p>李书搬运者/kk</p>
+<h1 id="内容"><a href="#内容" class="headerlink" title="内容"></a>内容</h1><p>先来看欧拉定理。</p>
+<blockquote>
+<p><strong>费马小定理</strong>：</p>
+<p>若 $p$ 是质数，则对于任意整数 $a$，有 $a^p\equiv a\pmod p$。</p>
+<p><strong>欧拉定理</strong>：</p>
+<p>若正整数 $a,n$ 互质，则 $a^{\varphi(n)}\equiv 1\pmod p$。</p>
+</blockquote>
+<p>证明：</p>
+<p>设 $n$ 的简化剩余系为 $\{\overline {a_{1}},\overline{a_2},\cdots,\overline{a_{\varphi(n)}}\}$。对 $\forall a_i,a_j$，若 $a\times a_i\equiv a\times a_j\pmod n$，则 $a\times (a_i-a_j)\equiv 0$。因为 $a,n$ 互质，所以 $a_i-a_j\equiv 0$，即 $a_i\equiv a_j$。故当 $a_i\neq a_j$ 时，$aa_i,aa_j$ 也代表不同的同余类。</p>
+<p>又因为简化剩余系关于模 $n$ 乘法封闭，故 $\overline {aa_i}$ 也在简化剩余系集合中。因此，集合 $\{\overline {a_{1}},\overline{a_2},\cdots,\overline{a_{\varphi(n)}}\}$ 与集合 $\{\overline {aa_{1}},\overline{aa_2},\cdots,\overline{aa_{\varphi(n)}}\}$ 都能表示 $n$ 的简化剩余系。综上所述：</p>
+<script type="math/tex; mode=display">
+a^{\varphi(n)}a_1a_2\cdots a_{\varphi(n)}\equiv (aa_1)(aa_2)\cdots(aa_{\varphi(n)})\equiv a_1a_2\cdots a_{\varphi(n)}\pmod n</script><p>因此 $a^{\varphi(n)}\equiv 1\pmod n$。</p>
+<p>当 $p$ 为质数时，$\varphi(p)=p-1$，并且只有 $p$ 的倍数与 $p$ 不互质。所以，只要不是 $p$ 的倍数，就有 $a^{p-1}\equiv 1\pmod n$，两边同乘 $a$ 就是费马小定理。另外，若 $a$ 是 $p$ 的倍数，费马小定理显然成立。</p>
+<p>证毕。</p>
+<blockquote>
+<p><strong>扩展欧拉定理</strong>：</p>
+<ol>
+<li><p>若正整数 $a,n$ 互质，则对于任意正整数 $b$，有 $a^b\equiv a^{b\bmod \varphi n}\pmod n$。</p>
+</li>
+<li><p>若 $a,n$ 不一定互质且 $b\gt \varphi (n)$，有 $a^b\equiv a^{b\bmod\varphi(n)+\varphi(n)}$。</p>
+</li>
+</ol>
+</blockquote>
+<p>证明 1：</p>
+<p>设 $b=q\times \varphi(n)+r$，其中 $0\le r \lt \varphi(n)$，即 $r=b\bmod \varphi(n)$。于是：</p>
+<script type="math/tex; mode=display">
+a^b\equiv a^{q\times\varphi(n)+r}\equiv \left(a^{\varphi(n)}\right)^q\times a^r\equiv1^q\times a^r\equiv a^r\equiv a^{b\bmod \varphi(n)}\pmod n</script><p>证毕。</p>
+<p>证明 2：待添加。</p>
+ 
       <!-- reward -->
       
     </div>
