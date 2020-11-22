@@ -76,7 +76,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">1.1k</span>
+            <span class="post-count">2.1k</span>
         </span>
     </span>
 
@@ -85,7 +85,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> 阅读时长≈</span>
-            <span class="post-count">5 分钟</span>
+            <span class="post-count">8 分钟</span>
         </span>
     </span>
 </div>
@@ -179,19 +179,19 @@
 </div>
 <h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>发现这题 $m$ 贼小，于是直接把每个数 $\mathcal{O}(\sqrt n)$ 分解成所有因数，在因数这里记录被几个数访问过，然后把每个因数按次数统计入答案。</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> STDquantum &#123;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt; <span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">read</span><span class="params">(T &amp;x)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">char</span> ch;</span><br><span class="line">  <span class="keyword">while</span> (ch = getchar(), !<span class="built_in">isdigit</span>(ch)) &#123;&#125;</span><br><span class="line">  x = (ch ^ <span class="number">48</span>);</span><br><span class="line">  <span class="keyword">while</span> (ch = getchar(), <span class="built_in">isdigit</span>(ch)) x = x * <span class="number">10</span> + (ch ^ <span class="number">48</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">2e3</span> + <span class="number">10</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">map</span>&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt; sum;</span><br><span class="line"><span class="keyword">int</span> n, m, cnt[N];</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">divide</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">int</span> s = <span class="built_in">sqrt</span>(x);</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>, sz = min(s, n); i &lt;= sz; ++i) &#123;</span><br><span class="line">    <span class="keyword">if</span> (x % i == <span class="number">0</span>) &#123;</span><br><span class="line">      ++sum[i];</span><br><span class="line">      <span class="keyword">if</span> (x / i &lt;= n) ++sum[x / i];</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span> (s * s == x &amp;&amp; s &lt;= n) &#123; --sum[s]; &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  read(n), read(m);</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>, x; i &lt;= m; ++i) read(x), divide(x);</span><br><span class="line">  <span class="keyword">int</span> total = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">for</span> (<span class="built_in">map</span>&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt;::iterator i = sum.begin(); i != sum.end(); ++i) &#123;</span><br><span class="line">    ++cnt[(*i).second], ++total;</span><br><span class="line">  &#125;</span><br><span class="line">  cnt[<span class="number">0</span>] = n - total;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt;= m; ++i) &#123; <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, cnt[i]); &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;  <span class="comment">// namespace STDquantum</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">ifndef</span> ONLINE_JUDGE</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">ifdef</span> LOCAL</span></span><br><span class="line">  freopen(<span class="string">"D:\\OI\\STDquantum\\test.in"</span>, <span class="string">"r"</span>, <span class="built_in">stdin</span>);</span><br><span class="line">  freopen(<span class="string">"D:\\OI\\STDquantum\\test.out"</span>, <span class="string">"w"</span>, <span class="built_in">stdout</span>);</span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">ifndef</span> LOCAL</span></span><br><span class="line">  freopen(<span class="string">"div.in"</span>, <span class="string">"r"</span>, <span class="built_in">stdin</span>);</span><br><span class="line">  freopen(<span class="string">"div.out"</span>, <span class="string">"w"</span>, <span class="built_in">stdout</span>);</span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line">  STDquantum::main();</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h1 id="Market"><a href="#Market" class="headerlink" title="Market"></a>Market</h1><h2 id="题目描述-1"><a href="#题目描述-1" class="headerlink" title="题目描述"></a>题目描述</h2><p>在比特镇一共有 n 家商店，编号依次为 1 到 n。每家商店只会卖一种物品，其中第 i 家商店的物品单价为 ci，价值为 vi，且该商店开张的时间为 ti。</p>
-<p>Byteasar 计划进行 m 次购物，其中第 i 次购物的时间为 Ti，预算为 Mi。每次购物的时候，Byteasar会在每家商店购买最多一件物品，当然他也可以选择什么都不买。如果购物的时间早于商店开张的时间，那么显然他无法在这家商店进行购物。</p>
+<h1 id="Market"><a href="#Market" class="headerlink" title="Market"></a>Market</h1><h2 id="题目描述-1"><a href="#题目描述-1" class="headerlink" title="题目描述"></a>题目描述</h2><p>在比特镇一共有 $n$ 家商店，编号依次为 $1$ 到 $n$。每家商店只会卖一种物品，其中第 $i$ 家商店的物品单价为 $c_i$，价值为 $v_i$，且该商店开张的时间为 $t_i$。</p>
+<p>Byteasar 计划进行 $m$ 次购物，其中第 $i$ 次购物的时间为 $T_i$，预算为 $M_i$。每次购物的时候，Byteasar会在每家商店购买最多一件物品，当然他也可以选择什么都不买。如果购物的时间早于商店开张的时间，那么显然他无法在这家商店进行购物。</p>
 <p>现在 Byteasar 想知道，对于每个计划，他最多能购入总价值多少的物品。请写一个程序，帮助 Byteasar 合理安排购物计划。</p>
 <p>注意：每次所花金额不得超过预算，预算也不一定要花完，同时预算不能留给其它计划使用。</p>
-<h2 id="输入输出格式-1"><a href="#输入输出格式-1" class="headerlink" title="输入输出格式"></a>输入输出格式</h2><h3 id="输入格式-1"><a href="#输入格式-1" class="headerlink" title="输入格式"></a>输入格式</h3><p>第一行包含两个正整数 n, m，表示商店的总数和计划购物的次数。</p>
-<p>接下来 n 行，每行三个正整数 ci, vi, ti，分别表示每家商店的单价、价值以及开张时间。</p>
-<p>接下来 m 行，每行两个正整数 Ti, Mi，分别表示每个购物计划的时间和预算。</p>
-<h3 id="输出格式-1"><a href="#输出格式-1" class="headerlink" title="输出格式"></a>输出格式</h3><p>输出 m 行，每行一个整数，对于每个计划输出最大可能的价值和。</p>
-<h2 id="输入输出样例-1"><a href="#输入输出样例-1" class="headerlink" title="输入输出样例"></a>输入输出样例</h2><h3 id="输入样例-1-1"><a href="#输入样例-1-1" class="headerlink" title="输入样例 #1"></a>输入样例 #1</h3><figure class="highlight basic"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">5 </span><span class="number">2</span></span><br><span class="line"><span class="symbol">5 </span><span class="number">5</span> <span class="number">4</span></span><br><span class="line"><span class="symbol">1 </span><span class="number">3</span> <span class="number">1</span></span><br><span class="line"><span class="symbol">3 </span><span class="number">4</span> <span class="number">3</span></span><br><span class="line"><span class="symbol">6 </span><span class="number">2</span> <span class="number">2</span></span><br><span class="line"><span class="symbol">4 </span><span class="number">3</span> <span class="number">2</span></span><br><span class="line"><span class="symbol">3 </span><span class="number">8</span></span><br><span class="line"><span class="symbol">5 </span><span class="number">9</span></span><br></pre></td></tr></table></figure>
-<h3 id="输出样例-1-1"><a href="#输出样例-1-1" class="headerlink" title="输出样例 #1"></a>输出样例 #1</h3><figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">10</span></span><br><span class="line"><span class="number">12</span></span><br></pre></td></tr></table></figure>
-<h2 id="说明-1"><a href="#说明-1" class="headerlink" title="说明"></a>说明</h2><p>第一个计划可以在商店 2,3,5 各购买一件物品，总花费为 1 + 3 + 4 = 8，总价值为 3 + 4 + 3 = 10。</p>
-<p>第二个计划可以在商店 1,2,3 各购买一件物品，总花费为 5 + 1 + 3 = 9，总价值为 5 + 3 + 4 = 12。</p>
-<p>对于 100% 的数据，1 ≤ti, Ti ≤n </p>
+<h2 id="输入输出格式-1"><a href="#输入输出格式-1" class="headerlink" title="输入输出格式"></a>输入输出格式</h2><h3 id="输入格式-1"><a href="#输入格式-1" class="headerlink" title="输入格式"></a>输入格式</h3><p>第一行包含两个正整数 $n, m$，表示商店的总数和计划购物的次数。</p>
+<p>接下来 $n$ 行，每行三个正整数 $c_i, v_i, t_i$，分别表示每家商店的单价、价值以及开张时间。</p>
+<p>接下来 $m$ 行，每行两个正整数 $T_i, M_i$，分别表示每个购物计划的时间和预算。</p>
+<h3 id="输出格式-1"><a href="#输出格式-1" class="headerlink" title="输出格式"></a>输出格式</h3><p>输出 $m$ 行，每行一个整数，对于每个计划输出最大可能的价值和。</p>
+<h2 id="输入输出样例-1"><a href="#输入输出样例-1" class="headerlink" title="输入输出样例"></a>输入输出样例</h2><h3 id="输入样例-1-1"><a href="#输入样例-1-1" class="headerlink" title="输入样例 #1"></a>输入样例 #1</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">5 2</span><br><span class="line">5 5 4</span><br><span class="line">1 3 1</span><br><span class="line">3 4 3</span><br><span class="line">6 2 2</span><br><span class="line">4 3 2</span><br><span class="line">3 8</span><br><span class="line">5 9</span><br></pre></td></tr></table></figure>
+<h3 id="输出样例-1-1"><a href="#输出样例-1-1" class="headerlink" title="输出样例 #1"></a>输出样例 #1</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">10</span><br><span class="line">12</span><br></pre></td></tr></table></figure>
+<h2 id="说明-1"><a href="#说明-1" class="headerlink" title="说明"></a>说明</h2><p>第一个计划可以在商店 $2,3,5$ 各购买一件物品，总花费为 $1 + 3 + 4 = 8$，总价值为 $3 + 4 + 3 = 10$。</p>
+<p>第二个计划可以在商店 $1,2,3$ 各购买一件物品，总花费为 $5 + 1 + 3 = 9$，总价值为 $5 + 3 + 4 = 12$。</p>
+<p>对于 $100\%$ 的数据，$1 ≤t_i, T_i ≤n$。</p>
 <div class="table-container">
 <table>
 <thead>
@@ -288,9 +288,113 @@
 </tbody>
 </table>
 </div>
+<h2 id="题解-1"><a href="#题解-1" class="headerlink" title="题解"></a>题解</h2><h1 id="Dash-Speed"><a href="#Dash-Speed" class="headerlink" title="Dash Speed"></a>Dash Speed</h1><h2 id="题目描述-2"><a href="#题目描述-2" class="headerlink" title="题目描述"></a>题目描述</h2><p>比特山是比特镇的飙车圣地。在比特山上一共有 $n$ 个广场，编号依次为 $1$ 到 $n$，这些广场之间通过 $n-1$ 条双向车道直接或间接地连接在一起，形成了一棵树的结构。</p>
+<p>因为每条车道的修建时间以及建筑材料都不尽相同，所以可以用两个数字 $l_i,r_i$ 量化地表示一条车道的承受区间，只有当汽车以不小于 $l_i$ 且不大于 $r_i$ 的速度经过这条车道时，才不会对路面造成伤害。</p>
+<p>Byteasar 最近新买了一辆跑车，他想在比特山飙一次车。Byteasar 计划选择两个不同的点 $S，T$ 然后在它们树上的最短路径上行驶，且不对上面任意一条车道造成伤害。</p>
+<p>Byteasar 不喜欢改变速度，所以他会告诉你他的车速。为了挑选出最合适的车速，Byteasar 一共会向你询问 $m$ 次。请帮助他找到一条合法的道路，使得路径上经过的车道数尽可能多。</p>
+<h2 id="输入格式-2"><a href="#输入格式-2" class="headerlink" title="输入格式"></a>输入格式</h2><p>第一行包含两个正整数 $n,m$，表示广场的总数和询问的总数。</p>
+<p>接下来 $n-1$ 行，每行四个正整数 $u_i,v_i,l_i, ri$，表示一条连接$u_i$ 和$v_i$ 的双向车道，且承受区间为$[l_i,r_i]$。</p>
+<p>接下来 $m$ 行，每行一个正整数 $q_i$，分别表示每个询问的车速。</p>
+<h2 id="输出格式-2"><a href="#输出格式-2" class="headerlink" title="输出格式"></a>输出格式</h2><p>输出$m$ 行，每行一个整数，其中第 $i$ 行输出车速为 $q_i$ 时的最长路径的长度，如果找不到合法的路径则输出 $0$。</p>
+<h2 id="样例数据"><a href="#样例数据" class="headerlink" title="样例数据"></a>样例数据</h2><p>样例 1 输入</p>
+<p>*input*</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">5 3</span><br><span class="line">3 2 2 4</span><br><span class="line">1 5 2 5</span><br><span class="line">4 5 2 2</span><br><span class="line">1 2 3 5</span><br><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td></tr></table></figure>
+<p>*output*</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">0</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td></tr></table></figure>
+<p>*样例解释*</p>
+<p>当车速为 $1$ 时，不存在合法的路径。</p>
+<p>当车速为 $2$ 时，可以选择 $1-5-4$ 这条路径，长度为 $2$。</p>
+<p>当车速为 $3$ 时，可以选择 $3-2-1-5$ 这条路径，长度为 $3$。</p>
+<h2 id="数据规模与约定"><a href="#数据规模与约定" class="headerlink" title="数据规模与约定"></a>数据规模与约定</h2><p>对于 $100\%$ 的数据，$1 \leq u_i , v_i ,q_i \leq n , 1 \leq l_i \leq r_i \leq n $。</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th><strong>测试点编号</strong></th>
+<th>$n$</th>
+<th>$m$</th>
+<th><strong>约定</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$1$</td>
+<td>$=5$</td>
+<td>$=5$</td>
+<td>无</td>
+</tr>
+<tr>
+<td>$2$</td>
+<td>$=20$</td>
+<td>$=20$</td>
+<td>无</td>
+</tr>
+<tr>
+<td>$3$</td>
+<td>$=5000$</td>
+<td>$=50000$</td>
+<td>$l_i = 1$，且 $u_i = i ,v_i = i +1$</td>
+</tr>
+<tr>
+<td>$4$</td>
+<td>$=70000$</td>
+<td>$=70000$</td>
+<td>$l_i = 1$，且 $u_i = i ,v_i = i +1$</td>
+</tr>
+<tr>
+<td>$5$</td>
+<td>$=50000$</td>
+<td>$=50000$</td>
+<td>$u_i =i , v_i = i+1$</td>
+</tr>
+<tr>
+<td>$6$</td>
+<td>$=70000$</td>
+<td>$=70000$</td>
+<td>$u_i =i , v_i = i+1$</td>
+</tr>
+<tr>
+<td>$7$</td>
+<td>$=50000$</td>
+<td>$=50000$</td>
+<td>$l_i = 1 $</td>
+</tr>
+<tr>
+<td>$8$</td>
+<td>$=70000$</td>
+<td>$=70000$</td>
+<td>$l_i = 1 $</td>
+</tr>
+<tr>
+<td>$9$</td>
+<td>$=50000$</td>
+<td>$=50000$</td>
+<td>无</td>
+</tr>
+<tr>
+<td>$10$</td>
+<td>$=70000$</td>
+<td>$=70000$</td>
+<td>无</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>时间限制：$1 \text{s}$；</p>
+<p>空间限制：$128 \text{MB}$。</p>
+<h2 id="题解-2"><a href="#题解-2" class="headerlink" title="题解"></a>题解</h2><p>参考：<a href="https://www.cnblogs.com/Tieechal/p/11648640.html" target="_blank" rel="noopener">这篇博客</a>。</p>
+<hr>
+<p>首先说一下链的做法：</p>
+<p>对 $n-1$ 条边统计答案，提前处理在线回答（或者直接离线询问也可以，反正不管怎么样都要 $1$ 到 $n$ 跑一遍）。</p>
+<p>把一条边的 $l,r$ 拆成进点和出点，从 $1$ 到 $n$ 枚举 $x$（车速），并用线段树维护区间内最长链长 $S$、区间内左端点向右延伸的长度 $left$ 以及区间内右端点向左延伸的长度 $right$，后两个量是用来合并父节点的答案的。</p>
+<p>至于如何添加/去掉一个边的贡献，在线段树上对应的那个长度为 $1$ 的区间单点修改维护的那些值就行。</p>
+<p>那么每次线段树内存在的边就是原树上边权（即 $[l,r]$）包含当前枚举的答案的那些边（也就是可以开车的那些边）。于是线段树根节点的 $S$ 值即为当前车速的答案。</p>
+<p>时间复杂度 $\mathcal{O}(n\log n + m)$，可以拿到链的 $40$ 分。</p>
+<hr>
+<p>发现题目里问的是连上所有合法边后森林的直径。</p>
 <h1 id="Result"><a href="#Result" class="headerlink" title="Result"></a>Result</h1><img src="/20200914-mo-ni-sai/2.jpg" class>
 <p>顺便说一句，估值进前五百了</p>
-<img src="/20200914-mo-ni-sai/1.png" class> 
+<img src="/20200914-mo-ni-sai/1.png" class>  
       <!-- reward -->
       
     </div>
