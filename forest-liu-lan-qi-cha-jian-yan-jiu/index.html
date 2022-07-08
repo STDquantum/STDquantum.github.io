@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+
+
+<html lang="zh-CN">
+
+
+<head>
+  <meta charset="utf-8" />
+    
+  <meta name="description" content="STDquantum" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <title>
+    Forest浏览器插件研究 |  STDquantum
+  </title>
+  <meta name="generator" content="hexo-theme-ayer">
+  
+  <link rel="shortcut icon" href="/1.ico" />
+  
+  
+<link rel="stylesheet" href="/dist/main.css">
+
+  
+<link rel="stylesheet" href="/css/remixicon.min.css">
+
+  
+<link rel="stylesheet" href="/css/custom.css">
+
+  
+  
+<script src="/js/pace.min.js"></script>
+
+  
+</head>
+
+</html>
+
+<body>
+  <div id="app">
+    <main class="content on">
+      <section class="outer">
+  <article
+  id="post-Other/diary/Forest浏览器插件研究"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  Forest浏览器插件研究
+</h1>
+ 
+
+    </header>
+     
+    <div class="article-meta">
+      <a href="/forest-liu-lan-qi-cha-jian-yan-jiu/" class="article-date">
+  <time datetime="2021-02-16T03:57:30.000Z" itemprop="datePublished">2021-02-16</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E5%AE%9E%E4%BE%8B/">实例</a> / <a class="article-category-link" href="/categories/%E5%AE%9E%E4%BE%8B/Forest%E4%B8%93%E6%B3%A8%E6%A3%AE%E6%9E%97/">Forest专注森林</a>
+  </div>
+  
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> 字数统计:</span>
+            <span class="post-count">1.3k</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> 阅读时长≈</span>
+            <span class="post-count">5 分钟</span>
+        </span>
+    </span>
+</div>
+ 
+    </div>
+      
+    <div class="tocbot"></div>
+
+
+
+
+  
+    <div class="article-entry" itemprop="articleBody">
+       
+  <p>Android 软件整不太明白来浏览器插件试试，居然成功了。</p>
+<span id="more"></span>
+<p>这个浏览器插件没混淆过，直接读就完了。</p>
+<p>适用于 4.8.0 版本，下文一切行号都是原文件行号，不是经过更改后的。</p>
+<p>从 4.10.0 版本开始，加入了混淆。</p>
+<p>以下更新1于 2021-03-28，适用于 4.10.0 版本及以上。</p>
+<p>更新2于 2022-01-14，适用于 5.0.8 版本及以上。</p>
+<p>注：须登录。</p>
+<h1 id="解锁全部树种，包括限定树种"><a href="#解锁全部树种，包括限定树种" class="headerlink" title="解锁全部树种，包括限定树种"></a>解锁全部树种，包括限定树种</h1><h2 id="问题在哪？"><a href="#问题在哪？" class="headerlink" title="问题在哪？"></a>问题在哪？</h2><p>有两个问题需要解决：</p>
+<ol>
+<li>在界面上看见树种被解锁的样子，才可能点击它从而种下这种树。</li>
+<li>种树需要权限，要通过插件里的权限测试。</li>
+</ol>
+<h2 id="一劳永逸（更新2）"><a href="#一劳永逸（更新2）" class="headerlink" title="一劳永逸（更新2）"></a>一劳永逸（更新2）</h2><p>之前的方法能解决问题，但挺麻烦的。</p>
+<p>所以问题出在哪里了呢？</p>
+<p>往根上找。</p>
+<p>预处理的时候发了一个 GET 请求叫 <code>unlocked</code>，然后把这个请求结果记录在一个变量里，用的时候就读这个变量。所以直接对它下手就行。很简单的方法：让他请求的时候就认定把所有树种买了。根据之前玩他的网络请求的经验，搜一下这个东西</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_">get</span>(<span class="string">&quot;/tree_types/unlocked&quot;</span>)</span><br></pre></td></tr></table></figure>
+<p>改成</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_">get</span>(<span class="string">&quot;/tree_types&quot;</span>)</span><br></pre></td></tr></table></figure>
+<p>就行。</p>
+<p>似乎省了不少事。</p>
+<h2 id="第一个"><a href="#第一个" class="headerlink" title="第一个"></a>第一个</h2><h3 id="更新1"><a href="#更新1" class="headerlink" title="更新1"></a>更新1</h3><p>根据特征还是能找到。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Sr</span>=[<span class="number">31</span>,<span class="number">32</span>,<span class="number">41</span>,<span class="number">42</span>,<span class="number">43</span>,<span class="number">44</span>,<span class="number">46</span>,<span class="number">47</span>,<span class="number">48</span>,<span class="number">49</span>,<span class="number">50</span>,<span class="number">51</span>,<span class="number">52</span>,<span class="number">53</span>,<span class="number">54</span>,<span class="number">55</span>,<span class="number">56</span>,<span class="number">59</span>,<span class="number">60</span>,<span class="number">61</span>,<span class="number">66</span>,<span class="number">70</span>,<span class="number">73</span>];</span><br></pre></td></tr></table></figure>
+<p>这个地方就是下文的那个。直接把列表里的元素注释掉或者删掉就好了。</p>
+<h3 id="原文"><a href="#原文" class="headerlink" title="原文"></a>原文</h3><p>反正都是明文，读就完了。主战场在 <code>background.js</code> 这里。</p>
+<p>到处逛逛，能发现 1791 行有一个 <code>TREE_TYPES</code>，里面是各种树的信息，再往下翻，可以看到 2372 行有一个 <code>HIDDEN_TREE_TYPES</code>，对照一下里面的编号，发现这些就是限定树种。</p>
+<p>那解决办法很简单啊，把这点数字删掉就行了。</p>
+<p>替换：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> <span class="variable constant_">HIDDEN_TREE_TYPES</span> = [<span class="number">31</span>, <span class="number">32</span>, <span class="number">41</span>, <span class="number">42</span>, <span class="number">43</span>, <span class="number">44</span>, <span class="number">46</span>, <span class="number">47</span>, <span class="number">48</span>, <span class="number">49</span>, <span class="number">50</span>, <span class="number">51</span>, <span class="number">52</span>, <span class="number">53</span>, <span class="number">54</span>, <span class="number">55</span>, <span class="number">56</span>, <span class="number">59</span>, <span class="number">60</span>, <span class="number">61</span>, <span class="number">66</span>, <span class="number">70</span>, <span class="number">73</span>];</span><br></pre></td></tr></table></figure>
+<p>为：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> <span class="variable constant_">HIDDEN_TREE_TYPES</span> = [<span class="comment">/* 31, 32, 41, 42, 43, 44, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 59, 60, 61, 66, 70, 73 */</span>];</span><br></pre></td></tr></table></figure>
+<p>（为了方便恢复还是注释掉比较好）</p>
+<p>无注释版：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> <span class="variable constant_">HIDDEN_TREE_TYPES</span> = [];</span><br></pre></td></tr></table></figure>
+<p>然后现在就可以发现那些限定树种都被显示出来了，但是上面挂着锁，怎么办呢？</p>
+<p>搜索 <code>locker</code>，发现 5667 行有这么一段代码：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (<span class="title function_">isTreeTypePurchased</span>(background_currentTreeIndex)) &#123;</span><br><span class="line">  <span class="title function_">background_hide</span>(<span class="string">&#x27;locker&#x27;</span>);</span><br><span class="line">  <span class="title function_">executeToFrontPage</span>(<span class="keyword">function</span> (<span class="params">fp</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="title class_">Object</span>(helpers[<span class="string">&quot;d&quot;</span> <span class="comment">/* removeClass */</span>])(fp.<span class="property">document</span>.<span class="title function_">getElementById</span>(<span class="string">&#x27;tree&#x27;</span>), <span class="string">&#x27;shadowed-tree&#x27;</span>);</span><br><span class="line">  &#125;);</span><br><span class="line">  topDesc = browser_polyfill_default.<span class="property">a</span>.<span class="property">i18n</span>.<span class="title function_">getMessage</span>(<span class="string">&#x27;main_top_description_ready&#x27;</span>);</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">  <span class="title function_">background_unhide</span>(<span class="string">&#x27;locker&#x27;</span>);</span><br><span class="line">  <span class="title function_">executeToFrontPage</span>(<span class="keyword">function</span> (<span class="params">fp</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="title class_">Object</span>(helpers[<span class="string">&quot;a&quot;</span> <span class="comment">/* addClass */</span>])(fp.<span class="property">document</span>.<span class="title function_">getElementById</span>(<span class="string">&#x27;tree&#x27;</span>), <span class="string">&#x27;shadowed-tree&#x27;</span>);</span><br><span class="line">  &#125;);</span><br><span class="line">  topDesc = browser_polyfill_default.<span class="property">a</span>.<span class="property">i18n</span>.<span class="title function_">getMessage</span>(<span class="string">&#x27;main_top_description_locked&#x27;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>结合英文理解一下，意思就是如果这种树已经购买过了（那个 <code>if</code> 里面），那么就隐藏掉锁。</p>
+<p>这里的解决办法有两种，一种是让 <code>isTreeTypePurchased</code> 这个函数恒返回 <code>true</code>，还有一种是直接跳过对他的判断。</p>
+<p>不过嘛，这里选择前者，因为这个函数还涉及到了其他部分的判断，为了不用改那么多地方，就直接默认所有树都买了就好。</p>
+<h2 id="第二个"><a href="#第二个" class="headerlink" title="第二个"></a>第二个</h2><h3 id="更新1-1"><a href="#更新1-1" class="headerlink" title="更新1"></a>更新1</h3><p>这个要找的话根据前文的 <code>locker</code> 那里可以发现一个判定函数 <code>nt()</code>。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">nt</span>(<span class="params">t</span>)&#123;<span class="keyword">return</span> b[t].<span class="property">product_id</span>==-<span class="number">1</span>?!<span class="number">0</span>:ee.<span class="title function_">find</span>(<span class="function">(<span class="params">&#123;gid:r&#125;</span>)=&gt;</span>r===b[t].<span class="property">id</span>)!==<span class="keyword">void</span> <span class="number">0</span>&#125;</span><br></pre></td></tr></table></figure>
+<p>管他三七二十一里面 <code>return true</code> 就好了</p>
+<h3 id="原文-1"><a href="#原文-1" class="headerlink" title="原文"></a>原文</h3><p>书接上文，让我们来到 <code>isTreeTypePurchased</code> 这个函数定义的地方，在 5596 行。</p>
+<p>用不着管那么多逻辑了，直接 <code>true</code> 就完了。</p>
+<p>替换：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">isTreeTypePurchased</span>(<span class="params">currentTreeIndex</span>) &#123;</span><br><span class="line">  <span class="keyword">if</span> (tree_types[<span class="string">&quot;b&quot;</span> <span class="comment">/* TREE_TYPES */</span>][currentTreeIndex].<span class="property">product_id</span> == -<span class="number">1</span>) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">  <span class="keyword">var</span> isPurchased = purchasedProducts.<span class="title function_">find</span>(<span class="keyword">function</span> (<span class="params">_ref11</span>) &#123;</span><br><span class="line">    <span class="keyword">var</span> gid = _ref11.<span class="property">gid</span>;</span><br><span class="line">    <span class="keyword">return</span> gid === tree_types[<span class="string">&quot;b&quot;</span> <span class="comment">/* TREE_TYPES */</span>][currentTreeIndex][<span class="string">&#x27;id&#x27;</span>];</span><br><span class="line">  &#125;) !== <span class="literal">undefined</span>;</span><br><span class="line">  <span class="keyword">return</span> isPurchased;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>为：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">isTreeTypePurchased</span>(<span class="params">currentTreeIndex</span>) &#123;</span><br><span class="line">  <span class="comment">// if (tree_types[&quot;b&quot; /* TREE_TYPES */][currentTreeIndex].product_id == -1) return true;</span></span><br><span class="line">  <span class="comment">// var isPurchased = purchasedProducts.find(function (_ref11) &#123;</span></span><br><span class="line">  <span class="comment">//   var gid = _ref11.gid;</span></span><br><span class="line">  <span class="comment">//   return gid === tree_types[&quot;b&quot; /* TREE_TYPES */][currentTreeIndex][&#x27;id&#x27;];</span></span><br><span class="line">  <span class="comment">// &#125;) !== undefined;</span></span><br><span class="line">  <span class="comment">// return isPurchased;</span></span><br><span class="line">  <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>或无注释版：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">isTreeTypePurchased</span>(<span class="params">currentTreeIndex</span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p>如此简单就可以在浏览器里中种所有树了。不过需要专业版账号才能把种的树同步到 app 上。</p>
+<h1 id="快速刷树"><a href="#快速刷树" class="headerlink" title="快速刷树"></a>快速刷树</h1><h2 id="更新2"><a href="#更新2" class="headerlink" title="更新2"></a>更新2</h2><p>找特征。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Math</span>.<span class="title function_">round</span>((<span class="keyword">new</span> <span class="title class_">Date</span>(a.<span class="property">endTime</span>).<span class="title function_">getTime</span>()-<span class="title class_">Date</span>.<span class="title function_">now</span>())/<span class="number">1e3</span>)&gt;<span class="number">0</span>?[<span class="string">&quot;Started&quot;</span>,a.<span class="property">endTime</span>]:[<span class="string">&quot;Succeeded&quot;</span>,<span class="literal">null</span>]</span><br></pre></td></tr></table></figure>
+<p>前面是个判断嘛，把问号前的让它恒为否就行。</p>
+<p>改为</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="literal">false</span>?[<span class="string">&quot;Started&quot;</span>,a.<span class="property">endTime</span>]:[<span class="string">&quot;Succeeded&quot;</span>,<span class="literal">null</span>]</span><br></pre></td></tr></table></figure>
+<h3 id="更新1-2"><a href="#更新1-2" class="headerlink" title="更新1"></a>更新1</h3><p>这个根据特征明显的 <code>new Date(new Date()</code> 就能搜到。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Ve</span>=<span class="keyword">new</span> <span class="title class_">Date</span>(<span class="keyword">new</span> <span class="title class_">Date</span>().<span class="title function_">getTime</span>()+N*<span class="number">1e3</span>+<span class="number">200</span>)</span><br></pre></td></tr></table></figure>
+<p>直接改成</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Ve</span>=<span class="keyword">new</span> <span class="title class_">Date</span>(<span class="keyword">new</span> <span class="title class_">Date</span>().<span class="title function_">getTime</span>())</span><br></pre></td></tr></table></figure>
+<p>就行了。</p>
+<h3 id="原文-2"><a href="#原文-2" class="headerlink" title="原文"></a>原文</h3><p>插件里实现了一个倒计时，那么如果更改倒计时的终止时间就可以瞬间结束了。</p>
+<p>在 6185 行找到叫 <code>startTimer</code> 的函数，里面有一些关键语句。</p>
+<p>在 6207 行有一个 <code>targetSysTime</code>，终止时间就是这个。</p>
+<p>替换：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">targetSysTime = <span class="keyword">new</span> <span class="title class_">Date</span>(<span class="keyword">new</span> <span class="title class_">Date</span>().<span class="title function_">getTime</span>() + remainingTime * <span class="number">1000</span> + <span class="number">200</span>);</span><br></pre></td></tr></table></figure>
+<p>为：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">targetSysTime = <span class="keyword">new</span> <span class="title class_">Date</span>(<span class="keyword">new</span> <span class="title class_">Date</span>().<span class="title function_">getTime</span>()<span class="comment">/*  + remainingTime * 1000 + 200 */</span>);</span><br></pre></td></tr></table></figure>
+<p>或无注释版：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">targetSysTime = <span class="keyword">new</span> <span class="title class_">Date</span>(<span class="keyword">new</span> <span class="title class_">Date</span>().<span class="title function_">getTime</span>());</span><br></pre></td></tr></table></figure>
+<p>于是就能发现种完植物秒出。</p>
+<p>（不过好像这么做是领不到金币的）</p>
+<p>（不过都能随便种树了要金币干嘛）</p>
+ 
+    </div>
+    
+
+    <footer class="article-footer">
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Forest%E4%B8%93%E6%B3%A8%E6%A3%AE%E6%9E%97/" rel="tag">Forest专注森林</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/" rel="tag">JavaScript</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+  <nav class="article-nav">
+    
+      <a href="/20210808-shan-dian-zhi-lu/" class="article-nav-link">
+        <strong class="article-nav-caption">上一篇</strong>
+        <div class="article-nav-title">
+          
+            20210808闪电之旅
+          
+        </div>
+      </a>
+    
+    
+      <a href="/20200704-shan-dian-zhi-lu/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">20200704闪电之旅</div>
+      </a>
+    
+  </nav>
+
+ 
+</article>
+
+</section>
+      <footer class="footer">
+  <div class="outer">
+    <ul>
+      <li>
+        Copyrights &copy;
+        2020-2022
+        <i class="ri-heart-fill heart_icon"></i> STDquantum
+      </li>
+    </ul>
+  </div>
+</footer>
+      <div class="float_btns">
+        <div class="totop" id="totop">
+  <i class="ri-arrow-up-line"></i>
+</div>
+      </div>
+    </main>
+    <aside class="sidebar on">
+      <button class="navbar-toggle"></button>
+<nav class="navbar">
+    
+      <div class="logo">
+          <a href="/"><img src="/1.jpg" alt="STDquantum"></a>
+      </div>
+    
+      <ul class="nav nav-main">
+        
+            <li class="nav-item">
+                <a class="nav-item-link" href="/">
+                    主页
+                </a>
+            </li>
+        
+            <li class="nav-item">
+                <a class="nav-item-link" href="/archives">
+                    归档
+                </a>
+            </li>
+        
+            <li class="nav-item">
+                <a class="nav-item-link" href="/categories">
+                    分类
+                </a>
+            </li>
+        
+            <li class="nav-item">
+                <a class="nav-item-link" href="/friends">
+                    友链
+                </a>
+            </li>
+        
+            <li class="nav-item">
+                <a class="nav-item-link" href="/tags">
+                    标签
+                </a>
+            </li>
+        
+      </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+    <ul class="nav">
+      <li class="nav-item">
+        
+            <script type="text/javascript">
+                window.onload = function() {
+                  var but = document.getElementById("OpenOrCloseLive-2d");
+                  but.onclick = function() {
+                      var live = document.getElementById("live2d-widget");
+                      if (live.style.display === "none") {
+                        live.style.display = "block";
+                      } else {
+                        live.style.display = "none";
+                      }
+                  }
+                }
+            </script>
+            <a id="OpenOrCloseLive-2d" style="font-size: 15px;color:rgb(209, 196, 168);cursor: pointer;">看板娘</a>
+        
+        
+            <a class="nav-item-link nav-item-search" title="搜索">
+                <i class="ri-search-line"></i>
+            </a>
+        
+      </li>
+    </ul>
+</nav>
+<div class="search-form-wrap">
+    <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+    </aside>
+    <script>
+      if (window.matchMedia("(max-width: 768px)").matches) {
+        document.querySelector('.content').classList.remove('on');
+        document.querySelector('.sidebar').classList.remove('on');
+      }
+    </script>
+    <div id="mask"></div>
+
+<!-- #reward -->
+<div id="reward">
+  <span class="close"><i class="ri-close-line"></i></span>
+  <p class="reward-p"><i class="ri-cup-line"></i></p>
+  <div class="reward-box">
+    
+    
+  </div>
+</div>
+    
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+
+<script src="/js/lazyload.min.js"></script>
+
+<!-- Tocbot -->
+
+
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  tocbot.init({
+    tocSelector: '.tocbot',
+    contentSelector: '.article-entry',
+    headingSelector: 'h1, h2, h3, h4, h5, h6',
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: 'main',
+    positionFixedSelector: '.tocbot',
+    positionFixedClass: 'is-position-fixed',
+    fixedSidebarOffset: 'auto'
+  });
+</script>
+<!-- Live-2D -->
+<script type="text/javascript" charset="utf-8" src="/js/L2Dwidget.0.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="/js/L2Dwidget.min.js"></script>
+<script type="text/javascript">
+  L2Dwidget.on('*', (name) => {
+    console.log('%c EVENT ' + '%c -> ' + name, 'background: #222; color: yellow', 'background: #fff; color: #000')
+  });
+  L2Dwidget.init({
+    "display": {
+      "superSample": 2,
+      "width": 200,
+      "height": 400,
+      "position": "right",
+      "hOffset": 0,
+      "vOffset": 0
+    },
+    "mobile": {
+      "show": true,
+      "scale": 0.7
+    }
+  });
+</script>
+
+<script src="/js/jquery.modal.min.js"></script>
+<link rel="stylesheet" href="/css/jquery.modal.min.css">
+<script src="/js/jquery.justifiedGallery.min.js"></script>
+
+<script src="/dist/main.js"></script>
+
+<!-- ImageViewer -->
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<link rel="stylesheet" href="/css/photoswipe.min.css">
+<link rel="stylesheet" href="/css/default-skin.min.css">
+<script src="/js/photoswipe.min.js"></script>
+<script src="/js/photoswipe-ui-default.min.js"></script>
+
+<script>
+    function viewer_init() {
+        let pswpElement = document.querySelectorAll('.pswp')[0];
+        let $imgArr = document.querySelectorAll(('.article-entry img:not(.reward-img)'))
+
+        $imgArr.forEach(($em, i) => {
+            $em.onclick = () => {
+                // slider展开状态
+                // todo: 这样不好，后面改成状态
+                if (document.querySelector('.left-col.show')) return
+                let items = []
+                $imgArr.forEach(($em2, i2) => {
+                    let img = $em2.getAttribute('data-idx', i2)
+                    let src = $em2.getAttribute('data-target') || $em2.getAttribute('src')
+                    let title = $em2.getAttribute('alt')
+                    // 获得原图尺寸
+                    const image = new Image()
+                    image.src = src
+                    items.push({
+                        src: src,
+                        w: image.width || $em2.width,
+                        h: image.height || $em2.height,
+                        title: title
+                    })
+                })
+                var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, {
+                    index: parseInt(i)
+                });
+                gallery.init()
+            }
+        })
+    }
+    viewer_init()
+</script>
+
+<!-- MathJax -->
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      extensions: ["tex2jax.js"],
+      jax: ["input/TeX","output/HTML-CSS"],
+      tex2jax: {inlineMath: [["$","$"]]}
+    });
+  </script>
+
+<script src="/mathjax/MathJax.js"></script>
+<script>
+  var ayerConfig = {
+    mathjax: true
+  }
+</script>
+
+<!-- ClickLove -->
+
+
+<script src="/js/clickLove.js"></script>
+
+
+<!-- CodeCopy -->
+
+
+<link rel="stylesheet" href="/css/clipboard.css">
+
+<script src="/js/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="ri-file-copy-2-line"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-checkbox-circle-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-checkbox-circle-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-time-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-time-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+
+
+
+  </div>
+</body>
+
+</html>
